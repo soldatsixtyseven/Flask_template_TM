@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Profil de l'utilisateur connecté {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    <ul>
+        <li>Username: {{g.user.username}}</li>
+        <li>Password: {{g.user.password}}</li>
+    </ul>
+    
+{% endblock %}
