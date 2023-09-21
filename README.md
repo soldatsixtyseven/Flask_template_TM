@@ -3,6 +3,9 @@
 ## Author
 Johan Jobin, Collège du Sud.
 
+## Description
+The current directory is as a foundational Flask template connected to an SQLite database, serving as a starting point for 3rd-year students at Collège du Sud as for their Maturity Project. With pedagogical objectives in mind, and to provide a fundamental grasp of web application architecture, the project intentionally omits any Object-Relational Mapping (ORM) or data validation modules.
+
 ## How to run the project
 1. Create a virtual environment
 ```bash
