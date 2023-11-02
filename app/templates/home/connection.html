@@ -1,0 +1,29 @@
+{% extends 'base_login.html' %}
+
+{% block content %}
+<div class="wrapper">
+    <div class="form box connection">
+        <h2>Se connecter</h2>
+        <form action="#">
+            <div class="input-box">
+                <span class="icon"></span>
+                <input type="email" name="email" required>
+                <label for="email">Adresse Email</label>
+            </div>
+            <div class="input-box">
+                <span class="icon"></span>
+                <input type="password" name="password" required>
+                <label for="password">Mot de passe</label>
+            </div>
+            <div class="remember-forgot">
+                <label><input type="checkbox">Se souvenir de moi</label>
+                <a href="#">Mot de passe oublié ?</a>
+            </div>
+            <button type="submit" class="btn">S'INDENTIFIER</button>
+            <div class="login register">
+                <p>Je suis nouveau et je souhaite créer un compte <a href="#" class="register login">S'INDENTIFIER</a></p>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

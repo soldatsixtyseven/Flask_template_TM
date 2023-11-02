@@ -26,3 +26,7 @@ def sports_page():
 def contact_page():
     return render_template('home/contact.html')
 
+# Route /connection
+@home_bp.route('/connection', methods=['GET', 'POST'])
+def connection_page():
+    return render_template('home/connection.html')
