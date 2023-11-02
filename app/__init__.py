@@ -18,7 +18,7 @@ def create_app():
     # Chargement des variables de configuration stockées dans le fichier config.py
     app.config.from_pyfile(os.path.join(os.path.dirname(__file__), "config.py"))
 
-    # Enreigstrement des blueprints de l'application.
+    # Enregistrement des blueprints de l'application.
     app.register_blueprint(home_bp)
     app.register_blueprint(auth_bp)
     app.register_blueprint(user_bp)
