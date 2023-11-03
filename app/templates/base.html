@@ -5,18 +5,11 @@
 </head>
 
 <body>
-    <nav>
-        <h1>Template de base Flask</h1>
-        <ul>
-        {% if g.user %}
-            <li><span>{{ g.user['username'] }}</span>
-            <li><a href="{{ url_for('auth.logout') }}">Log Out</a>
-            <li><a href="{{url_for('user.show_profile')}}">Show profile</a></li>
-        {% else %}
-            <li><a href="{{ url_for('auth.register') }}">Register</a>
-            <li><a href="{{ url_for('auth.login') }}">Log In</a>
-        {% endif %}
-        </ul>
+    <h2 class="logo">SportLog</h2>
+    <nav class="navigation">
+        <a href="/sports">Sports</a>
+        <a href="/contact">Contact</a>
+        <a href="/connection">Se connecter</a>
     </nav>
 
     <section class="content">
