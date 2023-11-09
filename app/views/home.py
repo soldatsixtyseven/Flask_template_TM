@@ -30,3 +30,8 @@ def contact_page():
 @home_bp.route('/connection', methods=['GET', 'POST'])
 def connection_page():
     return render_template('home/connection.html')
+
+# Route /connection/mdp_oublié
+@home_bp.route('/connection/mdp_oublie', methods=['GET', 'POST'])
+def mdp_oublie_page():
+    return render_template('home/connection/mdp_oublie.html')
