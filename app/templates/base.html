@@ -5,17 +5,16 @@
 </head>
 
 <body>
-    <h2 class="logo">SportLog</h2>
-    <nav class="navigation">
-        <a href="/sports">Sports</a>
-        <a href="/contact">Contact</a>
-        <a href="/connection">Se connecter</a>
-    </nav>
+    <header>
+        <h2 class="logo">SportLog</h2>
+        <nav class="navigation">
+            <a href="/sports">Sports</a>
+            <a href="/contact">Contact</a>
+            <a href="/connection">Se connecter</a>
+        </nav>
+    </header>
 
-    <section class="content">
-        <header>
-            {% block header %}{% endblock %}
-        </header>
+    
         
         {% for message in get_flashed_messages() %}
             <div class="flash">{{ message }}</div>
