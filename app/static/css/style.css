@@ -70,7 +70,6 @@ header{
     margin: 0 auto;
 }
 
-
 .wrapper .form-box {
     width: 100%;
     padding: 40px
@@ -183,4 +182,17 @@ header{
     text-align: center;
     font-weight: 500;
     margin: 25px 0 10px;
+}
+
+.register-content {
+    position: relative;
+    box-sizing: content-box;
+    width: 1240px;
+    height: 1048px;
+    background: white;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
 }

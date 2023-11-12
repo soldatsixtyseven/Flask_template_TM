@@ -1,15 +1,52 @@
-{% extends 'base.html' %}
-
-{% block header %}
-  <h1>{% block title %}S'enregistrer{% endblock %}</h1>
-{% endblock %}
+{% extends 'base_login.html' %}
 
 {% block content %}
-  <form method="post">
-    <label for="username">Username</label>
-    <input name="username" id="username" required>
-    <label for="password">Password</label>
-    <input type="password" name="password" id="password" required>
-    <input type="submit" value="Register">
-  </form>
+<div class="content register-content">
+  <div class="form-box">
+        <h2>Créer un compte</h2>
+        <form method="post">
+            <div class="input-box">
+              <input type="name" name="name" required>
+              <label for="name">Nom*</label>
+            </div>
+            <div class="input-box">
+              <input type="surname" name="surname" required>
+              <label for="surname">Prénom*</label>
+            </div>
+            <div class="input-box">
+              <input type="email" name="email" required>
+              <label for="email">Adresse Email</label>
+            </div>
+            <div class="input-box">
+              <input type="age" name="age" required>
+              <label for="age">Année de naissance*</label>
+            </div>
+            <div class="input-box">
+              <input type="origin" name="origin" required>
+              <label for="origin">Origine*</label>
+            </div>
+            <div class="input-box">
+              <input type="location" name="location" required>
+              <label for="location">Localité*</label>
+            </div>
+            <div class="input-box">
+              <input type="sport club" name="sport club" required>
+              <label for="sport club">Club sportif</label>
+            </div>
+
+            <div class="input-box">
+                <input type="password" name="password" required>
+                <label for="password">Mot de passe*</label>
+            </div>
+            <div class="input-box">
+              <input type="password" name="password" required>
+              <label for="password">Mot de passe*</label>
+            </div>
+        
+            <button href="#" type="submit" class="btn">S'ENREGISTRER</button>
+
+            </div>
+        </form>
+    </div>
+</div>
 {% endblock %}
