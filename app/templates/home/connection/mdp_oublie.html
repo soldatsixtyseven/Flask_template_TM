@@ -1,0 +1,20 @@
+{% extends 'base_login.html' %}
+
+{% block content %}
+<div class="wrapper">
+    <div class="form-box">
+        <h2>Mot de passe oublié</h2>
+        <form action="#">
+            <div class="input-box">
+                <span class="icon"></span>
+                <input type="email" name="email" required>
+                <label for="email">Adresse Email</label>
+            </div>
+            <div class="forgot-password">
+                <p>Un nouveau mot de passe va être envoyé à l'adresse Email saisie.</p>
+            </div>
+            <button href="#" type="submit" class="btn">ENVOYER UNE DEMANDE</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

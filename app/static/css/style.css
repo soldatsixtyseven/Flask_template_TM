@@ -121,8 +121,6 @@ header{
     border-radius: 9px;
 }
 
-
-
 .remember-forgot {
     font-size: .8em;
     color: rgb(53, 53, 53);
@@ -177,7 +175,12 @@ header{
     text-align: center;
     font-weight: 500;
     margin: 25px 0 10px;
-
 }
 
-
+.forgot-password {
+    font-size: .9em;
+    color: rgb(53, 53, 53);
+    text-align: center;
+    font-weight: 500;
+    margin: 25px 0 10px;
+}
