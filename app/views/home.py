@@ -26,12 +26,3 @@ def sports_page():
 def contact_page():
     return render_template('home/contact.html')
 
-# Route /connection
-@home_bp.route('/connection', methods=['GET', 'POST'])
-def connection_page():
-    return render_template('home/connection.html')
-
-# Route /connection/mdp_oublié
-@home_bp.route('/connection/mdp_oublié', methods=['GET', 'POST'])
-def mdp_oublie_page():
-    return render_template('home/connection/mdp_oublie.html')

@@ -116,4 +116,16 @@ def load_logged_in_user():
         g.user = db.execute('SELECT * FROM users WHERE id = ?', (user_id,)).fetchone()
 
 
+# Route /mdp_oublié
+@auth_bp.route('/mdp_oublié', methods=['GET', 'POST'])
+def mdp_oublie_page():
+    return render_template('auth/mdp_oublie.html')
+
+
+
+
+
+
+
+
 

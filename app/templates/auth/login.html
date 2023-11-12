@@ -1,15 +1,33 @@
-{% extends 'base.html' %}
-
-{% block header %}
-  <h1>{% block title %}Se connecter {% endblock %}</h1>
-{% endblock %}
+{% extends 'base_login.html' %}
 
 {% block content %}
-  <form method="post">
-    <label for="username">Username</label>
-    <input name="username" id="username" required>
-    <label for="password">Password</label>
-    <input type="password" name="password" id="password" required>
-    <input type="submit" value="Log In">
-  </form>
+<div class="wrapper">
+    <div class="form-box">
+        <h2>Se connecter</h2>
+        <form action="post">
+            <div class="input-box">
+                <input type="email" name="email" required>
+                <label for="email">Adresse Email</label>
+            </div>
+            <div class="input-box">
+                <input type="password" name="password" required>
+                <label for="password">Mot de passe</label>
+            </div>
+            <div class="remember-forgot">
+                <label><input type="checkbox">Se souvenir de moi</label>
+                <a href="{{ url_for('auth.mdp_oublie_page') }}">Mot de passe oublié ?</a>
+            </div>
+            
+            <button href="#" type="submit" class="btn">S'INDENTIFIER</button>
+        
+            <div class="login-register">
+                <p>Je n'ai pas de compte ? <a href="{{ url_for('auth.register') }}" class="register-link">S'enregistrer</a></p>
+            </div>
+
+            <div class="admin-connection">
+                <a href="#">Se connecter en tant qu'admin</a>
+            </div>
+        </form>
+    </div>
+</div>
 {% endblock %}
