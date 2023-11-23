@@ -1,47 +1,57 @@
 {% extends 'base_login.html' %}
 
 {% block content %}
-<div class="content register-content">
-  <div class="form-box">
-        <h2>Créer un compte</h2>
-        <form method="post">
-            <div class="input-box">
-              <input type="name" name="name" required>
+<form method="post">
+  <div class="content register-content">
+    <div class="form-box">
+      <h2>Créer un compte</h2>
+      <div class="column">
+            <div class="entry-box">
+              <input type="text" name="name" required>
               <label for="name">Nom*</label>
-              <input type="password" name="password" required>
-              <label for="password">Mot de passe*</label>
             </div>
-            <div class="input-box">
-              <input type="surname" name="surname" required>
+            <div class="entry-box">
+              <input type="text" name="surname" required>
               <label for="surname">Prénom*</label>
-              <input type="password" name="password" required>
-              <label for="password">Mot de passe*</label>
             </div>
-            <div class="input-box">
-              <input type="email" name="email" required>
+            <div class="entry-box">
+              <input type="text" name="email" required>
               <label for="email">Adresse Email</label>
             </div>
-            <div class="input-box">
-              <input type="age" name="age" required>
+            <div class="entry-box">
+              <input type="text" name="age" required>
               <label for="age">Année de naissance*</label>
             </div>
-            <div class="input-box">
-              <input type="origin" name="origin" required>
+            <div class="entry-box">
+              <input type="text" name="origin" required>
               <label for="origin">Origine*</label>
             </div>
-            <div class="input-box">
-              <input type="location" name="location" required>
+            <div class="entry-box">
+              <input type="text" name="location" required>
               <label for="location">Localité*</label>
             </div>
-            <div class="input-box">
-              <input type="sport club" name="sport club" required>
+            <div class="entry-box">
+              <input type="text" name="sport club" required>
               <label for="sport club">Club sportif</label>
             </div>
-            
-            <button href="#" type="submit" class="btn">S'ENREGISTRER</button>
-
-            </div>
-        </form>
+      </div>
     </div>
-</div>
+
+    <div class="form-box">
+      <div class="column">
+          
+            <div class="entry-box">
+                <input type="password" name="password" required>
+                <label for="password">Mot de passe*</label>
+            </div>
+            <div class="entry-box">
+              <input type="password" name="confirm_password" required>
+              <label for="password">Mot de passe*</label>
+            </div>
+            <button href="#" type="submit" class="btn">S'ENREGISTRER</button>
+      </div>   
+    </div>
+  </div>
+</form>
+
 {% endblock %}
