@@ -121,6 +121,11 @@ def load_logged_in_user():
 def mdp_oublie_page():
     return render_template('auth/mdp_oublie.html')
 
+# Route /admin
+@auth_bp.route('/admin', methods=['GET', 'POST'])
+def admin_page():
+    return render_template('auth/admin.html')
+
 
 
 
