@@ -4,7 +4,7 @@
 <div class="wrapper">
     <div class="form-box">
         <h2>Se connecter</h2>
-        <form action="post">
+        <form action="{{ url_for('auth.login') }}" method="POST">
             <div class="input-box">
                 <input type="email" name="email" required>
                 <label for="email">Adresse Email</label>
@@ -14,11 +14,11 @@
                 <label for="password">Mot de passe</label>
             </div>
             <div class="remember-forgot">
-                <label><input type="checkbox">Se souvenir de moi</label>
+                <label><input type="checkbox" name="remember">Se souvenir de moi</label>
                 <a href="{{ url_for('auth.mdp_oublie_page') }}">Mot de passe oublié ?</a>
             </div>
             
-            <button href="#" type="submit" class="btn">S'INDENTIFIER</button>
+            <button type="submit" class="btn">S'INDENTIFIER</button>
         
             <div class="login-register">
                 <p>Je n'ai pas de compte ? <a href="{{ url_for('auth.register') }}" class="register-link">S'enregistrer</a></p>
