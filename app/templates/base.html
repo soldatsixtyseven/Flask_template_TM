@@ -10,7 +10,14 @@
         <nav class="navigation">
             <a href="/sports">Sports</a>
             <a href="/contact">Contact</a>
+
+            {% if g.user  %}
+            <a href="/auth/logout">Se déconnecter</a>
+
+            {% else %}
             <a href="/auth/login">Se connecter</a>
+            {% endif %}
+           
         </nav>
     </header>
 
