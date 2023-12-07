@@ -2,6 +2,16 @@
 
 {% block content %}
 <form action="{{ url_for('auth.register') }}" method="POST">
+  {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="alert alert-danger">
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+    
   <div class="content register-content">
     <div class="form-box">
       <h2>Créer un compte</h2>
@@ -40,8 +50,8 @@
               <label for="location">Localité*</label>
             </div>
             <div class="entry-box">
-              <input type="text" name="sport club" id="sport club">
-              <label for="sport club">Club sportif</label>
+              <input type="text" name="club" id="club">
+              <label for="club">Club sportif / association</label>
             </div>
       </div>
     </div>

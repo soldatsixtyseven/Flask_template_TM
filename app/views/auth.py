@@ -19,9 +19,14 @@ def register():
         age = request.form['age']
         origin = request.form['origin']
         location = request.form['location']
-        sport_club = request.form['sport_club']
+        club = request.form['club']
         mdp = request.form['mdp']
         mdp_confirm = request.form['mdp_confirm']
+
+        if not name or not surname or not email or not sexe or not age or not origin or not location or not mdp or not mdp_confirm:
+            error = 'Veuillez remplir tous les champs.'
+            flash(error)
+            return redirect(url_for('auth.register'))
 
         # Contrôle que les mots de passe correspondent
         if mdp != mdp_confirm:
@@ -36,7 +41,7 @@ def register():
         # on essaie d'insérer l'utilisateur dans la base de données
         if email and mdp:
             try:
-                db.execute("INSERT INTO users (name, surname, email, sexe, age, origin, location, sport_club, mdp) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", (name, surname, email, sexe, age, origin, location, sport_club, generate_password_hash(mdp)))
+                db.execute("INSERT INTO users (name, surname, email, sexe, age, origin, location, club, mdp) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", (name, surname, email, sexe, age, origin, location, club, generate_password_hash(mdp)))
                 # db.commit() permet de valider une modification de la base de données
                 db.commit()
             except db.IntegrityError:
@@ -128,4 +133,37 @@ def mdp_oublie_page():
 # Route /admin
 @auth_bp.route('/admin', methods=['GET', 'POST'])
 def admin_page():
-    return render_template('auth/admin.html')
+    # Si des données de formulaire sont envoyées vers la route /login (ce qui est le cas lorsque le formulaire de login est envoyé)
+    if request.method == 'POST':
+        # On récupère les champs 'email' et 'password' de la requête HTTP
+        username = request.form['username']  # Assurez-vous que le champ dans le formulaire est 'email'
+        password = request.form['password']
+
+        # On récupère la base de données
+        db = get_db()
+
+        # On récupère l'utilisateur avec l'email spécifié (une contrainte dans la db indique que le nom d'utilisateur est unique)
+        # La virgule après email est utilisée pour créer un tuple contenant une valeur unique
+        user = db.execute('SELECT * FROM users WHERE email = ?', (username,)).fetchone()
+
+        # Si aucun utilisateur n'est trouvé ou si le mot de passe est incorrect
+        # On crée une variable error
+        error = None
+        if user is None:
+            error = 'Username incorrect.'
+        elif not check_password_hash(user['mdp'], password):
+            error = 'Mot de passe incorrect.'
+
+        # S'il n'y a pas d'erreur, on ajoute l'id de l'utilisateur dans une variable de session
+        # De cette manière, à chaque requête de l'utilisateur, on pourra récupérer l'id dans le cookie session
+        if error is None:
+            session.clear()
+            session['user_id'] = user['id']
+            # On redirige l'utilisateur vers la page principale une fois qu'il s'est connecté
+            return redirect("/")
+        else:
+            # En cas d'erreur, on ajoute l'erreur dans la session et on redirige l'utilisateur vers le formulaire de login
+            flash(error)
+            return redirect(url_for("auth.login"))
+    else:
+        return render_template('auth/admin.html')
