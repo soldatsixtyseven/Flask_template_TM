@@ -9,6 +9,7 @@ body{
     font-family: 'Poppins', sans-serif;
   }
 
+/* barre de navigation */
 header{
     position: fixed;
     top: 0;
@@ -187,6 +188,7 @@ header{
     margin: 25px 0 10px;
 }
 
+/* register.html */
 .register-content {
     position: relative;
     box-sizing: content-box;
