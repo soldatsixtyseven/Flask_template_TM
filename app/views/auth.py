@@ -1,6 +1,7 @@
 from flask import (Blueprint, flash, g, redirect, render_template, request, session, url_for)
 from werkzeug.security import check_password_hash, generate_password_hash
 from app.db.db import get_db
+from app.utils import login_required
 import os
 
 # Création d'un blueprint contenant les routes ayant le préfixe /auth/...
@@ -131,22 +132,20 @@ def mdp_oublie_page():
     return render_template('auth/mdp_oublie.html')
 
 # Route /admin
-@auth_bp.route('/admin', methods=['GET', 'POST'])
-def admin_page():
+@auth_bp.route('/login/admin', methods=['GET', 'POST'])
+def login_admin():
     # Si des données de formulaire sont envoyées vers la route /admin (ce qui est le cas lorsque le formulaire de login est envoyé)
     if request.method == 'POST':
         # On récupère les champs 'username' et 'password' de la requête HTTP
-        username = request.form['username']  # Assurez-vous que le champ dans le formulaire est 'username'
+        username = request.form['username']
         password = request.form['password']
-
+        
         # On récupère la base de données
         db = get_db()
 
         # On récupère l'administrateur avec l'username spécifié
         admin = db.execute('SELECT * FROM admin WHERE username = ?', (username,)).fetchone()
 
-        # Si aucun administrateur n'est trouvé ou si le mot de passe est incorrect
-        # On crée une variable error
         error = None
         if admin is None:
             error = 'Identifiant incorrect.'
@@ -159,10 +158,10 @@ def admin_page():
             session.clear()
             session['admin_id'] = admin['id']
             # On redirige l'utilisateur vers la page principale une fois qu'il s'est connecté
-            return redirect("/")
+            return redirect(url_for('admin_bp.show_home'))
         else:
             # En cas d'erreur, on ajoute l'erreur dans la session et on redirige l'utilisateur vers le formulaire de login
             flash(error)
-            return redirect(url_for("auth.login"))
+            return redirect(url_for('auth.login'))
     else:
         return render_template('auth/admin.html')

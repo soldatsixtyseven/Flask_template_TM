@@ -1,4 +1,5 @@
-from flask import (Blueprint, flash, g, redirect, render_template, request, session, url_for)
+from flask import (Blueprint, flash, g, redirect, render_template, request, session, url_for, Response, Flask)
+import sqlite3
 
 # Routes /...
 home_bp = Blueprint('home', __name__)
@@ -25,4 +26,6 @@ def sports_page():
 @home_bp.route('/contact', methods=['GET', 'POST'])
 def contact_page():
     return render_template('home/contact.html')
+
+
 

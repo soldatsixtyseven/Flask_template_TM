@@ -4,9 +4,9 @@
 <div class="wrapper">
     <div class="form-box">
         <h2>Se connecter</h2>
-        <form action="post">
+        <form method="POST" action="{{ url_for('auth.login_admin') }}">
             <div class="input-box">
-                <input type="username" name="username" required>
+                <input type="text" name="username" required>
                 <label for="username">Identifiant</label>
             </div>
             <div class="input-box">
@@ -18,7 +18,7 @@
                 <a href="{{ url_for('auth.mdp_oublie_page') }}">Mot de passe oublié ?</a>
             </div>
             
-            <button href="#" type="submit" class="btn">S'INDENTIFIER</button>
+            <button type="submit" class="btn">S'INDENTIFIER</button>
 
             </div>
         </form>
