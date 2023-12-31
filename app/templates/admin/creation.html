@@ -1,0 +1,266 @@
+{% extends 'base_login.html' %}
+
+{% block content %}
+<form action="{{ url_for('admin_bp.creation') }}" method="POST">
+
+    <div class="content register-content">
+        <div class="form-box">
+            <div class="entry-box">
+                <h2 class="form-title">Créer un événement</h2>
+                <button type="submit" class="btn create-btn">Créer</button>
+            </div>
+        </div>
+        <div class="form-box">
+            <div class="column">
+                <div class="entry-box">
+                    <input type="text" name="club" id="club" required>
+                    <label for="club">Club/organisateur*</label>
+                </div>
+                <div class="entry-box">
+                    <input type="text" name="name" id="name" required>
+                    <label for="name">Nom de l'événement*</label>
+                </div>
+                <div class="entry-box">
+                    <input type="date" name="date" id="date" required>
+                    <label for="date">Date*</label>
+                </div>
+                <div class="entry-box">
+                    <input type="text" name="sport" id="sport" required>
+                    <label for="sport">Sport*</label>
+                </div>
+                <div class="entry-box">
+                    <input type="text" name="location" id="location" required>
+                    <label for="location">Localité*</label>
+                </div>
+                <div class="entry-box">
+                    <input type="text" name="origin" id="origin" required>
+                    <label for="origin">Origine*</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-box">
+            <div class="column">
+                <div class="entry-box">
+                    <input type="file" name="image1" id="image1" accept="image/*" required>
+                    <label for="image1">Ajouter une image/un logo pour la page d'accueil</label>
+                </div>
+                <div class="entry-box">
+                    <input type="file" name="image2" id="image2" accept="image/*" required>
+                    <label for="image2">Ajouter une carte du tracé</label>
+                </div>
+            </div>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Catégorie Sportive</th>
+                    <th>Prix</th>
+                    <th>Heure de Départ</th>
+                    <th>Distance</th>
+                    <th>Dénivelé Positif</th>
+                    <th>Dénivelé Négatif</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Poussins</td>
+                    <td><input type="text" name="Finance" /></td>
+                    <td><input type="text" name="Départ" /></td>
+                    <td><input type="text" name="Distance" /></td>
+                    <td><input type="text" name="Montée" /></td>
+                    <td><input type="text" name="Descente" /></td>
+                </tr>
+                <tr>
+                    <td>Poussines</td>
+                    <td><input type="text" name="Finance" /></td>
+                    <td><input type="text" name="Départ" /></td>
+                    <td><input type="text" name="Distance" /></td>
+                    <td><input type="text" name="Montée" /></td>
+                    <td><input type="text" name="Descente" /></td>
+                </tr>
+                <tr>
+                    <td>Ecoliers C</td>
+                    <td><input type="text" name="Finance" /></td>
+                    <td><input type="text" name="Départ" /></td>
+                    <td><input type="text" name="Distance" /></td>
+                    <td><input type="text" name="Montée" /></td>
+                    <td><input type="text" name="Descente" /></td>
+                </tr>
+                <tr>
+                    <td>Ecolières C</td>
+                    <td><input type="text" name="Finance" /></td>
+                    <td><input type="text" name="Départ" /></td>
+                    <td><input type="text" name="Distance" /></td>
+                    <td><input type="text" name="Montée" /></td>
+                    <td><input type="text" name="Descente" /></td>
+                </tr>
+                <tr>
+                    <td>Ecoliers B</td>
+                    <td><input type="text" name="Finance" /></td>
+                    <td><input type="text" name="Départ" /></td>
+                    <td><input type="text" name="Distance" /></td>
+                    <td><input type="text" name="Montée" /></td>
+                    <td><input type="text" name="Descente" /></td>
+                </tr>
+                <tr>
+                    <td>Ecolières B</td>
+                    <td><input type="text" name="Finance" /></td>
+                    <td><input type="text" name="Départ" /></td>
+                    <td><input type="text" name="Distance" /></td>
+                    <td><input type="text" name="Montée" /></td>
+                    <td><input type="text" name="Descente" /></td>
+                </tr>
+                <tr>
+                    <td>Ecoliers A</td>
+                    <td><input type="text" name="Finance" /></td>
+                    <td><input type="text" name="Départ" /></td>
+                    <td><input type="text" name="Distance" /></td>
+                    <td><input type="text" name="Montée" /></td>
+                    <td><input type="text" name="Descente" /></td>
+                </tr>
+                <tr>
+                    <td>Ecolières A</td>
+                    <td><input type="text" name="Finance" /></td>
+                    <td><input type="text" name="Départ" /></td>
+                    <td><input type="text" name="Distance" /></td>
+                    <td><input type="text" name="Montée" /></td>
+                    <td><input type="text" name="Descente" /></td>
+                </tr>
+                <tr>
+                    <td>Cadets B</td>
+                    <td><input type="text" name="Finance" /></td>
+                    <td><input type="text" name="Départ" /></td>
+                    <td><input type="text" name="Distance" /></td>
+                    <td><input type="text" name="Montée" /></td>
+                    <td><input type="text" name="Descente" /></td>
+                </tr>
+                <tr>
+                    <td>Cadettes B</td>
+                    <td><input type="text" name="Finance" /></td>
+                    <td><input type="text" name="Départ" /></td>
+                    <td><input type="text" name="Distance" /></td>
+                    <td><input type="text" name="Montée" /></td>
+                    <td><input type="text" name="Descente" /></td>
+                </tr>
+                <tr>
+                    <td>Cadets A</td>
+                    <td><input type="text" name="Finance" /></td>
+                    <td><input type="text" name="Départ" /></td>
+                    <td><input type="text" name="Distance" /></td>
+                    <td><input type="text" name="Montée" /></td>
+                    <td><input type="text" name="Descente" /></td>
+                </tr>
+                <tr>
+                    <td>Cadettes A</td>
+                    <td><input type="text" name="Finance" /></td>
+                    <td><input type="text" name="Départ" /></td>
+                    <td><input type="text" name="Distance" /></td>
+                    <td><input type="text" name="Montée" /></td>
+                    <td><input type="text" name="Descente" /></td>
+                </tr>
+                <tr>
+                    <td>Juniors M19</td>
+                    <td><input type="text" name="Finance" /></td>
+                    <td><input type="text" name="Départ" /></td>
+                    <td><input type="text" name="Distance" /></td>
+                    <td><input type="text" name="Montée" /></td>
+                    <td><input type="text" name="Descente" /></td>
+                </tr>
+                <tr>
+                    <td>Juniores F19</td>
+                    <td><input type="text" name="Finance" /></td>
+                    <td><input type="text" name="Départ" /></td>
+                    <td><input type="text" name="Distance" /></td>
+                    <td><input type="text" name="Montée" /></td>
+                    <td><input type="text" name="Descente" /></td>
+                </tr>
+                <tr>
+                    <td>M20</td>
+                    <td><input type="text" name="Finance" /></td>
+                    <td><input type="text" name="Départ" /></td>
+                    <td><input type="text" name="Distance" /></td>
+                    <td><input type="text" name="Montée" /></td>
+                    <td><input type="text" name="Descente" /></td>
+                </tr>
+                <tr>
+                    <td>F20</td>
+                    <td><input type="text" name="Finance" /></td>
+                    <td><input type="text" name="Départ" /></td>
+                    <td><input type="text" name="Distance" /></td>
+                    <td><input type="text" name="Montée" /></td>
+                    <td><input type="text" name="Descente" /></td>
+                </tr>
+                <tr>
+                    <td>M40</td>
+                    <td><input type="text" name="Finance" /></td>
+                    <td><input type="text" name="Départ" /></td>
+                    <td><input type="text" name="Distance" /></td>
+                    <td><input type="text" name="Montée" /></td>
+                    <td><input type="text" name="Descente" /></td>
+                </tr>
+                <tr>
+                    <td>F40</td>
+                    <td><input type="text" name="Finance" /></td>
+                    <td><input type="text" name="Départ" /></td>
+                    <td><input type="text" name="Distance" /></td>
+                    <td><input type="text" name="Montée" /></td>
+                    <td><input type="text" name="Descente" /></td>
+                </tr>
+                <tr>
+                    <td>M50</td>
+                    <td><input type="text" name="Finance" /></td>
+                    <td><input type="text" name="Départ" /></td>
+                    <td><input type="text" name="Distance" /></td>
+                    <td><input type="text" name="Montée" /></td>
+                    <td><input type="text" name="Descente" /></td>
+                </tr>
+                <tr>
+                    <td>F50</td>
+                    <td><input type="text" name="Finance" /></td>
+                    <td><input type="text" name="Départ" /></td>
+                    <td><input type="text" name="Distance" /></td>
+                    <td><input type="text" name="Montée" /></td>
+                    <td><input type="text" name="Descente" /></td>
+                </tr>
+                <tr>
+                    <td>M60</td>
+                    <td><input type="text" name="Finance" /></td>
+                    <td><input type="text" name="Départ" /></td>
+                    <td><input type="text" name="Distance" /></td>
+                    <td><input type="text" name="Montée" /></td>
+                    <td><input type="text" name="Descente" /></td>
+                </tr>
+                <tr>
+                    <td>F60</td>
+                    <td><input type="text" name="Finance" /></td>
+                    <td><input type="text" name="Départ" /></td>
+                    <td><input type="text" name="Distance" /></td>
+                    <td><input type="text" name="Montée" /></td>
+                    <td><input type="text" name="Descente" /></td>
+                </tr>
+                <tr>
+                    <td>M70</td>
+                    <td><input type="text" name="Finance" /></td>
+                    <td><input type="text" name="Départ" /></td>
+                    <td><input type="text" name="Distance" /></td>
+                    <td><input type="text" name="Montée" /></td>
+                    <td><input type="text" name="Descente" /></td>
+                </tr>
+                <tr>
+                    <td>Course adaptée</td>
+                    <td><input type="text" name="Finance" /></td>
+                    <td><input type="text" name="Départ" /></td>
+                    <td><input type="text" name="Distance" /></td>
+                    <td><input type="text" name="Montée" /></td>
+                    <td><input type="text" name="Descente" /></td>
+                </tr>
+                
+            </tbody>
+        </table>
+
+    </div>
+</form>
+
+{% endblock %}

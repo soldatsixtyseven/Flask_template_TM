@@ -43,3 +43,47 @@ def login_admin():
             return redirect(url_for('auth.login'))
     else:
         return render_template('admin/admin.html')
+    
+    # Route /admin/creation
+@admin_bp.route('/creation', methods=('GET', 'POST'))
+def creation():
+    # Si des données de formulaire sont envoyées vers la route /creation (ce qui est le cas lorsque le formulaire d'inscription est envoyé)
+    if request.method == 'POST':
+        # On récupère les données du formulaire
+        club = request.form['club']
+        name = request.form['name']
+        date = request.form['date']
+        sport = request.form['sport']
+        location = request.form['location']
+        origin = request.form['origin']
+        image = request.form['image']
+        course = request.form['course']
+
+        if not name or not date or not sport or not location or not origin or not image or not course:
+            error = 'Veuillez remplir tous les champs.'
+            flash(error)
+            return redirect(url_for('admin.creation'))
+
+        # On récupère la base de données
+        db = get_db()
+
+        # Si le nom et la date ont bien une valeur,
+        # on essaie d'insérer la course dans la base de données
+        if name and date:
+            try:
+                db.execute("INSERT INTO courses (name, date, sport, location, origin, image, course) VALUES (?, ?, ?, ?, ?, ?, ?)", (name, date, sport, location, origin, image, course))
+                # db.commit() permet de valider une modification de la base de données
+                db.commit()
+
+                return redirect(url_for("auth.login"))
+            except:
+                error = "Une erreur s'est produite lors de la création de la course."
+                flash(error)
+                return redirect(url_for("admin.creation"))
+        else:
+            error = "Veuillez fournir un nom et une date valides."
+            flash(error)
+            return redirect(url_for("admin.creation"))
+    else:
+        # Si aucune donnée de formulaire n'est envoyée, on affiche le formulaire de création de course
+        return render_template('admin/creation.html')

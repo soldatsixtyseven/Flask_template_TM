@@ -77,10 +77,6 @@ def login():
         # La virgule après email est utilisée pour créer un tuple contenant une valeur unique
         user = db.execute('SELECT * FROM users WHERE email = ?', (email,)).fetchone()
 
-        # Si l'utilisateur est un administrateur, on le redirige vers la page admin_home
-        if 'admin_id' in session:
-            return redirect(url_for('admin_bp.show_home'))
-
         # Si aucun utilisateur n'est trouvé ou si le mot de passe est incorrect
         # On crée une variable error
         error = None
