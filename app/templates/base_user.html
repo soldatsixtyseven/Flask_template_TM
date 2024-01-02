@@ -5,9 +5,23 @@
 </head>
 
 <body>
+    <header>
+        <h2 class="logo">SportLog</h2>
+        <nav class="navigation">
+            <a href="{{ url_for('home.sports_page') }}">Sports</a>
+            <a href="{{ url_for('home.contact_page') }}">Contact</a>
+
+            {% if g.user  %}
+            <a href="{{ url_for('auth.logout') }}">Se déconnecter</a>
+
+            {% else %}
+            <a href="{{ url_for('auth.login') }}">Se connecter</a>
+            {% endif %}
+           
+        </nav>
+    </header>
+
     
-    <section class="content">
-        
         
         {% for message in get_flashed_messages() %}
             <div class="flash">{{ message }}</div>
