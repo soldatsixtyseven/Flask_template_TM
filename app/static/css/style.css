@@ -264,8 +264,7 @@ th {
 }
 
 /* home.html */
-
-section {
+/*section {
     position: relative;
     box-sizing: content-box;
     width: 100%; 
@@ -277,4 +276,58 @@ section {
     align-items: center;
     margin: 0 auto;
     padding: 0 5%;
+}*/
+
+/* payment.html */
+.payment-image {
+    width: 134px; 
+    height: 56px;
+    border-radius: 9px;
+}
+
+.radio-container {
+    display: flex;
+    align-items: center;
+}
+
+.custom-radio-btn {
+    width: 24px;
+    height: 24px;
+    border: 2px solid black;
+    margin-left: 20px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.custom-radio-btn .checkmark {
+    width: calc(100% - 4px);
+    height: calc(100% - 4px);
+    border: 2px solid black;
+    border-radius: 50%;
+    background-color: black;
+    display: inline-block;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    position: absolute;
+}
+
+.custom-radio-btn input {
+    display: none;
+}
+
+.custom-radio-btn input:checked + .checkmark {
+    opacity: 1;
+}
+
+.label-text {
+    margin-left: 10px; /* Ajuster l'espace entre le texte et le bouton radio */
+}
+
+.custom-radio-btn img {
+    margin-left: -100px;
+    width: 134px;
+    height: 56px;
 }
