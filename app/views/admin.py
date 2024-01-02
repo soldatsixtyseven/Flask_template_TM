@@ -4,12 +4,13 @@ from app.db.db import get_db
 
 admin_bp = Blueprint('admin_bp', __name__, url_prefix='/admin')
 
+# Route /admin/home
 @admin_bp.route('/home', methods=('GET', 'POST'))
 @login_required 
 def show_home():
-    return render_template('admin/admin_home.html')
+    return render_template('admin/home.html')
 
-# Route /admin
+# Route /admin/login
 @admin_bp.route('/login', methods=['GET', 'POST'])
 def login_admin():
     # Si des données de formulaire sont envoyées vers la route /admin (ce qui est le cas lorsque le formulaire de login est envoyé)
@@ -40,11 +41,20 @@ def login_admin():
         else:
             # En cas d'erreur, on ajoute l'erreur dans la session et on redirige l'utilisateur vers le formulaire de login
             flash(error)
-            return redirect(url_for('auth.login'))
+            return redirect(url_for('admin/admin.html'))
     else:
         return render_template('admin/admin.html')
+
+# Route /auth/logout
+@admin_bp.route('/logout')
+def logout_admin():
+    # Se déconnecter consiste simplement à supprimer le cookie session
+    session.clear()
+
+    # On redirige l'utilisateur vers la page principale une fois qu'il s'est déconnecté
+    return redirect("/")
     
-    # Route /admin/creation
+# Route /admin/creation
 @admin_bp.route('/creation', methods=('GET', 'POST'))
 def creation():
     # Si des données de formulaire sont envoyées vers la route /creation (ce qui est le cas lorsque le formulaire d'inscription est envoyé)
@@ -87,3 +97,13 @@ def creation():
     else:
         # Si aucune donnée de formulaire n'est envoyée, on affiche le formulaire de création de course
         return render_template('admin/creation.html')
+    
+# Route /admin/liste
+@admin_bp.route('/liste', methods=['GET', 'POST'])
+def liste_page():
+    return render_template('admin/liste.html')
+
+# Route /admin/inscription
+@admin_bp.route('/inscription', methods=['GET', 'POST'])
+def inscription():
+    return render_template('admin/inscritpion.html')
