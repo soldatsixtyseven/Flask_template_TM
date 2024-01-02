@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+
+
+{% block content%}
+    <section>
+        <h2>Inscritpion</h2>
+
+    </section>    
+
+    <section>
+        <h2>Moyen de paiement</h2>
+        <div>
+            <input type="radio" name="paiement" value="1" id="choix1">
+            <label for="choix1">TWINT</label>
+            <img src="" alt="">
+            <input type="radio" name="paiement" value="2" id="choix2">
+            <label for="choix2">PayPal</label>
+            <img src="" alt="">
+            <input type="radio" name="paiement" value="3" id="choix3">
+            <label for="choix3">Cash</label>
+        </div>
+    </section>  
+
+    <section>
+        <h2>Paiement</h2>
+        <p>1x| ...</p>
+        <div>
+            <h4>Total</h4>
+            <p>CHF ...</p>
+            <button type="submit" class="btn">CONTINUER</button>
+        </div>
+        <p>Veuillez choisir un moyen de paiement</p>
+    </section>  
+{% endblock %}
+
+<!-- laisser appuyer seulement si un moyen de paiement est sélectionné -->
+<!-- insérer les informations personnes du participant -->
+<!-- calculer le montant en fonction de la course choisie -->
+<!-- créer la route -->

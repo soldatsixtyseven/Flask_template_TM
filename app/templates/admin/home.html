@@ -1,0 +1,21 @@
+{% extends 'base_admin.html' %}
+
+
+
+{% block content%}
+<div class="register-content">
+    <section>
+        <h3>Créer un événement à venir</h3>
+        <button href="{{ url_for('admin.creation') }}" type="submit" class="btn">CRÉER</button>
+    </section>    
+
+    <section>
+        <p class="signet">Événement suivant</p>
+        <h3>...</h3>
+        <button href="{{ url_for('admin.inscription') }}" type="submit" class="btn">INSCRIRE DES PARTICIPANTS</button>
+        <button href="{{ url_for('admin.liste') }}" type="submit" class="btn">LISTES DES PARTICIPANTS</button>
+    </section>
+</div>
+
+    
+{% endblock %}
