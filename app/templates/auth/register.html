@@ -1,4 +1,4 @@
-{% extends 'base_login.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
 <form action="{{ url_for('auth.register') }}" method="POST">
@@ -12,10 +12,10 @@
         {% endif %}
     {% endwith %}
     
-  <div class="content register-content">
+  <div class="register-content">
     <div class="form-box">
       <h2>Créer un compte</h2>
-      <div class="column">
+      <div class="leftbox">
             <div class="entry-box">
               <input type="text" name="name" id="name" required>
               <label for="name">Nom*</label>
@@ -36,7 +36,7 @@
               <label for="choix2">Homme</label>
               <input type="radio" name="sexe" value="3" id="choix3">
               <label for="choix3">Autre</label>
-          </div>
+            </div>
             <div class="entry-box">
               <input type="date" name="age" id="age" required>
               <label for="age">Année de naissance*</label>
@@ -57,7 +57,7 @@
     </div>
 
     <div class="form-box">
-      <div class="column">
+      <div class="rightbox">
           
             <div class="entry-box">
                 <input type="password" name="mdp" id="mdp" required>

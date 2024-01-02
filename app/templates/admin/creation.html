@@ -1,15 +1,16 @@
-{% extends 'base_login.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
 <form action="{{ url_for('admin_bp.creation') }}" method="POST">
 
-    <div class="content register-content">
+    <div class="content">
         <div class="form-box">
             <div class="entry-box">
                 <h2 class="form-title">Créer un événement</h2>
                 <button type="submit" class="btn create-btn">Créer</button>
             </div>
         </div>
+
         <div class="form-box">
             <div class="column">
                 <div class="entry-box">

@@ -1,0 +1,27 @@
+<!doctype html>
+<head>
+    <title>{% block title %}{% endblock %} - Template de base Flask</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <header>
+        <h2 class="logo">SportLog</h2>
+        <nav class="navigation">
+
+            <a href="{{ url_for('admin.logout_admin') }}">Se déconnecter</a>
+           
+        </nav>
+    </header>
+
+    
+        
+        {% for message in get_flashed_messages() %}
+            <div class="flash">{{ message }}</div>
+        {% endfor %}
+
+        {% block content %}{% endblock %}
+    </section>
+
+    <script type="text/javascript" src="{{url_for('static', filename='js/script.js')}}"></script>
+</body>
