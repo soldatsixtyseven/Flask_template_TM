@@ -1,6 +1,8 @@
 from flask import (Blueprint, flash, g, redirect, render_template, request, session, url_for)
-from app.utils import *
 from app.db.db import get_db
+from app.utils import login_required
+import os
+
 
 admin_bp = Blueprint('admin_bp', __name__, url_prefix='/admin')
 
@@ -41,7 +43,7 @@ def login_admin():
         else:
             # En cas d'erreur, on ajoute l'erreur dans la session et on redirige l'utilisateur vers le formulaire de login
             flash(error)
-            return redirect(url_for('admin/admin.html'))
+            return redirect(url_for('admin_bp.login_admin'))
     else:
         return render_template('admin/admin.html')
 
@@ -53,6 +55,25 @@ def logout_admin():
 
     # On redirige l'utilisateur vers la page principale une fois qu'il s'est déconnecté
     return redirect("/")
+
+# Fonction automatiquement appelée à chaque requête (avant d'entrer dans la route) sur une route appartenant au blueprint 'auth_bp'
+# La fonction permet d'ajouter un attribut 'user' représentant l'utilisateur connecté dans l'objet 'g'
+@admin_bp.before_app_request
+def load_logged_in_user():
+    # On récupère l'id de l'administrateur stocké dans le cookie session
+    admin_id = session.get('admin_id')
+
+    # Si l'id de l'administrateur dans le cookie session est nul, cela signifie que l'administrateur n'est pas connecté
+    # On met donc l'attribut 'user' de l'objet 'g' à None
+    if admin_id is None:
+        g.user = None
+    # Si l'id de l'administrateur dans le cookie session n'est pas nul, on récupère l'administrateur correspondant et on stocke
+    # l'administrateur comme un attribut de l'objet 'g'
+    else:
+        # On récupère la base de données et on récupère l'administrateur correspondant à l'id stocké dans le cookie session
+        db = get_db()
+        g.user = db.execute('SELECT * FROM admin WHERE id = ?', (admin_id,)).fetchone()
+
     
 # Route /admin/creation
 @admin_bp.route('/creation', methods=('GET', 'POST'))
@@ -72,7 +93,7 @@ def creation():
         if not name or not date or not sport or not location or not origin or not image or not course:
             error = 'Veuillez remplir tous les champs.'
             flash(error)
-            return redirect(url_for('admin.creation'))
+            return redirect(url_for('admin_bp.creation'))
 
         # On récupère la base de données
         db = get_db()

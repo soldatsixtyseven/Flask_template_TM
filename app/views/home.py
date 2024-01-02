@@ -4,8 +4,6 @@ import sqlite3
 # Routes /...
 home_bp = Blueprint('home', __name__)
 
-
-
 # Route /
 @home_bp.route('/', methods=('GET', 'POST'))
 def landing_page():
