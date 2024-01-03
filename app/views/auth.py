@@ -128,6 +128,6 @@ def load_logged_in_user():
 
 # Route /mdp_oublié
 @auth_bp.route('/mdp_oublié', methods=['GET', 'POST'])
-def mdp_oublie_page():
-    return render_template('auth/mdp_oublie.html')
+def forgot_password_page():
+    return render_template('auth/forgot_password.html')
 
