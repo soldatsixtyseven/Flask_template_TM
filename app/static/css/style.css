@@ -247,20 +247,57 @@ header{
 
 
 /* create.html */
+.creation-content {
+    position: relative;
+    box-sizing: content-box;
+    width: 1240px;
+    height: 1500px;
+    background: white;
+    border-radius: 20px;
+    display: flex;
+    margin: 0 auto;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
 }
 
-th, td {
-    border: 1px solid #ddd;
-    padding: 8px;
+td {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: 1px solid rgb(217, 217, 217);
+    border-radius: 5px;
+    outline: none;
+    font-size: 1em;
+    color: black;
+    font-weight: 300;
+    padding: 0 30px 0 10px;
+    border-radius: 9px;
+}
+
+.titel td {
+    background-color: white;
+    font-size: .9em;
+    color: rgb(83, 83, 83);
+    font-weight: 200;
+    pointer-events: none;
     text-align: left;
 }
 
+
 th {
-    background-color: #f2f2f2;
+    background-color: white;
+    font-size: .9em;
+    color: rgb(83, 83, 83);
+    font-weight: 200;
+    pointer-events: none;
+    text-align: center;
 }
 
 /* home.html */
@@ -323,7 +360,7 @@ th {
 }
 
 .label-text {
-    margin-left: 10px; /* Ajuster l'espace entre le texte et le bouton radio */
+    margin-left: 10px;
 }
 
 .custom-radio-btn img {
