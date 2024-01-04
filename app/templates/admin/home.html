@@ -3,11 +3,19 @@
 
 
 {% block content%}
-<div>
-    <div>
+<div class="home">
+    <div class="home-content">
         <h3>Créer un événement à venir</h3>
-        
+        <a href="{{ url_for('admin_bp.creation') }}"><button class="btn">CRÉER</button></a>
+        <a href="{{ url_for('admin_bp.payment') }}"><button class="btn">Paiement</button></a>
     </div>
+
+    <div class="home-content">
+        <a href="{{ url_for('admin_bp.inscription') }}"><button class="btn">INSCRIRE DES PARTICPANTS</button></a>
+        <a href="{{ url_for('admin_bp.liste_page') }}"><button class="btn">LISTES DES PARTICIPANTS</button></a>
+    </div>
+
+
 </div>
 
     
