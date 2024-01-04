@@ -9,7 +9,7 @@ admin_bp = Blueprint('admin_bp', __name__, url_prefix='/admin')
 # Route /admin/home
 @admin_bp.route('/home', methods=('GET', 'POST'))
 @login_required 
-def show_home():
+def admin_show_home():
     return render_template('admin/home.html')
 
 # Route /admin/login
@@ -39,7 +39,7 @@ def login_admin():
             session.clear()
             session['admin_id'] = admin['id']
             # On redirige l'administrateur vers la page admin_home.html une fois qu'il s'est connecté
-            return redirect(url_for('admin_bp.show_home'))
+            return redirect(url_for('admin_bp.admin_show_home'))
         else:
             # En cas d'erreur, on ajoute l'erreur dans la session et on redirige l'utilisateur vers le formulaire de login
             flash(error)
@@ -106,15 +106,15 @@ def creation():
                 # db.commit() permet de valider une modification de la base de données
                 db.commit()
 
-                return redirect(url_for("auth.login"))
+                return redirect(url_for("admin_bp.admin_show_home"))
             except:
                 error = "Une erreur s'est produite lors de la création de la course."
                 flash(error)
-                return redirect(url_for("admin.creation"))
+                return redirect(url_for("admin_bp.creation"))
         else:
             error = "Veuillez fournir un nom et une date valides."
             flash(error)
-            return redirect(url_for("admin.creation"))
+            return redirect(url_for("admin_bp.creation"))
     else:
         # Si aucune donnée de formulaire n'est envoyée, on affiche le formulaire de création de course
         return render_template('admin/creation.html')
