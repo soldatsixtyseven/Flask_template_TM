@@ -3,12 +3,12 @@
 
 
 {% block content%}
-    <section>
-        <h2>Inscritpion</h2>
+    <div class="inscription-content">
+        <h2>Inscription</h2>
 
-    </section>    
+    </div>    
 
-    <section>
+    <div class="MethodPayment-content">
         <h2>Moyen de paiement</h2>
         <div>
             <label class="custom-radio-btn">
@@ -24,18 +24,18 @@
                 <img src="https://www.contrepointphilosophique.ch/wp-content/uploads/2015/09/Casinos-die-Paypal-akzeptieren-.png" alt="logo PayPal">
             </label>
         </div>
-    </section>  
+    </div>  
 
-    <section>
+    <div class="payment-content">
         <h2>Paiement</h2>
         <p>1x| ...</p>
-        <div>
+        <div class="total-content">
             <h4>Total</h4>
             <p>CHF ...</p>
-            <button type="submit" class="btn">CONTINUER</button>
+            <button class="continue-btn">CONTINUER</button>
         </div>
         <p>Veuillez choisir un moyen de paiement</p>
-    </section>  
+    </div>  
 {% endblock %}
 
 <!-- laisser appuyer seulement si un moyen de paiement est sélectionné -->
