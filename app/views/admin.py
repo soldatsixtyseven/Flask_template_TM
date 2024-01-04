@@ -127,4 +127,9 @@ def liste_page():
 # Route /admin/inscription
 @admin_bp.route('/inscription', methods=['GET', 'POST'])
 def inscription():
-    return render_template('admin/inscritpion.html')
+    return render_template('admin/inscription.html')
+
+# Route /admin/paiement
+@admin_bp.route('/paiement', methods=['GET', 'POST'])
+def payment():
+    return render_template('admin/payment.html')
