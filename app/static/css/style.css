@@ -257,6 +257,10 @@ header{
     align-items: center;
 }
 
+.home > * {
+    margin-bottom: 20px;
+}
+
 .home-content {
     position: relative;
     box-sizing: content-box;
@@ -264,19 +268,53 @@ header{
     height: 178px;
     background: white;
     border-radius: 20px;
-    display: block;
-    margin: 0 auto;
-    justify-content: space-evenly;
+    display: flex;
+    margin: 0 auto 20px;
+    justify-content: flex-start;
     align-items: center;
 }
 
-.home-content h3 {
-    margin-right: 20px;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Helvetica', 'Arial', sans-serif;
+.home-content2{
+    position: relative;
+    box-sizing: content-box;
+    width: 1240px;
+    height: 178px;
+    background: white;
+    border-radius: 20px;
+    display: flex;
+    margin: 0 auto 20px;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
 }
+
+.home-content h3 {
+    font-family: sans-serif;
+    font-size: 30px;
+    font-weight: lighter;
+    text-align: left;
+    margin-left: 55px;
+}
+
+.btn-home {
+    width: 210px;
+    height: 40px;
+    background-color: black;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1em;
+    color: white;
+    font-weight: 500;
+    margin: 10px auto 0px;
+    display: block; 
+    text-transform: uppercase;
+    margin-left: 500px;
+    align-items: center;
+
+}
+
 
 /* liste.html */
 .liste-content {
