@@ -297,7 +297,7 @@ header{
 }
 
 .btn-home {
-    width: 210px;
+    width: 220px;
     height: 40px;
     background-color: black;
     border: none;
@@ -311,8 +311,6 @@ header{
     display: block; 
     text-transform: uppercase;
     margin-left: 500px;
-    align-items: center;
-
 }
 
 

@@ -10,8 +10,10 @@
     </div>
 
     <div class="home-content2">
-        <a href="{{ url_for('admin_bp.inscription') }}"><button class="btn-home">Inscrire des participants</button></a>
+        <!-- Prochain événement -->
+        <a href="{{ url_for('admin_bp.inscription') }}"><button class="btn-home">Inscrire un participant</button></a>
         <a href="{{ url_for('admin_bp.liste_page') }}"><button class="btn-home">Liste des participants</button></a>
+        <a href="{{ url_for('admin_bp.payment') }}"><button class="btn-home">Paiement</button></a>
     </div>
 
 
