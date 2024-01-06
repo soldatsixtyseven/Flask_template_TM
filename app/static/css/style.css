@@ -248,7 +248,7 @@ header{
 
 
 /* home.html */
-.home {
+.home-content {
     position: relative;
     box-sizing: content-box;
     width: 1240px;
@@ -257,11 +257,7 @@ header{
     align-items: center;
 }
 
-.home > * {
-    margin-bottom: 20px;
-}
-
-.home-content {
+.home-creation {
     position: relative;
     box-sizing: content-box;
     width: 1240px;
@@ -274,7 +270,7 @@ header{
     align-items: center;
 }
 
-.home-content2{
+.home-NextCourse{
     position: relative;
     box-sizing: content-box;
     width: 1240px;
