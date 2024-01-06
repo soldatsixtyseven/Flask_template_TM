@@ -500,22 +500,12 @@ th {
     margin-left: 60px;
 }
 
-
 .payment-method-content span {
     font-family: sans-serif;
     font-size: 24px;
     font-weight: lighter;
     margin-top: 60px;
     margin-left: 60px;
-}
-
-.custom-radio-btn {
-    display: flex;
-    align-items: center;
-}
-
-.label-text {
-    margin-left: 10px;  /* ou ajustez selon vos besoins */
 }
 
 .payment-details-content h3 {
