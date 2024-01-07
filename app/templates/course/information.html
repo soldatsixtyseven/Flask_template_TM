@@ -1,0 +1,31 @@
+{%extends 'base_user.html' %}
+
+{% block content %}
+<div class="information-section">
+    <div class="course-content">
+        <div class="course-titel">
+            <p>{{ course_data['name'] }}</p>
+            <p>{{ course_data['location'] }}</p>
+            <p>{{ course_data['date'] }}</p>
+        </div>
+        <button type="submit" class="btn">S'inscrire</button>
+    </div>  
+
+
+    <div class="information-content">
+        <div class="information">
+            <h3>Informations</h3>
+            <!-- mettre l'organisateur -->
+            <p>Organisateur : {{ course_data['club'] }}</p>
+            <p>Date : {{ course_data['date'] }}</p>
+        </div>
+        <div class="catégorie">
+            <h3>Programme et catégories</h3>
+            <!-- Tableau avec toutes les catégories -->
+        </div>
+
+    </div>
+
+</div>
+    
+{% endblock %}

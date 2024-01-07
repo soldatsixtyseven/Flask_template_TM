@@ -72,7 +72,7 @@ def load_logged_in_user():
     else:
         # On récupère la base de données et on récupère l'administrateur correspondant à l'id stocké dans le cookie session
         db = get_db()
-        g.user = db.execute('SELECT * FROM admin WHERE id = ?', (admin_id,)).fetchone()
+        g.user = db.execute('SELECT * FROM admin WHERE id_admin = ?', (admin_id,)).fetchone()
 
     
 # Route /admin/creation
