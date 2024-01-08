@@ -1,21 +1,20 @@
 from flask import Flask, render_template
 import sqlite3
 from utils import get_all_courses
+from app.db.db import get_db
 
 app = Flask(__name__)
 
 # Fonction pour récupérer les détails d'une course spécifique depuis la base de données
 def get_course_details(course_id):
     # Connexion à la base de données SQLite
-    conn = sqlite3.connect('SportLog.db')
-    cursor = conn.cursor()
+    db=get_db()
 
     # Exécution d'une requête SQL pour récupérer les détails de la course avec l'ID spécifié
-    cursor.execute('SELECT name, sport, date, location, canton, carte, description, categorie_id FROM course WHERE id = ?', (course_id,))
-    course_data = cursor.fetchone()
+    course_data=db.execute('SELECT name, sport, date, location, canton, carte, description, categorie_id FROM course').fetchone()
+    
 
     # Fermeture de la connexion à la base de données
-    conn.close()
 
     return course_data
 

@@ -11,7 +11,7 @@ def landing_page():
     # Récupérez toutes les courses
     all_courses = get_all_courses()
 
-    return render_template('home/index.html', all_courses=all_courses)
+    return render_template('home/index.html', course_data=all_courses)
 
 
 # Gestionnaire d'erreur 404 pour toutes les routes inconnues

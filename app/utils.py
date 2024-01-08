@@ -1,6 +1,7 @@
 import functools
 import sqlite3
 from flask import (Blueprint, flash, g, redirect, render_template, request, session, url_for)
+from app.db.db import get_db
 
 # Ce décorateur est utilisé dans l'application Flask pour protéger certaines vues (routes)
 # afin de s'assurer qu'un utilisateur est connecté avant d'accéder à une route 
@@ -19,12 +20,12 @@ def login_required(view):
     return wrapped_view
 
 def get_all_courses():
-    conn = sqlite3.connect('SportLog.db')
-    cursor = conn.cursor()
+    
+    db = get_db()
+    
+    all_courses = db.execute('SELECT name, sport, date, location, canton, carte, description, categorie_id FROM course').fetchall()
+    
 
-    cursor.execute('SELECT name, sport, date, location, canton, carte, description, categorie_id FROM course')
-    all_courses = cursor.fetchall()
-
-    conn.close()
+    
 
     return all_courses
