@@ -10,12 +10,13 @@
         <nav class="navigation">
             <a href="{{ url_for('home.sports_page') }}">Sports</a>
             <a href="{{ url_for('home.contact_page') }}">Contact</a>
+            <a href="{{ url_for('home.FAQ_page') }}">FAQ</a>
 
             {% if g.user  %}
-            <a href="{{ url_for('auth.logout') }}">Se déconnecter</a>
+            <a class="connexion" href="{{ url_for('auth.logout') }}">Se déconnecter</a>
 
             {% else %}
-            <a href="{{ url_for('auth.login') }}">Se connecter</a>
+            <a class="connexion" href="{{ url_for('auth.login') }}">Se connecter</a>
             {% endif %}
            
         </nav>
