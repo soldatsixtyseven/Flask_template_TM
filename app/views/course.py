@@ -1,12 +1,13 @@
-from flask import Flask, render_template
+from flask import (Blueprint, flash, g, redirect, render_template, request, session, url_for, Response, Flask)
 import sqlite3
-from utils import get_all_courses
+from ..utils import get_all_courses
 from app.db.db import get_db
 
-app = Flask(__name__)
+# Création d'un blueprint contenant les routes ayant le préfixe /course/...
+course_bp = Blueprint('course', __name__, url_prefix='/course')
 
 # Fonction pour récupérer les détails d'une course spécifique depuis la base de données
-def get_course_details(course_id):
+def get_course_details():
     # Connexion à la base de données SQLite
     db=get_db()
 
@@ -18,7 +19,7 @@ def get_course_details(course_id):
 
     return course_data
 
-@app.route('/course/<int:course_id>-<course_name>/information')
+@course_bp.route('/<int:course_id>-<course_name>/information')
 def course_information(course_id, course_name):
     # Logique pour récupérer les données de la base de données pour la course
     course_data = get_course_details(course_id)
@@ -27,7 +28,7 @@ def course_information(course_id, course_name):
     return render_template('course/information.html', course_data=course_data, course_name=course_name)
 
 # Route pour la page de paiement de la course
-@app.route('/course/<int:course_id>-<course_name>/paiement')
+@course_bp.route('/course/<int:course_id>-<course_name>/paiement')
 def course_paiement(course_id, course_name):
     # Logique pour récupérer les données de la base de données pour la course
     course_data = get_course_details(course_id)
@@ -35,12 +36,9 @@ def course_paiement(course_id, course_name):
 
     return render_template('course/paiement.html', course_data=course_data, course_name=course_name)
 
-@app.route('/courses')
+@course_bp.route('/')
 def all_courses():
     # Récupérez toutes les courses
     all_courses = get_all_courses()
 
     return render_template('home/index.html', all_courses=all_courses)
-
-if __name__ == '__main__':
-    app.run(debug=True)
