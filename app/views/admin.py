@@ -3,14 +3,14 @@ from app.db.db import get_db
 from app.utils import login_required
 import os
 
-
+# Création d'un blueprint contenant les routes ayant le préfixe /admin/...
 admin_bp = Blueprint('admin_bp', __name__, url_prefix='/admin')
 
 # Route /admin/home
 @admin_bp.route('/home', methods=('GET', 'POST'))
 @login_required 
 def admin_show_home():
-    return render_template('admin/home.html')
+    return render_template('admin/admin_home.html')
 
 # Route /admin/login
 @admin_bp.route('/login', methods=['GET', 'POST'])
@@ -37,7 +37,7 @@ def login_admin():
         # De cette manière, à chaque requête de l'utilisateur, on pourra récupérer l'id dans le cookie session
         if error is None:
             session.clear()
-            session['admin_id'] = admin['id']
+            session['admin_id'] = admin['id_admin']
             # On redirige l'administrateur vers la page admin_home.html une fois qu'il s'est connecté
             return redirect(url_for('admin_bp.admin_show_home'))
         else:
@@ -45,7 +45,7 @@ def login_admin():
             flash(error)
             return redirect(url_for('admin_bp.login_admin'))
     else:
-        return render_template('admin/admin.html')
+        return render_template('admin/admin_login.html')
 
 # Route /auth/logout
 @admin_bp.route('/logout')
@@ -81,16 +81,26 @@ def creation():
     # Si des données de formulaire sont envoyées vers la route /creation (ce qui est le cas lorsque le formulaire d'inscription est envoyé)
     if request.method == 'POST':
         # On récupère les données du formulaire
-        club = request.form['club']
-        name = request.form['name']
-        date = request.form['date']
-        sport = request.form['sport']
-        location = request.form['location']
-        origin = request.form['origin']
-        image = request.form['image']
-        course = request.form['course']
+        name: request.form['name']
+        date: request.form['date']
+        sport: request.form['sport']
+        club: request.form['club']
+        site_club: request.form['site_club']
+        location: request.form['location']
+        canton: request.form['canton']
+        country: request.form['country']
+        carte: request.files['carte'].read()
 
-        if not name or not date or not sport or not location or not origin or not image or not course:
+        category_names = request.form.getlist('category_name[]')
+        year = request.form.getlist('year[]')
+        start_times = request.form.getlist('start_time[]')
+        prices = request.form.getlist('price[]')
+        distances = request.form.getlist('distance[]')
+        ascent = request.form.getlist('ascent[]')
+        descent = request.form.getlist('descent[]')
+        
+
+        if not name or not date or not sport or not club or not location or not country :
             error = 'Veuillez remplir tous les champs.'
             flash(error)
             return redirect(url_for('admin_bp.creation'))
@@ -102,9 +112,13 @@ def creation():
         # on essaie d'insérer la course dans la base de données
         if name and date:
             try:
-                db.execute("INSERT INTO courses (name, date, sport, location, origin, image, course) VALUES (?, ?, ?, ?, ?, ?, ?)", (name, date, sport, location, origin, image, course))
+                db.execute("INSERT INTO courses (name, date, sport, club, site_club, location, canton, country, carte) VALUES (?, ?, ?, ?, ?, ?, ?)", (name, date, sport, club, site_club, location, canton, country, carte))
                 # db.commit() permet de valider une modification de la base de données
                 db.commit()
+
+                for i in range(len(category_names)):
+                    db.execute("INSERT INTO categories (course_id, name, year, start_time, price, distance, ascent, descent) VALUES (?, ?, ?, ?, ?)", (course_id, category_names[i], year[i], start_times[i], prices[i], distances[i], ascent[i], descent[i]))
+                    db.commit()
 
                 return redirect(url_for("admin_bp.admin_show_home"))
             except:
@@ -115,19 +129,20 @@ def creation():
             error = "Veuillez fournir un nom et une date valides."
             flash(error)
             return redirect(url_for("admin_bp.creation"))
+
     else:
         # Si aucune donnée de formulaire n'est envoyée, on affiche le formulaire de création de course
-        return render_template('admin/creation.html')
+        return render_template('admin/creation_course.html')
     
 # Route /admin/liste
 @admin_bp.route('/liste', methods=['GET', 'POST'])
 def liste_page():
-    return render_template('admin/liste.html')
+    return render_template('admin/participants_course.html')
 
 # Route /admin/inscription
 @admin_bp.route('/inscription', methods=['GET', 'POST'])
 def inscription():
-    return render_template('admin/inscription.html')
+    return render_template('admin/inscription_course.html')
 
 # Route /admin/paiement
 @admin_bp.route('/paiement', methods=['GET', 'POST'])

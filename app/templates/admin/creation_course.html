@@ -1,0 +1,161 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form action="{{ url_for('admin_bp.creation') }}" method="POST">
+
+    <div class="creation-content">
+        <div class="form-box">
+            <div class="entry-box">
+                <h2 class="form-title">Créer un événement</h2>
+                <button type="submit" class="btn create-btn">Créer</button>
+            </div>
+        </div>
+
+        <div class="form-box">
+            <div class="column">
+                <div class="entry-box">
+                    <input type="text" name="name" id="name" required>
+                    <label for="name">Nom de l'événement*</label>
+                </div>
+                <div class="entry-box">
+                    <input type="date" name="date" id="date" required>
+                    <label for="date">Date*</label>
+                </div>
+                <div class="entry-box">
+                    <label for="sport">Sport*</label>
+                    <select name="sport" id="sport" required>
+                        <option value="course à pieds">Course à pieds</option>
+                        <option value="athlétisme">Athlétisme</option>
+                        <option value="marche">Marche</option>
+                        <option value="triathlon">Triathlon</option>
+                        <option value="VTT">VTT</option>
+                        <option value="ski nordique">Ski nordique</option>
+                        <option value="ski alpin">Ski alpin</option>
+                        <option value="caisse à savon">Caisse à savon</option>
+                        <option value="hippisme">Hippisme</option>
+
+                    </select>
+                </div>
+                <div class="entry-box">
+                    <input type="text" name="club" id="club">
+                    <label for="club">Club/organisateur*</label>
+                </div>
+                <div class="entry-box">
+                    <input type="url" name="site_club" id="site_club" required>
+                    <label for="site_club">URL pour le site web des organisateurs</label>
+                </div>
+                <div class="entry-box">
+                    <input type="text" name="location" id="location" required>
+                    <label for="location">Localité*</label>
+                </div>
+                <div class="entry-box">
+                    <input type="text" name="canton" id="canton">
+                    <label for="canton">Canton</label>
+                </div>
+                <div class="entry-box">
+                    <input type="text" name="country" id="country">
+                    <label for="country">Pays</label>
+                </div>
+                <div class="entry-box">
+                    <input type="file" name="carte" id="carte" accept="image/*" required>
+                    <label for="carte">Ajouter une carte du tracé</label>
+                </div>
+                <div id="categories-container">
+                    <div class="category-entry">
+                        <div class="entry-box">
+                            <input type="text" name="category_name[]" required>
+                            <label for="category_name">Nom de la catégorie*</label>
+                        </div>
+                        <div class="entry-box">
+                            <input type="text" name="year[]" required>
+                            <label for="year">Années*</label>
+                        </div>
+                        <div class="entry-box">
+                            <input type="text" name="start_time[]" required>
+                            <label for="start_time">Heure de départ*</label>
+                        </div>
+                        <div class="entry-box">
+                            <input type="text" name="price[]" required>
+                            <label for="price">Prix*</label>
+                        </div>
+                        <div class="entry-box">
+                            <input type="text" name="distance[]" required>
+                            <label for="distance">Distance*</label>
+                        </div>
+                        <div class="entry-box">
+                            <input type="text" name="ascent[]" required>
+                            <label for="ascent">Montée</label>
+                        </div>
+                        <div class="entry-box">
+                            <input type="text" name="descent[]" required>
+                            <label for="descent">Descente</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bouton pour ajouter une nouvelle catégorie -->
+                <button type="button" onclick="addCategory()">+</button>
+            </div>
+        </div>
+        
+        <script>
+            function addCategory() {
+                // Créez une nouvelle entrée de catégorie
+                var categoryEntry = document.createElement('div');
+                categoryEntry.className = 'category-entry';
+        
+                // Ajoutez les champs nécessaires
+                categoryEntry.innerHTML = `
+                        <div class="entry-box">
+                            <input type="text" name="category_name[]" required>
+                            <label for="category_name">Nom de la catégorie</label>
+                        </div>
+                        <div class="entry-box">
+                            <input type="text" name="year[]" required>
+                            <label for="year">Années</label>
+                        </div>
+                        <div class="entry-box">
+                            <input type="text" name="start_time[]" required>
+                            <label for="start_time">Heure de départ</label>
+                        </div>
+                        <div class="entry-box">
+                            <input type="text" name="price[]" required>
+                            <label for="price">Prix</label>
+                        </div>
+                        <div class="entry-box">
+                            <input type="text" name="distance[]" required>
+                            <label for="distance">Distance</label>
+                        </div>
+                        <div class="entry-box">
+                            <input type="text" name="ascent[]" required>
+                            <label for="ascent">Montée</label>
+                        </div>
+                        <div class="entry-box">
+                            <input type="text" name="descent[]" required>
+                            <label for="descent">Descente</label>
+                        </div>
+                    <button type="button" onclick="removeCategory(this)">-</button>
+                `;
+        
+                // Ajoutez l'entrée de catégorie au conteneur
+                document.getElementById('categories-container').appendChild(categoryEntry);
+            }
+
+            function removeCategory(button) {
+                // Récupérez le conteneur parent de la catégorie à supprimer
+                var categoryEntry = button.parentElement;
+
+                // Supprimez la catégorie du conteneur
+                categoryEntry.remove();
+            }
+        </script>
+
+
+    </div>
+</form>
+
+{% endblock %}
+
+
+<!-- placeholde="..." -->
+
