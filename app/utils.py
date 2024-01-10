@@ -26,6 +26,6 @@ def get_all_courses():
     
     db = get_db()
     
-    all_courses = db.execute('SELECT name, sport, date, location, canton, carte, description, categorie_id FROM course').fetchall()
+    all_courses = db.execute('SELECT name, date, sport, club, site_club, location, canton, country, carte FROM course').fetchall()
 
     return all_courses

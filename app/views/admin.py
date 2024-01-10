@@ -80,17 +80,17 @@ def load_logged_in_user():
 def creation():
     # Si des données de formulaire sont envoyées vers la route /creation (ce qui est le cas lorsque le formulaire d'inscription est envoyé)
     if request.method == 'POST':
-        # On récupère les données du formulaire
-        name: request.form['name']
-        date: request.form['date']
-        sport: request.form['sport']
-        club: request.form['club']
-        site_club: request.form['site_club']
-        location: request.form['location']
-        canton: request.form['canton']
-        country: request.form['country']
-        carte: request.files['carte'].read()
+        # On récupère les données de la course
+        name = request.form['name']
+        date = request.form['date']
+        sport = request.form['sport']
+        club = request.form['club']
+        site_club = request.form['site_club']
+        location = request.form['location']
+        canton = request.form['canton']
+        country = request.form['country']
 
+        # On récupère les données de chaque catérogie
         category_names = request.form.getlist('category_name[]')
         year = request.form.getlist('year[]')
         start_times = request.form.getlist('start_time[]')
@@ -112,15 +112,19 @@ def creation():
         # on essaie d'insérer la course dans la base de données
         if name and date:
             try:
-                db.execute("INSERT INTO courses (name, date, sport, club, site_club, location, canton, country, carte) VALUES (?, ?, ?, ?, ?, ?, ?)", (name, date, sport, club, site_club, location, canton, country, carte))
+                db.execute("INSERT INTO courses (name, date, sport, club, site_club, location, canton, country) VALUES (?, ?, ?, ?, ?, ?, ?, ?)", (name, date, sport, club, site_club, location, canton, country))
                 # db.commit() permet de valider une modification de la base de données
                 db.commit()
 
+                # db.lastrowid permet de récupérer l'ID de la course récemment enregister pour l'attribuer aux catégories
+                course_id = db.lastrowid
+
                 for i in range(len(category_names)):
-                    db.execute("INSERT INTO categories (course_id, name, year, start_time, price, distance, ascent, descent) VALUES (?, ?, ?, ?, ?)", (course_id, category_names[i], year[i], start_times[i], prices[i], distances[i], ascent[i], descent[i]))
+                    db.execute("INSERT INTO categories (course_id, name, year, start_time, price, distance, ascent, descent) VALUES (?, ?, ?, ?, ?, ?, ?, ?)", (course_id, category_names[i], year[i], start_times[i], prices[i], distances[i], ascent[i], descent[i]))
                     db.commit()
 
                 return redirect(url_for("admin_bp.admin_show_home"))
+            
             except:
                 error = "Une erreur s'est produite lors de la création de la course."
                 flash(error)

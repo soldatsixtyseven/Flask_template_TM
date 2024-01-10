@@ -12,7 +12,7 @@ def get_course_details():
     db=get_db()
 
     # Exécution d'une requête SQL pour récupérer les détails de la course avec l'ID spécifié
-    course_data=db.execute('SELECT name, sport, date, location, canton, carte, description, categorie_id FROM course').fetchone()
+    course_data=db.execute('SELECT name, date, sport, club, site_club, location, canton, country FROM course').fetchone()
     
 
     # Fermeture de la connexion à la base de données
@@ -21,18 +21,16 @@ def get_course_details():
 
 @course_bp.route('/<int:course_id>-<course_name>/information')
 def course_information(course_id, course_name):
-    # Logique pour récupérer les données de la base de données pour la course
+    # Référence à la variabble course_data qui récupère toutes les données concernant une course
     course_data = get_course_details(course_id)
-    # ...
 
     return render_template('course/information.html', course_data=course_data, course_name=course_name)
 
 # Route pour la page de paiement de la course
 @course_bp.route('/course/<int:course_id>-<course_name>/paiement')
 def course_paiement(course_id, course_name):
-    # Logique pour récupérer les données de la base de données pour la course
+    # Référence à la variabble course_data qui récupère toutes les données concernant une course
     course_data = get_course_details(course_id)
-    # ...
 
     return render_template('course/paiement.html', course_data=course_data, course_name=course_name)
 
