@@ -29,7 +29,7 @@ def register():
             flash(error)
             return redirect(url_for('auth.register'))
 
-        # Contrôle que les mots de passe correspondent
+        # Contrôle que les mots de passe sont identiques
         if mdp != mdp_confirm:
             error = 'Les mots de passe ne correspondent pas.'
             flash(error)
