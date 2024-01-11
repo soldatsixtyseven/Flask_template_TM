@@ -78,6 +78,11 @@ def load_logged_in_user():
 # Route /admin/creation
 @admin_bp.route('/creation', methods=('GET', 'POST'))
 def creation():
+
+    print("DATA RECEIVED")
+    print(request.form)
+
+
     # Si des données de formulaire sont envoyées vers la route /creation (ce qui est le cas lorsque le formulaire d'inscription est envoyé)
     if request.method == 'POST':
         # On récupère les données de la course
@@ -89,6 +94,7 @@ def creation():
         location = request.form['location']
         canton = request.form['canton']
         country = request.form['country']
+        carte = request.files['carte'].read()
 
         # On récupère les données de chaque catérogie
         category_names = request.form.getlist('category_name[]')
@@ -99,42 +105,55 @@ def creation():
         ascent = request.form.getlist('ascent[]')
         descent = request.form.getlist('descent[]')
         
+        print(category_names, year, start_times, prices, distances, ascent, descent)
+
 
         if not name or not date or not sport or not club or not location or not country :
             error = 'Veuillez remplir tous les champs.'
             flash(error)
+            print("3")
             return redirect(url_for('admin_bp.creation'))
+            
 
         # On récupère la base de données
+        print("4")
         db = get_db()
+        cursor = db.cursor()
 
         # Si le nom et la date ont bien une valeur,
         # on essaie d'insérer la course dans la base de données
         if name and date:
+            print("5")
             try:
-                db.execute("INSERT INTO courses (name, date, sport, club, site_club, location, canton, country) VALUES (?, ?, ?, ?, ?, ?, ?, ?)", (name, date, sport, club, site_club, location, canton, country))
+                cursor.execute("INSERT INTO course (name, date, sport, club, site_club, location, canton, country, carte) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", (name, date, sport, club, site_club, location, canton, country, carte))
                 # db.commit() permet de valider une modification de la base de données
                 db.commit()
+                print("6")
 
                 # db.lastrowid permet de récupérer l'ID de la course récemment enregister pour l'attribuer aux catégories
-                course_id = db.lastrowid
+                course_id = cursor.lastrowid
 
                 for i in range(len(category_names)):
-                    db.execute("INSERT INTO categories (course_id, name, year, start_time, price, distance, ascent, descent) VALUES (?, ?, ?, ?, ?, ?, ?, ?)", (course_id, category_names[i], year[i], start_times[i], prices[i], distances[i], ascent[i], descent[i]))
+                    cursor.execute("INSERT INTO categorie (course_id, name, year, start_time, price, distance, ascent, descent) VALUES (?, ?, ?, ?, ?, ?, ?, ?)", (course_id, category_names[i], year[i], start_times[i], prices[i], distances[i], ascent[i], descent[i]))
                     db.commit()
+                    print("7")
 
                 return redirect(url_for("admin_bp.admin_show_home"))
             
-            except:
+            except Exception as e:
+                print(e)
+                print("9")
                 error = "Une erreur s'est produite lors de la création de la course."
                 flash(error)
                 return redirect(url_for("admin_bp.creation"))
         else:
+            print("10")
             error = "Veuillez fournir un nom et une date valides."
             flash(error)
             return redirect(url_for("admin_bp.creation"))
 
     else:
+        print("11")
         # Si aucune donnée de formulaire n'est envoyée, on affiche le formulaire de création de course
         return render_template('admin/creation_course.html')
     
