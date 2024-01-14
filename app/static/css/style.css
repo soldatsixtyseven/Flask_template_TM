@@ -360,15 +360,104 @@ header{
     position: relative;
     box-sizing: content-box;
     width: 1240px;
-    height: 1500px;
-    background: white;
+    height: auto;
+    background: grey;
     border-radius: 20px;
-    display: flex;
     margin: 0 auto;
-    justify-content: space-evenly;
+    padding: 20px;
     align-items: center;
-    flex-direction: column;
 }
+
+.creation-titel {
+    position: relative;
+    box-sizing: content-box;
+    width: 1240px;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.creation-titel h2 {
+    font-size: 2em;
+    color: black;
+    font-family: 'Istok web', sans-serif;
+    align-items: center;
+    text-align: center;
+    margin-left: 40%;
+}
+
+#create-btn {
+    width: 210px;
+    height: 40px;
+    background-color: black;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1em;
+    color: white;
+    font-weight: 500;
+    margin-right: 20px;
+    display: block; 
+    text-transform: uppercase; 
+}
+
+#categories-container {
+    position: relative;
+    box-sizing: content-box;
+    width: 1240px;
+    height: auto;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.category-entry {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: auto;
+    justify-content: space-between;
+}
+
+.category-box {
+    margin-right: 10px;
+}
+
+.category-box:last-child {
+    margin-right: 0;
+}
+
+.category-box label {
+    position: absolute;
+    font-size: .9em;
+    color: rgb(83, 83, 83);
+    font-weight: 200;
+    pointer-events: none;
+    top: 50%; 
+    transform: translateY(-50%); 
+}
+
+
+.category-box input {
+    width: 160px;
+    height: 53px;
+    background: transparent;
+    border: 1px solid rgb(83, 83, 83);
+    border-radius: 5px;
+    outline: none;
+    font-size: 1em;
+    color: black;
+    font-weight: 300;
+    padding: 0 10px 0 10px;
+    justify-content: center;
+    flex-shrink: 0; 
+}
+
+
 
 
 /* liste.html */

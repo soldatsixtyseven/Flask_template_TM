@@ -5,31 +5,31 @@ function addCategory() {
 
     // Ajoutez les champs nécessaires
     categoryEntry.innerHTML = `
-            <div class="entry-box">
+            <div class="category-box">
                 <input type="text" name="category_name[]" required>
                 <label for="category_name">Nom de la catégorie</label>
             </div>
-            <div class="entry-box">
+            <div class="category-box">
                 <input type="text" name="year[]" required>
                 <label for="year">Années</label>
             </div>
-            <div class="entry-box">
+            <div class="category-box">
                 <input type="text" name="start_time[]" required>
                 <label for="start_time">Heure de départ</label>
             </div>
-            <div class="entry-box">
+            <div class="category-box">
                 <input type="text" name="price[]" required>
                 <label for="price">Prix</label>
             </div>
-            <div class="entry-box">
+            <div class="category-box">
                 <input type="text" name="distance[]" required>
                 <label for="distance">Distance</label>
             </div>
-            <div class="entry-box">
+            <div class="category-box">
                 <input type="text" name="ascent[]" required>
                 <label for="ascent">Montée</label>
             </div>
-            <div class="entry-box">
+            <div class="category-box">
                 <input type="text" name="descent[]" required>
                 <label for="descent">Descente</label>
             </div>
