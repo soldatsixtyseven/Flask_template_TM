@@ -1,60 +1,62 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<form action="{{ url_for('admin_bp.inscription') }}" method="POST">
+<body class="background-grey">
+  <form action="{{ url_for('admin_bp.inscription') }}" method="POST">
 
-    
-  <div class="register-content">
-    <div class="form-box">
-      <h2>Inscrire un participant</h2>
-      <div class="leftbox">
-            <div class="entry-box">
-              <input type="text" name="name" id="name" required>
-              <label for="name">Nom*</label>
+      
+    <div class="register-content">
+      <div class="form-box">
+        <h2>Inscrire un participant</h2>
+        <div class="leftbox">
+              <div class="entry-box">
+                <input type="text" name="name" id="name" required>
+                <label for="name">Nom*</label>
+              </div>
+              <div class="entry-box">
+                <input type="text" name="surname" id="surname" required>
+                <label for="surname">Prénom*</label>
+              </div>
+              <div class="entry-box">
+                <input type="email" name="email" id="email" required>
+                <label for="email">Adresse Email*</label>
+              </div>
+              <div>
+                <label for="sexe">Sexe*</label>
+                <input type="radio" name="sexe" value="1" id="choix1">
+                <label for="choix1">Femme</label>
+                <input type="radio" name="sexe" value="2" id="choix2">
+                <label for="choix2">Homme</label>
+                <input type="radio" name="sexe" value="3" id="choix3">
+                <label for="choix3">Autre</label>
             </div>
-            <div class="entry-box">
-              <input type="text" name="surname" id="surname" required>
-              <label for="surname">Prénom*</label>
-            </div>
-            <div class="entry-box">
-              <input type="email" name="email" id="email" required>
-              <label for="email">Adresse Email*</label>
-            </div>
-            <div>
-              <label for="sexe">Sexe*</label>
-              <input type="radio" name="sexe" value="1" id="choix1">
-              <label for="choix1">Femme</label>
-              <input type="radio" name="sexe" value="2" id="choix2">
-              <label for="choix2">Homme</label>
-              <input type="radio" name="sexe" value="3" id="choix3">
-              <label for="choix3">Autre</label>
-          </div>
-            <div class="entry-box">
-              <input type="date" name="age" id="age" required>
-              <label for="age">Année de naissance*</label>
-            </div>
+              <div class="entry-box">
+                <input type="date" name="age" id="age" required>
+                <label for="age">Année de naissance*</label>
+              </div>
+        </div>
+      </div>
+
+      <div class="form-box">
+        <div class="rightbox">  
+              <div class="entry-box">
+                  <input type="text" name="origin" id="origin" required>
+                  <label for="origin">Origine*</label>
+              </div>
+              <div class="entry-box">
+                  <input type="text" name="location" id="location" required>
+                  <label for="location">Localité*</label>
+              </div>
+              <div class="entry-box">
+                  <input type="text" name="club" id="club">
+                  <label for="club">Club sportif / association</label>
+              </div>
+              <button type="submit" class="btn">Inscrire</button>
+        </div>   
       </div>
     </div>
-
-    <div class="form-box">
-      <div class="rightbox">  
-            <div class="entry-box">
-                <input type="text" name="origin" id="origin" required>
-                <label for="origin">Origine*</label>
-            </div>
-            <div class="entry-box">
-                <input type="text" name="location" id="location" required>
-                <label for="location">Localité*</label>
-            </div>
-            <div class="entry-box">
-                <input type="text" name="club" id="club">
-                <label for="club">Club sportif / association</label>
-            </div>
-            <button type="submit" class="btn">Inscrire</button>
-      </div>   
-    </div>
-  </div>
-</form>
+  </form>
+</body>
 
 {% endblock %}
 

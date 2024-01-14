@@ -3,27 +3,37 @@
 
 
 {% block content%}
-<div class="home-content">
-    <div class="home-creation">
-        <h3>Créer un événement à venir</h3>
-        <a href="{{ url_for('admin_bp.creation') }}"><button class="btn-home">Créer</button></a>
+<body class="background-grey">
+    <div class="home-content">
+        <div class="home-creation">
+            <h3>Créer un événement à venir</h3>
+            <a href="{{ url_for('admin_bp.creation') }}"><button class="btn-home">Créer</button></a>
+        </div>
+
+        <div class="home-NextCourse">
+            <!-- Prochain événement -->
+            <a href="{{ url_for('admin_bp.inscription') }}"><button class="btn-home">Inscrire un participant</button></a>
+            <a href="{{ url_for('admin_bp.liste_page') }}"><button class="btn-home">Liste des participants</button></a>
+            <a href="{{ url_for('admin_bp.payment') }}"><button class="btn-home">Paiement</button></a>
+            <!-- Provisoire pour la mise en page de payment.html -->
+        </div>
+
+        <div class="home-NextCourse">
+            {% for course in courses %}
+                <div>
+                    <h4>{{ course.name }}</h4>
+                    <p>Date: {{ course.date }}</p>
+                    <a href="{{ url_for('admin_bp.inscription', course_id=course.id_course) }}">
+                        <button class="btn-home">Inscrire un participant</button>
+                    </a>
+                    <a href="{{ url_for('admin_bp.liste_page', course_id=course.id_course) }}">
+                        <button class="btn-home">Liste des participants</button>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+
     </div>
-
-    <div class="home-NextCourse">
-        <!-- Prochain événement -->
-        <a href="{{ url_for('admin_bp.inscription') }}"><button class="btn-home">Inscrire un participant</button></a>
-        <a href="{{ url_for('admin_bp.liste_page') }}"><button class="btn-home">Liste des participants</button></a>
-        <a href="{{ url_for('admin_bp.payment') }}"><button class="btn-home">Paiement</button></a>
-        <!-- Provisoire pour la mise en page de payment.html -->
-    </div>
-
-    <div class="home-NextCourse">
-        <!-- Événement suivant -->
-        <a href="{{ url_for('admin_bp.inscription') }}"><button class="btn-home">Inscrire un participant</button></a>
-        <a href="{{ url_for('admin_bp.liste_page') }}"><button class="btn-home">Liste des participants</button></a>
-    </div>
-
-</div>
-
+</body>
     
 {% endblock %}

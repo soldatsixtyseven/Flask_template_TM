@@ -3,45 +3,47 @@
 
 
 {% block content%}
-<div class="payment-content">   
-    <div class="inscription-content">
-        <h3>Inscription</h3>
+<body class="background-grey">
+    <div class="payment-content">   
+        <div class="inscription-content">
+            <h3>Inscription</h3>
 
-    </div>    
+        </div>    
 
-    <div class="payment-method-section">
-        <div class="payment-method-content">
-            <h3>Moyen de paiement</h3>
-            <div>
-                <label class="custom-radio-btn">
-                    <input type="radio" name="payment" id=choix1 checked>
-                    <span class="label-text" for="choix1">TWINT</span>
-                    <img src="https://www.top-bank.ch/images/news/xtwint-logo.png.pagespeed.ic.DiF2EiOwcp.png" alt="logo TWINT">
-                </label>
-                <label class="custom-radio-btn">
-                    <input type="radio" name="payment" id="choix2">
-                    <span class="label-text" for="choix2">PayPal</span>
-                    <img src="https://www.contrepointphilosophique.ch/wp-content/uploads/2015/09/Casinos-die-Paypal-akzeptieren-.png" alt="logo PayPal">
-                </label>
-                <label class="custom-radio-btn">
-                    <input type="radio" name="payment" id="choix3">
-                    <span class="label-text" for="choix3">Cash</span>
-                </label>
+        <div class="payment-method-section">
+            <div class="payment-method-content">
+                <h3>Moyen de paiement</h3>
+                <div>
+                    <label class="custom-radio-btn">
+                        <input type="radio" name="payment" id=choix1 checked>
+                        <span class="label-text" for="choix1">TWINT</span>
+                        <img src="https://www.top-bank.ch/images/news/xtwint-logo.png.pagespeed.ic.DiF2EiOwcp.png" alt="logo TWINT">
+                    </label>
+                    <label class="custom-radio-btn">
+                        <input type="radio" name="payment" id="choix2">
+                        <span class="label-text" for="choix2">PayPal</span>
+                        <img src="https://www.contrepointphilosophique.ch/wp-content/uploads/2015/09/Casinos-die-Paypal-akzeptieren-.png" alt="logo PayPal">
+                    </label>
+                    <label class="custom-radio-btn">
+                        <input type="radio" name="payment" id="choix3">
+                        <span class="label-text" for="choix3">Cash</span>
+                    </label>
+                </div>
+            </div>  
+
+            <div class="payment-details-content">
+                <h3>Paiement</h3>
+                <p class="price">1x | ...</p>
+                <div class="total-content">
+                    <p class="total">Total</h4>
+                    <p class="total-price">chf ...</p>
+                    <button class="continue-btn">Continuer</button>
+                </div>
+                <p class="choixpaiement">Veuillez choisir un moyen de paiement</p>
             </div>
-        </div>  
-
-        <div class="payment-details-content">
-            <h3>Paiement</h3>
-            <p class="price">1x | ...</p>
-            <div class="total-content">
-                <p class="total">Total</h4>
-                <p class="total-price">chf ...</p>
-                <button class="continue-btn">Continuer</button>
-            </div>
-            <p class="choixpaiement">Veuillez choisir un moyen de paiement</p>
         </div>
     </div>
-</div>   
+</body> 
 {% endblock %}
 
 <!-- laisser appuyer seulement si un moyen de paiement est sélectionné -->
