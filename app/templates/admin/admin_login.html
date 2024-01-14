@@ -1,27 +1,29 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="wrapper">
-    <div class="form-box">
-        <h2>Se connecter</h2>
-        <form method="POST" action="{{ url_for('admin_bp.login_admin') }}">
-            <div class="input-box">
-                <input type="text" name="username" required>
-                <label for="username">Identifiant</label>
-            </div>
-            <div class="input-box">
-                <input type="password" name="password" required>
-                <label for="password">Mot de passe</label>
-            </div>
-            <div class="remember-forgot">
-                <label><input type="checkbox">Se souvenir de moi</label>
-                <a href="{{ url_for('auth.forgot_password_page') }}">Mot de passe oublié ?</a>
-            </div>
-            
-            <button type="submit" class="btn">S'identifier</button>
+<body class="background-grey">
+    <div class="wrapper">
+        <div class="form-box">
+            <h2>Se connecter</h2>
+            <form method="POST" action="{{ url_for('admin_bp.login_admin') }}">
+                <div class="input-box">
+                    <input type="text" name="username" required>
+                    <label for="username">Identifiant</label>
+                </div>
+                <div class="input-box">
+                    <input type="password" name="password" required>
+                    <label for="password">Mot de passe</label>
+                </div>
+                <div class="remember-forgot">
+                    <label><input type="checkbox">Se souvenir de moi</label>
+                    <a href="{{ url_for('auth.forgot_password_page') }}">Mot de passe oublié ?</a>
+                </div>
+                
+                <button type="submit" class="btn">S'identifier</button>
 
-            </div>
-        </form>
+                </div>
+            </form>
+        </div>
     </div>
-</div>
+</body>
 {% endblock %}
