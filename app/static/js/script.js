@@ -5,35 +5,30 @@ function addCategory() {
 
     // Ajoutez les champs nécessaires
     categoryEntry.innerHTML = `
+        <div class="category-entry">   
             <div class="category-box">
-                <input type="text" name="category_name[]" required>
-                <label for="category_name">Nom de la catégorie</label>
+                <input type="text" name="category_name[]" required placeholder="Nom">
             </div>
             <div class="category-box">
-                <input type="text" name="year[]" required>
-                <label for="year">Années</label>
+                <input type="text" name="year[]" required placeholder="0000-0000">
             </div>
             <div class="category-box">
-                <input type="text" name="start_time[]" required>
-                <label for="start_time">Heure de départ</label>
+                <input type="text" name="start_time[]" required placeholder="00:00">
             </div>
             <div class="category-box">
-                <input type="text" name="price[]" required>
-                <label for="price">Prix</label>
+                <input type="text" name="price[]" required placeholder="...CHF">
             </div>
             <div class="category-box">
-                <input type="text" name="distance[]" required>
-                <label for="distance">Distance</label>
+                <input type="text" name="distance[]" required placeholder="... km">
             </div>
             <div class="category-box">
-                <input type="text" name="ascent[]" required>
-                <label for="ascent">Montée</label>
+                <input type="text" name="ascent[]" required placeholder="... m">
             </div>
             <div class="category-box">
-                <input type="text" name="descent[]" required>
-                <label for="descent">Descente</label>
+                <input type="text" name="descent[]" required placeholder="... m">
             </div>
-        <button type="button" onclick="removeCategory(this)">-</button>
+            <button type="button" onclick="removeCategory(this)" class="delete">-</button>
+        </div>
     `;
 
     // Ajoutez l'entrée de catégorie au conteneur

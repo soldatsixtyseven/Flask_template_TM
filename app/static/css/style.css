@@ -2,6 +2,10 @@ body{
     background-color:  white;
 }
 
+.background-grey{
+    background-color: rgb(217, 217, 217);
+}
+
 * {
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
@@ -356,12 +360,12 @@ header{
 }
 
 /* create.html */
-.creation-content {
+.creation-section {
     position: relative;
     box-sizing: content-box;
     width: 1240px;
     height: auto;
-    background: grey;
+    background: white;
     border-radius: 20px;
     margin: 0 auto;
     padding: 20px;
@@ -403,6 +407,12 @@ header{
     text-transform: uppercase; 
 }
 
+.creation-section {
+    width: 1280px;
+    height: auto;
+    padding: 40px;
+}
+
 #categories-container {
     position: relative;
     box-sizing: content-box;
@@ -412,15 +422,14 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-direction: column;
 }
-
 
 .category-entry {
     position: relative;
     display: flex;
-    width: 100%;
-    height: auto;
     justify-content: space-between;
+    margin: 5px 0px 5px 0px
 }
 
 .category-box {
@@ -428,12 +437,11 @@ header{
 }
 
 .category-box:last-child {
-    margin-right: 0;
+    margin-right: 62px;
 }
 
 .category-box label {
-    position: absolute;
-    font-size: .9em;
+    font-size: .1em;
     color: rgb(83, 83, 83);
     font-weight: 200;
     pointer-events: none;
@@ -441,6 +449,19 @@ header{
     transform: translateY(-50%); 
 }
 
+.colonne-name-box {
+    margin-right: 90px;
+    text-align: left;
+}
+
+.colonne-name-box h4 {
+    font-size: 1em;
+    color: rgb(83, 83, 83);
+    font-weight: 500;
+    pointer-events: none;
+    top: 50%; 
+    transform: translateY(-50%); 
+}
 
 .category-box input {
     width: 160px;
@@ -451,10 +472,49 @@ header{
     outline: none;
     font-size: 1em;
     color: black;
-    font-weight: 300;
+    font-weight: 200;
     padding: 0 10px 0 10px;
     justify-content: center;
     flex-shrink: 0; 
+}
+
+input::placeholder {
+    font-size: 1em;
+    color: rgb(83, 83, 83);
+    font-weight: 200;
+    pointer-events: none;
+    text-align: center;
+}
+
+.delete {
+    width: 53px;
+    height: 53px;
+    background-color: black;
+    opacity: 0.95;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    color: white;
+    font-weight: 1000;
+    display: block; 
+    text-transform: uppercase; 
+}
+
+#add {
+    width: 210px;
+    height: 40px;
+    background-color: black;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1em;
+    color: white;
+    font-weight: 500;
+    display: block; 
+    text-transform: uppercase; 
 }
 
 
