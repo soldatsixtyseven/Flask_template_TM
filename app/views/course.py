@@ -7,36 +7,34 @@ from app.db.db import get_db
 course_bp = Blueprint('course', __name__, url_prefix='/course')
 
 # Fonction pour récupérer les détails d'une course spécifique depuis la base de données
-def get_course_details():
+def get_course_details(course_id):
     # Connexion à la base de données SQLite
     db=get_db()
 
     # Exécution d'une requête SQL pour récupérer les détails de la course avec l'ID spécifié
-    course_data=db.execute('SELECT name, date, sport, club, site_club, location, canton, country FROM course').fetchone()
-    
+    course_data = db.execute('SELECT id_course, name, date, sport, club, site_club, location, canton, country, carte FROM course WHERE id_course = ?', (course_id,)).fetchone()
+    return dict(course_data) if course_data else None
 
-    # Fermeture de la connexion à la base de données
 
-    return course_data
-
-@course_bp.route('/<int:course_id>-<course_name>/information')
-def course_information(course_id, course_name):
-    # Référence à la variabble course_data qui récupère toutes les données concernant une course
-    course_data = get_course_details(course_id)
-
-    return render_template('course/information.html', course_data=course_data, course_name=course_name)
-
-# Route pour la page de paiement de la course
-@course_bp.route('/course/<int:course_id>-<course_name>/paiement')
-def course_paiement(course_id, course_name):
-    # Référence à la variabble course_data qui récupère toutes les données concernant une course
-    course_data = get_course_details(course_id)
-
-    return render_template('course/paiement.html', course_data=course_data, course_name=course_name)
+# Fonction pour récupérer toutes les courses
+def get_all_courses():
+    db = get_db()
+    all_courses = [dict(row) for row in db.execute('SELECT id_course, name, date, sport, club, site_club, location, canton, country, carte FROM course').fetchall()]
+    return all_courses
 
 @course_bp.route('/')
 def all_courses():
-    # Récupérez toutes les courses
     all_courses = get_all_courses()
+    return render_template('course/index.html', all_courses=all_courses)
 
-    return render_template('home/index.html', all_courses=all_courses)
+@course_bp.route('/<int:id_course>-<name>/information')
+def course_information(id_course, name):
+    db = get_db()
+    course_data = db.execute('SELECT * FROM course WHERE id_course = ?', (id_course,)).fetchone()
+
+    if course_data:
+        course_data = dict(course_data)
+        return render_template('course/information.html', course_data=course_data, course_name=name)
+
+    return render_template('404.html', message="Course not found")
+

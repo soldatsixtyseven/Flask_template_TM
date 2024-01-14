@@ -10,7 +10,6 @@ home_bp = Blueprint('home', __name__)
 def landing_page():
     # Récupérez toutes les courses
     all_courses = get_all_courses()
-
     return render_template('home/index.html', all_courses=all_courses)
 
 

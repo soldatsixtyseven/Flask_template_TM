@@ -1,18 +1,12 @@
-{%extends 'base_user.html' %}
+{% extends 'base_user.html' %}
 
 
 {% block content %}
 <div class="information-section">
-    {% if course_data %}
-        <img src="{{ url_for('static', filename='path/vers/l/image.jpg') }}" alt="Image de la course">
-        <p>Nom de la course : {{ course_data['name'] }}</p>
-        <p>Date de la course : {{ course_data['date'] }}</p>
-        <p>Lieu : {{ course_data['location'] }}</p>
-        <a href="{{ url_for('auth.course_information', course_id=course_data['id_course'], course_name=course_data['name']) }}">Voir les informations de la course</a>
-    {% else %}
-        <p>Aucune information sur la course n'est disponible pour le moment.</p>
-    {% endif %}
-</div>
+    {{ all_courses }}
+    <h1>All Courses</h1>
     
+    {{ all_courses|length }}
+</div>
 {% endblock %}
 
