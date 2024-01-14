@@ -10,14 +10,14 @@
             <a href="{{ url_for('admin_bp.creation') }}"><button class="btn-home">Créer</button></a>
         </div>
 
+        <!-- Provisoire pour la mise en page des différents templates -->
         <div class="home-NextCourse">
-            <!-- Prochain événement -->
             <a href="{{ url_for('admin_bp.inscription') }}"><button class="btn-home">Inscrire un participant</button></a>
             <a href="{{ url_for('admin_bp.liste_page') }}"><button class="btn-home">Liste des participants</button></a>
             <a href="{{ url_for('admin_bp.payment') }}"><button class="btn-home">Paiement</button></a>
-            <!-- Provisoire pour la mise en page de payment.html -->
         </div>
 
+        <!-- En cours de développement. Affichage des courses à venir -->
         <div class="home-NextCourse">
             {% for course in courses %}
                 <div>

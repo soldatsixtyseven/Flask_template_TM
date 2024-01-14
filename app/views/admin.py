@@ -10,6 +10,8 @@ admin_bp = Blueprint('admin_bp', __name__, url_prefix='/admin')
 @admin_bp.route('/home', methods=('GET', 'POST'))
 @login_required 
 def admin_show_home():
+
+
     return render_template('admin/admin_home.html')
 
 # Route /admin/login

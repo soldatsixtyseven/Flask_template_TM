@@ -4,10 +4,25 @@
 {% block content %}
 <div class="home-section"> 
     <div class="information-section">
-        {{ all_courses }}
-        <h1>All Courses</h1>
-        
-        {{ all_courses|length }}
+        <h1>Toutes les courses</h1>
+        <ul>
+            {% for course in all_courses %}
+                <li>{{ course.name }}</li>
+            {% endfor %}
+        </ul>
+        <ul>
+            {% for course in courses %}
+                <li>
+                    <a href="{{ url_for('course_information', id_course=course.id_course, name=course.name) }}">
+                        {{ course.name }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <p>Donnée des courses : {{ all_courses }}</p>
+
+        <p style="color: red; font-weight: bolder;">Il y a un problème que je suis en train de régler dans la création des URL dynamiques.</p>
     </div>
 </div>   
 {% endblock %}
