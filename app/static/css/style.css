@@ -3,7 +3,7 @@ body{
 }
 
 .background-grey{
-    background-color: rgb(217, 217, 217);
+    background-color: rgb(232, 236, 240);
 }
 
 * {
@@ -288,14 +288,56 @@ header{
     position: relative;
     box-sizing: content-box;
     width: 1240px;
-    height: 850px;
+    height: auto;
     background: white;
     border-radius: 20px;
-    display: flex;
     margin: 0 auto;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
 }
+
+.register-titel {
+    position: relative;
+    box-sizing: content-box;
+    display: flex;
+    margin: 0 auto;
+    align-items: center;
+    margin-left: 38%;
+    font-size: 1.5em;
+    color: black;
+    font-family: 'Istok web', sans-serif;
+    text-align: center;
+
+}
+
+.register-section {
+    position: relative;
+    box-sizing: content-box;
+    margin: 0 auto;
+    justify-content: space-between;
+    display: flex;
+    text-align: justify;
+}
+
+.left-box {
+    position: relative;
+    box-sizing: content-box;
+    width: 500px;
+    height: auto;
+    vertical-align: top;
+    margin: 40px auto 0;
+}
+
+.right-box {
+    position: relative;
+    box-sizing: content-box;
+    width: 500px;
+    height: auto;
+    vertical-align: top;
+    float: right;
+    margin: 40px auto 0;
+}
+
 
 /* home.html */
 .home-content {
@@ -796,6 +838,17 @@ input::placeholder {
     width: 1240px;
     height: auto;
     margin: 0 auto 20px;
+}
+
+
+/* index.html */
+.home-section {
+    position: relative;
+    box-sizing: content-box;
+    width: 100%;
+    height: auto;
+    margin: 100px auto 0; 
+    align-items: center;
 }
 
 
