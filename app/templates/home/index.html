@@ -11,7 +11,7 @@
             {% endfor %}
         </ul>
         <ul>
-            {% for course in courses %}
+            {% for course in all_courses %}
                 <li>
                     <a href="{{ url_for('course_information', id_course=course.id_course, name=course.name) }}">
                         {{ course.name }}
@@ -22,8 +22,6 @@
 
         <p>Donnée des courses : {{ all_courses }}</p>
 
-        <p style="color: red; font-weight: bolder;">Il y a un problème que je suis en train de régler dans la création des URL dynamiques.</p>
     </div>
 </div>   
 {% endblock %}
-

@@ -16,27 +16,25 @@ def get_course_details(course_id):
     return dict(course_data) if course_data else None
 
 
-# Fonction pour récupérer toutes les courses
-def get_all_courses():
-    db = get_db()
-    all_courses = [dict(row) for row in db.execute('SELECT id_course, name, date, sport, club, site_club, location, canton, country, carte FROM course').fetchall()]
-    return all_courses
-
-#@course_bp.route('/')
-#def all_courses():
+@course_bp.route('/')
+def all_courses():
     all_courses = get_all_courses()
+    print(1)
     return render_template('course/index.html', all_courses=all_courses)
 
-#@course_bp.route('/<int:id_course>-<name>/information')
-#def course_information(course_id, course_name):
+@course_bp.route('/<int:id_course>-<name>/information')
+def course_information(id_course, name):
     # Récupérez les détails de la course en utilisant l'ID
-    course_details = get_course_details(course_id)
-
+    course_details = get_course_details(id_course)
+    print(2)
     if course_details:
-        # Passez les détails de la course au modèle
+        # Passez les détails de la course au modèleprint
+        print(3)
         return render_template('course/_details.html', course_details=course_details)
+
     else:
         # Gérez le cas où la course n'est pas trouvée
+        print(4)
         flash('Course not found', 'error')
         return redirect(url_for('home.landing_page'))
 
