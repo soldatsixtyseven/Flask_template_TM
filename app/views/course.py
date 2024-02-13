@@ -15,15 +15,19 @@ def get_course_details(course_id):
     course_data = db.execute('SELECT id_course, name, date, sport, club, site_club, location, canton, country, carte FROM course WHERE id_course = ?', (course_id,)).fetchone()
     return dict(course_data) if course_data else None
 
+# Route /sports
+@course_bp.route('/sports', methods=['GET', 'POST'])
+def information_page():
+    return render_template('course/information.html')
 
-@course_bp.route('/')
-def all_courses():
+#@course_bp.route('/')
+#def all_courses():
     all_courses = get_all_courses()
     print(1)
     return render_template('course/index.html', all_courses=all_courses)
 
-@course_bp.route('/<int:id_course>-<name>/information')
-def course_information(id_course, name):
+#@course_bp.route('/<int:id_course>-<name>/information')
+#def course_information(id_course, name):
     # Récupérez les détails de la course en utilisant l'ID
     course_details = get_course_details(id_course)
     print(2)
