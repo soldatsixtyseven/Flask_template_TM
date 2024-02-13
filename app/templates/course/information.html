@@ -4,7 +4,7 @@
 <body class="background-grey">
     <div class="information-section">
         <div class="course-content">
-                <h4>Nom de la course</h4>
+                <h4>{{ course_data['name'] }}</h4>
                 <a href=""><button class="btn-home">S'inscire</button></a>
         </div>  
 
@@ -14,11 +14,11 @@
                 <div class="left-container-information">
                     <h3>Informations</h3>
                     <div class="course-information">
-                        <p class="feature">Nom : </p>
-                        <p class="feature">Organisateur : </p>
-                        <p class="feature">Date : </p>
-                        <p class="feature">Lieu : </p>
-                        <p class="feature">Site officiel : </p> 
+                        <p>Nom : {{ course_data['name'] }}</p>
+                        <p>Organisateur : {{ course_data['club'] }}</p>
+                        <p>Date : {{ course_data['date'] }}</p>
+                        <p>Lieu : {{ course_data['location'] }}, {{ course_data['canton'] }}, {{ course_data['country'] }}</p>
+                        <p>Site officiel : {{ course_data['site_club'] }}</p>
                     </div>
                 </div>
                 <div class="right-container-information">
@@ -26,18 +26,19 @@
                 </div>
             </div>
             <div class="category-content">
+                <div class="horizontal-bar"></div>
                 <h3>Catégories</h3>
                 <div class="category">
                     <div class="category-name">
                         <p>Name</p>
                     </div>
-                    <div class="category-information">
-                        <div class="category-information-star">
+                    <div class="category-information-content">
+                        <div class="category-information">
                             <p>heure</p>
                             <p>années</p>
                             <p>prix</p>
                         </div>
-                        <div class="category-information-race">
+                        <div class="category-information">
                             <p>distance</p>
                             <p>d+</p>
                             <p>d-</p>

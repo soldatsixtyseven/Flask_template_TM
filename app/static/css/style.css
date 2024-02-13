@@ -789,7 +789,7 @@ input::placeholder {
     align-items: center;
 }
 
-.information-section h3 {
+.information h3 {
     font-family: sans-serif;
     font-size: 30px;
     font-weight: lighter;
@@ -800,7 +800,7 @@ input::placeholder {
 .course-content {
     position: relative;
     box-sizing: content-box;
-    height: 178px;
+    height: 150px;
     background: white;
     border-radius: 20px;
     display: flex;
@@ -852,29 +852,72 @@ input::placeholder {
     width: 60%;
 }
 
+.course-information {
+    font-family: sans-serif;
+    font-size: 18px;
+    font-weight: lighter;
+    margin-left: 60px;
+    line-height: 1.5;
+}
+
 .right-container-information{
     width: 35%;
     margin-top: 100px;
+}
+
+.horizontal-bar {
+    width: 90%;
+    height: 1px;
+    background-color: black; 
+    margin: 20px auto 20px;
 }
 
 .category-content{
     text-align: center;
 }
 
+.category-content h3 {
+    font-family: sans-serif;
+    font-size: 30px;
+    font-weight: lighter;
+    margin-top: 30px;
+}
+
 .category{
     position: relative;
     display: flex;
     justify-content: space-between;
-    margin: 5px 0px 5px 0px
+    height: 100px;
+    margin: 10px 150px 10px;
+    border-radius: 20px;
+    border: 1px solid black;
+    align-items: center;
 }
 
-
-.course-information {
+.category-name{
     font-family: sans-serif;
-    font-size: 20px;
+    font-size: 24px;
     font-weight: lighter;
-    margin-left: 60px;
-    line-height: 1.5;
+    margin-left: 65px;
+}
+
+.category-information-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-right: 40px;
+}
+
+.category-information-content p{
+    width: 100px;
+    font-size: 18px;
+}
+
+.category-information{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    text-align: center;
 }
 
 /* index.html */
