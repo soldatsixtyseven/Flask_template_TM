@@ -1,28 +1,55 @@
 {%extends 'base_user.html' %}
 
 {% block content %}
-<div class="information-section">
-    <div class="course-content">
-        <div class="course-titel">
-            <h1>{{ course_data['name'] }} Information</h1>
-            <p>Date: {{ course_data['date'] }}</p>
-        </div>
-    </div>  
+<body class="background-grey">
+    <div class="information-section">
+        <div class="course-content">
+                <h4>Nom de la course</h4>
+                <a href=""><button class="btn-home">S'inscire</button></a>
+        </div>  
 
 
-    <div class="information-content">
-        <div class="information">
-            <h3>Informations</h3>
-            <!-- Implémenter toutes les informations de la course présentes dans la base de données -->
-            
-        </div>
-        <div class="catégorie">
-            <h3>Programme et catégories</h3>
-            <!-- Tableau avec toutes les catégories -->
+        <div class="information-content">
+            <div class="information">
+                <div class="left-container-information">
+                    <h3>Informations</h3>
+                    <div class="course-information">
+                        <p class="feature">Nom : </p>
+                        <p class="feature">Organisateur : </p>
+                        <p class="feature">Date : </p>
+                        <p class="feature">Lieu : </p>
+                        <p class="feature">Site officiel : </p> 
+                    </div>
+                </div>
+                <div class="right-container-information">
+                    <p>carte</p>
+                </div>
+            </div>
+            <div class="category-content">
+                <h3>Catégories</h3>
+                <div class="category">
+                    <div class="category-name">
+                        <p>Name</p>
+                    </div>
+                    <div class="category-information">
+                        <div class="category-information-star">
+                            <p>heure</p>
+                            <p>années</p>
+                            <p>prix</p>
+                        </div>
+                        <div class="category-information-race">
+                            <p>distance</p>
+                            <p>d+</p>
+                            <p>d-</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
         </div>
 
     </div>
+</body>
 
-</div>
-    
 {% endblock %}
