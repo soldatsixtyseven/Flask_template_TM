@@ -11,6 +11,21 @@ body{
     font-family: 'Poppins', sans-serif;
   }
 
+.horizontal-bar {
+    width: 85%;
+    height: 1px;
+    background-color: black; 
+    margin: 10px auto 10px;
+}
+
+.black-point{
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: black;
+    margin: 5px 10px 5px;
+}
+
 
 /* barre de navigation */
 header{
@@ -865,13 +880,6 @@ input::placeholder {
     margin-top: 100px;
 }
 
-.horizontal-bar {
-    width: 90%;
-    height: 1px;
-    background-color: black; 
-    margin: 20px auto 20px;
-}
-
 .category-content{
     text-align: center;
 }
@@ -925,12 +933,89 @@ input::placeholder {
     position: relative;
     box-sizing: content-box;
     width: 100%;
-    height: auto;
     margin: 100px auto 0; 
     align-items: center;
 }
 
 
+/* sport.html */
+.sport-header {
+    position: relative;
+    width: 100%;
+}
+
+.sport-header h4{
+    font-family: sans-serif;
+    font-size: 75px;
+    font-weight: bold;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.navigation-content {
+    position: relative;
+    width: 82%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    text-align: center;
+    align-items: center;
+}
+
+.navigation-content a {
+    font-family: sans-serif;
+    font-size: 18px;
+    font-weight: lighter;
+    text-decoration: none;
+    color: black;
+}
+
+.sport-section{
+    margin: auto 50px auto ;
+}
+
+.sport-section h3{
+    font-family: sans-serif;
+    font-size: 24px;
+    font-weight: lighter;
+    margin-top: 30px;
+    margin-left: 10px;
+}
+
+.sport-course{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    border-radius: 20px;
+    border: 1px solid black;
+    align-items: center;
+    justify-content: space-between;
+}
 
 
+.sad {
+    font-family: sans-serif;
+    font-size: 30px;
+    font-weight: lighter;
+    text-align: left;
+    margin-left: 55px;
+}
 
+.btn-home {
+    width: 220px;
+    height: 40px;
+    background-color: black;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1em;
+    color: white;
+    font-weight: 500;
+    margin: 10px auto 0px;
+    display: block; 
+    text-transform: uppercase;
+    margin-left: 500px;
+}
