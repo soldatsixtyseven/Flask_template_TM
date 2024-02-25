@@ -4,16 +4,48 @@
 {% block content %}
 <div class="home-section"> 
     <div class="information-section">
-        <h1>Toutes les courses</h1>
-        <ul>
+        <div class="information-content">
+                <h1>Inscription en ligne à des courses</h1>
+                <p>S'inscrire rapidement à la course populaire de son choix en seulement quelques clics</p>
+            <div class="information-content-btn">
+                <a href="{{ url_for('auth.login') }}"><button class="btn-index">Se connecter</button></a>
+                <a href="{{ url_for('auth.register') }}"><button class="btn-index">Créer un compte</button></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="course-section">
+        <h1>Nos prochaines courses</h1>
+        <a href="{{ url_for('home.sports_page') }}"><button class="btn-more-details">En savoir plus</button></a>
+        <div class="course-section-index">
             {% for course in all_courses %}
-                <li>{{ course.name }}</li>
+                    <div class="course-content-index">
+                        <h3 class="title">{{course.name}}</h3>
+                    </div>
             {% endfor %}
-        </ul>
+        </div>
+    </div>
+
+    <div class="FAQ-section">
+        <h1>Questions posées les plus fréquement</h1>
+        <div class="horizontal-bar"></div>
+        <summary><h3>Est-ce que ...?</h3></summary>
+        <div class="horizontal-bar"></div>
+        <summary><h3>...?</h3></summary>
+        <div class="horizontal-bar"></div>
+        <summary><h3>...?</h3></summary>
+        <div class="horizontal-bar"></div>
+        <summary><h3>...?</h3></summary>
+        <div class="horizontal-bar"></div>
+    </div>
+
+
+    <div>
         <a href="{{ url_for('course.information_page') }}"><button class="btn-home">Information</button></a>
 
         <p>Donnée des courses : {{ all_courses }}</p>
-
     </div>
+
+
 </div>   
 {% endblock %}

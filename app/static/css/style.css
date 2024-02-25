@@ -26,6 +26,33 @@ body{
     margin: 5px 10px 5px;
 }
 
+h1{
+    font-family: 'Istok web', sans-serif;
+    font-size: 75px;
+    font-weight: bolder;
+}
+
+h3{
+    font-family: sans-serif;
+    font-size: 30px;
+    font-weight: lighter;
+}
+
+h4{
+    font-family: sans-serif;
+    font-size: 75px;
+    font-weight: bold;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.page-content {
+    position: relative;
+    box-sizing: content-box;
+    width: 100%;
+    margin: 100px auto 0; 
+    align-items: center;
+}
 
 /* barre de navigation */
 header{
@@ -45,6 +72,12 @@ header{
     font-size: 2em;
     color: black;
     user-select: none;
+    text-decoration: none;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
 }
 
 .menu-item-content {
@@ -116,16 +149,18 @@ header{
     height: 100%;
     background: linear-gradient(to top right, black 50%, transparent 50%);
     transition: top 0.5s;
-    color: white;
 }
 
 .connexion-content:hover{
     background-color: black;
-    color: white;
 }
 
 .connexion-content:hover::before {
     top: 0; 
+}
+
+.connexion-content:hover * {
+    color: white;
 }
 
 
@@ -238,6 +273,10 @@ header{
 .wrapper .form-box {
     width: 100%;
     padding: 40px
+}
+
+.form-box{
+    margin: 0 auto;
 }
 
 .form-box h2{
@@ -354,7 +393,7 @@ header{
 }
 
 
-/* home.html */
+/* admin_home.html */
 .home-content {
     position: relative;
     box-sizing: content-box;
@@ -696,17 +735,11 @@ input::placeholder {
 }
 
 .inscription-content h3 {
-    font-family: sans-serif;
-    font-size: 30px;
-    font-weight: lighter;
     margin-top: 60px;
     margin-left: 60px;
 }
 
 .payment-method-content h3 {
-    font-family: sans-serif;
-    font-size: 30px;
-    font-weight: lighter;
     margin-top: 60px;
     margin-left: 60px;
 }
@@ -720,9 +753,6 @@ input::placeholder {
 }
 
 .payment-details-content h3 {
-    font-family: sans-serif;
-    font-size: 30px;
-    font-weight: lighter;
     margin-top: 60px;
     margin-left: 60px;
 }
@@ -805,9 +835,6 @@ input::placeholder {
 }
 
 .information h3 {
-    font-family: sans-serif;
-    font-size: 30px;
-    font-weight: lighter;
     margin-top: 60px;
     margin-left: 60px;
 }
@@ -824,10 +851,7 @@ input::placeholder {
     align-items: center;
 }
 
-.course-content h4{
-    font-family: sans-serif;
-    font-size: 30px;
-    font-weight: lighter;
+.course-content h3{
     margin-left: 55px;
 }
 
@@ -885,9 +909,6 @@ input::placeholder {
 }
 
 .category-content h3 {
-    font-family: sans-serif;
-    font-size: 30px;
-    font-weight: lighter;
     margin-top: 30px;
 }
 
@@ -928,28 +949,11 @@ input::placeholder {
     text-align: center;
 }
 
-/* index.html */
-.home-section {
-    position: relative;
-    box-sizing: content-box;
-    width: 100%;
-    margin: 100px auto 0; 
-    align-items: center;
-}
-
 
 /* sport.html */
 .sport-header {
     position: relative;
     width: 100%;
-}
-
-.sport-header h4{
-    font-family: sans-serif;
-    font-size: 75px;
-    font-weight: bold;
-    margin-top: 20px;
-    text-align: center;
 }
 
 .navigation-content {
@@ -961,6 +965,7 @@ input::placeholder {
     justify-content: space-evenly;
     text-align: center;
     align-items: center;
+    margin: 0 auto;
 }
 
 .navigation-content a {
@@ -976,10 +981,8 @@ input::placeholder {
 }
 
 .sport-section h3{
-    font-family: sans-serif;
     font-size: 24px;
-    font-weight: lighter;
-    margin-top: 30px;
+    margin-top: 40px;
     margin-left: 10px;
 }
 
@@ -994,11 +997,7 @@ input::placeholder {
     justify-content: space-between;
 }
 
-
 .sad {
-    font-family: sans-serif;
-    font-size: 30px;
-    font-weight: lighter;
     text-align: left;
     margin-left: 55px;
 }
@@ -1019,3 +1018,123 @@ input::placeholder {
     text-transform: uppercase;
     margin-left: 500px;
 }
+
+
+/* index.html */
+.information-section{
+    position: relative;
+    box-sizing: content-box;
+    background-color: white;
+    align-items: center;
+}
+
+.information-section h1 {
+    color: black;
+    height: 200px;
+}
+
+.information-section p{
+    font-family: sans-serif;
+    font-size: 24px;
+    font-weight: lighter;
+    text-decoration: none;
+    color: black;
+}
+
+.information-content {
+    position: relative;
+    width: 550px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-left: 60px;
+    margin-top: 200px;
+    margin-bottom: 120px;
+}
+
+.information-content-btn {
+    display: flex;
+}
+
+.btn-index {
+    width: 180px;
+    height: 70px;
+    background-color: black;
+    border: none;
+    outline: none;
+    border-radius: 19.5px;
+    cursor: pointer;
+    font-size: 1em;
+    color: white;
+    font-weight: 500;
+    margin-right: 30px;
+    font-weight: bolder;
+    margin-right: 70px;
+}
+
+.course-section{
+    position: relative;
+    box-sizing: content-box;
+    background-color: black;
+    text-align: center;
+}
+
+.course-section h1 {
+    color: white;
+    width: 640px;
+    margin: 0 auto;
+    padding: 50px 0px 60px;
+}
+
+.btn-more-details{
+    width: 180px;
+    height: 70px;
+    background-color: white;
+    border: none;
+    outline: none;
+    border-radius: 19.5px;
+    cursor: pointer;
+    font-size: 1em;
+    color: black;
+    font-weight: 500;
+    font-weight: 500;
+}
+
+.course-section-index{
+    padding: 50px 100px 50px ;
+}
+
+.course-content-index {
+    width: 350px;
+    height: 350px;
+    border-radius: 20px;
+    border: 2px solid white;
+}
+
+.title {
+    color: white;
+}
+
+.FAQ-section{
+    position: relative;
+    box-sizing: content-box;
+    height: auto;
+    background-color: white;
+    align-items: center;
+    text-align: center;
+}
+
+.FAQ-section h1{
+    width: 750px;
+    margin: 0 auto;
+    padding: 50px 0px 50px;
+}
+
+.FAQ-section summary{
+    width: 85%;
+    margin: 10px auto 10px;
+    text-align: left;
+    padding: 0px 10px 0px;
+}
+
