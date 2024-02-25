@@ -7,7 +7,7 @@
 
         <div class="creation-section">
             <div class="creation-titel">
-                <h2 class="form-title">Créer un événement</h2>
+                <h2>Créer un événement</h2>
                 <button type="submit" id="create-btn">Créer</button>
             </div>
 
@@ -23,7 +23,8 @@
                             <label for="date">Date*</label>
                         </div>
                         <div class="entry-box">
-                            <label for="sport">Sport*</label>
+                            <label for="sport">Sport* (à sélectionner)</label>
+                            <div class="entry-box-select">
                             <select name="sport" id="sport" required>
                                 <option value="course à pied">Course à pied</option>
                                 <option value="athlétisme">Athlétisme</option>
@@ -35,6 +36,7 @@
                                 <option value="caisse à savon">Caisse à savon</option>
                                 <option value="hippisme">Hippisme</option>
                             </select>
+                            </div>
                         </div>
                         <div class="entry-box">
                             <input type="text" name="club" id="club">

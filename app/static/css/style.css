@@ -538,6 +538,30 @@ header{
     padding: 40px;
 }
 
+.entry-box-select {
+    position: relative;
+    width: 470px;
+    height: 50px;
+    margin: 30px 0;
+}
+
+.entry-box-select select {
+    width: 100%;
+    height: 100%;
+    background: white;
+    border: 1px solid rgb(83, 83, 83);
+    border-radius: 5px;
+    outline: none;
+    font-size: 1em;
+    color: black;
+    font-weight: 300;
+    padding: 0 30px 0 10px;
+    border-radius: 9px;
+    -webkit-appearance: ;
+    -moz-appearance: none;
+    appearance: none;
+}
+
 #categories-container {
     position: relative;
     box-sizing: content-box;
@@ -553,8 +577,7 @@ header{
 .category-entry {
     position: relative;
     display: flex;
-    justify-content: space-between;
-    margin: 5px 0px 5px 0px
+    margin: 5px 0px 0px
 }
 
 .category-box {
@@ -575,8 +598,12 @@ header{
 }
 
 .colonne-name-box {
-    margin-right: 90px;
-    text-align: left;
+    width: 160px;
+    margin-right: 10px;
+}
+
+.colonne-name-box:last-child {
+    margin-right: 62px;
 }
 
 .colonne-name-box h4 {
@@ -628,18 +655,22 @@ input::placeholder {
 }
 
 #add {
-    width: 210px;
+    width: 80px;
     height: 40px;
     background-color: black;
+    opacity: 0.95;
     border: none;
     outline: none;
-    border-radius: 20px;
+    border-radius: 15px;
     cursor: pointer;
     font-size: 1em;
     color: white;
-    font-weight: 500;
+    font-weight: 1000;
     display: block; 
-    text-transform: uppercase; 
+    text-transform: uppercase;
+    margin-left: 47%;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 
