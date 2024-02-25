@@ -1058,7 +1058,7 @@ input::placeholder {
     margin-left: 55px;
 }
 
-.btn-home {
+.btn-inscription {
     width: 220px;
     height: 40px;
     background-color: black;
@@ -1072,24 +1072,24 @@ input::placeholder {
     margin: 10px auto 0px;
     display: block; 
     text-transform: uppercase;
-    margin-left: 500px;
+    margin-right: 40px;
 }
 
 
 /* index.html */
-.information-section{
+.information-section-index {
     position: relative;
     box-sizing: content-box;
     background-color: white;
     align-items: center;
 }
 
-.information-section h1 {
+.information-section-index h1 {
     color: black;
     height: 200px;
 }
 
-.information-section p{
+.information-section-index p{
     font-family: sans-serif;
     font-size: 24px;
     font-weight: lighter;
@@ -1097,7 +1097,7 @@ input::placeholder {
     color: black;
 }
 
-.information-content {
+.information-content-index {
     position: relative;
     width: 550px;
     height: 500px;
@@ -1129,14 +1129,14 @@ input::placeholder {
     margin-right: 70px;
 }
 
-.course-section{
+.course-index{
     position: relative;
     box-sizing: content-box;
     background-color: black;
     text-align: center;
 }
 
-.course-section h1 {
+.course-index h1 {
     color: white;
     width: 640px;
     margin: 0 auto;
