@@ -12,54 +12,56 @@
             </div>
 
             <div class="creation-content">
-                <div>
-                    <div class="entry-box">
-                        <input type="text" name="name" id="name" required>
-                        <label for="name">Nom de l'événement*</label>
+                <div class="register-section">
+                    <div class="left-box">
+                        <div class="entry-box">
+                            <input type="text" name="name" id="name" required>
+                            <label for="name">Nom de l'événement*</label>
+                        </div>
+                        <div class="entry-box">
+                            <input type="date" name="date" id="date" required>
+                            <label for="date">Date*</label>
+                        </div>
+                        <div class="entry-box">
+                            <label for="sport">Sport*</label>
+                            <select name="sport" id="sport" required>
+                                <option value="course à pied">Course à pied</option>
+                                <option value="athlétisme">Athlétisme</option>
+                                <option value="marche">Marche</option>
+                                <option value="triathlon">Triathlon</option>
+                                <option value="VTT">VTT</option>
+                                <option value="ski nordique">Ski nordique</option>
+                                <option value="ski alpin">Ski alpin</option>
+                                <option value="caisse à savon">Caisse à savon</option>
+                                <option value="hippisme">Hippisme</option>
+                            </select>
+                        </div>
+                        <div class="entry-box">
+                            <input type="text" name="club" id="club">
+                            <label for="club">Club/organisateur*</label>
+                        </div>
+                        <div class="entry-box">
+                            <input type="url" name="site_club" id="site_club" required>
+                            <label for="site_club">URL pour le site web des organisateurs</label>
+                        </div>
                     </div>
-                    <div class="entry-box">
-                        <input type="date" name="date" id="date" required>
-                        <label for="date">Date*</label>
-                    </div>
-                    <div class="entry-box">
-                        <label for="sport">Sport*</label>
-                        <select name="sport" id="sport" required>
-                            <option value="course à pied">Course à pied</option>
-                            <option value="athlétisme">Athlétisme</option>
-                            <option value="marche">Marche</option>
-                            <option value="triathlon">Triathlon</option>
-                            <option value="VTT">VTT</option>
-                            <option value="ski nordique">Ski nordique</option>
-                            <option value="ski alpin">Ski alpin</option>
-                            <option value="caisse à savon">Caisse à savon</option>
-                            <option value="hippisme">Hippisme</option>
-                        </select>
-                    </div>
-                    <div class="entry-box">
-                        <input type="text" name="club" id="club">
-                        <label for="club">Club/organisateur*</label>
-                    </div>
-                    <div class="entry-box">
-                        <input type="url" name="site_club" id="site_club" required>
-                        <label for="site_club">URL pour le site web des organisateurs</label>
-                    </div>
-                </div>
-                <div>
-                    <div class="entry-box">
-                        <input type="text" name="location" id="location" required>
-                        <label for="location">Localité*</label>
-                    </div>
-                    <div class="entry-box">
-                        <input type="text" name="canton" id="canton">
-                        <label for="canton">Canton</label>
-                    </div>
-                    <div class="entry-box">
-                        <input type="text" name="country" id="country">
-                        <label for="country">Pays*</label>
-                    </div>
-                    <div class="entry-box">
-                        <input type="file" name="carte" id="carte" accept="image/*">
-                        <label for="carte">Ajouter une carte du tracé</label>
+                    <div class="right-box">
+                        <div class="entry-box">
+                            <input type="text" name="location" id="location" required>
+                            <label for="location">Localité*</label>
+                        </div>
+                        <div class="entry-box">
+                            <input type="text" name="canton" id="canton">
+                            <label for="canton">Canton</label>
+                        </div>
+                        <div class="entry-box">
+                            <input type="text" name="country" id="country">
+                            <label for="country">Pays*</label>
+                        </div>
+                        <div class="entry-box">
+                            <input type="file" name="carte" id="carte" accept="image/*">
+                            <label for="carte">Ajouter une carte du tracé</label>
+                        </div>
                     </div>
                 </div>
 

@@ -254,6 +254,7 @@ header{
     flex-shrink: 0; 
 }
 
+
 /* bouton */
 .btn{
     width: 210px;
@@ -388,15 +389,8 @@ header{
 .register-titel {
     position: relative;
     box-sizing: content-box;
-    display: flex;
-    margin: 0 auto;
-    align-items: center;
-    margin-left: 38%;
-    font-size: 1.5em;
-    color: black;
-    font-family: 'Istok web', sans-serif;
     text-align: center;
-
+    padding-top: 10px;
 }
 
 .register-section {
@@ -490,7 +484,7 @@ header{
     margin-left: 500px;
 }
 
-/* create.html */
+/* create_course.html */
 .creation-section {
     position: relative;
     box-sizing: content-box;
