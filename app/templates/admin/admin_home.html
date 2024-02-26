@@ -3,18 +3,29 @@
 
 
 {% block content%}
-<body class="background-grey">
+<body>
     <div class="home-content">
         <div class="home-creation">
             <h3>Créer un événement à venir</h3>
             <a href="{{ url_for('admin_bp.creation') }}"><button class="btn-home">Créer</button></a>
         </div>
-
+        <div class="horizontal-bar"></div>
         <!-- Provisoire pour la mise en page des différents templates -->
-        <div class="home-NextCourse">
-            <a href="{{ url_for('admin_bp.inscription') }}"><button class="btn-home">Inscrire un participant</button></a>
-            <a href="{{ url_for('admin_bp.liste_page') }}"><button class="btn-home">Liste des participants</button></a>
-            <a href="{{ url_for('admin_bp.payment') }}"><button class="btn-home">Paiement</button></a>
+        <div class="home-NextCourse-content">
+            <div class="home-NextCourse">
+                <div class="titel-NextCourse">
+                    <h3>Name course</h3>
+                    <div class="vertical-bar-titel"></div>
+                    <div>
+                        <p>location</p>
+                        <p>date</p>
+                    </div>
+                </div>
+                <div>
+                    <a href="{{ url_for('admin_bp.inscription') }}"><button class="btn-home">Inscrire un participant</button></a>
+                    <a href="{{ url_for('admin_bp.liste_page') }}"><button class="btn-home">Liste des participants</button></a>
+                </div>
+            </div>
         </div>
 
         <!-- En cours de développement. Affichage des courses à venir -->
@@ -31,8 +42,10 @@
                     </a>
                 </div>
             {% endfor %}
-        </div>
+            <a href="{{ url_for('admin_bp.payment') }}"><button class="btn-home">Paiement</button></a>
 
+        </div>
+        
     </div>
 </body>
     
