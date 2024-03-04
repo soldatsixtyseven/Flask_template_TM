@@ -21,6 +21,7 @@
             {% for course in all_courses %}
                     <div class="course-content-index">
                         <h3 class="title">{{course.name}}</h3>
+                        <a href="{{ url_for('course_bp.course_information', id_course=course['id_course'], name=course['name']) }}">Voir plus</a>
                     </div>
             {% endfor %}
         </div>
@@ -41,7 +42,7 @@
 
 
     <div>
-        <a href="{{ url_for('course.information_page') }}"><button class="btn-home">Information</button></a>
+        
 
         <p>Donnée des courses : {{ all_courses }}</p>
     </div>

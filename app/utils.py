@@ -21,11 +21,9 @@ def login_required(view):
 
 
 # Cette fonction récupère toutes les courses
-
 def get_all_courses():
-    
     db = get_db()
-    
-    all_courses = db.execute('SELECT name, date, sport, club, site_club, location, canton, country, carte FROM course').fetchall()
-
-    return all_courses
+    cursor = db.cursor()
+    cursor.execute("SELECT id_course, name FROM course")
+    courses = cursor.fetchall()
+    return courses
