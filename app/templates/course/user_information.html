@@ -6,7 +6,7 @@
         <div class="course-content">
                 <h3>{{ name }}</h3>
                 {% if g.user  %}
-                <a href=""><button class="btn-inscription">S'inscire</button></a>
+                <a href="{{ url_for('course_bp.course_user_information', id_course=course['id_course'], name=course['name']) }}"><button class="btn-inscription">S'inscire</button></a>
         
                 {% else %}
                 <a href="{{ url_for('auth.login') }}"><button class="btn-inscription">S'inscire</button></a>

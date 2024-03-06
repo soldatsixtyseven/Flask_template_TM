@@ -1,6 +1,6 @@
 from flask import (Blueprint, flash, g, redirect, render_template, request, session, url_for)
 from app.db.db import get_db
-from app.utils import login_required
+from app.utils import login_required, get_all_courses_admin
 import os
 
 # Création d'un blueprint contenant les routes ayant le préfixe /admin/...
@@ -10,9 +10,8 @@ admin_bp = Blueprint('admin_bp', __name__, url_prefix='/admin')
 @admin_bp.route('/home', methods=('GET', 'POST'))
 @login_required 
 def admin_show_home():
-
-
-    return render_template('admin/admin_home.html')
+    all_courses = get_all_courses_admin()
+    return render_template('admin/admin_home.html', all_courses=all_courses)
 
 # Route /admin/login
 @admin_bp.route('/login', methods=['GET', 'POST'])
