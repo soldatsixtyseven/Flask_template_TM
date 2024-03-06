@@ -43,7 +43,7 @@
                             <label for="club">Club/organisateur*</label>
                         </div>
                         <div class="entry-box">
-                            <input type="url" name="site_club" id="site_club" required>
+                            <input type="url" name="site_club" id="site_club">
                             <label for="site_club">URL pour le site web des organisateurs</label>
                         </div>
                     </div>
@@ -57,7 +57,7 @@
                             <label for="canton">Canton</label>
                         </div>
                         <div class="entry-box">
-                            <input type="text" name="country" id="country">
+                            <input type="text" name="country" id="country" required>
                             <label for="country">Pays*</label>
                         </div>
                         <div class="entry-box">
@@ -69,6 +69,7 @@
 
                 <div id="categories-container">
                     <div class="category-entry">
+                        <!-- Entête des colonnes -->
                         <div class="colonne-name-box">
                             <h4>Nom de la catégorie*</h4>
                         </div>
@@ -108,10 +109,10 @@
                             <input type="text" name="distance[]" required placeholder="... km">
                         </div>
                         <div class="category-box">
-                            <input type="text" name="ascent[]" required placeholder="... m">
+                            <input type="text" name="ascent[]" placeholder="... m">
                         </div>
                         <div class="category-box">
-                            <input type="text" name="descent[]" required placeholder="... m">
+                            <input type="text" name="descent[]" placeholder="... m">
                         </div>
                     </div>
                 </div>
@@ -127,7 +128,4 @@
 </body>
 
 {% endblock %}
-
-
-<!-- placeholde="..." -->
 
