@@ -16,10 +16,10 @@
         </nav>
         <div class="connexion-content">
             {% if g.user  %}
-            <a class="connexion" href="{{ url_for('auth.logout') }}">Se déconnecter</a>
+                <a class="connexion" href="{{ url_for('auth.logout') }}">Se déconnecter</a>
 
             {% else %}
-            <a class="connexion" href="{{ url_for('auth.login') }}">Se connecter</a>
+                <a class="connexion" href="{{ url_for('auth.login') }}">Se connecter</a>
             {% endif %}
         </div>
        

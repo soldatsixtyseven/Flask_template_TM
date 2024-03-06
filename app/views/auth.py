@@ -67,7 +67,7 @@ def login():
     # Si des données de formulaire sont envoyées vers la route /login (ce qui est le cas lorsque le formulaire de login est envoyé)
     if request.method == 'POST':
         # On récupère les champs 'email' et 'password' de la requête HTTP
-        email = request.form['email']  # Assurez-vous que le champ dans le formulaire est 'email'
+        email = request.form['email']  
         password = request.form['password']
 
         # On récupère la base de données
@@ -109,25 +109,28 @@ def logout():
     return redirect("/")
 
 # Fonction automatiquement appelée à chaque requête (avant d'entrer dans la route) sur une route appartenant au blueprint 'auth_bp'
-# La fonction permet d'ajouter un attribut 'user' représentant l'utilisateur connecté dans l'objet 'g'
+# La fonction permet d'ajouter un attribut 'user' représentant l'utilisateur connecté dans l'objet 'g' 
 @auth_bp.before_app_request
 def load_logged_in_user():
+
     # On récupère l'id de l'utilisateur stocké dans le cookie session
     user_id = session.get('user_id')
-
+    
     # Si l'id de l'utilisateur dans le cookie session est nul, cela signifie que l'utilisateur n'est pas connecté
     # On met donc l'attribut 'user' de l'objet 'g' à None
     if user_id is None:
         g.user = None
-    # Si l'id de l'utilisateur dans le cookie session n'est pas nul, on récupère l'utilisateur correspondant et on stocke
-    # l'utilisateur comme un attribut de l'objet 'g'
+
     else:
          # On récupère la base de données et on récupère l'utilisateur correspondant à l'id stocké dans le cookie session
         db = get_db()
         g.user = db.execute('SELECT * FROM users WHERE id = ?', (user_id,)).fetchone()
 
+
 # Route /mdp_oublié
 @auth_bp.route('/mdp_oublié', methods=['GET', 'POST'])
 def forgot_password_page():
     return render_template('auth/forgot_password.html')
+
+
 
