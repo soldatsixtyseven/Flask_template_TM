@@ -26,60 +26,215 @@
         </nav>
         <div class="horizontal-bar"></div>
     </div>
+
     <div class="sport-section">
+        {% if athletisme %}
         <div id="athletisme">
             <h3>Athlétisme</h3>
+            {% for course in athletisme %}
             <div class="sport-course">
                 <div class="home-NextCourse">
                     <div class="titel-NextCourse">
-                        <p class="titel-NextCourse-name">Name course</p>
+                        <p class="titel-NextCourse-name">{{ course.name }}</p>
                         <div class="vertical-bar-titel"></div>
                         <div>
-                            <p>location</p>
-                            <p>date</p>
+                            <p>{{ course.location }}</p>
+                            <p>{{ course.date }}</p>
                         </div>
                     </div>
                     <div>
-                        <a href=""><button class="btn-home-MoreDetails">En savoir plus</button></a>
+                        <a href="{{ url_for('course_bp.course_information', id_course=course.id_course, name=course.name) }}"><button class="btn-home-MoreDetails">En savoir plus</button></a>
                     </div>
-                    <!--URL vers informations.html-->
                 </div>
             </div>
-
+            {% endfor %}
         </div>
+        {% endif %}
+
+        {% if course_a_pied %}
         <div id="course a pied">
             <h3>Course à pied</h3>
-
+            {% for course in course_a_pied %}
+            <div class="sport-course">
+                <div class="home-NextCourse">
+                    <div class="titel-NextCourse">
+                        <p class="titel-NextCourse-name">{{ course.name }}</p>
+                        <div class="vertical-bar-titel"></div>
+                        <div>
+                            <p>{{ course.location }}</p>
+                            <p>{{ course.date }}</p>
+                        </div>
+                    </div>
+                    <div>
+                        <a href="{{ url_for('course_bp.course_information', id_course=course.id_course, name=course.name) }}"><button class="btn-home-MoreDetails">En savoir plus</button></a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
         </div>
+        {% endif %}
+        
+        {% if marche %}
         <div id="marche">
             <h3>Marche</h3>
-
+            {% for course in marche %}
+            <div class="sport-course">
+                <div class="home-NextCourse">
+                    <div class="titel-NextCourse">
+                        <p class="titel-NextCourse-name">{{ course.name }}</p>
+                        <div class="vertical-bar-titel"></div>
+                        <div>
+                            <p>{{ course.location }}</p>
+                            <p>{{ course.date }}</p>
+                        </div>
+                    </div>
+                    <div>
+                        <a href="{{ url_for('course_bp.course_information', id_course=course.id_course, name=course.name) }}"><button class="btn-home-MoreDetails">En savoir plus</button></a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
         </div>
+        {% endif %}
+
+        {% if hippisme %}
         <div id="hippisme">
             <h3>Hippisme</h3>
-
+            {% for course in hippisme %}
+            <div class="sport-course">
+                <div class="home-NextCourse">
+                    <div class="titel-NextCourse">
+                        <p class="titel-NextCourse-name">{{ course.name }}</p>
+                        <div class="vertical-bar-titel"></div>
+                        <div>
+                            <p>{{ course.location }}</p>
+                            <p>{{ course.date }}</p>
+                        </div>
+                    </div>
+                    <div>
+                        <a href="{{ url_for('course_bp.course_information', id_course=course.id_course, name=course.name) }}"><button class="btn-home-MoreDetails">En savoir plus</button></a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
         </div>
+        {% endif %}
+
+        {% if ski_alpin %}
         <div id="ski alpin">
             <h3>Ski alpin</h3>
-
+            {% for course in ski_alpin %}
+            <div class="sport-course">
+                <div class="home-NextCourse">
+                    <div class="titel-NextCourse">
+                        <p class="titel-NextCourse-name">{{ course.name }}</p>
+                        <div class="vertical-bar-titel"></div>
+                        <div>
+                            <p>{{ course.location }}</p>
+                            <p>{{ course.date }}</p>
+                        </div>
+                    </div>
+                    <div>
+                        <a href="{{ url_for('course_bp.course_information', id_course=course.id_course, name=course.name) }}"><button class="btn-home-MoreDetails">En savoir plus</button></a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
         </div>
+        {% endif %}
+
+        {% if ski_nordique %}
         <div id="ski nordique">
             <h3>Ski nordique</h3>
-
+            {% for course in ski_nordique %}
+            <div class="sport-course">
+                <div class="home-NextCourse">
+                    <div class="titel-NextCourse">
+                        <p class="titel-NextCourse-name">{{ course.name }}</p>
+                        <div class="vertical-bar-titel"></div>
+                        <div>
+                            <p>{{ course.location }}</p>
+                            <p>{{ course.date }}</p>
+                        </div>
+                    </div>
+                    <div>
+                        <a href="{{ url_for('course_bp.course_information', id_course=course.id_course, name=course.name) }}"><button class="btn-home-MoreDetails">En savoir plus</button></a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
         </div>
+        {% endif %}
+
+        {% if triathlon %}
         <div id="triathlon">
             <h3>Triathlon</h3>
-
+            {% for course in triathlon %}
+            <div class="sport-course">
+                <div class="home-NextCourse">
+                    <div class="titel-NextCourse">
+                        <p class="titel-NextCourse-name">{{ course.name }}</p>
+                        <div class="vertical-bar-titel"></div>
+                        <div>
+                            <p>{{ course.location }}</p>
+                            <p>{{ course.date }}</p>
+                        </div>
+                    </div>
+                    <div>
+                        <a href="{{ url_for('course_bp.course_information', id_course=course.id_course, name=course.name) }}"><button class="btn-home-MoreDetails">En savoir plus</button></a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
         </div>
+        {% endif %}
+
+        {% if vtt %}
         <div id="VTT">
             <h3>VTT</h3>
-
+            {% for course in vtt %}
+            <div class="sport-course">
+                <div class="home-NextCourse">
+                    <div class="titel-NextCourse">
+                        <p class="titel-NextCourse-name">{{ course.name }}</p>
+                        <div class="vertical-bar-titel"></div>
+                        <div>
+                            <p>{{ course.location }}</p>
+                            <p>{{ course.date }}</p>
+                        </div>
+                    </div>
+                    <div>
+                        <a href="{{ url_for('course_bp.course_information', id_course=course.id_course, name=course.name) }}"><button class="btn-home-MoreDetails">En savoir plus</button></a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
         </div>
+        {% endif %}
+
+        {% if autres %}
         <div id="autres">
             <h3>Autres</h3>
-
+            {% for course in autres %}
+            <div class="sport-course">
+                <div class="home-NextCourse">
+                    <div class="titel-NextCourse">
+                        <p class="titel-NextCourse-name">{{ course.name }}</p>
+                        <div class="vertical-bar-titel"></div>
+                        <div>
+                            <p>{{ course.location }}</p>
+                            <p>{{ course.date }}</p>
+                        </div>
+                    </div>
+                    <div>
+                        <a href="{{ url_for('course_bp.course_information', id_course=course.id_course, name=course.name) }}"><button class="btn-home-MoreDetails">En savoir plus</button></a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
         </div>
     </div>
+    {% endif %}
 
 
 </div>   

@@ -21,7 +21,23 @@ def not_found_error(text):
 # Route /sports
 @home_bp.route('/sports', methods=['GET', 'POST'])
 def sports_page():
-    return render_template('home/sports.html')
+    all_courses = get_all_courses()
+    athletisme = get_all_courses("athletisme")
+    course_a_pied = get_all_courses("course à pied")
+    marche = get_all_courses("marche")
+    hippisme = get_all_courses("hippisme")
+    ski_alpin = get_all_courses("ski alpin")
+    ski_nordique = get_all_courses("ski nordique")
+    triathlon = get_all_courses("triathlon")
+    vtt = get_all_courses("VTT")
+    autres = get_all_courses("autres")
+
+    return render_template('home/sports.html', all_courses=all_courses,
+                           athletisme=athletisme,
+                           course_a_pied=course_a_pied, marche=marche,
+                           hippisme=hippisme, ski_alpin=ski_alpin,
+                           ski_nordique=ski_nordique, triathlon=triathlon,
+                           vtt=vtt, autres=autres)
 
 # Route /contact
 @home_bp.route('/contact', methods=['GET', 'POST'])

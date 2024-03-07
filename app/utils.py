@@ -21,23 +21,18 @@ def login_required(view):
     
     return wrapped_view
 
-
-# Cette fonction récupère l'id et le nom de toutes les courses
-def get_all_courses():
-    db = get_db()
-    cursor = db.cursor()
-    cursor.execute("SELECT id_course, name FROM course WHERE date > CURRENT_DATE ORDER BY date ASC")
-    courses = cursor.fetchall()
-    db.close()
-    return courses
-
 # Cette fonction récupère l'id, le nom, la date et le lieu de toutes les courses
-def get_all_courses_admin():
+def get_all_courses(sport=None):
     db = get_db()
     cursor = db.cursor()
-    cursor.execute("SELECT id_course, name, date, location FROM course WHERE date >= CURRENT_DATE ORDER BY date ASC")
+    
+    # Requête pour récupérer les courses en fonction du sport si spécifié, sinon récupère toutes les courses
+    if sport:
+        cursor.execute("SELECT id_course, name, date, location, sport FROM course WHERE date >= CURRENT_DATE AND sport = ?", (sport,))
+    else:
+        cursor.execute("SELECT id_course, name, date, location, sport FROM course WHERE date >= CURRENT_DATE ORDER BY date ASC")
+    
     courses = cursor.fetchall()
-    db.close()
 
     all_courses = []
     for course in courses:
@@ -46,6 +41,7 @@ def get_all_courses_admin():
         name = course['name']
         date_str = course['date']
         location = course['location']
+        sport = course['sport']
         
         # Convertir la date en un objet datetime
         date_obj = datetime.strptime(date_str, '%Y-%m-%d')
@@ -63,9 +59,11 @@ def get_all_courses_admin():
             'name': name,
             'date': formatted_date,
             'location': location,
+            'sport': sport
         })
 
-    return all_courses if all_courses else None
+    return all_courses if all_courses else []
+
 
 # Cette fonction récupère toutes les données de toutes les courses
 def get_course_details(id_course):
