@@ -1,6 +1,6 @@
 from flask import (Blueprint, flash, g, redirect, render_template, request, session, url_for)
 from app.db.db import get_db
-from app.utils import login_required, get_all_courses_admin
+from app.utils import login_required, get_all_courses
 import os
 
 # Création d'un blueprint contenant les routes ayant le préfixe /admin/...
@@ -10,7 +10,7 @@ admin_bp = Blueprint('admin_bp', __name__, url_prefix='/admin')
 @admin_bp.route('/home', methods=('GET', 'POST'))
 @login_required 
 def admin_show_home():
-    all_courses = get_all_courses_admin()
+    all_courses = get_all_courses()
     return render_template('admin/admin_home.html', all_courses=all_courses)
 
 # Route /admin/login
@@ -80,10 +80,6 @@ def load_logged_in_user():
 @admin_bp.route('/creation', methods=('GET', 'POST'))
 def creation():
 
-    print("DATA RECEIVED")
-    print(request.form)
-
-
     # Si des données de formulaire sont envoyées vers la route /creation (ce qui est le cas lorsque le formulaire d'inscription est envoyé)
     if request.method == 'POST':
         # On récupère les données de la course
@@ -105,8 +101,6 @@ def creation():
         distances = request.form.getlist('distance[]')
         ascent = request.form.getlist('ascent[]')
         descent = request.form.getlist('descent[]')
-        
-        print(category_names, year, start_times, prices, distances, ascent, descent)
 
 
         if not name or not date or not sport or not club or not location or not country :
