@@ -42,3 +42,23 @@ function removeCategory(button) {
     // Supprimez la catégorie du conteneur
     categoryEntry.remove();
 }
+
+function scrollCourses(direction) {
+    const courseSection = document.getElementById('course-section');
+    const scrollStep = 200;
+    const scrollDistance = 200; // Distance de défilement
+
+    if (direction === 'left') {
+        courseSection.scrollBy({
+            top: 0,
+            left: -scrollDistance,
+            behavior: 'smooth'
+        });
+    } else if (direction === 'right') {
+        courseSection.scrollBy({
+            top: 0,
+            left: scrollDistance,
+            behavior: 'smooth'
+        });
+    }
+}
