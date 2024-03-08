@@ -45,9 +45,9 @@ def contact_page():
     return render_template('home/contact.html')
 
 # Route /FAQ
-@home_bp.route('/FAQ', methods=['GET', 'POST'])
-def FAQ_page():
-    return render_template('home/FAQ.html')
+@home_bp.route('/about', methods=['GET', 'POST'])
+def about_page():
+    return render_template('home/about.html')
 
 
 
