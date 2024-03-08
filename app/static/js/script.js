@@ -43,22 +43,22 @@ function removeCategory(button) {
     categoryEntry.remove();
 }
 
-function scrollCourses(direction) {
-    const courseSection = document.getElementById('course-section');
-    const scrollStep = 200;
-    const scrollDistance = 200; // Distance de défilement
+document.addEventListener("DOMContentLoaded", function() {
+    const leftScrollButton = document.querySelector(".left-scroll");
+    const rightScrollButton = document.querySelector(".right-scroll");
+    const courseSection = document.querySelector(".course-section-index");
 
-    if (direction === 'left') {
+    leftScrollButton.addEventListener("click", function() {
         courseSection.scrollBy({
-            top: 0,
-            left: -scrollDistance,
-            behavior: 'smooth'
+            left: -350, // Décalage vers la gauche
+            behavior: "smooth"
         });
-    } else if (direction === 'right') {
+    });
+
+    rightScrollButton.addEventListener("click", function() {
         courseSection.scrollBy({
-            top: 0,
-            left: scrollDistance,
-            behavior: 'smooth'
+            left: 350, // Décalage vers la droite
+            behavior: "smooth"
         });
-    }
-}
+    });
+});

@@ -17,16 +17,25 @@
     <div class="course-index">
         <h1>Nos prochaines courses</h1>
         <a href="{{ url_for('home.sports_page') }}"><button class="btn-more-details">En savoir plus</button></a>
-        <div class="course-section-index" id="course-section">
-            {% for course in all_courses %}
-                <div class="course-content-index">
-                    <h3 class="title">{{ course.name }}</h3>
-                    <a href="{{ url_for('course_bp.course_information', id_course=course['id_course'], name=course['name']) }}">Voir plus</a>
-                </div>
-            {% endfor %}
+        <div class="course-navigation">
+            <button class="scroll-button left-scroll">&lt;</button>
+            <button class="scroll-button right-scroll">&gt;</button>
         </div>
-        <button class="scroll-button scroll-left" onclick="scrollCourses('left')">←</button>
-        <button class="scroll-button scroll-right" onclick="scrollCourses('right')">→</button>
+        <div class="course-section-index" >
+            <div class="course-section-inner">
+                {% for course in all_courses %}
+                <a href="{{ url_for('course_bp.course_information', id_course=course['id_course'], name=course['name']) }}" class="course-link">
+                    <div class="course-content-index">
+                        <h3 class="course-title">{{ course.name }}</h3>
+                        <p id="course-date">{{ course.date }}</p>
+                        <p>{{ course.location }}</p>
+                        <p>{{ course.sport }}</p>
+                        <a href="{{ url_for('course_bp.course_information', id_course=course['id_course'], name=course['name']) }}">Voir plus</a>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
     </div>
 
     <div class="FAQ-section">
