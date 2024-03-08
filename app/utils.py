@@ -119,6 +119,7 @@ def get_course_details(id_course):
             'canton': course_details['canton'],
             'country': course_details['country'],
             'site_club': course_details['site_club'],
+            'flyers': course_details['flyers'],
             'categories': course_categories
             
         }

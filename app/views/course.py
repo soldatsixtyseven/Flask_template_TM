@@ -29,6 +29,7 @@ def course_information(id_course, name):
                                canton=course_details['canton'],
                                country=course_details['country'],
                                site_club=course_details['site_club'],
+                               flyers=course_details['flyers'],
                                categories=categories)
     else:
         # Affichage d'une erreur dans le cas où les détails d'une course ne sont pas trouvés
@@ -127,6 +128,7 @@ def course_user_information(id_course, name):
                                canton=course_details['canton'],
                                country=course_details['country'],
                                site_club=course_details['site_club'],
+                               flyers=course_details['flyers'],
                                categories=categories)
     else:
         # Affichage d'une erreur dans le cas où les détails d'une course ne sont pas trouvés

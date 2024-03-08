@@ -91,7 +91,7 @@ def creation():
         location = request.form['location']
         canton = request.form['canton']
         country = request.form['country']
-        carte = request.files['carte'].read()
+        flyers = request.files['flyers'].read()
 
         # On récupère les données de chaque catérogie
         category_names = request.form.getlist('category_name[]')
@@ -101,6 +101,8 @@ def creation():
         distances = request.form.getlist('distance[]')
         ascent = request.form.getlist('ascent[]')
         descent = request.form.getlist('descent[]')
+        
+        print(category_names, year, start_times, prices, distances, ascent, descent)
 
 
         if not name or not date or not sport or not club or not location or not country :
@@ -117,7 +119,7 @@ def creation():
         # on essaie d'insérer la course dans la base de données
         if name and date:
             try:
-                cursor.execute("INSERT INTO course (name, date, sport, club, site_club, location, canton, country, carte) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", (name, date, sport, club, site_club, location, canton, country, carte))
+                cursor.execute("INSERT INTO course (name, date, sport, club, site_club, location, canton, country, flyers) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", (name, date, sport, club, site_club, location, canton, country, flyers))
                 # db.commit() permet de valider une modification de la base de données
                 db.commit()
 
