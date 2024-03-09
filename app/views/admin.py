@@ -1,6 +1,6 @@
 from flask import (Blueprint, flash, g, redirect, render_template, request, session, url_for)
 from app.db.db import get_db
-from app.utils import login_required, get_all_courses
+from app.utils import login_required_admin, get_all_courses
 import os
 
 # Création d'un blueprint contenant les routes ayant le préfixe /admin/...
@@ -8,7 +8,7 @@ admin_bp = Blueprint('admin_bp', __name__, url_prefix='/admin')
 
 # Route /admin/home
 @admin_bp.route('/home', methods=('GET', 'POST'))
-@login_required 
+@login_required_admin 
 def admin_show_home():
     all_courses = get_all_courses()
     return render_template('admin/admin_home.html', all_courses=all_courses)
@@ -60,21 +60,20 @@ def logout_admin():
 # Fonction automatiquement appelée à chaque requête (avant d'entrer dans la route) sur une route appartenant au blueprint 'auth_bp'
 # La fonction permet d'ajouter un attribut 'user' représentant l'utilisateur connecté dans l'objet 'g'
 @admin_bp.before_app_request
-def load_logged_in_user():
+def load_logged_in_admin():
     # On récupère l'id de l'administrateur stocké dans le cookie session
     admin_id = session.get('admin_id')
 
     # Si l'id de l'administrateur dans le cookie session est nul, cela signifie que l'administrateur n'est pas connecté
     # On met donc l'attribut 'user' de l'objet 'g' à None
     if admin_id is None:
-        g.user = None
+        g.admin = None
     # Si l'id de l'administrateur dans le cookie session n'est pas nul, on récupère l'administrateur correspondant et on stocke
     # l'administrateur comme un attribut de l'objet 'g'
     else:
         # On récupère la base de données et on récupère l'administrateur correspondant à l'id stocké dans le cookie session
         db = get_db()
-        g.user = db.execute('SELECT * FROM admin WHERE id_admin = ?', (admin_id,)).fetchone()
-
+        g.admin = db.execute('SELECT * FROM admin WHERE id_admin = ?', (admin_id,)).fetchone()
     
 # Route /admin/creation
 @admin_bp.route('/creation', methods=('GET', 'POST'))

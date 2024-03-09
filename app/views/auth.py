@@ -61,6 +61,7 @@ def register():
         # Si aucune donnée de formulaire n'est envoyée, on affiche le formulaire d'inscription
         return render_template('auth/register.html')
 
+
 # Route /auth/login
 @auth_bp.route('/login', methods=('GET', 'POST'))
 def login():
@@ -125,7 +126,6 @@ def load_logged_in_user():
          # On récupère la base de données et on récupère l'utilisateur correspondant à l'id stocké dans le cookie session
         db = get_db()
         g.user = db.execute('SELECT * FROM users WHERE id = ?', (user_id,)).fetchone()
-
 
 # Route /mdp_oublié
 @auth_bp.route('/mdp_oublié', methods=['GET', 'POST'])

@@ -4,6 +4,7 @@ import locale
 from flask import (Blueprint, flash, g, redirect, render_template, request, session, url_for)
 from app.db.db import get_db
 from datetime import datetime
+from functools import wraps
 
 # Ce décorateur est utilisé dans l'application Flask pour protéger certaines vues (routes)
 # afin de s'assurer qu'un utilisateur est connecté avant d'accéder à une route 
@@ -19,6 +20,15 @@ def login_required(view):
         
         return view(**kwargs)
     
+    return wrapped_view
+
+def login_required_admin(view):
+    @wraps(view)
+    def wrapped_view(**kwargs):
+        if g.admin is None:
+            flash("Vous devez vous connecter en tant qu'administrateur pour accéder à cette page.")
+            return redirect(url_for('admin_bp.login_admin'))
+        return view(**kwargs)
     return wrapped_view
 
 # Cette fonction récupère l'id, le nom, la date et le lieu de toutes les courses

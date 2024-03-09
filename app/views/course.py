@@ -15,7 +15,7 @@ import xlsxwriter
 course_bp = Blueprint('course_bp', __name__, url_prefix='/course')
 
 # Création d'un URL dynamique pour une page d'information pour chaque course
-@course_bp.route('/course/<int:id_course>/<string:name>')
+@course_bp.route('/course/information/<int:id_course>/<string:name>')
 def course_information(id_course, name):
     # Récupération de la fonction qui récupère toutes les informations sur les courses
     course_details = get_course_details(id_course)
@@ -33,8 +33,8 @@ def course_information(id_course, name):
                                categories=categories)
     else:
         # Affichage d'une erreur dans le cas où les détails d'une course ne sont pas trouvés
-        flash("Détails du cours non trouvés", "error")
-        return redirect(url_for('autre_page'))
+        flash("Détails de la course non trouvés", "error")
+        return redirect(url_for('home_bp.landing_page'))
 
 # Création d'un URL dynamique pour l'inscription manuelle de participants depuis la page home.html
 @course_bp.route('/inscription_manuelle/<int:course_id>/<string:course_name>', methods=['GET'])
@@ -121,7 +121,7 @@ def course_user_information(id_course, name):
     
     if course_details:
         categories = course_details['categories']
-        return render_template('course/user_information.html', id_course=id_course, name=name,
+        return render_template('course/information/user_information.html', id_course=id_course, name=name,
                                club=course_details['club'],
                                date=course_details['date'],
                                location=course_details['location'],
@@ -133,5 +133,5 @@ def course_user_information(id_course, name):
     else:
         # Affichage d'une erreur dans le cas où les détails d'une course ne sont pas trouvés
         flash("Détails du cours non trouvés", "error")
-        return redirect(url_for('autre_page'))
+        return redirect(url_for('home_bp.landing_page'))
 
