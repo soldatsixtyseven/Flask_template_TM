@@ -3,8 +3,28 @@
 {% block content %}
 <div class="page-content"> 
     <h4>Contact</h4>
+    <form id="fs-frm" name="complaint-form" accept-charset="utf-8" action="https://formspree.io/f/{form_id}" method="post">
+        <div class="contact-section">
+            <div class="input-box-contact">
+                <div class="input-box-information">
+                    <input type="text" name="name" id="full-name" placeholder="Nom" required>
+                    <input type="text" name="name" id="full-name" placeholder="Prénom" required>
+                </div>
+                <div class="input-box-information">
+                    <input type="email" name="_replyto" id="Adresse Email" placeholder="Adresse Email" required>
+                    <input type="telephone" name="telephone" id="telephone" placeholder="No téléphone" required>
+                </div>
+            <textarea rows="6" name="complaint" id="complaint" placeholder="Commentaire" required=></textarea>
+            <input type="hidden" name="_subject" id="email-subject" value="Complaint Form Submission">
+            </div>
+
+            <button class="btn-sent-emails" type="submit" value="File Complaint">Envoyer</button>
+        </div>
+    </form>
 
 </div>   
 {% endblock %}
 
 <!-- créer une page de contact avec la possibilité d'envoyer un email à l'administrateur avec la demande de l'utilisateur -->
+
+
