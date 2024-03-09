@@ -6,11 +6,14 @@ function addCategory() {
     // Ajoutez les champs nécessaires
     categoryEntry.innerHTML = `
         <div class="category-entry">   
-            <div class="category-box">
+            <div class="category-box" id="category-box-name">
                 <input type="text" name="category_name[]" required placeholder="Nom">
             </div>
-            <div class="category-box">
-                <input type="text" name="year[]" required placeholder="0000-0000">
+            <div class="category-box-year">
+                <input type="text" name="year_max[]" required placeholder="0000">
+            </div>
+            <div class="category-box-year">
+                <input type="text" name="year_min[]" required placeholder="0000">
             </div>
             <div class="category-box">
                 <input type="text" name="start_time[]" required placeholder="00:00">

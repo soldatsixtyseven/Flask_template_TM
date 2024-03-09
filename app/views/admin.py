@@ -94,14 +94,15 @@ def creation():
 
         # On récupère les données de chaque catérogie
         category_names = request.form.getlist('category_name[]')
-        year = request.form.getlist('year[]')
+        year_max = request.form.getlist('year_max[]')
+        year_min = request.form.getlist('year_min[]')
         start_times = request.form.getlist('start_time[]')
         prices = request.form.getlist('price[]')
         distances = request.form.getlist('distance[]')
         ascent = request.form.getlist('ascent[]')
         descent = request.form.getlist('descent[]')
         
-        print(category_names, year, start_times, prices, distances, ascent, descent)
+        print(category_names, year_max, year_min, start_times, prices, distances, ascent, descent)
 
 
         if not name or not date or not sport or not club or not location or not country :
@@ -126,7 +127,7 @@ def creation():
                 course_id = cursor.lastrowid
 
                 for i in range(len(category_names)):
-                    cursor.execute("INSERT INTO categorie (course_id, name, year, start_time, price, distance, ascent, descent) VALUES (?, ?, ?, ?, ?, ?, ?, ?)", (course_id, category_names[i], year[i], start_times[i], prices[i], distances[i], ascent[i], descent[i]))
+                    cursor.execute("INSERT INTO categorie (course_id, name, year_max, year_min, start_time, price, distance, ascent, descent) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", (course_id, category_names[i], year_max[i], year_min[i], start_times[i], prices[i], distances[i], ascent[i], descent[i]))
                     db.commit()
 
                 return redirect(url_for("admin_bp.admin_show_home"))

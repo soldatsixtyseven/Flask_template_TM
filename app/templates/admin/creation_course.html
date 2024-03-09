@@ -7,7 +7,10 @@
 
         <div class="creation-section">
             <div class="creation-titel">
-                <h2>Créer un événement</h2>
+                <div>
+                    <h2>Créer un événement</h2>
+                    <p>*Champs obligatoires.</p>
+                </div>
                 <button type="submit" id="create-btn">Créer</button>
             </div>
 
@@ -70,34 +73,40 @@
                 <div id="categories-container">
                     <div class="category-entry">
                         <!-- Entête des colonnes -->
-                        <div class="colonne-name-box">
+                        <div class="colonne-box" id="colonne-box-name">
                             <h4>Nom de la catégorie*</h4>
                         </div>
-                        <div class="colonne-name-box">
-                            <h4>Années*</h4>
+                        <div class="colonne-box-year">
+                            <h4>Age min*</h4>
                         </div>
-                        <div class="colonne-name-box">
+                        <div class="colonne-box-year">
+                            <h4>Age max*</h4>
+                        </div>
+                        <div class="colonne-box">
                             <h4>Heure de départ*</h4>
                         </div>
-                        <div class="colonne-name-box">
+                        <div class="colonne-box">
                             <h4>Prix*</h4>
                         </div>
-                        <div class="colonne-name-box">
+                        <div class="colonne-box">
                             <h4>Distance*</h4>
                         </div>
-                        <div class="colonne-name-box">
+                        <div class="colonne-box">
                             <h4>Montée</h4>
                         </div>
-                        <div class="colonne-name-box">
+                        <div class="colonne-box">
                             <h4>Descente</h4>
                         </div>
                     </div>
                     <div class="category-entry">
-                        <div class="category-box">
+                        <div class="category-box" id="category-box-name">
                             <input type="text" name="category_name[]" required placeholder="Nom">
                         </div>
-                        <div class="category-box">
-                            <input type="text" name="year[]" required placeholder="0000-0000">
+                        <div class="category-box-year">
+                            <input type="text" name="year_max[]" required placeholder="0000">
+                        </div>
+                        <div class="category-box-year">
+                            <input type="text" name="year_min[]" required placeholder="0000">
                         </div>
                         <div class="category-box">
                             <input type="text" name="start_time[]" required placeholder="00:00">
@@ -119,7 +128,6 @@
                 
                 <!-- Bouton pour ajouter une nouvelle catégorie -->
                 <button type="button" onclick="addCategory()" id="add">+</button>
-                <button type="submit" id="create-btn">Créer</button>
             </div>
 
 

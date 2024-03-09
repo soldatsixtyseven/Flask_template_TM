@@ -6,10 +6,10 @@
         <div class="course-content">
                 <h3>{{ name }}</h3>
                 {% if g.user  %}
-                <a href=""><button class="btn-inscription">S'inscire</button></a>
+                    <a href=""><button class="btn-inscription">S'inscire</button></a>
         
                 {% else %}
-                <a href="{{ url_for('auth.login') }}"><button class="btn-inscription">S'inscire</button></a>
+                    <a href="{{ url_for('auth.login') }}"><button class="btn-inscription">S'inscire</button></a>
                 {% endif %}
         </div>  
 
@@ -28,7 +28,6 @@
                 </div>
                 <div class="right-container-information">
                     <p>{{ flyers }}</p>
-                    <!--choisir si je laisse "carte" ou pas-->
                 </div>
             </div>
             <div class="category-content">
@@ -42,7 +41,13 @@
                         <div class="category-information-content">
                             <div class="category-information">
                                 <p>{{ category.start_time }}</p>
-                                <p>{{ category.year }}</p>
+                                {% if category["year_min"] == "<":  %}
+                                    <p>{{ category.year_max }} et plus jeunes</p>
+                                {% elif  category["year_max"] == ">":%}
+                                    <p>{{ category.year_min }} et plus vieux</p>
+                                {% else %}
+                                    <p>{{ category.year_min }}-{{ category.year_max }}</p>
+                                {% endif %}
                                 <p>{{ category.price }}</p>
                             </div>
                             <div class="category-information">

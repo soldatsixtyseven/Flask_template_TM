@@ -523,13 +523,15 @@ header{
     align-items: center;
 }
 
-.creation-titel h2 {
-    font-size: 2em;
-    color: black;
-    font-family: 'Istok web', sans-serif;
-    align-items: center;
+.creation-titel div {
+    display: flex;
+    flex-direction: column;
     text-align: center;
-    margin-left: 40%;
+    margin-left: 39%;
+}
+
+.creation-titel h2,p {
+    margin: 0 auto;
 }
 
 #create-btn {
@@ -543,7 +545,7 @@ header{
     font-size: 1em;
     color: white;
     font-weight: 500;
-    margin-right: 20px;
+    margin-left: auto;
     display: block; 
     text-transform: uppercase; 
 }
@@ -551,7 +553,6 @@ header{
 .creation-section {
     width: 1280px;
     height: auto;
-    padding: 40px;
 }
 
 .entry-box-select {
@@ -596,6 +597,10 @@ header{
     margin: 5px 0px 0px
 }
 
+.category-entry input[type="text"]:not([name="category_name[]"]) {
+    text-align: center;
+}
+
 .category-box {
     margin-right: 10px;
 }
@@ -613,16 +618,34 @@ header{
     transform: translateY(-50%); 
 }
 
-.colonne-name-box {
-    width: 160px;
+.colonne-box {
+    width: 130px;
     margin-right: 10px;
 }
 
-.colonne-name-box:last-child {
+.colonne-box:last-child {
     margin-right: 62px;
 }
 
-.colonne-name-box h4 {
+#colonne-box-name {
+    width: 180px;
+}
+
+.colonne-box-year {
+    width: 100px;
+    margin-right: 10px;
+}
+
+.colonne-box-year h4{
+    font-size: 1em;
+    color: rgb(83, 83, 83);
+    font-weight: 500;
+    pointer-events: none;
+    top: 50%; 
+    transform: translateY(-50%); 
+}
+
+.colonne-box h4 {
     font-size: 1em;
     color: rgb(83, 83, 83);
     font-weight: 500;
@@ -632,7 +655,7 @@ header{
 }
 
 .category-box input {
-    width: 160px;
+    width: 130px;
     height: 53px;
     background: transparent;
     border: 1px solid rgb(83, 83, 83);
@@ -642,8 +665,27 @@ header{
     color: black;
     font-weight: 200;
     padding: 0 10px 0 10px;
-    justify-content: center;
     flex-shrink: 0; 
+}
+
+#category-box-name input{
+    width: 180px;
+}
+
+.category-box-year input {
+    width: 100px;
+    height: 53px;
+    background: transparent;
+    border: 1px solid rgb(83, 83, 83);
+    border-radius: 5px;
+    outline: none;
+    font-size: 1em;
+    color: black;
+    font-weight: 200;
+    padding: 0 10px 0 10px;
+
+    flex-shrink: 0; 
+    margin-right: 10px;
 }
 
 input::placeholder {
@@ -908,7 +950,7 @@ input::placeholder {
 
 .information h3 {
     margin-top: 60px;
-    margin-left: 60px;
+    margin-left: 80px;
 }
 
 .course-content {
@@ -927,21 +969,6 @@ input::placeholder {
     margin-left: 55px;
 }
 
-/*.btn-home-index {
-    width: 220px;
-    height: 40px;
-    background-color: black;
-    border: none;
-    outline: none;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 1em;
-    color: white;
-    font-weight: 500;
-    margin-right: 30px;
-    text-transform: uppercase;
-}*/
-
 .information-content {
     position: relative;
     box-sizing: content-box;
@@ -957,18 +984,20 @@ input::placeholder {
     align-items: flex-start;
     flex-wrap: wrap;
     align-content: flex-start;
+    margin-bottom: 30px;
 }
+
 
 .left-container-information{
     width: 60%;
 }
 
-.course-information {
+.course-information p{
     font-family: sans-serif;
     font-size: 18px;
     font-weight: lighter;
-    margin-left: 60px;
     line-height: 1.5;
+    margin: 7px auto 7px 80px;
 }
 
 .right-container-information{
@@ -1092,11 +1121,6 @@ input::placeholder {
     margin: 15px 0px 15px;
 }
 
-.sad {
-    text-align: left;
-    margin-left: 55px;
-}
-
 .btn-inscription {
     width: 220px;
     height: 40px;
@@ -1202,7 +1226,7 @@ input::placeholder {
     overflow-x: auto;
     scroll-behavior: smooth;
     padding: 50px 0;
-    margin: 0 auto;
+    margin: auto;
     overflow: hidden;
 }
 

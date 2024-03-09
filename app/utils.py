@@ -22,13 +22,19 @@ def login_required(view):
     
     return wrapped_view
 
+# Ce décorateur est utilisé dans l'application Flask pour protéger certaines vues (routes)
+# afin de s'assurer qu'un administrateur est connecté avant d'accéder à une route 
+
 def login_required_admin(view):
     @wraps(view)
     def wrapped_view(**kwargs):
+
+        # Si l'administrateur n'est pas connecté, il ne peut pas accéder à la route, il faut le rediriger vers la route admin.login
         if g.admin is None:
-            flash("Vous devez vous connecter en tant qu'administrateur pour accéder à cette page.")
             return redirect(url_for('admin_bp.login_admin'))
+        
         return view(**kwargs)
+    
     return wrapped_view
 
 # Cette fonction récupère l'id, le nom, la date et le lieu de toutes les courses
@@ -86,7 +92,7 @@ def get_course_details(id_course):
 
     # Récupération de toutes les catégories liées à la course
     cursor.execute("""
-        SELECT name, distance, start_time, price, ascent, descent, year
+        SELECT name, distance, start_time, price, ascent, descent, year_max, year_min
         FROM categorie
         WHERE course_id = ?
     """, (id_course,))
@@ -118,7 +124,8 @@ def get_course_details(id_course):
                 'price': category['price'],
                 'ascent': category['ascent'],
                 'descent': category['descent'],
-                'year': category['year']
+                'year_max': category['year_max'],
+                'year_min': category['year_min']
             }
             course_categories.append(category_details)
 
