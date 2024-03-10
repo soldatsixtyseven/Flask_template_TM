@@ -3,15 +3,25 @@
 {% block content %}
 <body class="background-grey">
     <div class="information-section">
-        <div class="course-content">
-                <h3>{{ name }}</h3>
-                {% if g.user  %}
-                    <a href=""><button class="btn-inscription">S'inscire</button></a>
-        
-                {% else %}
-                    <a href="{{ url_for('auth.login') }}"><button class="btn-inscription">S'inscire</button></a>
-                {% endif %}
-        </div>  
+        <div class="course-content">  
+            <div class="home-NextCourse">
+                <div class="titel-NextCourse">
+                    <p class="titel-NextCourse-name">{{ name }}</p>
+                    <div class="vertical-bar-titel"></div>
+                    <div>
+                        <p>{{ location }}</p>
+                        <p>{{ date }}</p>
+                    </div>
+                </div>
+                <div>
+                    {% if g.user  %}
+                        <a href="{{ url_for('course_bp.course_information_user', id_course=id_course, name=name) }}"><button class="btn-inscription">S'inscire</button></a>
+                    {% else %}
+                        <a href="{{ url_for('auth.login') }}"><button class="btn-inscription">S'inscire</button></a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
 
 
         <div class="information-content">
@@ -24,6 +34,7 @@
                         <p>Date : {{ date }}</p>
                         <p>Lieu : {{ location }}, {{ canton }}, {{ country }}</p>
                         <p>Site officiel : <a href="{{ site_club }}">{{ site_club }}</a></p>
+                        <p>Sport : {{ sport }}</p>
                     </div>
                 </div>
                 <div class="right-container-information">
@@ -41,9 +52,9 @@
                         <div class="category-information-content">
                             <div class="category-information">
                                 <p>{{ category.start_time }}</p>
-                                {% if category["year_min"] == "<":  %}
+                                {% if category["year_min"] == "/":  %}
                                     <p>{{ category.year_max }} et plus jeunes</p>
-                                {% elif  category["year_max"] == ">":%}
+                                {% elif  category["year_max"] == "/": %}
                                     <p>{{ category.year_min }} et plus vieux</p>
                                 {% else %}
                                     <p>{{ category.year_min }}-{{ category.year_max }}</p>

@@ -1,7 +1,7 @@
 from flask import (Blueprint, flash, g, redirect, render_template, request, session, url_for, Response, Flask)
 import sqlite3
-from ..utils import get_course_details
-from app.db.db import get_db
+from ..utils import get_course_details, get_user_birth_year, get_user_info
+from app.db.db import get_db, close_db
 
 
 import io
@@ -15,7 +15,7 @@ import xlsxwriter
 course_bp = Blueprint('course_bp', __name__, url_prefix='/course')
 
 # Création d'un URL dynamique pour une page d'information pour chaque course
-@course_bp.route('/course/information/<int:id_course>/<string:name>')
+@course_bp.route('/information/<int:id_course>/<string:name>')
 def course_information(id_course, name):
     # Récupération de la fonction qui récupère toutes les informations sur les courses
     course_details = get_course_details(id_course)
@@ -30,11 +30,65 @@ def course_information(id_course, name):
                                country=course_details['country'],
                                site_club=course_details['site_club'],
                                flyers=course_details['flyers'],
+                               sport=course_details['sport'],
                                categories=categories)
     else:
         # Affichage d'une erreur dans le cas où les détails d'une course ne sont pas trouvés
         flash("Détails de la course non trouvés", "error")
         return redirect(url_for('home_bp.landing_page'))
+    
+@course_bp.route('/information/user/<int:id_course>/<string:name>')
+def course_information_user(id_course, name):
+
+    # Récupération de la fonction qui récupère toutes les informations sur les courses
+    course_details = get_course_details(id_course)
+
+    # Récupération de l'année de naissance de l'utilisateur connecté
+    user_id = session.get('user_id')
+    user_info = get_user_info(user_id)
+    user_birth_year = int(get_user_birth_year(user_info))
+    
+    if course_details:
+        categories = course_details['categories']
+        # Filtrer les catégories en fonction de l'année de naissance de l'utilisateur
+        filtered_categories = []
+        for category in categories:
+            age_min = category.get('year_min')
+            age_max = category.get('year_max')
+            
+            if age_min == "/" and age_max != "/":
+                if user_birth_year <= int(age_max):
+                    filtered_categories.append(category)
+            elif age_max == "/" and age_min != "/":
+                if user_birth_year >= int(age_min):
+                    filtered_categories.append(category)
+            elif age_min == "/" and age_max == "/":
+                filtered_categories.append(category)
+            else:
+                if int(age_min) <= user_birth_year <= int(age_max):
+                    filtered_categories.append(category)
+
+        if not filtered_categories:
+            return "Aucune catégorie ne correspond à votre profil"
+        else:
+            # Retourner les catégories filtrées avec les autres informations de la course
+            return render_template('course/user_information.html', id_course=id_course, name=name,
+                                   club=course_details['club'],
+                                   date=course_details['date'],
+                                   location=course_details['location'],
+                                   canton=course_details['canton'],
+                                   country=course_details['country'],
+                                   site_club=course_details['site_club'],
+                                   flyers=course_details['flyers'],
+                                   sport=course_details['sport'],
+                                   categories=filtered_categories)
+        
+    else:
+        # Affichage d'une erreur dans le cas où les détails d'une course ne sont pas trouvés
+        flash("Détails de la course non trouvés", "error")
+        return redirect(url_for('course_bp.course_information'))
+
+
 
 # Création d'un URL dynamique pour l'inscription manuelle de participants depuis la page home.html
 @course_bp.route('/inscription_manuelle/<int:course_id>/<string:course_name>', methods=['GET'])
@@ -111,27 +165,4 @@ def export_excel(course_id):
     output.seek(0)
     return send_file(output, attachment_filename="liste_participants.xlsx", as_attachment=True)
 
-
-
-# Création d'un URL dynamique pour une page d'information pour chaque course
-@course_bp.route('/course/<int:id_course>/<string:name>/user')
-def course_user_information(id_course, name):
-    # Récupération de la fonction qui récupère toutes les informations sur les courses
-    course_details = get_course_details(id_course)
-    
-    if course_details:
-        categories = course_details['categories']
-        return render_template('course/information/user_information.html', id_course=id_course, name=name,
-                               club=course_details['club'],
-                               date=course_details['date'],
-                               location=course_details['location'],
-                               canton=course_details['canton'],
-                               country=course_details['country'],
-                               site_club=course_details['site_club'],
-                               flyers=course_details['flyers'],
-                               categories=categories)
-    else:
-        # Affichage d'une erreur dans le cas où les détails d'une course ne sont pas trouvés
-        flash("Détails du cours non trouvés", "error")
-        return redirect(url_for('home_bp.landing_page'))
 

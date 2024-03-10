@@ -97,7 +97,6 @@ def get_course_details(id_course):
         WHERE course_id = ?
     """, (id_course,))
     categories = cursor.fetchall()
-    db.close()
 
     # Récupération de tous les champs de donnée
     if course_details:
@@ -136,9 +135,31 @@ def get_course_details(id_course):
             'canton': course_details['canton'],
             'country': course_details['country'],
             'site_club': course_details['site_club'],
+            'sport': course_details['sport'],
             'flyers': course_details['flyers'],
             'categories': course_categories
             
         }
     else:
         return None
+
+# Fonction pour récupérer les informations de l'utilisateur à partir de son ID
+def get_user_info(user_id):
+    db = get_db()
+    cursor = db.cursor()
+    cursor.execute("SELECT * FROM users WHERE id = ?", (user_id,))
+    user_info = cursor.fetchone()
+    return user_info
+
+
+# Fonction pour récupérer l'année de naissance de l'utilisateur à partir de ses informations
+def get_user_birth_year(user_info):
+    # Récupération de la date de naissance de l'utilisateur depuis ses informations
+    date_of_birth_str = user_info['age']
+    
+    # Convertir la date de naissance en un objet datetime
+    date_of_birth = datetime.strptime(date_of_birth_str, '%Y-%m-%d')
+
+    # Récupération de l'année de naissance
+    user_birth_year = date_of_birth.year
+    return user_birth_year
