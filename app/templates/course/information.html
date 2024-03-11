@@ -50,12 +50,14 @@
                             <p>{{ category.name }}</p>
                         </div>
                         <div class="category-information-content">
-                            <div class="category-information">
+                            div class="category-information">
                                 <p>{{ category.start_time }}</p>
-                                {% if category["year_min"] == "/":  %}
+                                {% if category["year_min"] == "/" and category["year_max"] != "/":  %}
                                     <p>{{ category.year_max }} et plus jeunes</p>
-                                {% elif  category["year_max"] == "/": %}
+                                {% elif  category["year_max"] == "/" and category["year_min"] != "/": %}
                                     <p>{{ category.year_min }} et plus vieux</p>
+                                {% elif  category["year_max"] == "/" and category["year_min"] == "/": %} 
+                                    <p>-</p>
                                 {% else %}
                                     <p>{{ category.year_min }}-{{ category.year_max }}</p>
                                 {% endif %}
