@@ -1,6 +1,6 @@
 from flask import (Blueprint, flash, g, redirect, render_template, request, session, url_for, Response, Flask)
 import sqlite3
-from ..utils import get_course_details, get_user_birth_year, get_user_info
+from ..utils import get_course_details, get_user_birth_year, get_user_info, login_required
 from app.db.db import get_db, close_db
 
 
@@ -38,6 +38,7 @@ def course_information(id_course, name):
         return redirect(url_for('home_bp.landing_page'))
     
 @course_bp.route('/information/user/<int:id_course>/<string:name>')
+@login_required
 def course_information_user(id_course, name):
 
     # Récupération de la fonction qui récupère toutes les informations sur les courses
@@ -87,6 +88,39 @@ def course_information_user(id_course, name):
         # Affichage d'une erreur dans le cas où les détails d'une course ne sont pas trouvés
         flash("Détails de la course non trouvés", "error")
         return redirect(url_for('course_bp.course_information'))
+
+@course_bp.route('/payment/<int:id_course>/<string:name>/<string:category_name>', methods=['GET'])
+@login_required
+def payment(id_course, name, category_name):
+    # Vous pouvez ici récupérer les informations de l'utilisateur comme le nom, le prénom, et l'année de naissance
+    user_id = session.get('user_id')
+    user_info = get_user_info(user_id)
+    user_name = user_info['name']
+    user_surname = user_info['surname']
+    user_birth_year = int(get_user_birth_year(user_info))
+    
+    # Récupérer les détails de la course et de la catégorie en fonction de id_course et category_name
+    course_details = get_course_details(id_course)
+    category_details = None
+    for category in course_details['categories']:
+        if category['name'] == category_name:
+            category_details = category
+            break
+
+    if not category_details:
+        # Gérer l'erreur si la catégorie n'est pas trouvée
+        flash("Catégorie introuvable", "error")
+        return redirect(url_for('course_bp.user_information', id_course=id_course, name=name))
+
+    # Puis rendre le template payment.html avec toutes les informations nécessaires
+    return render_template('course/payment.html', id_course=id_course, name=name, category_name=category_name,
+                           user_name=user_name, user_surname=user_surname,
+                           user_birth_year=user_birth_year,
+                           user_location = user_info['location'],
+                           user_origin = user_info['origin'],
+                           location=course_details['location'],
+                           category_start_time=category_details['start_time'],
+                           category_price=category_details['price'])
 
 
 
