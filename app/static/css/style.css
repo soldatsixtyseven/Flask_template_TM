@@ -40,6 +40,12 @@ body{
     margin: 5px 10px 5px;
 }
 
+.link-container {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
 h1 {
     font-family: 'Istok web', sans-serif;
     font-size: 75px;
@@ -841,17 +847,37 @@ input::placeholder {
     justify-content: space-between;
 }
 
-.inscription-content {
+.inscription-section {
     position: relative;
     box-sizing: content-box;
     height: 320px;
     background: white;
     border-radius: 20px;
     display: flex;
-    margin: 0 auto;
-    align-items: left;
     flex-direction: column;
     margin: 0 auto 20px;
+}
+
+.inscription-section h3 {
+    margin-top: 60px;
+    margin-left: 60px;
+}
+
+.inscription-content {
+    display: flex;
+    flex-direction: row;
+}
+
+.inscription-information {
+    width: 620px;
+    padding-top: 10px;
+    padding-left: 80px;
+}
+
+.inscription-information p{
+    font-size: 20px;
+    font-weight: 200;
+    line-height: 30px;
 }
 
 .payment-method-section div{
@@ -879,11 +905,6 @@ input::placeholder {
     background: white;
     border-radius: 20px; 
     float: right;
-}
-
-.inscription-content h3 {
-    margin-top: 60px;
-    margin-left: 60px;
 }
 
 .payment-method-content h3 {
@@ -1307,13 +1328,6 @@ input::placeholder {
 .course-content-index p {
     font-size: 18px;
      text-transform: capitalize;
-}
-
-.course-link {
-    text-decoration: none;
-    color: inherit; 
-    cursor: pointer;
-    display: block; 
 }
 
 #course-date {
