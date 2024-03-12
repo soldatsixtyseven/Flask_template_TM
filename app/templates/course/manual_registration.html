@@ -19,15 +19,21 @@
                 <input type="text" name="surname" id="surname" required>
                 <label for="surname">Prénom*</label>
               </div>
-              <div>
-                <label for="sexe">Sexe*</label>
-                <input type="radio" name="sexe" value="1" id="choix1">
-                <label for="choix1">Femme</label>
-                <input type="radio" name="sexe" value="2" id="choix2">
-                <label for="choix2">Homme</label>
-                <input type="radio" name="sexe" value="3" id="choix3">
-                <label for="choix3">Autre</label>
-            </div>
+              <div id="entry-box-sexe">
+                <label id="entry-box-sexe-label" for="sexe">Sexe*</label>
+                <div class="horizontal-radio">
+                  <input type="radio" name="sexe" value="1" id="choix1">
+                  <label for="choix1">Femme</label>
+                </div>
+                <div class="horizontal-radio">
+                  <input type="radio" name="sexe" value="2" id="choix2">
+                  <label for="choix2">Homme</label>
+                </div>
+                <div class="horizontal-radio">
+                  <input type="radio" name="sexe" value="3" id="choix3">
+                  <label for="choix3">Autre</label>
+                </div>
+              </div>
               <div class="entry-box">
                 <input type="date" name="age" id="age" required>
                 <label for="age">Année de naissance*</label>

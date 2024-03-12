@@ -287,6 +287,32 @@ input::placeholder {
     flex-shrink: 0; 
 }
 
+#entry-box-sexe {
+    width: 470px;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+    padding-left: 100px;
+}
+
+#entry-box-sexe-label{
+    position: absolute;
+    left: 10px;
+    font-size: .9em;
+    color: rgb(83, 83, 83);
+    font-weight: 200;
+    pointer-events: none;
+}
+
+#entry-box-sexe label{
+    font-size: .9em;
+    color: rgb(83, 83, 83);
+    font-weight: 200;
+    pointer-events: none;
+}
+
 
 /* bouton */
 .btn{
