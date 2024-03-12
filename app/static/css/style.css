@@ -29,7 +29,7 @@ body{
     height: 100%;
     width: 2px;
     background-color: black;
-    margin: 0px 10px;
+    margin: 0px 15px;
 }
 
 .black-point {
@@ -502,12 +502,18 @@ input::placeholder {
     align-items: center;
 }
 
-
 .titel-NextCourse {
     width: auto;
     height: 55px;
     display: flex;
     align-items: center;
+}
+
+.titel-NextCourse-name {
+    font-family: sans-serif;
+    font-size: 24px;
+    font-weight: lighter;
+    text-align: left;
 }
 
 .home-content h3 {
@@ -1002,6 +1008,7 @@ input::placeholder {
     background: white;
     border-radius: 20px;
     margin: 0 auto;
+    padding-bottom: 15px;
 }
 
 .information {
@@ -1057,11 +1064,12 @@ input::placeholder {
     margin-left: 65px;
 }
 
-.category-information-content{
+.category-information-section{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-evenly;
     margin-right: 40px;
+    height: 44px;
 }
 
 .category-information-content p{
@@ -1071,11 +1079,35 @@ input::placeholder {
 
 .category-information{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-evenly;
     text-align: center;
+    margin: 0px 15px 0px 15px;
 }
 
+#category-information-year {
+    width: 140px;
+}
+
+.category-information-label {
+    color: rgb(175, 175, 175);
+    font-size: 15px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 200;
+}
+
+.category-information-caracteristic {
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+}
+
+#instruction-message {
+    width: 320px;
+    font-size: 18px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 200;
+    text-align: center;
+}
 
 /* sport.html */
 .sport-header {
@@ -1111,13 +1143,6 @@ input::placeholder {
     font-size: 24px;
     margin-top: 40px;
     margin-left: 10px;
-}
-
-.titel-NextCourse-name {
-    font-family: sans-serif;
-    font-size: 24px;
-    font-weight: lighter;
-    text-align: left;
 }
 
 .btn-home-MoreDetails {

@@ -13,7 +13,7 @@
                         <p>{{ date }}</p>
                     </div>
                 </div>
-                <div>
+                <div id="instruction-message">
                     <p>Veuillez sélectionner une catégorie pour continuer l'inscription</p>
                 </div>
             </div>
@@ -34,7 +34,9 @@
                     </div>
                 </div>
                 <div class="right-container-information">
-                    <p>{{ flyers }}</p>
+                    {% if flyers %}
+                        <p>{{ flyers }}</p>
+                    {% endif %}
                 </div>
             </div>
             <div class="category-content">
@@ -45,25 +47,48 @@
                         <div class="category-name">
                             <p>{{ category.name }}</p>
                         </div>
-                        <div class="category-information-content">
+                        <div class="category-information-section">
                             <div class="category-information">
-                                <p>{{ category.start_time }}</p>
+                                <p class="category-information-caracteristic">{{ category.start_time }}</p>
+                                <p class="category-information-label">Départ</p>
+                            </div>
+                            <div class="category-information" id="category-information-year">
                                 {% if category["year_min"] == "/" and category["year_max"] != "/":  %}
-                                    <p>{{ category.year_max }} et plus jeunes</p>
+                                    <p class="category-information-caracteristic">{{ category.year_max }} et plus jeunes</p>
                                 {% elif  category["year_max"] == "/" and category["year_min"] != "/": %}
-                                    <p>{{ category.year_min }} et plus vieux</p>
+                                    <p class="category-information-caracteristic">{{ category.year_min }} et plus vieux</p>
                                 {% elif  category["year_max"] == "/" and category["year_min"] == "/": %} 
-                                    <p>-</p>
+                                    <p class="category-information-caracteristic">-</p>
                                 {% else %}
-                                    <p>{{ category.year_min }}-{{ category.year_max }}</p>
+                                    <p class="category-information-caracteristic">{{ category.year_min }}-{{ category.year_max }}</p>
                                 {% endif %}
-                                <p>{{ category.price }}</p>
+                                <p class="category-information-label">Années</p>
                             </div>
                             <div class="category-information">
-                                <p>{{ category.distance }}</p>
-                                <p>{{ category.ascent }}</p>
-                                <p>{{ category.descent }}</p>
+                                <p class="category-information-caracteristic">{{ category.price }}</p>
+                                <p class="category-information-label">Prix</p>
                             </div>
+                                                        
+                            <div class="vertical-bar-titel"></div>
+                            
+                            <div class="category-information">
+                                <p class="category-information-caracteristic">{{ category.distance }}</p>
+                                <p class="category-information-label">Distance</p>
+                            </div>
+                            {% if category.ascent != "-" %}
+                                <div class="category-information">
+                                    
+                                    <p class="category-information-caracteristic">{{ category.ascent }}</p>
+                                    <p class="category-information-label">Montée</p>
+                                </div>
+                            {% endif %}
+                            
+                            {% if category.descent != "-" %}
+                                <div class="category-information">
+                                    <p class="category-information-caracteristic">{{ category.descent }}</p>
+                                    <p class="category-information-label">Descente</p>
+                                </div>
+                            {% endif %}
                         </div>
                     </div>
                 {% endfor %}
