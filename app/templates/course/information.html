@@ -57,11 +57,11 @@
                                 <p class="category-information-label">Départ</p>
                             </div>
                             <div class="category-information" id="category-information-year">
-                                {% if category["year_min"] == "/" and category["year_max"] != "/":  %}
+                                {% if category["year_min"] == "-" and category["year_max"] != "-":  %}
                                     <p class="category-information-caracteristic">{{ category.year_max }} et plus jeunes</p>
-                                {% elif  category["year_max"] == "/" and category["year_min"] != "/": %}
+                                {% elif  category["year_max"] == "-" and category["year_min"] != "-": %}
                                     <p class="category-information-caracteristic">{{ category.year_min }} et plus vieux</p>
-                                {% elif  category["year_max"] == "/" and category["year_min"] == "/": %} 
+                                {% elif  category["year_max"] == "-" and category["year_min"] == "-": %} 
                                     <p class="category-information-caracteristic">-</p>
                                 {% else %}
                                     <p class="category-information-caracteristic">{{ category.year_min }}-{{ category.year_max }}</p>
