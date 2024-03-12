@@ -22,7 +22,7 @@ def not_found_error(text):
 @home_bp.route('/sports', methods=['GET', 'POST'])
 def sports_page():
     all_courses = get_all_courses()
-    athletisme = get_all_courses("athletisme")
+    athletisme = get_all_courses("athlétisme")
     course_a_pied = get_all_courses("course à pied")
     marche = get_all_courses("marche")
     hippisme = get_all_courses("hippisme")
