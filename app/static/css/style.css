@@ -1050,6 +1050,7 @@ input::placeholder {
     font-size: 24px;
     font-weight: lighter;
     margin-left: 65px;
+    text-align: left;
 }
 
 .category-information-section{
@@ -1070,7 +1071,7 @@ input::placeholder {
     flex-direction: column;
     justify-content: space-evenly;
     text-align: center;
-    margin: 0px 15px 0px 15px;
+    margin: 0px 10px 0px 10px;
 }
 
 #category-information-year {

@@ -57,13 +57,13 @@ def course_information_user(id_course, name):
             age_min = category.get('year_min')
             age_max = category.get('year_max')
             
-            if age_min == "/" and age_max != "/":
+            if age_min == "-" and age_max != "-":
                 if user_birth_year <= int(age_max):
                     filtered_categories.append(category)
-            elif age_max == "/" and age_min != "/":
+            elif age_max == "-" and age_min != "-":
                 if user_birth_year >= int(age_min):
                     filtered_categories.append(category)
-            elif age_min == "/" and age_max == "/":
+            elif age_min == "-" and age_max == "-":
                 filtered_categories.append(category)
             else:
                 if int(age_min) <= user_birth_year <= int(age_max):
@@ -113,7 +113,7 @@ def payment(id_course, name, category_name):
         return redirect(url_for('course_bp.user_information', id_course=id_course, name=name))
 
     # Puis rendre le template payment.html avec toutes les informations nécessaires
-    return render_template('course/payment.html', id_course=id_course, name=name, category_name=category_name,
+    return render_template('course/user_payment.html', id_course=id_course, name=name, category_name=category_name,
                            user_name=user_name, user_surname=user_surname,
                            user_birth_year=user_birth_year,
                            user_location = user_info['location'],
@@ -122,7 +122,21 @@ def payment(id_course, name, category_name):
                            category_start_time=category_details['start_time'],
                            category_price=category_details['price'])
 
+@course_bp.route('/paiement/twint', methods=['POST'])
+def paiement_twint():
+    return redirect(url_for('home_bp.landing_page'))
 
+@course_bp.route('/paiement/postfinance', methods=['POST'])
+def paiement_postfinance():
+    return redirect(url_for('home_bp.landing_page'))
+
+@course_bp.route('/paiement/paypal', methods=['POST'])
+def paiement_paypal():
+    return redirect(url_for('home_bp.landing_page'))
+
+@course_bp.route('/paiement/carte-bancaire', methods=['POST'])
+def paiement_carte_bancaire():
+    return redirect(url_for('home_bp.landing_page'))
 
 # Création d'un URL dynamique pour l'inscription manuelle de participants depuis la page home.html
 @course_bp.route('/inscription_manuelle/<int:course_id>/<string:course_name>', methods=['GET'])
@@ -160,7 +174,6 @@ def liste_inscription(course_id, course_name):
         print(f"Catégorie: {nom_categorie}, Age: {age}, Nom: {nom}, Prénom: {prenom}, Sexe: {sexe}, Lieu: {location}, Origine: {origin}, Club: {club}")
 
     return render_template('course/liste_inscription.html', listes=listes, course_id=course_id, course_name=course_name)
-
 
 @course_bp.route('/export_excel/<int:course_id>', methods=['POST'])
 def export_excel(course_id):
