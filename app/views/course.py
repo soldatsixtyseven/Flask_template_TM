@@ -139,14 +139,129 @@ def paiement_carte_bancaire():
     return redirect(url_for('home_bp.landing_page'))
 
 # Création d'un URL dynamique pour l'inscription manuelle de participants depuis la page home.html
-@course_bp.route('/inscription_manuelle/<int:course_id>/<string:course_name>', methods=['GET'])
-def manual_registration(course_id, course_name):
+@course_bp.route('/inscription_manuelle/<int:id_course>/<string:name>', methods=['GET'])
+def manual_registration(id_course, name):
+    # Si des données de formulaire sont envoyées vers la route /register (ce qui est le cas lorsque le formulaire d'inscription est envoyé)
+    if request.method == 'POST':
+        # On récupère les données du formulaire
+        name = request.form['name']
+        surname = request.form['surname']
+        email = request.form['email']
+        sexe = request.form['sexe']
+        age = request.form['age']
+        origin = request.form['origin']
+        location = request.form['location']
+        club = request.form['club']
 
-    return render_template('course/manual_registration.html', course_id=course_id, course_name=course_name)
+        if not name or not surname or not email or not sexe or not age or not origin or not location:
+            error = 'Veuillez remplir tous les champs.'
+            flash(error)
+            return redirect(url_for('course_bp.manual_registration', id_course=id_course, name=name))
+
+        # On récupère la base de données
+        db = get_db()
+
+        # Si l'email et le mot de passe ont bien une valeur
+        # on essaie d'insérer l'utilisateur dans la base de données
+        if email :
+            try:
+                db.execute("INSERT INTO users (name, surname, email, sexe, age, origin, location, club) VALUES (?, ?, ?, ?, ?, ?, ?, ?)", (name, surname, email, sexe, age, origin, location, club))
+                # db.commit() permet de valider une modification de la base de données
+                db.commit()
+            except db.IntegrityError:
+                # La fonction flash dans Flask est utilisée pour stocker un message dans la session de l'utilisateur
+                # dans le but de l'afficher ultérieurement, généralement sur la page suivante après une redirection
+                error = f"L'utilisateur {email} est déjà enregistré."
+                flash(error)
+                return redirect(url_for("course_bp.manual_registration", id_course=id_course, name=name))
+
+            return redirect(url_for("course_bp.manual_information", id_course=id_course, name=name))
+        else:
+            error = "Email"
+            flash(error)
+            return redirect(url_for("course_bp.manual_registration", id_course=id_course, name=name))
+
+    return render_template('course/manual_registration.html', id_course=id_course, name=name)
+
+# Création d'un URL dynamique pour l'inscription manuelle de participants depuis la page home.html
+@course_bp.route('/inscription_manuelle/information/<int:id_course>/<string:name>', methods=['GET'])
+def manual_information(id_course, name):
+        # Récupération de la fonction qui récupère toutes les informations sur les courses
+    course_details = get_course_details(id_course)
+
+    # Récupération de l'année de naissance de l'utilisateur connecté
+    user_id = session.get('user_id')
+    user_info = get_user_info(user_id)
+    user_birth_year = int(get_user_birth_year(user_info))
+    
+    if course_details:
+        categories = course_details['categories']
+        # Filtrer les catégories en fonction de l'année de naissance de l'utilisateur
+        filtered_categories = []
+        for category in categories:
+            age_min = category.get('year_min')
+            age_max = category.get('year_max')
+            
+            if age_min == "-" and age_max != "-":
+                if user_birth_year <= int(age_max):
+                    filtered_categories.append(category)
+            elif age_max == "-" and age_min != "-":
+                if user_birth_year >= int(age_min):
+                    filtered_categories.append(category)
+            elif age_min == "-" and age_max == "-":
+                filtered_categories.append(category)
+            else:
+                if int(age_min) <= user_birth_year <= int(age_max):
+                    filtered_categories.append(category)
+
+        if not filtered_categories:
+            return "Aucune catégorie ne correspond à votre profil"
+        else:
+            # Retourner les catégories filtrées avec les autres informations de la course
+            return render_template('course/user_information.html', id_course=id_course, name=name,
+                                   club=course_details['club'],
+                                   date=course_details['date'],
+                                   location=course_details['location'],
+                                   canton=course_details['canton'],
+                                   country=course_details['country'],
+                                   site_club=course_details['site_club'],
+                                   flyers=course_details['flyers'],
+                                   sport=course_details['sport'],
+                                   categories=filtered_categories)
+        
+    else:
+        # Affichage d'une erreur dans le cas où les détails d'une course ne sont pas trouvés
+        flash("Détails de la course non trouvés", "error")
+        return redirect(url_for('course_bp.course_information'))
+    
+@course_bp.route('/inscription_manuelle/payment/<int:id_course>/<string:name>/<string:category_name>', methods=['GET'])
+def manual_payment(id_course, name, category_name):
+    # Vous pouvez ici récupérer les informations de l'utilisateur comme le nom, le prénom, et l'année de naissance
+    user_id = session.get('user_id')
+    user_info = get_user_info(user_id)
+    user_name = user_info['name']
+    user_surname = user_info['surname']
+    user_birth_year = int(get_user_birth_year(user_info))
+    
+    # Récupérer les détails de la course et de la catégorie en fonction de id_course et category_name
+    course_details = get_course_details(id_course)
+    category_details = None
+    for category in course_details['categories']:
+        if category['name'] == category_name:
+            category_details = category
+            break
+
+    if not category_details:
+        # Gérer l'erreur si la catégorie n'est pas trouvée
+        flash("Catégorie introuvable", "error")
+        return redirect(url_for('course_bp.manual_information', id_course=id_course, name=name))
+
+
+
 
 # Création d'un URL dynamique pour la liste des participants depuis la page home.html
-@course_bp.route('/liste_inscription/<int:course_id>/<string:course_name>', methods=['GET'])
-def liste_inscription(course_id, course_name):
+@course_bp.route('/liste_inscription/<int:id_course>/<string:name>', methods=['GET'])
+def liste_inscription(id_course, name):
     db = get_db()
     cursor = db.cursor()
     cursor.execute("""
@@ -156,7 +271,7 @@ def liste_inscription(course_id, course_name):
                    JOIN categorie ON inscription.categorie_id = categorie.id_categorie
                    JOIN course ON categorie.course_id = course.id_course
                    WHERE course.id_course = ?
-                   ORDER BY categorie.name, users.name, users.surname""", (course_id,))
+                   ORDER BY categorie.name, users.name, users.surname""", (id_course,))
 
     listes = cursor.fetchall()
     db.close()
@@ -173,10 +288,10 @@ def liste_inscription(course_id, course_name):
         club = resultat[7]
         print(f"Catégorie: {nom_categorie}, Age: {age}, Nom: {nom}, Prénom: {prenom}, Sexe: {sexe}, Lieu: {location}, Origine: {origin}, Club: {club}")
 
-    return render_template('course/liste_inscription.html', listes=listes, course_id=course_id, course_name=course_name)
+    return render_template('course/liste_inscription.html', listes=listes, id_course=id_course, name=name)
 
-@course_bp.route('/export_excel/<int:course_id>', methods=['POST'])
-def export_excel(course_id):
+@course_bp.route('/export_excel/<int:id_course>', methods=['POST'])
+def export_excel(id_course):
     db = get_db()
     cursor = db.cursor()
     cursor.execute("""
@@ -186,7 +301,7 @@ def export_excel(course_id):
                    JOIN categorie  ON inscription.categorie_id = categorie.id_categorie
                    JOIN course ON categorie.course_id = course.id_course
                    WHERE course.id_course = ?
-                   ORDER BY categorie.name, users.name, users.surname""", (course_id,))
+                   ORDER BY categorie.name, users.name, users.surname""", (id_course,))
 
     listes = cursor.fetchall()
     db.close()

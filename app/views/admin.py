@@ -145,18 +145,3 @@ def creation():
     else:
         # Si aucune donnée de formulaire n'est envoyée, on affiche le formulaire de création de course
         return render_template('admin/creation_course.html')
-    
-# Route /admin/liste
-@admin_bp.route('/liste', methods=['GET', 'POST'])
-def liste_page():
-    return render_template('admin/participants_course.html')
-
-# Route /admin/inscription
-@admin_bp.route('/inscription', methods=['GET', 'POST'])
-def inscription():
-    return render_template('admin/inscription_course.html')
-
-# Route /admin/paiement
-@admin_bp.route('/paiement', methods=['GET', 'POST'])
-def payment():
-    return render_template('admin/payment.html')

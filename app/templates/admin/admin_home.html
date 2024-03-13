@@ -9,7 +9,7 @@
             <h3>Créer un événement à venir</h3>
             <a href="{{ url_for('admin_bp.creation') }}"><button class="btn-home">Créer</button></a>
         </div>
-        <!-- Provisoire pour la mise en page des différents templates -->
+
         {% for course in all_courses %}
             <div class="horizontal-bar"></div>
             <div class="home-NextCourse-content">
@@ -23,30 +23,12 @@
                         </div>
                     </div>
                     <div>
-                        <a href="{{ url_for('course_bp.manual_registration', course_id=course.id_course, course_name=course.name) }}"><button class="btn-home">Inscrire un participant</button></a>
-                        <a href="{{ url_for('course_bp.liste_inscription', course_id=course.id_course, course_name=course.name) }}"><button class="btn-home">Liste des participants</button></a>
+                        <a href="{{ url_for('course_bp.manual_registration', id_course=course.id_course, name=course.name) }}"><button class="btn-home">Inscrire un participant</button></a>
+                        <a href="{{ url_for('course_bp.liste_inscription', id_course=course.id_course, name=course.name) }}"><button class="btn-home">Liste des participants</button></a>
                     </div>
                 </div>
             </div>
         {% endfor %}
-
-        
-
-        <!-- En cours de développement. Affichage des courses à venir -->
-        <div class="home-NextCourse">
-            {% for course in courses %}
-                <div>
-                    <h4>{{ course.name }}</h4>
-                    <p>Date: {{ course.date }}</p>
-                    <a href="{{ url_for('admin_bp.inscription', course_id=course.id_course) }}">
-                        <button class="btn-home">Inscrire un participant</button>
-                    </a>
-                    <a href="{{ url_for('admin_bp.liste_page', course_id=course.id_course) }}">
-                        <button class="btn-home">Liste des participants</button>
-                    </a>
-                </div>
-            {% endfor %}
-            <a href="{{ url_for('admin_bp.payment') }}"><button class="btn-home">Paiement</button></a>
 
         </div>
         
