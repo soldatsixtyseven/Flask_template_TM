@@ -18,26 +18,11 @@ body{
     margin: 10px auto 10px;
 }
 
-.vertical-bar {
-    height: 600px;
-    width: 2px;
-    background-color: black;
-    margin: 10px 0px 10px;
-}
-
 .vertical-bar-titel {
     height: 100%;
     width: 2px;
     background-color: black;
     margin: 0px 15px;
-}
-
-.black-point {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background-color: black;
-    margin: 5px 10px 5px;
 }
 
 .link-container {
@@ -48,12 +33,10 @@ body{
 
 h1 {
     font-family: 'Istok web', sans-serif;
-    font-size: 75px;
     font-weight: bolder;
 }
 
 h2 {
-    font-size: 2em;
     color: black;
     font-family: 'Istok web', sans-serif;
     align-items: center;
@@ -62,15 +45,12 @@ h2 {
 
 h3 {
     font-family: sans-serif;
-    font-size: 30px;
     font-weight: lighter;
 }
 
 h4{
     font-family: sans-serif;
-    font-size: 75px;
     font-weight: bold;
-    margin-top: 20px;
     text-align: center;
 }
 
@@ -78,15 +58,12 @@ h4{
     position: relative;
     box-sizing: content-box;
     width: 100%;
-    margin: 100px auto 0; 
     align-items: center;
 }
 
 .wrapper {
     position: relative;
     box-sizing: content-box;
-    width: 400px;
-    height: 440px;
     background: white;
     border-radius: 20px;
     display: flex;
@@ -97,7 +74,6 @@ h4{
 
 .wrapper .form-box {
     width: 100%;
-    padding: 40px
 }
 
 /* barre de navigation */
@@ -106,7 +82,6 @@ header{
     top: 0;
     left: 0;
     width: 100%;
-    padding: 0px 60px;
     background: white;
     display: flex;
     justify-content: space-between;
@@ -115,14 +90,9 @@ header{
 }
 
 .logo{
-    font-size: 2em;
     color: black;
     user-select: none;
     text-decoration: none;
-    margin-block-start: 0.83em;
-    margin-block-end: 0.83em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
     font-weight: bold;
 }
 
@@ -133,12 +103,9 @@ header{
 
 .menu-item {
     position: relative;
-    font-size: 1.1em;
     text-transform: uppercase;
     color: black;
     text-decoration: none;
-    font-weight: 500;
-    margin-left: 30px;
     cursor: pointer;
 }
 
@@ -150,11 +117,7 @@ header{
     content: '';
     position: absolute;
     left: 0;
-    bottom: -6px;
-    width: 100%;
-    height: 3px;
     background: black;
-    border-radius: 5px;
     transform-origin: right;
     transform-origin: 50% 50%;
     transform: translateX(-48%) scaleX(0);
@@ -170,29 +133,21 @@ header{
     box-sizing: content-box;
     text-align: center;
     float: right;
-    border: 2px solid black;
-    padding: 10px 10px;
     overflow: hidden; 
     transition: background-color 0.5s, color 0.5s;
 }
 
 .connexion {
     position: relative;
-    font-size: 1em;
     text-transform: uppercase;
     color: black;
     text-decoration: none;
-    font-weight: 500;
     cursor: pointer;
 }
 
 .connexion-content::after {
     content: '';
     position: absolute;
-    top: 100%;
-    left: 0;
-    width: 0;
-    height: 100%;
     background: linear-gradient(to top right, black 50%, transparent 50%);
     transition: top 0.5s;
 }
@@ -214,18 +169,12 @@ header{
 .input-box {
     position: relative;
     width: 100%;
-    height: 50px;
-    margin: 30px 0;
 }
 
 .input-box label {
     position: absolute;
-    top: 50%;
-    left: 10px;
     transform: translateY(-50%);
-    font-size: .9em;
     color: rgb(217, 217, 217);
-    font-weight: 200;
     pointer-events: none;
 }
 
@@ -240,19 +189,12 @@ header{
     height: 100%;
     background: transparent;
     border: 1px solid rgb(217, 217, 217);
-    border-radius: 5px;
     outline: none;
-    font-size: 1em;
     color: black;
-    font-weight: 300;
-    padding: 0 30px 0 10px;
-    border-radius: 9px;
 }
 
 input::placeholder {
-    font-size: 1em;
     color: rgb(83, 83, 83);
-    font-weight: 200;
     pointer-events: none;
     text-align: center;
 }
@@ -261,81 +203,56 @@ input::placeholder {
 .entry-box {
     position: relative;
     width: 100%;
-    height: 50px;
-    margin: 30px 0;
 }
 
 .entry-box label {
     position: absolute;
-    top: 50%;
-    left: 10px;
     transform: translateY(-300%);
-    font-size: .9em;
     color: rgb(83, 83, 83);
-    font-weight: 200;
     pointer-events: none;
 }
 
 .entry-box input {
-    width: 470px;
     height: 100%;
     background: transparent;
     border: 1px solid rgb(83, 83, 83);
-    border-radius: 5px;
     outline: none;
-    font-size: 1em;
     color: black;
-    font-weight: 300;
-    padding: 0 30px 0 10px;
-    border-radius: 9px;
     flex-direction: column;
     justify-content: center;
     flex-shrink: 0; 
 }
 
 #entry-box-sexe {
-    width: 470px;
-    height: 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-bottom: 10px;
-    padding-left: 100px;
 }
 
 #entry-box-sexe-label{
     position: absolute;
-    left: 10px;
-    font-size: .9em;
     color: rgb(83, 83, 83);
-    font-weight: 200;
     pointer-events: none;
 }
 
 #entry-box-sexe label{
-    font-size: .9em;
     color: rgb(83, 83, 83);
-    font-weight: 200;
     pointer-events: none;
 }
 
 
 /* bouton */
 .btn{
-    width: 210px;
-    height: 40px;
     background-color: black;
     border: none;
     outline: none;
     border-radius: 20px;
     cursor: pointer;
-    font-size: 1em;
     color: white;
-    font-weight: 500;
-    margin: 10px auto 0px;
     display: block; 
     text-transform: uppercase;   
 }
+
 
 /* login.html */
 .login-section {
@@ -344,38 +261,24 @@ input::placeholder {
     box-sizing: content-box;
     justify-content: space-around;
     align-items: center;
-    margin-top: 100px;
 }
 
 .sign-in-box{
     margin: 0 auto;
-    padding: 40px
-}
-
-.login-box{
-    width: 470px;
-    height: 375px;
-    margin: 0 auto;
-    padding: 40px
 }
 
 .sign-in-box p{
-    color: rgb(53, 53, 53);
     margin: 10px auto 50px;
 }
 
 .remember-forgot {
-    font-size: .8em;
     color: rgb(53, 53, 53);
-    font-weight: 500;
-    margin: -15px 0 15px;
     display: flex;
     justify-content: space-between;
 }
 
 .remember-forgot label input {
     accent-color:rgb(53, 53, 53);
-    margin-right: 3px;
 }
 
 .remember-forgot a {
@@ -388,10 +291,7 @@ input::placeholder {
 }
 
 .admin-connection {
-    font-size: .8em;
     text-align: center;
-    font-weight: 500;
-    margin: 20px auto 20px;
 }
 
 .admin-connection a {
@@ -400,19 +300,13 @@ input::placeholder {
 }
 
 .login-register {
-    font-size: .9em;
     color: rgb(53, 53, 53);
     text-align: center;
-    font-weight: 500;
-    margin: 25px 0 10px;
 }
 
 .forgot-password {
-    font-size: .9em;
     color: rgb(53, 53, 53);
     text-align: center;
-    font-weight: 500;
-    margin: 25px 0 10px;
 }
 
 
@@ -420,7 +314,6 @@ input::placeholder {
 .register-content {
     position: relative;
     box-sizing: content-box;
-    width: 1240px;
     height: auto;
     background: white;
     border-radius: 20px;
@@ -433,7 +326,6 @@ input::placeholder {
     position: relative;
     box-sizing: content-box;
     text-align: center;
-    padding-top: 10px;
 }
 
 .register-section {
@@ -448,20 +340,16 @@ input::placeholder {
 .left-box {
     position: relative;
     box-sizing: content-box;
-    width: 500px;
     height: auto;
     vertical-align: top;
-    margin: 40px auto 0;
 }
 
 .right-box {
     position: relative;
     box-sizing: content-box;
-    width: 500px;
     height: auto;
     vertical-align: top;
     float: right;
-    margin: 40px auto 0;
 }
 
 
@@ -470,15 +358,12 @@ input::placeholder {
     position: relative;
     box-sizing: content-box;
     background-color: white;
-    margin: 90px auto 0; 
     align-items: center;
 }
 
 .home-creation {
     position: relative;
     box-sizing: content-box;
-    width: 1140px;
-    height: 150px;
     display: flex;
     margin: 0 auto;
     justify-content: space-between;
@@ -488,8 +373,6 @@ input::placeholder {
 .home-NextCourse-content {
     position: relative;
     box-sizing: content-box;
-    width: 1240px;
-    height: 178px;
     display: flex;
     margin: 0 auto;
     justify-content: space-between;
@@ -500,47 +383,39 @@ input::placeholder {
 .home-NextCourse {
     position: relative;
     box-sizing: content-box;
-    width: 1140px;
-    height: 178px;
     display: flex;
     margin: 0 auto;
     justify-content: space-between;
     align-items: center;
+    width: 90%;
+    height: 178px;
 }
 
 .titel-NextCourse {
     width: auto;
-    height: 55px;
     display: flex;
     align-items: center;
 }
 
 .titel-NextCourse-name {
     font-family: sans-serif;
-    font-size: 24px;
     font-weight: lighter;
     text-align: left;
 }
 
 .home-content h3 {
     font-family: sans-serif;
-    font-size: 30px;
     font-weight: lighter;
     text-align: left;
 }
 
 .btn-home {
-    width: 220px;
-    height: 40px;
     background-color: black;
     border: none;
     outline: none;
-    border-radius: 20px;
     cursor: pointer;
     font-size: 1em;
     color: white;
-    font-weight: 500;
-    margin: 10px auto 0px;
     display: block; 
     text-transform: uppercase;
 }
@@ -770,209 +645,22 @@ input::placeholder {
 }
 
 
-/* payment.html */
-.payment-content {
-    position: relative;
-    box-sizing: content-box;
-    width: 1240px;
-    height: 775px;
-    margin: 30px auto ; 
-    justify-content: space-between;
-}
-
-.inscription-section {
-    position: relative;
-    box-sizing: content-box;
-    height: 320px;
-    background: white;
-    border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto 20px;
-}
-
-.inscription-section h3 {
-    margin-top: 60px;
-    margin-left: 60px;
-}
-
-.inscription-content {
-    display: flex;
-    flex-direction: row;
-}
-
-.inscription-information {
-    width: 620px;
-    padding-top: 10px;
-    padding-left: 80px;
-}
-
-.inscription-information p{
-    font-size: 20px;
-    font-weight: 200;
-    line-height: 30px;
-}
-
-.payment-method-section {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.payment-method-content {
-    width: 670px;
-    height: 440px;
-    background: white;
-    border-radius: 20px;
-}
-
-.payment-method-content h3 {
-    margin-top: 60px;
-    margin-left: 60px;
-}
-
-.payment-method {
-    display: flex;
-    flex-direction: column;
-    padding: 0px 60px 0px 60px;
-}
-
-.image-container {
-    width: 134px; 
-    height: 56px;
-    border-radius: 9px;
-    overflow: hidden;
-    float: right;
-}
-
-.payment-image {
-    width: 100%;
-    height: auto;
-}
-
-.payment-method-content span {
-    font-family: sans-serif;
-    font-size: 24px;
-    font-weight: lighter;
-    margin-top: 60px;
-    margin-left: 60px;
-}
-
-.payment-details-content {
-    width: 550px;
-    height: 440px;
-    background: white;
-    border-radius: 20px; 
-}
-
-.payment-details-content h3 {
-    margin-top: 60px;
-    margin-left: 60px;
-}
-
-.payment-details {
-    display: flex;
-    flex-direction: column;
-    height: 250px;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.price {
-    font-family: sans-serif;
-    font-size: 30px;
-    font-weight: lighter;
-    margin-top: 15px;
-    margin-left: 90px;
-}
-
-.total-content {
-    width: 450px;
-    height: 150px;
-    background: rgb(242,242,242);
-}
-
-.total-content p {
-    position: relative;
-    box-sizing: content-box;
-    margin: 0 auto;
-    justify-content: space-between;
-    display: inline-block;
-    text-align: justify;
-    font-size: 24px;
-    margin: 18px 32px 5px 32px;
-}
-
-.total {
-    font-family: 'Poppins', sans-serif;
-    vertical-align: top;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-.total-price {
-    vertical-align: top;
-    float: right;
-    font-weight: lighter;
-    text-transform: uppercase;
-}
-
-.choixpaiement {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-    font-size: 20px;
-    font-weight: lighter;
-    text-align: center;
-    margin-top: 10px;
-    color: rgb(83, 83, 83);
-}
-
-.continue-btn {
-    width: 385px;
-    height: 45px;
-    background-color: black;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    font-size: 1em;
-    color: white;
-    font-weight: 500;
-    margin: 10px auto 0px;
-    display: block;
-    text-transform: uppercase;   
-}
-
 /* information.html */
 .information-section {
     position: relative;
     box-sizing: content-box;
     width: auto;
     height: auto;
-    margin: 100px 20px 0; 
     align-items: center;
-}
-
-.information h3 {
-    margin-top: 60px;
-    margin-left: 80px;
 }
 
 .course-content {
     position: relative;
     box-sizing: content-box;
-    height: 150px;
     background: white;
-    border-radius: 20px;
     display: flex;
-    margin: 0 auto 20px;
     justify-content: space-between;
     align-items: center;
-}
-
-.course-content h3{
-    margin-left: 55px;
 }
 
 .information-content {
@@ -980,9 +668,7 @@ input::placeholder {
     box-sizing: content-box;
     height: auto;
     background: white;
-    border-radius: 20px;
     margin: 0 auto;
-    padding-bottom: 15px;
 }
 
 .information {
@@ -991,51 +677,28 @@ input::placeholder {
     align-items: flex-start;
     flex-wrap: wrap;
     align-content: flex-start;
-    margin-bottom: 30px;
-}
-
-
-.left-container-information{
-    width: 60%;
 }
 
 .course-information p{
     font-family: sans-serif;
-    font-size: 18px;
     font-weight: lighter;
-    line-height: 1.5;
-    margin: 7px auto 7px 80px;
-}
-
-.right-container-information{
-    width: 35%;
-    margin-top: 100px;
 }
 
 .category-content{
     text-align: center;
 }
 
-.category-content h3 {
-    margin-top: 30px;
-}
-
 .category{
     position: relative;
     display: flex;
     justify-content: space-between;
-    height: 100px;
-    margin: 10px 150px 10px;
-    border-radius: 20px;
     border: 1px solid black;
     align-items: center;
 }
 
 .category-name{
     font-family: sans-serif;
-    font-size: 24px;
     font-weight: lighter;
-    margin-left: 65px;
     text-align: left;
 }
 
@@ -1043,13 +706,6 @@ input::placeholder {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    margin-right: 40px;
-    height: 44px;
-}
-
-.category-information-content p{
-    width: 100px;
-    font-size: 18px;
 }
 
 .category-information{
@@ -1057,30 +713,19 @@ input::placeholder {
     flex-direction: column;
     justify-content: space-evenly;
     text-align: center;
-    margin: 0px 10px 0px 10px;
-}
-
-#category-information-year {
-    width: 140px;
 }
 
 .category-information-label {
     color: rgb(175, 175, 175);
-    font-size: 15px;
     font-family: 'Poppins', sans-serif;
-    font-weight: 200;
 }
 
 .category-information-caracteristic {
-    font-size: 16px;
     font-family: 'Poppins', sans-serif;
 }
 
 #instruction-message {
-    width: 320px;
-    font-size: 18px;
     font-family: 'Poppins', sans-serif;
-    font-weight: 200;
     text-align: center;
 }
 
@@ -1104,33 +749,17 @@ input::placeholder {
 
 .navigation-content a {
     font-family: sans-serif;
-    font-size: 18px;
     font-weight: lighter;
     text-decoration: none;
     color: black;
 }
 
-.sport-section{
-    margin: auto 50px auto ;
-}
-
-.sport-section h3{
-    font-size: 24px;
-    margin-top: 40px;
-    margin-left: 10px;
-}
-
 .btn-home-MoreDetails {
-    width: 210px;
-    height: 60px;
     background-color: black;
     border: none;
     outline: none;
-    border-radius: 20px;
     cursor: pointer;
-    font-size: 1em;
     color: white;
-    font-weight: 500;
     display: block; 
     text-decoration: none;
 }
@@ -1139,29 +768,19 @@ input::placeholder {
     position: relative;
     display: flex;
     flex-direction: column;
-    height: 100px;
-    border-radius: 20px;
     border: 1px solid black;
     align-items: center;
     justify-content: space-between;
-    margin: 15px 0px 15px;
 }
 
 .btn-inscription {
-    width: 220px;
-    height: 50px;
     background-color: black;
     border: none;
     outline: none;
-    border-radius: 15px;
     cursor: pointer;
-    font-size: 1em;
     color: white;
-    font-weight: 500;
-    margin: 10px auto 0px;
     display: block; 
     text-transform: uppercase;
-    margin-right: 40px;
 }
 
 
@@ -1496,4 +1115,3564 @@ td {
     font-weight: 500;
     margin-right: 60px;
     display: block; 
+}
+
+
+@media (min-width : 475px) {
+    h1 {
+        font-size: 75px;
+    }
+    
+    h2 {
+        font-size: 2em;
+    }
+    
+    h3 {
+        font-size: 30px;
+    }
+    
+    h4{
+        font-size: 40px;
+        margin-top: 20px;
+    }
+
+    .vertical-bar {
+        height: 2px;
+        width: 400px;
+        background-color: black;
+        margin: 10px 0px 10px;
+    }
+
+    .black-point {
+        width: 3px;
+        height: 3px;
+        border-radius: 50%;
+        background-color: black;
+        margin: 5px 3px 5px;
+    }
+
+    .page-content {
+        margin: 100px auto 0; 
+    }
+
+    .wrapper .form-box {
+        padding: 40px
+    }
+
+    /* header */
+    header{
+        padding: 0px 60px;
+    }
+    
+    .logo{
+        font-size: 26px;
+        margin-block-start: 0.83em;
+        margin-block-end: 0.83em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+    }
+    
+    .menu-item {
+        font-size: 0px;
+        font-weight: 500;
+        margin-left: 30px;
+    }
+    
+    .menu-item::after {
+        bottom: -6px;
+        width: 100%;
+        height: 3px;
+        border-radius: 5px;
+        transform-origin: 50% 50%;
+        transform: translateX(-48%) scaleX(0);
+        transition: transform .5s, width .5s;
+    }
+    
+    .connexion-content {
+        border: 2px solid black;
+        padding: 10px 10px;
+    }
+    
+    .connexion {
+        font-size: 12px;
+        font-weight: 500;
+    }
+    
+    .connexion-content::after {
+        top: 100%;
+        left: 0;
+        width: 0;
+        height: 100%;
+    }
+
+    /* input-box */
+    .input-box {
+        height: 50px;
+        margin: 30px 0;
+    }
+
+    .input-box label {
+        top: 50%;
+        left: 10px;
+        font-size: .9em;
+        font-weight: 200;
+    }
+
+    .input-box input {
+        font-size: 1em;
+        font-weight: 300;
+        padding: 0 30px 0 10px;
+        border-radius: 9px;
+    }
+
+    input::placeholder {
+        font-size: 1em;
+        font-weight: 200;
+    }
+
+    /* entry-box */
+    .entry-box {
+        height: 50px;
+        margin: 30px 0;
+    }
+
+    .entry-box label {
+        top: 50%;
+        left: 10px;
+        font-size: .9em;
+        font-weight: 200;
+    }
+
+    .entry-box input {
+        width: 470px;
+        font-size: 1em;
+        font-weight: 300;
+        padding: 0 30px 0 10px;
+        border-radius: 9px;
+    }
+
+    #entry-box-sexe {
+        width: 470px;
+        height: 40px;
+        padding-bottom: 10px;
+        padding-left: 100px;
+    }
+
+    #entry-box-sexe-label{
+        left: 10px;
+        font-size: .9em;
+        font-weight: 200;
+    }
+
+    #entry-box-sexe label{
+        font-size: .9em;
+        font-weight: 200;
+    }
+
+    /* bouton */
+    .btn{
+        width: 210px;
+        height: 40px;
+        font-size: 1em;
+        font-weight: 500;
+        margin: 10px auto 0px;
+    }
+
+    /* login.html */
+    .login-section {
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        box-sizing: content-box;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .sign-in-box{
+        padding: 40px
+    }
+
+    .login-box{
+        width: 470px;
+        height: 375px;
+        margin: 0 auto;
+        padding: 40px
+    }
+
+    .sign-in-box p{
+        margin: 10px auto 50px;
+    }
+
+    .remember-forgot {
+        font-size: .8em;
+        font-weight: 500;
+        margin: -15px 0 15px;
+    }
+
+    .remember-forgot label input {
+        margin-right: 3px;
+    }
+
+    .admin-connection {
+        font-size: .8em;
+        font-weight: 500;
+        margin: 20px auto 20px;
+    }
+
+    .login-register {
+        font-size: .9em;
+        font-weight: 500;
+        margin: 25px 0 10px;
+    }
+
+    .forgot-password {
+        font-size: .9em;
+        font-weight: 500;
+        margin: 25px 0 10px;
+    }
+
+    /* register.html */
+    .register-content {
+        width: 1240px;
+    }
+
+    .register-titel {
+        padding-top: 10px;
+    }
+
+    .left-box {
+        width: 500px;
+        margin: 40px auto 0;
+    }
+
+    .right-box {
+        width: 500px;
+        margin: 40px auto 0;
+    }
+
+    /* admin_home.html */
+    .home-content {
+        margin: 90px auto 0; 
+    }
+
+    .home-creation {
+        width: 1140px;
+        height: 150px;
+    }
+
+    .home-NextCourse-content {
+        width: 1240px;
+    }
+
+    .home-NextCourse {
+        width: 90%;
+    }
+
+    .titel-NextCourse {
+        height: 25px;
+    }
+
+    .titel-NextCourse-information {
+        font-size: 10px;
+    }
+
+    .titel-NextCourse-name {
+        font-size: 14px;
+    }
+
+    .home-content h3 {
+        font-size: 30px;
+    }
+
+    .btn-home {
+        width: 220px;
+        height: 40px;
+        border-radius: 20px;
+        font-weight: 500;
+        margin: 10px auto 0px;
+    }
+    
+    /* payment.html */
+    .payment-content {
+        position: relative;
+        box-sizing: content-box;
+        width: 1240px;
+        height: 775px;
+        margin: 30px auto ; 
+        justify-content: space-between;
+    }
+
+    .inscription-section {
+        position: relative;
+        box-sizing: content-box;
+        height: 320px;
+        background: white;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto 20px;
+    }
+
+    .inscription-section h3 {
+        margin-top: 60px;
+        margin-left: 60px;
+    }
+
+    .inscription-content {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .inscription-information {
+        width: 620px;
+        padding-top: 10px;
+        padding-left: 80px;
+    }
+
+    .inscription-information p{
+        font-size: 20px;
+        font-weight: 200;
+        line-height: 30px;
+    }
+
+    .payment-method-section {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .payment-method-content {
+        width: 670px;
+        height: 440px;
+        background: white;
+        border-radius: 20px;
+    }
+
+    .payment-method-content h3 {
+        margin-top: 60px;
+        margin-left: 60px;
+    }
+
+    .payment-method {
+        display: flex;
+        flex-direction: column;
+        padding: 0px 60px 0px 60px;
+    }
+
+    .image-container {
+        width: 134px; 
+        height: 56px;
+        border-radius: 9px;
+        overflow: hidden;
+        float: right;
+    }
+
+    .payment-image {
+        width: 100%;
+        height: auto;
+    }
+
+    .payment-method-content span {
+        font-family: sans-serif;
+        font-size: 24px;
+        font-weight: lighter;
+        margin-top: 60px;
+        margin-left: 60px;
+    }
+
+    .payment-details-content {
+        width: 550px;
+        height: 440px;
+        background: white;
+        border-radius: 20px; 
+    }
+
+    .payment-details-content h3 {
+        margin-top: 60px;
+        margin-left: 60px;
+    }
+
+    .payment-details {
+        display: flex;
+        flex-direction: column;
+        height: 250px;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .price {
+        font-family: sans-serif;
+        font-size: 30px;
+        font-weight: lighter;
+        margin-top: 15px;
+        margin-left: 90px;
+    }
+
+    .total-content {
+        width: 450px;
+        height: 150px;
+        background: rgb(242,242,242);
+    }
+
+    .total-content p {
+        position: relative;
+        box-sizing: content-box;
+        margin: 0 auto;
+        justify-content: space-between;
+        display: inline-block;
+        text-align: justify;
+        font-size: 24px;
+        margin: 18px 32px 5px 32px;
+    }
+
+    .total {
+        font-family: 'Poppins', sans-serif;
+        vertical-align: top;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .total-price {
+        vertical-align: top;
+        float: right;
+        font-weight: lighter;
+        text-transform: uppercase;
+    }
+
+    .choixpaiement {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+        font-size: 20px;
+        font-weight: lighter;
+        text-align: center;
+        margin-top: 10px;
+        color: rgb(83, 83, 83);
+    }
+
+    .continue-btn {
+        width: 385px;
+        height: 45px;
+        background-color: black;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        font-size: 1em;
+        color: white;
+        font-weight: 500;
+        margin: 10px auto 0px;
+        display: block;
+        text-transform: uppercase;   
+    }
+
+    /* information.html */
+    .information-section {
+        margin: 100px 20px 0; 
+    }
+
+    .information h3 {
+        margin-top: 60px;
+        margin-left: 80px;
+    }
+
+    .course-content {
+        height: 150px;
+        border-radius: 20px;
+        margin: 0 auto 20px;
+    }
+
+    .course-content h3{
+        margin-left: 55px;
+    }
+
+    .information-content {
+        border-radius: 20px;
+        padding-bottom: 15px;
+    }
+
+    .information {
+        margin-bottom: 30px;
+    }
+
+
+    .left-container-information{
+        width: 60%;
+    }
+
+    .course-information p{
+        font-size: 18px;
+        line-height: 1.5;
+        margin: 7px auto 7px 80px;
+    }
+
+    .right-container-information{
+        width: 35%;
+        margin-top: 100px;
+    }
+
+    .category-content h3 {
+        margin-top: 30px;
+    }
+
+    .category{
+        height: 100px;
+        margin: 10px 150px 10px;
+        border-radius: 20px;
+    }
+
+    .category-name{
+        font-size: 24px;
+        margin-left: 65px;
+    }
+
+    .category-information-section{
+        margin-right: 40px;
+        height: 44px;
+    }
+
+    .category-information-content p{
+        width: 100px;
+        font-size: 18px;
+    }
+
+    .category-information{
+        margin: 0px 10px 0px 10px;
+    }
+
+    #category-information-year {
+        width: 140px;
+    }
+
+    .category-information-label {
+        font-size: 15px;
+        font-weight: 200;
+    }
+
+    .category-information-caracteristic {
+        font-size: 16px;
+    }
+
+    #instruction-message {
+        width: 320px;
+        font-size: 18px;
+        font-weight: 200;
+    }
+
+    /* sport.html */
+    .navigation-content {
+        position: relative;
+        width: 82%;
+        height: auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        text-align: center;
+        align-items: center;
+        margin: 0 auto;
+    }
+
+    .navigation-content a {
+        font-size: 8px;
+    }
+
+    .sport-section{
+        margin: auto 50px auto ;
+    }
+
+    .sport-section h3{
+        font-size: 14px;
+        margin-top: 40px;
+        margin-left: 10px;
+    }
+
+    .btn-home-MoreDetails {
+        width: 80px;
+        height: 30px;
+        border-radius: 10px;
+        font-size: 10px;
+        font-weight: 500;
+    }
+
+    .sport-course{
+        height: 60px;
+        border-radius: 18px;
+        margin: 10px 0px 10px;
+    }
+
+    .btn-inscription {
+        width: 220px;
+        height: 50px;
+        border-radius: 15px;
+        font-size: 1em;
+        font-weight: 500;
+        margin: 10px auto 0px;
+        margin-right: 40px;
+    }
+}
+
+@media (min-width : 640px) {
+    h1 {
+        font-size: 75px;
+    }
+    
+    h2 {
+        font-size: 2em;
+    }
+    
+    h3 {
+        font-size: 30px;
+    }
+    
+    h4{
+        font-size: 50px;
+        margin-top: 20px;
+    }
+
+    .vertical-bar {
+        height: 2px;
+        width: 500px;
+        background-color: black;
+        margin: 10px 0px 10px;
+    }
+
+    .black-point {
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background-color: black;
+        margin: 5px 4px 5px;
+    }
+
+    .page-content {
+        margin: 100px auto 0; 
+    }
+
+    .wrapper .form-box {
+        padding: 40px
+    }
+
+    /* header */
+    header{
+        padding: 0px 60px;
+    }
+    
+    .logo{
+        font-size: 2em;
+        margin-block-start: 0.83em;
+        margin-block-end: 0.83em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+    }
+    
+    .menu-item {
+        font-size: 0px;
+        font-weight: 500;
+        margin-left: 30px;
+    }
+    
+    .menu-item::after {
+        bottom: -6px;
+        width: 100%;
+        height: 3px;
+        border-radius: 5px;
+        transform-origin: 50% 50%;
+        transform: translateX(-48%) scaleX(0);
+        transition: transform .5s, width .5s;
+    }
+    
+    .connexion-content {
+        border: 2px solid black;
+        padding: 10px 10px;
+    }
+    
+    .connexion {
+        font-size: 1em;
+        font-weight: 500;
+    }
+    
+    .connexion-content::after {
+        top: 100%;
+        left: 0;
+        width: 0;
+        height: 100%;
+    }
+
+    /* input-box */
+    .input-box {
+        height: 50px;
+        margin: 30px 0;
+    }
+
+    .input-box label {
+        top: 50%;
+        left: 10px;
+        font-size: .9em;
+        font-weight: 200;
+    }
+
+    .input-box input {
+        font-size: 1em;
+        font-weight: 300;
+        padding: 0 30px 0 10px;
+        border-radius: 9px;
+    }
+
+    input::placeholder {
+        font-size: 1em;
+        font-weight: 200;
+    }
+
+    /* entry-box */
+    .entry-box {
+        height: 50px;
+        margin: 30px 0;
+    }
+
+    .entry-box label {
+        top: 50%;
+        left: 10px;
+        font-size: .9em;
+        font-weight: 200;
+    }
+
+    .entry-box input {
+        width: 470px;
+        font-size: 1em;
+        font-weight: 300;
+        padding: 0 30px 0 10px;
+        border-radius: 9px;
+    }
+
+    #entry-box-sexe {
+        width: 470px;
+        height: 40px;
+        padding-bottom: 10px;
+        padding-left: 100px;
+    }
+
+    #entry-box-sexe-label{
+        left: 10px;
+        font-size: .9em;
+        font-weight: 200;
+    }
+
+    #entry-box-sexe label{
+        font-size: .9em;
+        font-weight: 200;
+    }
+
+    /* bouton */
+    .btn{
+        width: 210px;
+        height: 40px;
+        font-size: 1em;
+        font-weight: 500;
+        margin: 10px auto 0px;
+    }
+
+    /* login.html */
+    .login-section {
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        box-sizing: content-box;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .sign-in-box{
+        padding: 40px
+    }
+
+    .login-box{
+        width: 470px;
+        height: 375px;
+        margin: 0 auto;
+        padding: 40px
+    }
+
+    .sign-in-box p{
+        margin: 10px auto 50px;
+    }
+
+    .remember-forgot {
+        font-size: .8em;
+        font-weight: 500;
+        margin: -15px 0 15px;
+    }
+
+    .remember-forgot label input {
+        margin-right: 3px;
+    }
+
+    .admin-connection {
+        font-size: .8em;
+        font-weight: 500;
+        margin: 20px auto 20px;
+    }
+
+    .login-register {
+        font-size: .9em;
+        font-weight: 500;
+        margin: 25px 0 10px;
+    }
+
+    .forgot-password {
+        font-size: .9em;
+        font-weight: 500;
+        margin: 25px 0 10px;
+    }
+
+    /* register.html */
+    .register-content {
+        width: 1240px;
+    }
+
+    .register-titel {
+        padding-top: 10px;
+    }
+
+    .left-box {
+        width: 500px;
+        margin: 40px auto 0;
+    }
+
+    .right-box {
+        width: 500px;
+        margin: 40px auto 0;
+    }
+
+    /* admin_home.html */
+    .home-content {
+        margin: 90px auto 0; 
+    }
+
+    .home-creation {
+        width: 1140px;
+        height: 150px;
+    }
+
+    .home-NextCourse-content {
+        width: 1240px;
+    }
+
+    .home-NextCourse {
+        width: 90%;
+    }
+
+    .titel-NextCourse {
+        height: 30px;
+    }
+
+    .titel-NextCourse-information {
+        font-size: 12px;
+    }
+
+    .titel-NextCourse-name {
+        font-size: 16px;
+    }
+
+    .home-content h3 {
+        font-size: 30px;
+    }
+
+    .btn-home {
+        width: 220px;
+        height: 40px;
+        border-radius: 20px;
+        font-weight: 500;
+        margin: 10px auto 0px;
+    }
+    
+    /* payment.html */
+    .payment-content {
+        position: relative;
+        box-sizing: content-box;
+        width: 1240px;
+        height: 775px;
+        margin: 30px auto ; 
+        justify-content: space-between;
+    }
+
+    .inscription-section {
+        position: relative;
+        box-sizing: content-box;
+        height: 320px;
+        background: white;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto 20px;
+    }
+
+    .inscription-section h3 {
+        margin-top: 60px;
+        margin-left: 60px;
+    }
+
+    .inscription-content {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .inscription-information {
+        width: 620px;
+        padding-top: 10px;
+        padding-left: 80px;
+    }
+
+    .inscription-information p{
+        font-size: 20px;
+        font-weight: 200;
+        line-height: 30px;
+    }
+
+    .payment-method-section {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .payment-method-content {
+        width: 670px;
+        height: 440px;
+        background: white;
+        border-radius: 20px;
+    }
+
+    .payment-method-content h3 {
+        margin-top: 60px;
+        margin-left: 60px;
+    }
+
+    .payment-method {
+        display: flex;
+        flex-direction: column;
+        padding: 0px 60px 0px 60px;
+    }
+
+    .image-container {
+        width: 134px; 
+        height: 56px;
+        border-radius: 9px;
+        overflow: hidden;
+        float: right;
+    }
+
+    .payment-image {
+        width: 100%;
+        height: auto;
+    }
+
+    .payment-method-content span {
+        font-family: sans-serif;
+        font-size: 24px;
+        font-weight: lighter;
+        margin-top: 60px;
+        margin-left: 60px;
+    }
+
+    .payment-details-content {
+        width: 550px;
+        height: 440px;
+        background: white;
+        border-radius: 20px; 
+    }
+
+    .payment-details-content h3 {
+        margin-top: 60px;
+        margin-left: 60px;
+    }
+
+    .payment-details {
+        display: flex;
+        flex-direction: column;
+        height: 250px;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .price {
+        font-family: sans-serif;
+        font-size: 30px;
+        font-weight: lighter;
+        margin-top: 15px;
+        margin-left: 90px;
+    }
+
+    .total-content {
+        width: 450px;
+        height: 150px;
+        background: rgb(242,242,242);
+    }
+
+    .total-content p {
+        position: relative;
+        box-sizing: content-box;
+        margin: 0 auto;
+        justify-content: space-between;
+        display: inline-block;
+        text-align: justify;
+        font-size: 24px;
+        margin: 18px 32px 5px 32px;
+    }
+
+    .total {
+        font-family: 'Poppins', sans-serif;
+        vertical-align: top;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .total-price {
+        vertical-align: top;
+        float: right;
+        font-weight: lighter;
+        text-transform: uppercase;
+    }
+
+    .choixpaiement {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+        font-size: 20px;
+        font-weight: lighter;
+        text-align: center;
+        margin-top: 10px;
+        color: rgb(83, 83, 83);
+    }
+
+    .continue-btn {
+        width: 385px;
+        height: 45px;
+        background-color: black;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        font-size: 1em;
+        color: white;
+        font-weight: 500;
+        margin: 10px auto 0px;
+        display: block;
+        text-transform: uppercase;   
+    }
+
+    /* information.html */
+    .information-section {
+        margin: 100px 20px 0; 
+    }
+
+    .information h3 {
+        margin-top: 60px;
+        margin-left: 80px;
+    }
+
+    .course-content {
+        height: 150px;
+        border-radius: 20px;
+        margin: 0 auto 20px;
+    }
+
+    .course-content h3{
+        margin-left: 55px;
+    }
+
+    .information-content {
+        border-radius: 20px;
+        padding-bottom: 15px;
+    }
+
+    .information {
+        margin-bottom: 30px;
+    }
+
+
+    .left-container-information{
+        width: 60%;
+    }
+
+    .course-information p{
+        font-size: 18px;
+        line-height: 1.5;
+        margin: 7px auto 7px 80px;
+    }
+
+    .right-container-information{
+        width: 35%;
+        margin-top: 100px;
+    }
+
+    .category-content h3 {
+        margin-top: 30px;
+    }
+
+    .category{
+        height: 100px;
+        margin: 10px 150px 10px;
+        border-radius: 20px;
+    }
+
+    .category-name{
+        font-size: 24px;
+        margin-left: 65px;
+    }
+
+    .category-information-section{
+        margin-right: 40px;
+        height: 44px;
+    }
+
+    .category-information-content p{
+        width: 100px;
+        font-size: 18px;
+    }
+
+    .category-information{
+        margin: 0px 10px 0px 10px;
+    }
+
+    #category-information-year {
+        width: 140px;
+    }
+
+    .category-information-label {
+        font-size: 15px;
+        font-weight: 200;
+    }
+
+    .category-information-caracteristic {
+        font-size: 16px;
+    }
+
+    #instruction-message {
+        width: 320px;
+        font-size: 18px;
+        font-weight: 200;
+    }
+
+    /* sport.html */
+    .navigation-content {
+        position: relative;
+        width: 82%;
+        height: auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        text-align: center;
+        align-items: center;
+        margin: 0 auto;
+    }
+
+    .navigation-content a {
+        font-size: 11px;
+    }
+
+    .sport-section{
+        margin: auto 50px auto ;
+    }
+
+    .sport-section h3{
+        font-size: 16px;
+        margin-top: 40px;
+        margin-left: 10px;
+    }
+
+    .btn-home-MoreDetails {
+        width: 100px;
+        height: 35px;
+        border-radius: 14px;
+        font-size: 12px;
+        font-weight: 500;
+    }
+
+    .sport-course{
+        height: 70px;
+        border-radius: 18px;
+        margin: 10px 0px 10px;
+    }
+
+    .btn-inscription {
+        width: 220px;
+        height: 50px;
+        border-radius: 15px;
+        font-size: 1em;
+        font-weight: 500;
+        margin: 10px auto 0px;
+        margin-right: 40px;
+    }
+}
+
+@media (min-width : 768px) {
+    h1 {
+        font-size: 75px;
+    }
+    
+    h2 {
+        font-size: 2em;
+    }
+    
+    h3 {
+        font-size: 30px;
+    }
+    
+    h4{
+        font-size: 60px;
+        margin-top: 20px;
+    }
+
+    .vertical-bar {
+        height: 500px;
+        width: 2px;
+        background-color: black;
+        margin: 10px 0px 10px;
+    }
+
+    .black-point {
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background-color: black;
+        margin: 5px 5px 5px;
+    }
+
+    .page-content {
+        margin: 100px auto 0; 
+    }
+
+    .wrapper .form-box {
+        padding: 40px
+    }
+
+    /* header */
+    header{
+        padding: 0px 60px;
+    }
+    
+    .logo{
+        font-size: 2em;
+        margin-block-start: 0.83em;
+        margin-block-end: 0.83em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+    }
+    
+    .menu-item {
+        font-size: 18px;
+        font-weight: 500;
+        margin-left: 15px;
+    }
+    
+    .menu-item::after {
+        bottom: -6px;
+        width: 100%;
+        height: 3px;
+        border-radius: 5px;
+        transform-origin: 50% 50%;
+        transform: translateX(-48%) scaleX(0);
+        transition: transform .5s, width .5s;
+    }
+    
+    .connexion-content {
+        border: 2px solid black;
+        padding: 10px 10px;
+    }
+    
+    .connexion {
+        font-size: 1em;
+        font-weight: 500;
+    }
+    
+    .connexion-content::after {
+        top: 100%;
+        left: 0;
+        width: 0;
+        height: 100%;
+    }
+
+    /* input-box */
+    .input-box {
+        height: 50px;
+        margin: 30px 0;
+    }
+
+    .input-box label {
+        top: 50%;
+        left: 10px;
+        font-size: .9em;
+        font-weight: 200;
+    }
+
+    .input-box input {
+        font-size: 1em;
+        font-weight: 300;
+        padding: 0 30px 0 10px;
+        border-radius: 9px;
+    }
+
+    input::placeholder {
+        font-size: 1em;
+        font-weight: 200;
+    }
+
+    /* entry-box */
+    .entry-box {
+        height: 50px;
+        margin: 30px 0;
+    }
+
+    .entry-box label {
+        top: 50%;
+        left: 10px;
+        font-size: .9em;
+        font-weight: 200;
+    }
+
+    .entry-box input {
+        width: 470px;
+        font-size: 1em;
+        font-weight: 300;
+        padding: 0 30px 0 10px;
+        border-radius: 9px;
+    }
+
+    #entry-box-sexe {
+        width: 470px;
+        height: 40px;
+        padding-bottom: 10px;
+        padding-left: 100px;
+    }
+
+    #entry-box-sexe-label{
+        left: 10px;
+        font-size: .9em;
+        font-weight: 200;
+    }
+
+    #entry-box-sexe label{
+        font-size: .9em;
+        font-weight: 200;
+    }
+
+    /* bouton */
+    .btn{
+        width: 210px;
+        height: 40px;
+        font-size: 1em;
+        font-weight: 500;
+        margin: 10px auto 0px;
+    }
+
+    /* login.html */
+    .login-section {
+        display: flex;
+        position: relative;
+        flex-direction: row;
+        box-sizing: content-box;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .sign-in-box{
+        padding: 40px
+    }
+
+    .login-box{
+        width: 470px;
+        height: 375px;
+        margin: 0 auto;
+        padding: 40px
+    }
+
+    .sign-in-box p{
+        text-align: center;
+        margin: 10px auto 50px;
+    }
+
+    .remember-forgot {
+        font-size: .8em;
+        font-weight: 500;
+        margin: -15px 0 15px;
+    }
+
+    .remember-forgot label input {
+        margin-right: 3px;
+    }
+
+    .admin-connection {
+        font-size: .8em;
+        font-weight: 500;
+        margin: 20px auto 20px;
+    }
+
+    .login-register {
+        font-size: .9em;
+        font-weight: 500;
+        margin: 25px 0 10px;
+    }
+
+    .forgot-password {
+        font-size: .9em;
+        font-weight: 500;
+        margin: 25px 0 10px;
+    }
+
+    /* register.html */
+    .register-content {
+        width: 1240px;
+    }
+
+    .register-titel {
+        padding-top: 10px;
+    }
+
+    .left-box {
+        width: 500px;
+        margin: 40px auto 0;
+    }
+
+    .right-box {
+        width: 500px;
+        margin: 40px auto 0;
+    }
+
+    /* admin_home.html */
+    .home-content {
+        margin: 90px auto 0; 
+    }
+
+    .home-creation {
+        width: 1140px;
+        height: 150px;
+    }
+
+    .home-NextCourse-content {
+        width: 1240px;
+    }
+
+    .home-NextCourse {
+        width: 90%;
+        height: 178px;
+    }
+
+    .titel-NextCourse {
+        height: 40px;
+    }
+
+    .titel-NextCourse-information {
+        font-size: 14px;
+    }
+
+    .titel-NextCourse-name {
+        font-size: 18px;
+    }
+
+    .home-content h3 {
+        font-size: 30px;
+    }
+
+    .btn-home {
+        width: 220px;
+        height: 40px;
+        border-radius: 20px;
+        font-weight: 500;
+        margin: 10px auto 0px;
+    }
+    
+    /* payment.html */
+    .payment-content {
+        position: relative;
+        box-sizing: content-box;
+        width: 1240px;
+        height: 775px;
+        margin: 30px auto ; 
+        justify-content: space-between;
+    }
+
+    .inscription-section {
+        position: relative;
+        box-sizing: content-box;
+        height: 320px;
+        background: white;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto 20px;
+    }
+
+    .inscription-section h3 {
+        margin-top: 60px;
+        margin-left: 60px;
+    }
+
+    .inscription-content {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .inscription-information {
+        width: 620px;
+        padding-top: 10px;
+        padding-left: 80px;
+    }
+
+    .inscription-information p{
+        font-size: 20px;
+        font-weight: 200;
+        line-height: 30px;
+    }
+
+    .payment-method-section {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .payment-method-content {
+        width: 670px;
+        height: 440px;
+        background: white;
+        border-radius: 20px;
+    }
+
+    .payment-method-content h3 {
+        margin-top: 60px;
+        margin-left: 60px;
+    }
+
+    .payment-method {
+        display: flex;
+        flex-direction: column;
+        padding: 0px 60px 0px 60px;
+    }
+
+    .image-container {
+        width: 134px; 
+        height: 56px;
+        border-radius: 9px;
+        overflow: hidden;
+        float: right;
+    }
+
+    .payment-image {
+        width: 100%;
+        height: auto;
+    }
+
+    .payment-method-content span {
+        font-family: sans-serif;
+        font-size: 24px;
+        font-weight: lighter;
+        margin-top: 60px;
+        margin-left: 60px;
+    }
+
+    .payment-details-content {
+        width: 550px;
+        height: 440px;
+        background: white;
+        border-radius: 20px; 
+    }
+
+    .payment-details-content h3 {
+        margin-top: 60px;
+        margin-left: 60px;
+    }
+
+    .payment-details {
+        display: flex;
+        flex-direction: column;
+        height: 250px;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .price {
+        font-family: sans-serif;
+        font-size: 30px;
+        font-weight: lighter;
+        margin-top: 15px;
+        margin-left: 90px;
+    }
+
+    .total-content {
+        width: 450px;
+        height: 150px;
+        background: rgb(242,242,242);
+    }
+
+    .total-content p {
+        position: relative;
+        box-sizing: content-box;
+        margin: 0 auto;
+        justify-content: space-between;
+        display: inline-block;
+        text-align: justify;
+        font-size: 24px;
+        margin: 18px 32px 5px 32px;
+    }
+
+    .total {
+        font-family: 'Poppins', sans-serif;
+        vertical-align: top;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .total-price {
+        vertical-align: top;
+        float: right;
+        font-weight: lighter;
+        text-transform: uppercase;
+    }
+
+    .choixpaiement {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+        font-size: 20px;
+        font-weight: lighter;
+        text-align: center;
+        margin-top: 10px;
+        color: rgb(83, 83, 83);
+    }
+
+    .continue-btn {
+        width: 385px;
+        height: 45px;
+        background-color: black;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        font-size: 1em;
+        color: white;
+        font-weight: 500;
+        margin: 10px auto 0px;
+        display: block;
+        text-transform: uppercase;   
+    }
+
+    /* information.html */
+    .information-section {
+        margin: 100px 20px 0; 
+    }
+
+    .information h3 {
+        margin-top: 60px;
+        margin-left: 80px;
+    }
+
+    .course-content {
+        height: 150px;
+        border-radius: 20px;
+        margin: 0 auto 20px;
+    }
+
+    .course-content h3{
+        margin-left: 55px;
+    }
+
+    .information-content {
+        border-radius: 20px;
+        padding-bottom: 15px;
+    }
+
+    .information {
+        margin-bottom: 30px;
+    }
+
+    .left-container-information{
+        width: 60%;
+    }
+
+    .course-information p{
+        font-size: 18px;
+        line-height: 1.5;
+        margin: 7px auto 7px 80px;
+    }
+
+    .right-container-information{
+        width: 35%;
+        margin-top: 100px;
+    }
+
+    .category-content h3 {
+        margin-top: 30px;
+    }
+
+    .category{
+        height: 100px;
+        margin: 10px 150px 10px;
+        border-radius: 20px;
+    }
+
+    .category-name{
+        font-size: 24px;
+        margin-left: 65px;
+    }
+
+    .category-information-section{
+        margin-right: 40px;
+        height: 44px;
+    }
+
+    .category-information-content p{
+        width: 100px;
+        font-size: 18px;
+    }
+
+    .category-information{
+        margin: 0px 10px 0px 10px;
+    }
+
+    #category-information-year {
+        width: 140px;
+    }
+
+    .category-information-label {
+        font-size: 15px;
+        font-weight: 200;
+    }
+
+    .category-information-caracteristic {
+        font-size: 16px;
+    }
+
+    #instruction-message {
+        width: 320px;
+        font-size: 18px;
+        font-weight: 200;
+    }
+
+    /* sport.html */
+    .navigation-content {
+        position: relative;
+        width: 82%;
+        height: auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        text-align: center;
+        align-items: center;
+        margin: 0 auto;
+    }
+
+    .navigation-content a {
+        font-size: 12px;
+    }
+
+    .sport-section{
+        margin: auto 50px auto ;
+    }
+
+    .sport-section h3{
+        font-size: 18px;
+        margin-top: 40px;
+        margin-left: 10px;
+    }
+
+    .btn-home-MoreDetails {
+        width: 120px;
+        height: 40px;
+        border-radius: 14px;
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    .sport-course{
+        height: 70px;
+        border-radius: 18px;
+        margin: 10px 0px 10px;
+    }
+
+    .btn-inscription {
+        width: 220px;
+        height: 50px;
+        border-radius: 15px;
+        font-size: 1em;
+        font-weight: 500;
+        margin: 10px auto 0px;
+        margin-right: 40px;
+    }
+}
+
+@media (min-width : 1040px) {
+    h1 {
+        font-size: 75px;
+    }
+    
+    h2 {
+        font-size: 2em;
+    }
+    
+    h3 {
+        font-size: 30px;
+    }
+    
+    h4{
+        font-size: 75px;
+        margin-top: 20px;
+    }
+
+    .vertical-bar {
+        height: 600px;
+        width: 2px;
+        background-color: black;
+        margin: 10px 0px 10px;
+    }
+
+    .black-point {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: black;
+        margin: 5px 10px 5px;
+    }
+
+    .page-content {
+        margin: 100px auto 0; 
+    }
+
+    .wrapper .form-box {
+        padding: 40px
+    }
+
+    /* header */
+    header{
+        padding: 0px 60px;
+    }
+    
+    .logo{
+        font-size: 2em;
+        margin-block-start: 0.83em;
+        margin-block-end: 0.83em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+    }
+    
+    .menu-item {
+        font-size: 1.1em;
+        font-weight: 500;
+        margin-left: 30px;
+    }
+    
+    .menu-item::after {
+        bottom: -6px;
+        width: 100%;
+        height: 3px;
+        border-radius: 5px;
+        transform-origin: 50% 50%;
+        transform: translateX(-48%) scaleX(0);
+        transition: transform .5s, width .5s;
+    }
+    
+    .connexion-content {
+        border: 2px solid black;
+        padding: 10px 10px;
+    }
+    
+    .connexion {
+        font-size: 1em;
+        font-weight: 500;
+    }
+    
+    .connexion-content::after {
+        top: 100%;
+        left: 0;
+        width: 0;
+        height: 100%;
+    }
+
+    /* input-box */
+    .input-box {
+        height: 50px;
+        margin: 30px 0;
+    }
+
+    .input-box label {
+        top: 50%;
+        left: 10px;
+        font-size: .9em;
+        font-weight: 200;
+    }
+
+    .input-box input {
+        font-size: 1em;
+        font-weight: 300;
+        padding: 0 30px 0 10px;
+        border-radius: 9px;
+    }
+
+    input::placeholder {
+        font-size: 1em;
+        font-weight: 200;
+    }
+
+    /* entry-box */
+    .entry-box {
+        height: 50px;
+        margin: 30px 0;
+    }
+
+    .entry-box label {
+        top: 50%;
+        left: 10px;
+        font-size: .9em;
+        font-weight: 200;
+    }
+
+    .entry-box input {
+        width: 470px;
+        font-size: 1em;
+        font-weight: 300;
+        padding: 0 30px 0 10px;
+        border-radius: 9px;
+    }
+
+    #entry-box-sexe {
+        width: 470px;
+        height: 40px;
+        padding-bottom: 10px;
+        padding-left: 100px;
+    }
+
+    #entry-box-sexe-label{
+        left: 10px;
+        font-size: .9em;
+        font-weight: 200;
+    }
+
+    #entry-box-sexe label{
+        font-size: .9em;
+        font-weight: 200;
+    }
+
+    /* bouton */
+    .btn{
+        width: 210px;
+        height: 40px;
+        font-size: 1em;
+        font-weight: 500;
+        margin: 10px auto 0px;
+    }
+
+    /* login.html */
+    .login-section {
+        display: flex;
+        position: relative;
+        flex-direction: row;
+        box-sizing: content-box;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .sign-in-box{
+        padding: 40px
+    }
+
+    .login-box{
+        width: 470px;
+        height: 375px;
+        margin: 0 auto;
+        padding: 40px
+    }
+
+    .sign-in-box p{
+        margin: 10px auto 50px;
+    }
+
+    .remember-forgot {
+        font-size: .8em;
+        font-weight: 500;
+        margin: -15px 0 15px;
+    }
+
+    .remember-forgot label input {
+        margin-right: 3px;
+    }
+
+    .admin-connection {
+        font-size: .8em;
+        font-weight: 500;
+        margin: 20px auto 20px;
+    }
+
+    .login-register {
+        font-size: .9em;
+        font-weight: 500;
+        margin: 25px 0 10px;
+    }
+
+    .forgot-password {
+        font-size: .9em;
+        font-weight: 500;
+        margin: 25px 0 10px;
+    }
+
+    /* register.html */
+    .register-content {
+        width: 1240px;
+    }
+
+    .register-titel {
+        padding-top: 10px;
+    }
+
+    .left-box {
+        width: 500px;
+        margin: 40px auto 0;
+    }
+
+    .right-box {
+        width: 500px;
+        margin: 40px auto 0;
+    }
+
+    /* admin_home.html */
+    .home-content {
+        margin: 90px auto 0; 
+    }
+
+    .home-creation {
+        width: 1140px;
+        height: 150px;
+    }
+
+    .home-NextCourse-content {
+        width: 1240px;
+        height: 178px;
+    }
+
+    .home-NextCourse {
+        width: 90%;
+        height: 178px;
+    }
+
+    .titel-NextCourse {
+        height: 55px;
+    }
+
+    .titel-NextCourse-name {
+        font-size: 24px;
+    }
+
+    .home-content h3 {
+        font-size: 30px;
+    }
+
+    .btn-home {
+        width: 220px;
+        height: 40px;
+        border-radius: 20px;
+        font-weight: 500;
+        margin: 10px auto 0px;
+    }
+    
+    /* payment.html */
+    .payment-content {
+        position: relative;
+        box-sizing: content-box;
+        width: 1240px;
+        height: 775px;
+        margin: 30px auto ; 
+        justify-content: space-between;
+    }
+
+    .inscription-section {
+        position: relative;
+        box-sizing: content-box;
+        height: 320px;
+        background: white;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto 20px;
+    }
+
+    .inscription-section h3 {
+        margin-top: 60px;
+        margin-left: 60px;
+    }
+
+    .inscription-content {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .inscription-information {
+        width: 620px;
+        padding-top: 10px;
+        padding-left: 80px;
+    }
+
+    .inscription-information p{
+        font-size: 20px;
+        font-weight: 200;
+        line-height: 30px;
+    }
+
+    .payment-method-section {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .payment-method-content {
+        width: 670px;
+        height: 440px;
+        background: white;
+        border-radius: 20px;
+    }
+
+    .payment-method-content h3 {
+        margin-top: 60px;
+        margin-left: 60px;
+    }
+
+    .payment-method {
+        display: flex;
+        flex-direction: column;
+        padding: 0px 60px 0px 60px;
+    }
+
+    .image-container {
+        width: 134px; 
+        height: 56px;
+        border-radius: 9px;
+        overflow: hidden;
+        float: right;
+    }
+
+    .payment-image {
+        width: 100%;
+        height: auto;
+    }
+
+    .payment-method-content span {
+        font-family: sans-serif;
+        font-size: 24px;
+        font-weight: lighter;
+        margin-top: 60px;
+        margin-left: 60px;
+    }
+
+    .payment-details-content {
+        width: 550px;
+        height: 440px;
+        background: white;
+        border-radius: 20px; 
+    }
+
+    .payment-details-content h3 {
+        margin-top: 60px;
+        margin-left: 60px;
+    }
+
+    .payment-details {
+        display: flex;
+        flex-direction: column;
+        height: 250px;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .price {
+        font-family: sans-serif;
+        font-size: 30px;
+        font-weight: lighter;
+        margin-top: 15px;
+        margin-left: 90px;
+    }
+
+    .total-content {
+        width: 450px;
+        height: 150px;
+        background: rgb(242,242,242);
+    }
+
+    .total-content p {
+        position: relative;
+        box-sizing: content-box;
+        margin: 0 auto;
+        justify-content: space-between;
+        display: inline-block;
+        text-align: justify;
+        font-size: 24px;
+        margin: 18px 32px 5px 32px;
+    }
+
+    .total {
+        font-family: 'Poppins', sans-serif;
+        vertical-align: top;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .total-price {
+        vertical-align: top;
+        float: right;
+        font-weight: lighter;
+        text-transform: uppercase;
+    }
+
+    .choixpaiement {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+        font-size: 20px;
+        font-weight: lighter;
+        text-align: center;
+        margin-top: 10px;
+        color: rgb(83, 83, 83);
+    }
+
+    .continue-btn {
+        width: 385px;
+        height: 45px;
+        background-color: black;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        font-size: 1em;
+        color: white;
+        font-weight: 500;
+        margin: 10px auto 0px;
+        display: block;
+        text-transform: uppercase;   
+    }
+
+    /* information.html */
+    .information-section {
+        margin: 100px 20px 0; 
+    }
+
+    .information h3 {
+        margin-top: 60px;
+        margin-left: 80px;
+    }
+
+    .course-content {
+        height: 150px;
+        border-radius: 20px;
+        margin: 0 auto 20px;
+    }
+
+    .course-content h3{
+        margin-left: 55px;
+    }
+
+    .information-content {
+        border-radius: 20px;
+        padding-bottom: 15px;
+    }
+
+    .information {
+        margin-bottom: 30px;
+    }
+
+
+    .left-container-information{
+        width: 60%;
+    }
+
+    .course-information p{
+        font-size: 18px;
+        line-height: 1.5;
+        margin: 7px auto 7px 80px;
+    }
+
+    .right-container-information{
+        width: 35%;
+        margin-top: 100px;
+    }
+
+    .category-content h3 {
+        margin-top: 30px;
+    }
+
+    .category{
+        height: 100px;
+        margin: 10px 150px 10px;
+        border-radius: 20px;
+    }
+
+    .category-name{
+        font-size: 24px;
+        margin-left: 65px;
+    }
+
+    .category-information-section{
+        margin-right: 40px;
+        height: 44px;
+    }
+
+    .category-information-content p{
+        width: 100px;
+        font-size: 18px;
+    }
+
+    .category-information{
+        margin: 0px 10px 0px 10px;
+    }
+
+    #category-information-year {
+        width: 140px;
+    }
+
+    .category-information-label {
+        font-size: 15px;
+        font-weight: 200;
+    }
+
+    .category-information-caracteristic {
+        font-size: 16px;
+    }
+
+    #instruction-message {
+        width: 320px;
+        font-size: 18px;
+        font-weight: 200;
+    }
+
+    /* sport.html */
+    .navigation-content {
+        position: relative;
+        width: 82%;
+        height: auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        text-align: center;
+        align-items: center;
+        margin: 0 auto;
+    }
+
+    .navigation-content a {
+        font-size: 16px;
+    }
+
+    .sport-section{
+        margin: auto 50px auto ;
+    }
+
+    .sport-section h3{
+        font-size: 24px;
+        margin-top: 40px;
+        margin-left: 10px;
+    }
+
+    .btn-home-MoreDetails {
+        width: 210px;
+        height: 60px;
+        border-radius: 20px;
+        font-size: 1em;
+        font-weight: 500;
+    }
+
+    .sport-course{
+        height: 100px;
+        border-radius: 20px;
+        margin: 15px 0px 15px;
+    }
+
+    .btn-inscription {
+        width: 220px;
+        height: 50px;
+        border-radius: 15px;
+        font-size: 1em;
+        font-weight: 500;
+        margin: 10px auto 0px;
+        margin-right: 40px;
+    }
+}
+
+@media (min-width : 1280px) {
+    h1 {
+        font-size: 75px;
+    }
+    
+    h2 {
+        font-size: 2em;
+    }
+    
+    h3 {
+        font-size: 30px;
+    }
+    
+    h4{
+        font-size: 75px;
+        margin-top: 20px;
+    }
+
+    .vertical-bar {
+        height: 600px;
+        width: 2px;
+        background-color: black;
+        margin: 10px 0px 10px;
+    }
+
+    .black-point {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: black;
+        margin: 5px 10px 5px;
+    }
+
+    .page-content {
+        margin: 100px auto 0; 
+    }
+
+    .wrapper .form-box {
+        padding: 40px
+    }
+
+    /* header */
+    header{
+        padding: 0px 60px;
+    }
+    
+    .logo{
+        font-size: 2em;
+        margin-block-start: 0.83em;
+        margin-block-end: 0.83em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+    }
+    
+    .menu-item {
+        font-size: 1.1em;
+        font-weight: 500;
+        margin-left: 30px;
+    }
+    
+    .menu-item::after {
+        bottom: -6px;
+        width: 100%;
+        height: 3px;
+        border-radius: 5px;
+        transform-origin: 50% 50%;
+        transform: translateX(-48%) scaleX(0);
+        transition: transform .5s, width .5s;
+    }
+    
+    .connexion-content {
+        border: 2px solid black;
+        padding: 10px 10px;
+    }
+    
+    .connexion {
+        font-size: 1em;
+        font-weight: 500;
+    }
+    
+    .connexion-content::after {
+        top: 100%;
+        left: 0;
+        width: 0;
+        height: 100%;
+    }
+
+    /* input-box */
+    .input-box {
+        height: 50px;
+        margin: 30px 0;
+    }
+
+    .input-box label {
+        top: 50%;
+        left: 10px;
+        font-size: .9em;
+        font-weight: 200;
+    }
+
+    .input-box input {
+        font-size: 1em;
+        font-weight: 300;
+        padding: 0 30px 0 10px;
+        border-radius: 9px;
+    }
+
+    input::placeholder {
+        font-size: 1em;
+        font-weight: 200;
+    }
+
+    /* entry-box */
+    .entry-box {
+        height: 50px;
+        margin: 30px 0;
+    }
+
+    .entry-box label {
+        top: 50%;
+        left: 10px;
+        font-size: .9em;
+        font-weight: 200;
+    }
+
+    .entry-box input {
+        width: 470px;
+        font-size: 1em;
+        font-weight: 300;
+        padding: 0 30px 0 10px;
+        border-radius: 9px;
+    }
+
+    #entry-box-sexe {
+        width: 470px;
+        height: 40px;
+        padding-bottom: 10px;
+        padding-left: 100px;
+    }
+
+    #entry-box-sexe-label{
+        left: 10px;
+        font-size: .9em;
+        font-weight: 200;
+    }
+
+    #entry-box-sexe label{
+        font-size: .9em;
+        font-weight: 200;
+    }
+
+    /* bouton */
+    .btn{
+        width: 210px;
+        height: 40px;
+        font-size: 1em;
+        font-weight: 500;
+        margin: 10px auto 0px;
+    }
+
+    /* login.html */
+    .login-section {
+        display: flex;
+        position: relative;
+        flex-direction: row;
+        box-sizing: content-box;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .sign-in-box{
+        padding: 40px
+    }
+
+    .login-box{
+        width: 470px;
+        height: 375px;
+        margin: 0 auto;
+        padding: 40px
+    }
+
+    .sign-in-box p{
+        margin: 10px auto 50px;
+    }
+
+    .remember-forgot {
+        font-size: .8em;
+        font-weight: 500;
+        margin: -15px 0 15px;
+    }
+
+    .remember-forgot label input {
+        margin-right: 3px;
+    }
+
+    .admin-connection {
+        font-size: .8em;
+        font-weight: 500;
+        margin: 20px auto 20px;
+    }
+
+    .login-register {
+        font-size: .9em;
+        font-weight: 500;
+        margin: 25px 0 10px;
+    }
+
+    .forgot-password {
+        font-size: .9em;
+        font-weight: 500;
+        margin: 25px 0 10px;
+    }
+
+    /* register.html */
+    .register-content {
+        width: 1240px;
+    }
+
+    .register-titel {
+        padding-top: 10px;
+    }
+
+    .left-box {
+        width: 500px;
+        margin: 40px auto 0;
+    }
+
+    .right-box {
+        width: 500px;
+        margin: 40px auto 0;
+    }
+
+    /* admin_home.html */
+    .home-content {
+        margin: 90px auto 0; 
+    }
+
+    .home-creation {
+        width: 1140px;
+        height: 150px;
+    }
+
+    .home-NextCourse-content {
+        width: 1240px;
+        height: 178px;
+    }
+
+    .home-NextCourse {
+        width: 90%;
+        height: 178px;
+    }
+
+    .titel-NextCourse {
+        height: 55px;
+    }
+
+    .titel-NextCourse-name {
+        font-size: 24px;
+    }
+
+    .home-content h3 {
+        font-size: 30px;
+    }
+
+    .btn-home {
+        width: 220px;
+        height: 40px;
+        border-radius: 20px;
+        font-weight: 500;
+        margin: 10px auto 0px;
+    }
+    
+    /* payment.html */
+    .payment-content {
+        position: relative;
+        box-sizing: content-box;
+        width: 1240px;
+        height: 775px;
+        margin: 30px auto ; 
+        justify-content: space-between;
+    }
+
+    .inscription-section {
+        position: relative;
+        box-sizing: content-box;
+        height: 320px;
+        background: white;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto 20px;
+    }
+
+    .inscription-section h3 {
+        margin-top: 60px;
+        margin-left: 60px;
+    }
+
+    .inscription-content {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .inscription-information {
+        width: 620px;
+        padding-top: 10px;
+        padding-left: 80px;
+    }
+
+    .inscription-information p{
+        font-size: 20px;
+        font-weight: 200;
+        line-height: 30px;
+    }
+
+    .payment-method-section {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .payment-method-content {
+        width: 670px;
+        height: 440px;
+        background: white;
+        border-radius: 20px;
+    }
+
+    .payment-method-content h3 {
+        margin-top: 60px;
+        margin-left: 60px;
+    }
+
+    .payment-method {
+        display: flex;
+        flex-direction: column;
+        padding: 0px 60px 0px 60px;
+    }
+
+    .image-container {
+        width: 134px; 
+        height: 56px;
+        border-radius: 9px;
+        overflow: hidden;
+        float: right;
+    }
+
+    .payment-image {
+        width: 100%;
+        height: auto;
+    }
+
+    .payment-method-content span {
+        font-family: sans-serif;
+        font-size: 24px;
+        font-weight: lighter;
+        margin-top: 60px;
+        margin-left: 60px;
+    }
+
+    .payment-details-content {
+        width: 550px;
+        height: 440px;
+        background: white;
+        border-radius: 20px; 
+    }
+
+    .payment-details-content h3 {
+        margin-top: 60px;
+        margin-left: 60px;
+    }
+
+    .payment-details {
+        display: flex;
+        flex-direction: column;
+        height: 250px;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .price {
+        font-family: sans-serif;
+        font-size: 30px;
+        font-weight: lighter;
+        margin-top: 15px;
+        margin-left: 90px;
+    }
+
+    .total-content {
+        width: 450px;
+        height: 150px;
+        background: rgb(242,242,242);
+    }
+
+    .total-content p {
+        position: relative;
+        box-sizing: content-box;
+        margin: 0 auto;
+        justify-content: space-between;
+        display: inline-block;
+        text-align: justify;
+        font-size: 24px;
+        margin: 18px 32px 5px 32px;
+    }
+
+    .total {
+        font-family: 'Poppins', sans-serif;
+        vertical-align: top;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .total-price {
+        vertical-align: top;
+        float: right;
+        font-weight: lighter;
+        text-transform: uppercase;
+    }
+
+    .choixpaiement {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+        font-size: 20px;
+        font-weight: lighter;
+        text-align: center;
+        margin-top: 10px;
+        color: rgb(83, 83, 83);
+    }
+
+    .continue-btn {
+        width: 385px;
+        height: 45px;
+        background-color: black;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        font-size: 1em;
+        color: white;
+        font-weight: 500;
+        margin: 10px auto 0px;
+        display: block;
+        text-transform: uppercase;   
+    }
+
+    /* information.html */
+    .information-section {
+        margin: 100px 20px 0; 
+    }
+
+    .information h3 {
+        margin-top: 60px;
+        margin-left: 80px;
+    }
+
+    .course-content {
+        height: 150px;
+        border-radius: 20px;
+        margin: 0 auto 20px;
+    }
+
+    .course-content h3{
+        margin-left: 55px;
+    }
+
+    .information-content {
+        border-radius: 20px;
+        padding-bottom: 15px;
+    }
+
+    .information {
+        margin-bottom: 30px;
+    }
+
+
+    .left-container-information{
+        width: 60%;
+    }
+
+    .course-information p{
+        font-size: 18px;
+        line-height: 1.5;
+        margin: 7px auto 7px 80px;
+    }
+
+    .right-container-information{
+        width: 35%;
+        margin-top: 100px;
+    }
+
+    .category-content h3 {
+        margin-top: 30px;
+    }
+
+    .category{
+        height: 100px;
+        margin: 10px 150px 10px;
+        border-radius: 20px;
+    }
+
+    .category-name{
+        font-size: 24px;
+        margin-left: 65px;
+    }
+
+    .category-information-section{
+        margin-right: 40px;
+        height: 44px;
+    }
+
+    .category-information-content p{
+        width: 100px;
+        font-size: 18px;
+    }
+
+    .category-information{
+        margin: 0px 10px 0px 10px;
+    }
+
+    #category-information-year {
+        width: 140px;
+    }
+
+    .category-information-label {
+        font-size: 15px;
+        font-weight: 200;
+    }
+
+    .category-information-caracteristic {
+        font-size: 16px;
+    }
+
+    #instruction-message {
+        width: 320px;
+        font-size: 18px;
+        font-weight: 200;
+    }
+
+    /* sport.html */
+    .navigation-content {
+        position: relative;
+        width: 82%;
+        height: auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        text-align: center;
+        align-items: center;
+        margin: 0 auto;
+    }
+
+    .navigation-content a {
+        font-size: 18px;
+    }
+
+    .sport-section{
+        margin: auto 50px auto ;
+    }
+
+    .sport-section h3{
+        font-size: 24px;
+        margin-top: 40px;
+        margin-left: 10px;
+    }
+
+    .btn-home-MoreDetails {
+        width: 210px;
+        height: 60px;
+        border-radius: 20px;
+        font-size: 1em;
+        font-weight: 500;
+    }
+
+    .sport-course{
+        height: 100px;
+        border-radius: 20px;
+        margin: 15px 0px 15px;
+    }
+
+    .btn-inscription {
+        width: 220px;
+        height: 50px;
+        border-radius: 15px;
+        font-size: 1em;
+        font-weight: 500;
+        margin: 10px auto 0px;
+        margin-right: 40px;
+    }
+}
+
+@media (min-width : 1536px) {
+    h1 {
+        font-size: 75px;
+    }
+    
+    h2 {
+        font-size: 2em;
+    }
+    
+    h3 {
+        font-size: 30px;
+    }
+    
+    h4{
+        font-size: 75px;
+        margin-top: 20px;
+    }
+
+    .vertical-bar {
+        height: 600px;
+        width: 2px;
+        background-color: black;
+        margin: 10px 0px 10px;
+    }
+
+    .black-point {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: black;
+        margin: 5px 10px 5px;
+    }
+
+    .page-content {
+        margin: 100px auto 0; 
+    }
+
+    .wrapper .form-box {
+        padding: 40px
+    }
+
+    /* header */
+    header{
+        padding: 0px 60px;
+    }
+    
+    .logo{
+        font-size: 2em;
+        margin-block-start: 0.83em;
+        margin-block-end: 0.83em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+    }
+    
+    .menu-item {
+        font-size: 1.1em;
+        font-weight: 500;
+        margin-left: 30px;
+    }
+    
+    .menu-item::after {
+        bottom: -6px;
+        width: 100%;
+        height: 3px;
+        border-radius: 5px;
+        transform-origin: 50% 50%;
+        transform: translateX(-48%) scaleX(0);
+        transition: transform .5s, width .5s;
+    }
+    
+    .connexion-content {
+        border: 2px solid black;
+        padding: 10px 10px;
+    }
+    
+    .connexion {
+        font-size: 1em;
+        font-weight: 500;
+    }
+    
+    .connexion-content::after {
+        top: 100%;
+        left: 0;
+        width: 0;
+        height: 100%;
+    }
+
+    /* input-box */
+    .input-box {
+        height: 50px;
+        margin: 30px 0;
+    }
+
+    .input-box label {
+        top: 50%;
+        left: 10px;
+        font-size: .9em;
+        font-weight: 200;
+    }
+
+    .input-box input {
+        font-size: 1em;
+        font-weight: 300;
+        padding: 0 30px 0 10px;
+        border-radius: 9px;
+    }
+
+    input::placeholder {
+        font-size: 1em;
+        font-weight: 200;
+    }
+
+    /* entry-box */
+    .entry-box {
+        height: 50px;
+        margin: 30px 0;
+    }
+
+    .entry-box label {
+        top: 50%;
+        left: 10px;
+        font-size: .9em;
+        font-weight: 200;
+    }
+
+    .entry-box input {
+        width: 470px;
+        font-size: 1em;
+        font-weight: 300;
+        padding: 0 30px 0 10px;
+        border-radius: 9px;
+    }
+
+    #entry-box-sexe {
+        width: 470px;
+        height: 40px;
+        padding-bottom: 10px;
+        padding-left: 100px;
+    }
+
+    #entry-box-sexe-label{
+        left: 10px;
+        font-size: .9em;
+        font-weight: 200;
+    }
+
+    #entry-box-sexe label{
+        font-size: .9em;
+        font-weight: 200;
+    }
+
+    /* bouton */
+    .btn{
+        width: 210px;
+        height: 40px;
+        font-size: 1em;
+        font-weight: 500;
+        margin: 10px auto 0px;
+    }
+
+    /* login.html */
+    .login-section {
+        display: flex;
+        position: relative;
+        flex-direction: row;
+        box-sizing: content-box;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .sign-in-box{
+        padding: 40px
+    }
+
+    .login-box{
+        width: 470px;
+        height: 375px;
+        margin: 0 auto;
+        padding: 40px
+    }
+
+    .sign-in-box p{
+        margin: 10px auto 50px;
+    }
+
+    .remember-forgot {
+        font-size: .8em;
+        font-weight: 500;
+        margin: -15px 0 15px;
+    }
+
+    .remember-forgot label input {
+        margin-right: 3px;
+    }
+
+    .admin-connection {
+        font-size: .8em;
+        font-weight: 500;
+        margin: 20px auto 20px;
+    }
+
+    .login-register {
+        font-size: .9em;
+        font-weight: 500;
+        margin: 25px 0 10px;
+    }
+
+    .forgot-password {
+        font-size: .9em;
+        font-weight: 500;
+        margin: 25px 0 10px;
+    }
+
+    /* register.html */
+    .register-content {
+        width: 1240px;
+    }
+
+    .register-titel {
+        padding-top: 10px;
+    }
+
+    .left-box {
+        width: 500px;
+        margin: 40px auto 0;
+    }
+
+    .right-box {
+        width: 500px;
+        margin: 40px auto 0;
+    }
+
+    /* admin_home.html */
+    .home-content {
+        margin: 90px auto 0; 
+    }
+
+    .home-creation {
+        width: 1140px;
+        height: 150px;
+    }
+
+    .home-NextCourse-content {
+        width: 1240px;
+        height: 178px;
+    }
+
+    .home-NextCourse {
+        width: 90%;
+        height: 178px;
+    }
+
+    .titel-NextCourse {
+        height: 55px;
+    }
+
+    .titel-NextCourse-name {
+        font-size: 24px;
+    }
+
+    .home-content h3 {
+        font-size: 30px;
+    }
+
+    .btn-home {
+        width: 220px;
+        height: 40px;
+        border-radius: 20px;
+        font-weight: 500;
+        margin: 10px auto 0px;
+    }
+    
+    /* payment.html */
+    .payment-content {
+        position: relative;
+        box-sizing: content-box;
+        width: 1240px;
+        height: 775px;
+        margin: 30px auto ; 
+        justify-content: space-between;
+    }
+
+    .inscription-section {
+        position: relative;
+        box-sizing: content-box;
+        height: 320px;
+        background: white;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto 20px;
+    }
+
+    .inscription-section h3 {
+        margin-top: 60px;
+        margin-left: 60px;
+    }
+
+    .inscription-content {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .inscription-information {
+        width: 620px;
+        padding-top: 10px;
+        padding-left: 80px;
+    }
+
+    .inscription-information p{
+        font-size: 20px;
+        font-weight: 200;
+        line-height: 30px;
+    }
+
+    .payment-method-section {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .payment-method-content {
+        width: 670px;
+        height: 440px;
+        background: white;
+        border-radius: 20px;
+    }
+
+    .payment-method-content h3 {
+        margin-top: 60px;
+        margin-left: 60px;
+    }
+
+    .payment-method {
+        display: flex;
+        flex-direction: column;
+        padding: 0px 60px 0px 60px;
+    }
+
+    .image-container {
+        width: 134px; 
+        height: 56px;
+        border-radius: 9px;
+        overflow: hidden;
+        float: right;
+    }
+
+    .payment-image {
+        width: 100%;
+        height: auto;
+    }
+
+    .payment-method-content span {
+        font-family: sans-serif;
+        font-size: 24px;
+        font-weight: lighter;
+        margin-top: 60px;
+        margin-left: 60px;
+    }
+
+    .payment-details-content {
+        width: 550px;
+        height: 440px;
+        background: white;
+        border-radius: 20px; 
+    }
+
+    .payment-details-content h3 {
+        margin-top: 60px;
+        margin-left: 60px;
+    }
+
+    .payment-details {
+        display: flex;
+        flex-direction: column;
+        height: 250px;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .price {
+        font-family: sans-serif;
+        font-size: 30px;
+        font-weight: lighter;
+        margin-top: 15px;
+        margin-left: 90px;
+    }
+
+    .total-content {
+        width: 450px;
+        height: 150px;
+        background: rgb(242,242,242);
+    }
+
+    .total-content p {
+        position: relative;
+        box-sizing: content-box;
+        margin: 0 auto;
+        justify-content: space-between;
+        display: inline-block;
+        text-align: justify;
+        font-size: 24px;
+        margin: 18px 32px 5px 32px;
+    }
+
+    .total {
+        font-family: 'Poppins', sans-serif;
+        vertical-align: top;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .total-price {
+        vertical-align: top;
+        float: right;
+        font-weight: lighter;
+        text-transform: uppercase;
+    }
+
+    .choixpaiement {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+        font-size: 20px;
+        font-weight: lighter;
+        text-align: center;
+        margin-top: 10px;
+        color: rgb(83, 83, 83);
+    }
+
+    .continue-btn {
+        width: 385px;
+        height: 45px;
+        background-color: black;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        font-size: 1em;
+        color: white;
+        font-weight: 500;
+        margin: 10px auto 0px;
+        display: block;
+        text-transform: uppercase;   
+    }
+
+    /* information.html */
+    .information-section {
+        margin: 100px 20px 0; 
+    }
+
+    .information h3 {
+        margin-top: 60px;
+        margin-left: 80px;
+    }
+
+    .course-content {
+        height: 150px;
+        border-radius: 20px;
+        margin: 0 auto 20px;
+    }
+
+    .course-content h3{
+        margin-left: 55px;
+    }
+
+    .information-content {
+        border-radius: 20px;
+        padding-bottom: 15px;
+    }
+
+    .information {
+        margin-bottom: 30px;
+    }
+
+
+    .left-container-information{
+        width: 60%;
+    }
+
+    .course-information p{
+        font-size: 18px;
+        line-height: 1.5;
+        margin: 7px auto 7px 80px;
+    }
+
+    .right-container-information{
+        width: 35%;
+        margin-top: 100px;
+    }
+
+    .category-content h3 {
+        margin-top: 30px;
+    }
+
+    .category{
+        height: 100px;
+        margin: 10px 150px 10px;
+        border-radius: 20px;
+    }
+
+    .category-name{
+        font-size: 24px;
+        margin-left: 65px;
+    }
+
+    .category-information-section{
+        margin-right: 40px;
+        height: 44px;
+    }
+
+    .category-information-content p{
+        width: 100px;
+        font-size: 18px;
+    }
+
+    .category-information{
+        margin: 0px 10px 0px 10px;
+    }
+
+    #category-information-year {
+        width: 140px;
+    }
+
+    .category-information-label {
+        font-size: 15px;
+        font-weight: 200;
+    }
+
+    .category-information-caracteristic {
+        font-size: 16px;
+    }
+
+    #instruction-message {
+        width: 320px;
+        font-size: 18px;
+        font-weight: 200;
+    }
+
+    /* sport.html */
+    .navigation-content {
+        position: relative;
+        width: 82%;
+        height: auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        text-align: center;
+        align-items: center;
+        margin: 0 auto;
+    }
+
+    .navigation-content a {
+        font-size: 20px;
+    }
+
+    .sport-section{
+        margin: auto 50px auto ;
+    }
+
+    .sport-section h3{
+        font-size: 24px;
+        margin-top: 40px;
+        margin-left: 10px;
+    }
+
+    .btn-home-MoreDetails {
+        width: 210px;
+        height: 60px;
+        border-radius: 20px;
+        font-size: 1em;
+        font-weight: 500;
+    }
+
+    .sport-course{
+        height: 100px;
+        border-radius: 20px;
+        margin: 15px 0px 15px;
+    }
+
+    .btn-inscription {
+        width: 220px;
+        height: 50px;
+        border-radius: 15px;
+        font-size: 1em;
+        font-weight: 500;
+        margin: 10px auto 0px;
+        margin-right: 40px;
+    }
 }

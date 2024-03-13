@@ -5,9 +5,15 @@
 {% block content%}
 <body>
     <div class="home-content">
-        <div class="home-creation">
-            <h3>Créer un événement à venir</h3>
-            <a href="{{ url_for('admin_bp.creation') }}"><button class="btn-home">Créer</button></a>
+        <div class="home-NextCourse-content">
+            <div class="home-NextCourse">
+                <div class="titel-NextCourse">
+                    <h3>Créer un événement à venir</h3>
+                </div>
+                <div>
+                    <a href="{{ url_for('admin_bp.creation') }}"><button class="btn-home">Créer</button></a>
+                </div>
+            </div>
         </div>
 
         {% for course in all_courses %}
