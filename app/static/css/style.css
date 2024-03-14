@@ -946,11 +946,48 @@ input::placeholder {
     padding: 50px 0px 50px;
 }
 
-.FAQ-section summary{
+.FAQ-section details{
     width: 85%;
     margin: 10px auto 10px;
     text-align: left;
-    padding: 0px 10px 0px;
+    padding: 0px 10px 0px 30px;
+    cursor: pointer;
+    position: relative;
+}
+
+.FAQ-item details summary {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.FAQ-item details p {
+    display: none;
+    text-align: justify;
+    font-size: 20px;
+ }
+
+.FAQ-item details[open] p {
+    display: block;
+}
+
+.FAQ-item details[open]::before {
+    transform: rotate(-45deg);
+}
+
+.faq_trigger-icon {
+    width: 14px;
+    min-height: 14px;
+    flex: none;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    position: relative;
+}
+
+.faq_answer-container {
+    transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+    opacity: 1;
+    transform-style: preserve-3d;
 }
 
 /* contact.html */
@@ -960,7 +997,6 @@ input::placeholder {
     height: auto;
     width: 1000px;
     margin: 0 auto;
-
 }
 
 .input-box-contact {

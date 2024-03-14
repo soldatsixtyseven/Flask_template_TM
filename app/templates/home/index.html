@@ -6,7 +6,7 @@
     <div class="information-section-index">
         <div class="information-content-index">
                 <h1>Inscription en ligne à des courses</h1>
-                <p>S'inscrire rapidement à la course populaire de son choix en seulement quelques clics</p>
+                <p>S'inscrire rapidement à la compétition de son choix en seulement quelques clics</p>
             <div class="information-content-btn">
                 <a href="{{ url_for('auth.login') }}"><button class="btn-index">Se connecter</button></a>
                 <a href="{{ url_for('auth.register') }}"><button class="btn-index">Créer un compte</button></a>
@@ -41,13 +41,33 @@
     <div class="FAQ-section">
         <h1>Questions posées les plus fréquement</h1>
         <div class="horizontal-bar"></div>
-        <summary><h3>Est-ce que ...?</h3></summary>
+        <div class="FAQ-item">
+            <details>
+                <summary><h3>Quel est le délai de l'inscription ?</h3></summary>
+                <p>Il est possible de s'inscrire en ligne jusqu'à un jour avant le début de la compétition. Passé ce délai, il est possible de s'inscrire sur place auprès des organisateurs. Vous aurez la possibilité de payer par PayPal, Twint ou encore en cash.</p>
+            </details>
+        </div>
         <div class="horizontal-bar"></div>
-        <summary><h3>...?</h3></summary>
+        <div class="FAQ-item">
+            <details>
+                <summary><h3>Quand est-ce que mon inscription est validée ?</h3></summary>
+                <p>L'inscription est validée une fois le paiement effectué. Vous recevrez un mail de confirmation avec le détail de votre inscription. Dans le cas échéant, contactez le responsable du site grâce à l'onglet "contact".</p>
+            </details>
+        </div>
         <div class="horizontal-bar"></div>
-        <summary><h3>...?</h3></summary>
+        <div class="FAQ-item">
+            <details>
+                <summary><h3>Est-il possible d'annuler son inscription ?</h3></summary>
+                <p>Une fois le paiement effectué, aucun remboursement n'est envisageable.</p>
+            </details>
+        </div>
         <div class="horizontal-bar"></div>
-        <summary><h3>...?</h3></summary>
+        <div class="FAQ-item">
+            <details>
+                <summary><h3>... ?</h3></summary>
+                <p>...</p>
+            </details>
+        </div>
         <div class="horizontal-bar"></div>
     </div>
 </div>   
