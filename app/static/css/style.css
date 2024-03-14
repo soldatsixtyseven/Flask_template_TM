@@ -1191,6 +1191,11 @@ td {
         margin: 100px auto 0; 
     }
 
+    .wrapper {
+        width: 400px;
+        height: 440px;
+    }
+
     .wrapper .form-box {
         padding: 40px
     }
@@ -1785,6 +1790,11 @@ td {
         margin: 100px auto 0; 
     }
 
+    .wrapper {
+        width: 400px;
+        height: 440px;
+    }
+
     .wrapper .form-box {
         padding: 40px
     }
@@ -2377,6 +2387,11 @@ td {
 
     .page-content {
         margin: 100px auto 0; 
+    }
+
+    .wrapper {
+        width: 400px;
+        height: 440px;
     }
 
     .wrapper .form-box {
@@ -2974,6 +2989,11 @@ td {
         margin: 100px auto 0; 
     }
 
+    .wrapper {
+        width: 400px;
+        height: 440px;
+    }
+
     .wrapper .form-box {
         padding: 40px
     }
@@ -3564,6 +3584,11 @@ td {
 
     .page-content {
         margin: 100px auto 0; 
+    }
+
+    .wrapper {
+        width: 400px;
+        height: 440px;
     }
 
     .wrapper .form-box {
@@ -4158,10 +4183,14 @@ td {
         margin: 100px auto 0; 
     }
 
+    .wrapper {
+        width: 400px;
+        height: 440px;
+    }
+
     .wrapper .form-box {
         padding: 40px
     }
-
     /* header */
     header{
         padding: 0px 60px;
