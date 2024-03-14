@@ -249,10 +249,17 @@ def manual_payment(id_course, course_name, category_name):
     if not category_details:
         # Gérer l'erreur si la catégorie n'est pas trouvée
         flash("Catégorie introuvable", "error")
-        return redirect(url_for('course_bp.manual_information', id_course=id_course, course_name=course_name))
+        return redirect(url_for('course_bp.manual_information', id_course=id_course, name=course_name))
 
-
-
+    # Puis rendre le template payment.html avec toutes les informations nécessaires
+    return render_template('course/manual_payment.html', id_course=id_course, course_name=course_name, category_name=category_name,
+                           user_name=user_name, user_surname=user_surname,
+                           user_birth_year=user_birth_year,
+                           user_location = user_info['location'],
+                           user_origin = user_info['origin'],
+                           location=course_details['location'],
+                           category_start_time=category_details['start_time'],
+                           category_price=category_details['price'])
 
 # Création d'un URL dynamique pour la liste des participants depuis la page home.html
 @course_bp.route('/liste_inscription/<int:id_course>/<string:course_name>', methods=['GET'])
