@@ -15,14 +15,14 @@ import xlsxwriter
 course_bp = Blueprint('course_bp', __name__, url_prefix='/course')
 
 # Création d'un URL dynamique pour une page d'information pour chaque course
-@course_bp.route('/information/<int:id_course>/<string:name>')
-def course_information(id_course, name):
+@course_bp.route('/information/<int:id_course>/<string:course_name>')
+def course_information(id_course, course_name):
     # Récupération de la fonction qui récupère toutes les informations sur les courses
     course_details = get_course_details(id_course)
     
     if course_details:
         categories = course_details['categories']
-        return render_template('course/information.html', id_course=id_course, name=name,
+        return render_template('course/information.html', id_course=id_course, course_name=course_name,
                                club=course_details['club'],
                                date=course_details['date'],
                                location=course_details['location'],
@@ -37,9 +37,9 @@ def course_information(id_course, name):
         flash("Détails de la course non trouvés", "error")
         return redirect(url_for('home_bp.landing_page'))
     
-@course_bp.route('/information/user/<int:id_course>/<string:name>')
+@course_bp.route('/information/user/<int:id_course>/<string:course_name>')
 @login_required
-def course_information_user(id_course, name):
+def course_information_user(id_course, course_name):
 
     # Récupération de la fonction qui récupère toutes les informations sur les courses
     course_details = get_course_details(id_course)
@@ -73,7 +73,7 @@ def course_information_user(id_course, name):
             return "Aucune catégorie ne correspond à votre profil"
         else:
             # Retourner les catégories filtrées avec les autres informations de la course
-            return render_template('course/user_information.html', id_course=id_course, name=name,
+            return render_template('course/user_information.html', id_course=id_course, course_name=course_name,
                                    club=course_details['club'],
                                    date=course_details['date'],
                                    location=course_details['location'],
@@ -89,9 +89,9 @@ def course_information_user(id_course, name):
         flash("Détails de la course non trouvés", "error")
         return redirect(url_for('course_bp.course_information'))
 
-@course_bp.route('/payment/<int:id_course>/<string:name>/<string:category_name>', methods=['GET'])
+@course_bp.route('/payment/<int:id_course>/<string:course_name>/<string:category_name>', methods=['GET'])
 @login_required
-def payment(id_course, name, category_name):
+def payment(id_course, course_name, category_name):
     # Vous pouvez ici récupérer les informations de l'utilisateur comme le nom, le prénom, et l'année de naissance
     user_id = session.get('user_id')
     user_info = get_user_info(user_id)
@@ -110,10 +110,10 @@ def payment(id_course, name, category_name):
     if not category_details:
         # Gérer l'erreur si la catégorie n'est pas trouvée
         flash("Catégorie introuvable", "error")
-        return redirect(url_for('course_bp.user_information', id_course=id_course, name=name))
+        return redirect(url_for('course_bp.user_information', id_course=id_course, name=course_name))
 
     # Puis rendre le template payment.html avec toutes les informations nécessaires
-    return render_template('course/user_payment.html', id_course=id_course, name=name, category_name=category_name,
+    return render_template('course/user_payment.html', id_course=id_course, course_name=course_name, category_name=category_name,
                            user_name=user_name, user_surname=user_surname,
                            user_birth_year=user_birth_year,
                            user_location = user_info['location'],
@@ -139,11 +139,11 @@ def paiement_carte_bancaire():
     return redirect(url_for('home_bp.landing_page'))
 
 # Création d'un URL dynamique pour l'inscription manuelle de participants depuis la page home.html
-@course_bp.route('/inscription_manuelle/<int:id_course>/<string:name>', methods=['GET', 'POST'])
-def manual_registration(id_course, name):
+@course_bp.route('/inscription_manuelle/<int:id_course>/<string:course_name>', methods=['GET', 'POST'])
+def manual_registration(id_course, course_name):
     if request.method == 'POST':
         # Récupérer les données du formulaire
-        name = request.form['name']
+        form_name = request.form['name']
         surname = request.form['surname']
         sexe = request.form['sexe']
         age = request.form['age']
@@ -152,31 +152,35 @@ def manual_registration(id_course, name):
         club = request.form['club']
 
         # Vérifier si tous les champs sont remplis
-        if not name or not surname or not sexe or not age or not origin or not location:
+        if not form_name or not surname or not sexe or not age or not origin or not location:
             error = 'Veuillez remplir tous les champs.'
             flash(error)
-            return redirect(url_for('course_bp.manual_registration', id_course=id_course, name=name))
+            return redirect(url_for('course_bp.manual_registration', id_course=id_course, course_name=course_name))
 
         # Insérer l'utilisateur dans la base de données
         db = get_db()
         try:
-            db.execute("INSERT INTO users (name, surname, sexe, age, origin, location, club) VALUES (?, ?, ?, ?, ?, ?, ?)", (name, surname, sexe, age, origin, location, club))
+            db.execute("INSERT INTO users (name, surname, sexe, age, origin, location, club) VALUES (?, ?, ?, ?, ?, ?, ?)", (form_name, surname, sexe, age, origin, location, club))
             db.commit()
+            # Récupérer l'ID de l'utilisateur inséré
+            user_id = db.execute("SELECT last_insert_rowid()").fetchone()[0]
+            # Stocker l'ID de l'utilisateur dans la session
+            session['user_id'] = user_id
         except db.IntegrityError:
             error = "Une erreur s'est produite."
             flash(error)
-            return redirect(url_for('course_bp.manual_registration', id_course=id_course, name=name))
+            return redirect(url_for('course_bp.manual_registration', id_course=id_course, course_name=course_name))
 
         # Rediriger vers la page manual_information.html
-        return redirect(url_for('course_bp.manual_information', id_course=id_course, name=name))
+        return redirect(url_for('course_bp.manual_information', id_course=id_course, course_name=course_name))
 
     else:
         # Afficher le formulaire d'inscription
-        return render_template('course/manual_registration.html', id_course=id_course, name=name)
+        return render_template('course/manual_registration.html', id_course=id_course, course_name=course_name)
 
 # Création d'un URL dynamique pour l'inscription manuelle de participants depuis la page home.html
-@course_bp.route('/inscription_manuelle/information/<int:id_course>/<string:name>', methods=['GET'])
-def manual_information(id_course, name):
+@course_bp.route('/inscription_manuelle/information/<int:id_course>/<string:course_name>', methods=['GET'])
+def manual_information(id_course, course_name):
         # Récupération de la fonction qui récupère toutes les informations sur les courses
     course_details = get_course_details(id_course)
 
@@ -209,7 +213,7 @@ def manual_information(id_course, name):
             return "Aucune catégorie ne correspond à votre profil"
         else:
             # Retourner les catégories filtrées avec les autres informations de la course
-            return render_template('course/user_information.html', id_course=id_course, name=name,
+            return render_template('course/manual_information.html', id_course=id_course, course_name=course_name,
                                    club=course_details['club'],
                                    date=course_details['date'],
                                    location=course_details['location'],
@@ -223,10 +227,10 @@ def manual_information(id_course, name):
     else:
         # Affichage d'une erreur dans le cas où les détails d'une course ne sont pas trouvés
         flash("Détails de la course non trouvés", "error")
-        return redirect(url_for('course_bp.course_information'))
+        return redirect(url_for('course_bp.manual_registration', id_course=id_course, course_name=course_name))
     
-@course_bp.route('/inscription_manuelle/payment/<int:id_course>/<string:name>/<string:category_name>', methods=['GET'])
-def manual_payment(id_course, name, category_name):
+@course_bp.route('/inscription_manuelle/payment/<int:id_course>/<string:course_name>/<string:category_name>', methods=['GET'])
+def manual_payment(id_course, course_name, category_name):
     # Vous pouvez ici récupérer les informations de l'utilisateur comme le nom, le prénom, et l'année de naissance
     user_id = session.get('user_id')
     user_info = get_user_info(user_id)
@@ -245,14 +249,14 @@ def manual_payment(id_course, name, category_name):
     if not category_details:
         # Gérer l'erreur si la catégorie n'est pas trouvée
         flash("Catégorie introuvable", "error")
-        return redirect(url_for('course_bp.manual_information', id_course=id_course, name=name))
+        return redirect(url_for('course_bp.manual_information', id_course=id_course, course_name=course_name))
 
 
 
 
 # Création d'un URL dynamique pour la liste des participants depuis la page home.html
-@course_bp.route('/liste_inscription/<int:id_course>/<string:name>', methods=['GET'])
-def liste_inscription(id_course, name):
+@course_bp.route('/liste_inscription/<int:id_course>/<string:course_name>', methods=['GET'])
+def liste_inscription(id_course, course_name):
     db = get_db()
     cursor = db.cursor()
     cursor.execute("""
@@ -279,7 +283,7 @@ def liste_inscription(id_course, name):
         club = resultat[7]
         print(f"Catégorie: {nom_categorie}, Age: {age}, Nom: {nom}, Prénom: {prenom}, Sexe: {sexe}, Lieu: {location}, Origine: {origin}, Club: {club}")
 
-    return render_template('course/liste_inscription.html', listes=listes, id_course=id_course, name=name)
+    return render_template('course/liste_inscription.html', listes=listes, id_course=id_course, course_name=course_name)
 
 @course_bp.route('/export_excel/<int:id_course>', methods=['POST'])
 def export_excel(id_course):
