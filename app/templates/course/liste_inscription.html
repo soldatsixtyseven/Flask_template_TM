@@ -3,7 +3,7 @@
 {% block content %}
 <body class="background-grey">
 
-    <form action="{{ url_for('course_bp.export_excel', id_course=id_course) }}" method="POST">
+    <form action="{{ url_for('course_bp.export_excel', id_course=id_course, course_name=course_name) }}" method="POST">
 
         <div class="liste-section">
             <div class="liste-titel">

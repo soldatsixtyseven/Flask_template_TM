@@ -2,10 +2,10 @@
 
 {% block content %}
 <body class="background-grey">
-  <form action="{{ url_for('course_bp.manual_registration', id_course=id_course, name=name) }}" method="POST">
+  <form action="{{ url_for('course_bp.manual_registration', id_course=id_course, course_name=course_name) }}" method="POST">
 
       
-    <div class="register-content">
+    <div class="register-content" style="margin-top: 30px;">
       <div class="register-titel">
         <h2>Inscrire un participant</h2>
       </div>

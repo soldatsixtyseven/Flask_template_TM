@@ -1,12 +1,12 @@
-{%extends 'base_user.html' %}
+{%extends 'base.html' %}
 
 {% block content %}
 <body class="background-grey">
-    <div class="information-section">
+    <div class="information-section" style="margin-top: 30px;">
         <div class="course-content">  
             <div class="home-NextCourse">
                 <div class="titel-NextCourse">
-                    <p class="titel-NextCourse-name">{{ name }}</p>
+                    <p class="titel-NextCourse-name">{{ course_name }}</p>
                     <div class="vertical-bar-titel"></div>
                     <div>
                         <p>{{ location }}</p>
@@ -21,11 +21,10 @@
 
 
         <div class="information-content">
-            <div class="category-content">
-                <div class="horizontal-bar"></div>
+            <div class="category-content" style="padding-top: 15px;">
                 <h3>Catégories</h3>
                 {% for category in categories %}
-                    <a class="link-container" href="{{ url_for('course_bp.payment', id_course=id_course, name=name,
+                    <a class="link-container" href="{{ url_for('course_bp.payment', id_course=id_course, course_name=course_name,
                     category_name=category['name'],
                     category_start_time=category['start_time'],
                     category_price=category['price']) }}">

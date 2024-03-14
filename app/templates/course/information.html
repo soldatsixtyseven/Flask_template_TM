@@ -6,7 +6,7 @@
         <div class="course-content">  
             <div class="home-NextCourse">
                 <div class="titel-NextCourse">
-                    <p class="titel-NextCourse-name">{{ name }}</p>
+                    <p class="titel-NextCourse-name">{{ course_name }}</p>
                     <div class="vertical-bar-titel"></div>
                     <div>
                         <p>{{ location }}</p>
@@ -15,7 +15,7 @@
                 </div>
                 <div>
                     {% if g.user  %}
-                        <a href="{{ url_for('course_bp.course_information_user', id_course=id_course, name=name) }}"><button class="btn-inscription">S'inscire</button></a>
+                        <a href="{{ url_for('course_bp.course_information_user', id_course=id_course, course_name=course_name) }}"><button class="btn-inscription">S'inscire</button></a>
                     {% else %}
                         <a href="{{ url_for('auth.login') }}"><button class="btn-inscription">S'inscire</button></a>
                     {% endif %}
@@ -29,7 +29,7 @@
                 <div class="left-container-information">
                     <h3>Informations</h3>
                     <div class="course-information">
-                        <p>Nom : {{ name }}</p>
+                        <p>Nom : {{ course_name }}</p>
                         <p>Organisateur : {{ club }}</p>
                         <p>Date : {{ date }}</p>
                         <p>Lieu : {{ location }}, {{ canton }}, {{ country }}</p>

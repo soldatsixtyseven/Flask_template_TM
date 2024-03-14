@@ -29,8 +29,8 @@
                         </div>
                     </div>
                     <div>
-                        <a href="{{ url_for('course_bp.manual_registration', id_course=course.id_course, name=course.name) }}"><button class="btn-home">Inscrire un participant</button></a>
-                        <a href="{{ url_for('course_bp.liste_inscription', id_course=course.id_course, name=course.name) }}"><button class="btn-home">Liste des participants</button></a>
+                        <a href="{{ url_for('course_bp.manual_registration', id_course=course.id_course, course_name=course.name) }}"><button class="btn-home">Inscrire un participant</button></a>
+                        <a href="{{ url_for('course_bp.liste_inscription', id_course=course.id_course, course_name=course.name) }}"><button class="btn-home">Liste des participants</button></a>
                     </div>
                 </div>
             </div>

@@ -6,7 +6,7 @@
         <div class="course-content">  
             <div class="home-NextCourse">
                 <div class="titel-NextCourse">
-                    <p class="titel-NextCourse-name">{{ name }}</p>
+                    <p class="titel-NextCourse-name">{{ course_name }}</p>
                     <div class="vertical-bar-titel"></div>
                     <div>
                         <p>{{ location }}</p>
@@ -25,7 +25,7 @@
                 <div class="left-container-information">
                     <h3>Informations</h3>
                     <div class="course-information">
-                        <p>Nom : {{ name }}</p>
+                        <p>Nom : {{ course_name }}</p>
                         <p>Organisateur : {{ club }}</p>
                         <p>Date : {{ date }}</p>
                         <p>Lieu : {{ location }}, {{ canton }}, {{ country }}</p>
@@ -43,7 +43,7 @@
                 <div class="horizontal-bar"></div>
                 <h3>Catégories</h3>
                 {% for category in categories %}
-                    <a class="link-container" href="{{ url_for('course_bp.payment', id_course=id_course, name=name,
+                    <a class="link-container" href="{{ url_for('course_bp.payment', id_course=id_course, course_name=course_name,
                     category_name=category['name'],
                     category_start_time=category['start_time'],
                     category_price=category['price']) }}">
