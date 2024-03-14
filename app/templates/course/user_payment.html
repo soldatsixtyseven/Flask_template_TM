@@ -17,76 +17,74 @@
                 </div>
             </div>
         </div>    
-
-        <div class="payment-method-section">
-            <div class="payment-method-content">
-                <h3>Moyen de paiement</h3>
-                <div>
-                    <div class="payment-method">
-                        <label class="custom-radio-btn">
-                            <input type="radio" name="payment" id=choix1 checked>
-                            <span class="label-text" for="choix1">TWINT</span>
-                            <div class="image-container">
-                                <img class="payment-image" src="https://www.top-bank.ch/images/news/xtwint-logo.png.pagespeed.ic.DiF2EiOwcp.png" alt="logo TWINT">
-                            </div>
-                        </label>
-                    </div>
-                    <div class="horizontal-bar"></div>
-                    <div class="payment-method">
-                        <label class="custom-radio-btn">
-                            <input type="radio" name="payment" id="choix2">
-                            <span class="label-text" for="choix2">PostFinance</span>
-                            <div class="image-container">
-                                <img class="payment-image" src="https://www.vorbild-energie-klima.admin.ch/vbe/fr/home/dokumentation/soziale_medien/_jcr_content/par/columncontrols/items/0/column/textimage_1059464713/image.imagespooler.jpg/1638969416924/1024.2000/logo-postfinance.png" alt="logo PostFinance">
-                            </div>
-                        </label>
-                    </div>
-                    <div class="horizontal-bar"></div>
-                    <div class="payment-method">
-                        <label class="custom-radio-btn">
-                            <input type="radio" name="payment" id="choix3">
-                            <span class="label-text" for="choix3">PayPal</span>
-                            <div class="image-container">
-                                <img class="payment-image" src="https://www.contrepointphilosophique.ch/wp-content/uploads/2015/09/Casinos-die-Paypal-akzeptieren-.png" alt="logo PayPal">
-                            </div>
-                        </label>
-                    </div>
-                    <div class="horizontal-bar"></div>
-                    <div class="payment-method">
-                        <label class="custom-radio-btn">
-                            <input type="radio" name="payment" id="choix4">
-                            <span class="label-text" for="choix4">Carte bancaire</span>
-                            <div class="image-container">
-                                <img class="payment-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/MasterCard_Logo.svg/300px-MasterCard_Logo.svg.png" alt="logo Carte bancaire">
-                            </div>
-                        </label>  
-                    </div>
-                </div>
-            </div>  
-
-            <div class="payment-details-content">
-                <h3>Paiement</h3>
-                <div class="payment-details">
-                    <p class="price">1x | {{ category_price }}</p>
+        <form id="select-payment-form" action="" method="POST">
+            <div class="payment-method-section">
+                <div class="payment-method-content">
+                    <h3>Moyen de paiement</h3>
                     <div>
-                        <div class="total-content">
-                            <p class="total">Total</h4>
-                            <p class="total-price">{{ category_price }}</p>
-                            <button id="continue-btn-user" class="continue-btn">Continuer</button>
+                        <div class="payment-method">
+                            <label class="custom-radio-btn">
+                                <input type="radio" name="payment" id=choix1 value="twint" checked>
+                                <span class="label-text" for="choix1">TWINT</span>
+                                <div class="image-container">
+                                    <img class="payment-image" src="https://www.top-bank.ch/images/news/xtwint-logo.png.pagespeed.ic.DiF2EiOwcp.png" alt="logo TWINT">
+                                </div>
+                            </label>
                         </div>
-                        <p class="choixpaiement">Veuillez choisir un moyen de paiement</p>
+                        <div class="horizontal-bar"></div>
+                        <div class="payment-method">
+                            <label class="custom-radio-btn">
+                                <input type="radio" name="payment" id="choix2" value="postfinance">
+                                <span class="label-text" for="choix2">PostFinance</span>
+                                <div class="image-container">
+                                    <img class="payment-image" src="https://www.vorbild-energie-klima.admin.ch/vbe/fr/home/dokumentation/soziale_medien/_jcr_content/par/columncontrols/items/0/column/textimage_1059464713/image.imagespooler.jpg/1638969416924/1024.2000/logo-postfinance.png" alt="logo PostFinance">
+                                </div>
+                            </label>
+                        </div>
+                        <div class="horizontal-bar"></div>
+                        <div class="payment-method">
+                            <label class="custom-radio-btn">
+                                <input type="radio" name="payment" id="choix3" value="paypal">
+                                <span class="label-text" for="choix3">PayPal</span>
+                                <div class="image-container">
+                                    <img class="payment-image" src="https://www.contrepointphilosophique.ch/wp-content/uploads/2015/09/Casinos-die-Paypal-akzeptieren-.png" alt="logo PayPal">
+                                </div>
+                            </label>
+                        </div>
+                        <div class="horizontal-bar"></div>
+                        <div class="payment-method">
+                            <label class="custom-radio-btn">
+                                <input type="radio" name="payment" id="choix4" value="carte_bancaire">
+                                <span class="label-text" for="choix4">Carte bancaire</span>
+                                <div class="image-container">
+                                    <img class="payment-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/MasterCard_Logo.svg/300px-MasterCard_Logo.svg.png" alt="logo Carte bancaire">
+                                </div>
+                            </label>  
+                        </div>
+                    </div>
+                </div>  
+
+                <div class="payment-details-content">
+                    <h3>Paiement</h3>
+                    <div class="payment-details">
+                        <p class="price">1x | {{ category_price }}</p>
+                        <div>
+                            <div class="total-content">
+                                <p class="total">Total</h4>
+                                <p class="total-price">{{ category_price }}</p>
+                                <button type="submit" class="continue-btn">Continuer</button>
+                            </div>
+                            <p class="choixpaiement">Veuillez choisir un moyen de paiement</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
 </body> 
 {% endblock %}
 
-<!-- laisser appuyer seulement si un moyen de paiement est sélectionné -->
-<!-- insérer les informations personnes du participant -->
-<!-- calculer le montant en fonction de la course choisie -->
-<!-- créer la route -->
+
 
 
 

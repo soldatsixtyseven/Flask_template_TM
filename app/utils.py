@@ -100,6 +100,9 @@ def get_course_details(id_course):
 
     # Récupération de tous les champs de donnée
     if course_details:
+        # Récupération du nom de la course
+        course_name = course_details['name']
+        
         # Changement du format de la date de la base de donnée pour convertir en un objet datetime
         date_str = course_details['date']
         date_obj = datetime.strptime(date_str, '%Y-%m-%d')
@@ -129,6 +132,7 @@ def get_course_details(id_course):
             course_categories.append(category_details)
 
         return {
+            'course_name': course_name,
             'club': course_details['club'],
             'date': formatted_date,
             'location': course_details['location'],
