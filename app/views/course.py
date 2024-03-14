@@ -139,49 +139,40 @@ def paiement_carte_bancaire():
     return redirect(url_for('home_bp.landing_page'))
 
 # Création d'un URL dynamique pour l'inscription manuelle de participants depuis la page home.html
-@course_bp.route('/inscription_manuelle/<int:id_course>/<string:name>', methods=['GET'])
+@course_bp.route('/inscription_manuelle/<int:id_course>/<string:name>', methods=['GET', 'POST'])
 def manual_registration(id_course, name):
-    # Si des données de formulaire sont envoyées vers la route /register (ce qui est le cas lorsque le formulaire d'inscription est envoyé)
     if request.method == 'POST':
-        # On récupère les données du formulaire
+        # Récupérer les données du formulaire
         name = request.form['name']
         surname = request.form['surname']
-        email = request.form['email']
         sexe = request.form['sexe']
         age = request.form['age']
-        origin = request.form['origin']
         location = request.form['location']
+        origin = request.form['origin']
         club = request.form['club']
 
-        if not name or not surname or not email or not sexe or not age or not origin or not location:
+        # Vérifier si tous les champs sont remplis
+        if not name or not surname or not sexe or not age or not origin or not location:
             error = 'Veuillez remplir tous les champs.'
             flash(error)
             return redirect(url_for('course_bp.manual_registration', id_course=id_course, name=name))
 
-        # On récupère la base de données
+        # Insérer l'utilisateur dans la base de données
         db = get_db()
-
-        # Si l'email et le mot de passe ont bien une valeur
-        # on essaie d'insérer l'utilisateur dans la base de données
-        if email :
-            try:
-                db.execute("INSERT INTO users (name, surname, email, sexe, age, origin, location, club) VALUES (?, ?, ?, ?, ?, ?, ?, ?)", (name, surname, email, sexe, age, origin, location, club))
-                # db.commit() permet de valider une modification de la base de données
-                db.commit()
-            except db.IntegrityError:
-                # La fonction flash dans Flask est utilisée pour stocker un message dans la session de l'utilisateur
-                # dans le but de l'afficher ultérieurement, généralement sur la page suivante après une redirection
-                error = f"L'utilisateur {email} est déjà enregistré."
-                flash(error)
-                return redirect(url_for("course_bp.manual_registration", id_course=id_course, name=name))
-
-            return redirect(url_for("course_bp.manual_information", id_course=id_course, name=name))
-        else:
-            error = "Email"
+        try:
+            db.execute("INSERT INTO users (name, surname, sexe, age, origin, location, club) VALUES (?, ?, ?, ?, ?, ?, ?)", (name, surname, sexe, age, origin, location, club))
+            db.commit()
+        except db.IntegrityError:
+            error = "Une erreur s'est produite."
             flash(error)
-            return redirect(url_for("course_bp.manual_registration", id_course=id_course, name=name))
+            return redirect(url_for('course_bp.manual_registration', id_course=id_course, name=name))
 
-    return render_template('course/manual_registration.html', id_course=id_course, name=name)
+        # Rediriger vers la page manual_information.html
+        return redirect(url_for('course_bp.manual_information', id_course=id_course, name=name))
+
+    else:
+        # Afficher le formulaire d'inscription
+        return render_template('course/manual_registration.html', id_course=id_course, name=name)
 
 # Création d'un URL dynamique pour l'inscription manuelle de participants depuis la page home.html
 @course_bp.route('/inscription_manuelle/information/<int:id_course>/<string:name>', methods=['GET'])
