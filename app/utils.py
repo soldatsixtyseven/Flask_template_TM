@@ -38,6 +38,7 @@ def login_required_admin(view):
     return wrapped_view
 
 # Cette fonction récupère l'id, le nom, la date et le lieu de toutes les courses
+# Cette fonction est utilisée pour afficher toutes les courses
 def get_all_courses(sport=None):
     db = get_db()
     cursor = db.cursor()
@@ -50,6 +51,7 @@ def get_all_courses(sport=None):
     
     courses = cursor.fetchall()
 
+    # Création d'une liste avec les informations de toutes les courses
     all_courses = []
     for course in courses:
         # Récupération de tous les champs de donnée
@@ -146,6 +148,30 @@ def get_course_details(id_course):
         }
     else:
         return None
+
+# Cette fonction permet d'inscrire un utilisateur dans une catégorie
+def add_user_in_categories(user_id, category_name):
+
+    # On essaye d'attribué la clé étrangère de l'utilisateur à celle de la catégorie dans laquelle il veut s'inscire
+    try:
+        db = get_db()
+        cursor = db.cursor()
+
+        # Récupérer l'id de la catégorie en fonction de son nom
+        cursor.execute("SELECT id_categorie FROM categorie WHERE name = ?", (category_name,))
+        categorie_id = cursor.fetchone()
+
+        if not categorie_id:
+            raise ValueError("Catégorie introuvable")
+
+        # Insérer l'utilisateur et la catégorie dans la table "inscription" avec les clés étrangères
+        cursor.execute("INSERT INTO inscription (users_id, categorie_id) VALUES (?, ?)", (user_id, categorie_id[0]))
+        db.commit()
+        db.close()
+
+    # S'il y a un problème, afficher un message d'erreur
+    except Exception as e:
+        print("Erreur lors de l'inscription", e)
 
 # Fonction pour récupérer les informations de l'utilisateur à partir de son ID
 def get_user_info(user_id):

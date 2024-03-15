@@ -61,7 +61,6 @@ def register():
         # Si aucune donnée de formulaire n'est envoyée, on affiche le formulaire d'inscription
         return render_template('auth/register.html')
 
-
 # Route /auth/login
 @auth_bp.route('/login', methods=('GET', 'POST'))
 def login():
@@ -112,37 +111,6 @@ def login():
     else:
         return render_template('auth/login.html')
     
-# Route /auth/set_password
-@auth_bp.route('/set_password', methods=['GET', 'POST'])
-def set_password():
-    # Vérifier si l'utilisateur est connecté
-    user_id = session.get('user_id')
-
-    if user_id is None:
-        # Rediriger vers la page de login si l'utilisateur n'est pas connecté
-        return redirect(url_for('auth_bp.login'))
-
-    if request.method == 'POST':
-        password = request.form['password']
-        confirm_password = request.form['confirm_password']
-
-        if password != confirm_password:
-            flash("Les mots de passe ne correspondent pas. Veuillez réessayer.", "error")
-            return redirect(url_for('auth_bp.set_password'))
-
-        # Récupérer l'utilisateur depuis la base de données
-        db = get_db()
-        user = db.execute('SELECT * FROM users WHERE id = ?', (user_id,)).fetchone()
-
-        # Mettre à jour le mot de passe de l'utilisateur
-        user['mdp'] = generate_password_hash(password)
-        db.commit()
-
-        flash("Mot de passe défini avec succès. Vous pouvez maintenant vous connecter.", "success")
-        return redirect(url_for('auth_bp.login'))
-
-    return render_template('auth/set_password.html')
-
 # Route /auth/logout
 @auth_bp.route('/logout')
 def logout():

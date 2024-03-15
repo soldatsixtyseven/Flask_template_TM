@@ -10,6 +10,7 @@ admin_bp = Blueprint('admin_bp', __name__, url_prefix='/admin')
 @admin_bp.route('/home', methods=('GET', 'POST'))
 @login_required_admin 
 def admin_show_home():
+    # On importe toutes les courses grâce à la fonction get_all_course()
     all_courses = get_all_courses()
     return render_template('admin/admin_home.html', all_courses=all_courses)
 
@@ -54,7 +55,7 @@ def logout_admin():
     # Se déconnecter consiste simplement à supprimer le cookie session
     session.clear()
 
-    # On redirige l'utilisateur vers la page principale une fois qu'il s'est déconnecté
+    # On redirige l'adminstrateur vers la page principale une fois qu'il s'est déconnecté
     return redirect("/")
 
 # Fonction automatiquement appelée à chaque requête (avant d'entrer dans la route) sur une route appartenant au blueprint 'auth_bp'
@@ -101,10 +102,8 @@ def creation():
         distances = request.form.getlist('distance[]')
         ascent = request.form.getlist('ascent[]')
         descent = request.form.getlist('descent[]')
-        
-        print(category_names, year_max, year_min, start_times, prices, distances, ascent, descent)
 
-
+        # On contrôle que toutes les informations requises sont envoyées
         if not name or not date or not sport or not club or not location or not country :
             error = 'Veuillez remplir tous les champs.'
             flash(error)
@@ -120,23 +119,27 @@ def creation():
         if name and date:
             try:
                 cursor.execute("INSERT INTO course (name, date, sport, club, site_club, location, canton, country, flyers) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", (name, date, sport, club, site_club, location, canton, country, flyers))
-                # db.commit() permet de valider une modification de la base de données
                 db.commit()
 
                 # db.lastrowid permet de récupérer l'ID de la course récemment enregister pour l'attribuer aux catégories
                 course_id = cursor.lastrowid
-
+                
+                # On essaie d'insérer chaque catégorie dans la base de donnée
                 for i in range(len(category_names)):
                     cursor.execute("INSERT INTO categorie (course_id, name, year_max, year_min, start_time, price, distance, ascent, descent) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", (course_id, category_names[i], year_max[i], year_min[i], start_times[i], prices[i], distances[i], ascent[i], descent[i]))
                     db.commit()
 
+                # Si la création de la course a fonctionné, on renvoie l'administrateur vers home.html
                 return redirect(url_for("admin_bp.admin_show_home"))
             
+            # S'il y a un problème, on affiche un message d'erreur
             except Exception as e:
                 print(e)
                 error = "Une erreur s'est produite lors de la création de la course."
                 flash(error)
                 return redirect(url_for("admin_bp.creation"))
+        
+        # Si le nom et la date ne sont pas valides, on affiche un message d'erreur
         else:
             error = "Veuillez fournir un nom et une date valides."
             flash(error)

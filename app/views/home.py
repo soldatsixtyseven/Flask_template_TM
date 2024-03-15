@@ -21,7 +21,10 @@ def not_found_error(text):
 # Route /sports
 @home_bp.route('/sports', methods=['GET', 'POST'])
 def sports_page():
+    # Récupérer toutes les courses
     all_courses = get_all_courses()
+
+    # Classer toutes les courses dans des variables en fonction de leur sport
     athletisme = get_all_courses("athlétisme")
     course_a_pied = get_all_courses("course à pied")
     marche = get_all_courses("marche")
@@ -32,6 +35,7 @@ def sports_page():
     vtt = get_all_courses("VTT")
     autres = get_all_courses("autres")
 
+    # Envoyer toutes les données au template
     return render_template('home/sports.html', all_courses=all_courses,
                            athletisme=athletisme,
                            course_a_pied=course_a_pied, marche=marche,
