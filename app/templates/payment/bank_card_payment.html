@@ -2,10 +2,41 @@
 
 {% block content %}
 <body class="background-grey">
-    <div class="payment-section">
-        <h2>Carte Bancaire</h2>
+    <div class="payment-section-bank-card">
+        <div class="payment-content-left">
+            <h2>Carte Bancaire</h2>
+            <div class="entry-box">
+                  <input type="text" name="card_name" id="card_name" required>
+                  <label for="card_name">Nom sur la carte*</label>
+              </div>
+              <div class="entry-box">
+                  <input type="text" name="card_number" id="card_number" required>
+                  <label for="card_number">Numéro sur la carte*</label>
+              </div>
+              <div class="entry-box">
+                  <input type="text" name="valid_date" id="valid_date" placeholder="MM/YY" required>
+                  <label for="valid_date">Date de validité*</label>
+              </div>
+              <div class="entry-box">
+                <input type="text" name="visual_cyptogramme" id="visual_cyptogramme" required>
+                <label for="visual_cyptogramme">Cryptogramme visuel*</label>
+            </div>
+        </div>
 
-        <button class="btn">Continuer</button>
+        <div class="payment-content-right">
+            <div class="payment-details">
+                <p class="price">1x | {{ category_price }}</p>
+                <div>
+                    <div class="total-content">
+                        <p class="total">Total</h4>
+                        <p class="total-price">{{ category_price }}</p>
+                        <button class="continue-btn">Continuer</button>
+                    </div>
+                    <p class="choixpaiement">Vos informations bancaires ne seront pas enregistrées.</p>
+                    <p>Moyen de paiement non fonctionnel pour cause d'aléa administratif</p>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 {% endblock %}

@@ -3,8 +3,21 @@
 {% block content %}
 <body class="background-grey">
     <div class="payment-section">
-        <h2>Cash</h2>
-
+        <h5>Cash</h5>
+        <div class="payment-content-cash">
+            <div class="payment-cash">
+                <div>
+                    <h3>Paiement</h3>
+                    <p class="price">1x | {{ category_price }}</p>
+                </div>
+                <div>
+                    <div class="total-content-cash">
+                        <p class="total">Total</h4>
+                        <p class="total-price">{{ category_price }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
         <button class="btn">Continuer</button>
     </div>
 </body>

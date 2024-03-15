@@ -2,10 +2,24 @@
 
 {% block content %}
 <body class="background-grey">
-    <div class="payment-section">
-        <h2>PayPal</h2>
-
-        <button class="btn">Continuer</button>
+    <div class="payment-section-paypal">
+        <img class="paypal-image" src="https://www.1min30.com/wp-content/uploads/2017/09/Paypal-logo-500x417.jpg" alt="PayPal-img">
+        <h5>Payer avec PayPal</h5>
+        <p>Saississez votre adresse de courriel pour commencer.</p>
+        <div class="input-box" id="input-box-paypal">
+            <input type="email" name="email" required>
+            <label for="email">Adresse de courriel ou numéro de téléphone</label>
+            <div id="forgot-email">
+                <a href="">Adresse de courriel oublié ?</a>
+            </div>
+        </div>
+        <button class="btn-paypal" id="btn-paypal-1">Suivant</button>
+        <div class="horizontal-bar-ou-content">
+            <div class="horizontal-bar-ou"></div>
+            <p>ou</p>
+            <div class="horizontal-bar-ou"></div>
+        </div>
+        <button class="btn-paypal" id="btn-paypal-2">Payer avec une carte de béit ou de crédit</button>
     </div>
 </body>
 {% endblock %}
