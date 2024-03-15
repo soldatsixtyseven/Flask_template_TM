@@ -6,7 +6,7 @@
         <h5>Twint</h5>
         <img class="payment-image-qr-code" src="https://www.zharity.ch/s/twint_qr-code.svg" alt="code TWINT">
         <p>QR factice. Ne pas le scaner !</p>
-        <button class="btn">Continuer</button>
+        <a href="{{ url_for('payment_bp.confirmation') }}"><button class="btn">Continuer</button></a>
     </div>
 </body>
 {% endblock %}

@@ -36,3 +36,7 @@ def paypal_manual_payment(id_course, course_name, category_name, category_price)
 @payment_bp.route('/cash/<int:id_course>/<string:course_name>/<string:category_name>/<string:category_price>', methods=['GET'])
 def cash_manual_payment(id_course, course_name, category_name, category_price):
     return render_template('payment/cash_manual_payment.html', id_course=id_course, course_name=course_name, category_name=category_name, category_price=category_price)
+
+@payment_bp.route('/confirmation', methods=['GET'])
+def confirmation():
+    return render_template('payment/confirmation.html')
