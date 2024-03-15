@@ -1245,6 +1245,11 @@ td {
     height: 34px;
 }
 
+.payment-section h5{
+    width: 520px;
+    line-height: 1.5em;
+}
+
 .payment-section-paypal h5 {
     font-size: 25px;
     font-weight: 400;
@@ -1336,6 +1341,10 @@ td {
     background-color: transparent;
     border: 1px solid rgb(0, 56, 180);
     color: rgb(0, 56, 180);
+}
+
+#btn-confirmation {
+    font-size: 12px;
 }
 
 @media (min-width : 475px) {

@@ -18,7 +18,7 @@
                 </div>
             </div>
         </div>
-        <button class="btn">Continuer</button>
+        <a href="{{ url_for('payment_bp.confirmation', id_course=id_course, course_name=course_name, category_name=category_name) }}"><button class="btn">Continuer</button></a>
     </div>
 </body>
 {% endblock %}

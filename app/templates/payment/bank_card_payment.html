@@ -25,16 +25,13 @@
 
         <div class="payment-content-right">
             <div class="payment-details">
-                <p class="price">1x | {{ category_price }}</p>
-                <div>
-                    <div class="total-content">
-                        <p class="total">Total</h4>
-                        <p class="total-price">{{ category_price }}</p>
-                        <button class="continue-btn">Continuer</button>
-                    </div>
-                    <p class="choixpaiement">Vos informations bancaires ne seront pas enregistrées.</p>
-                    <p>Moyen de paiement non fonctionnel pour cause d'aléa administratif</p>
+                <div class="total-content">
+                    <p class="total">Total</h4>
+                    <p class="total-price">{{ category_price }}</p>
+                    <a href="{{ url_for('payment_bp.confirmation', id_course=id_course, course_name=course_name, category_name=category_name) }}"><button class="btn">Continuer</button></a>
                 </div>
+                <p class="choixpaiement">Vos informations bancaires ne seront pas enregistrées.</p>
+                <p>Moyen de paiement non fonctionnel pour cause d'aléa administratif</p>
             </div>
         </div>
     </div>

@@ -18,6 +18,7 @@ def course_information(id_course, course_name):
     # Récupération de la fonction qui récupère toutes les informations sur les courses
     course_details = get_course_details(id_course)
     
+    # Envoyer toutes les informations sur une course au template information.html
     if course_details:
         categories = course_details['categories']
         return render_template('course/information.html', id_course=id_course, course_name=course_name,
@@ -34,7 +35,8 @@ def course_information(id_course, course_name):
         # Affichage d'une erreur dans le cas où les détails d'une course ne sont pas trouvés
         flash("Détails de la course non trouvés", "error")
         return redirect(url_for('home_bp.landing_page'))
-    
+
+# Création d'un URL dynamique pour une page d'information pour chaque course qui sélectionne les catégories auxquelles un utilisateur peut s'inscrire par son âge
 @course_bp.route('/information/user/<int:id_course>/<string:course_name>')
 @login_required
 def course_information_user(id_course, course_name):
@@ -87,21 +89,23 @@ def course_information_user(id_course, course_name):
         flash("Détails de la course non trouvés", "error")
         return redirect(url_for('course_bp.course_information'))
 
-@course_bp.route('/payment/<int:id_course>/<string:course_name>/<string:category_name>', methods=['GET'])
+# Création d'un URL dynamique pour une page de paiement en ligne pour les utilisateurs
+@course_bp.route('/payment/<int:id_course>/<string:course_name>/<string:category_name>', methods=['GET', 'POST'])
 @login_required
-def payment(id_course, course_name, category_name):
+def user_payment(id_course, course_name, category_name):
+    # Récupérer le moyen de paiement sélectionné dans le formulaire
     if request.method == 'POST':
         selected_payment = request.form.get('payment')
-        category_price = request.form.get('category_price')
 
+        # Récupérer le moyen de paiement sélectionné dans le formulaire
         if selected_payment is None:
             flash("Veuillez choisir un moyen de paiement", "error")
-            return redirect(url_for('course_bp.payment', id_course=id_course, course_name=course_name, category_name=category_name))
+            return redirect(url_for('course_bp.user_payment', id_course=id_course, course_name=course_name, category_name=category_name))
 
         # Récupérer les détails de la course et de la catégorie en fonction de id_course et category_name
         course_details = get_course_details(id_course)
         
-        # Initialiser category_details avec None
+        # Rechercher les informations sur la catégorie choisie
         category_details = None
         for category in course_details['categories']:
             if category['name'] == category_name:
@@ -111,22 +115,23 @@ def payment(id_course, course_name, category_name):
         if not category_details:
             # Gérer l'erreur si la catégorie n'est pas trouvée
             flash("Catégorie introuvable", "error")
-            return redirect(url_for('course_bp.user_information', id_course=id_course, name=course_name))
+            return redirect(url_for('course_bp.course_information_user', id_course=id_course, course_name=course_name))
 
         # Rediriger en fonction du moyen de paiement sélectionné
         if selected_payment == 'twint':
-            return redirect(url_for('twint_payment', id_course=id_course, course_name=course_name, category_name=category_name, category_price=category_details['price']))
+            return redirect(url_for('payment_bp.twint_payment_user', id_course=id_course, course_name=course_name, category_name=category_name, category_price=category_details['price']))
         elif selected_payment == 'postfinance':
-            return redirect(url_for('postfinance_payment', id_course=id_course, course_name=course_name, category_name=category_name, category_price=category_details['price']))
+            return redirect(url_for('payment_bp.postfinance_payment_user', id_course=id_course, course_name=course_name, category_name=category_name, category_price=category_details['price']))
         elif selected_payment == 'paypal':
-            return redirect(url_for('paypal_payment', id_course=id_course, course_name=course_name, category_name=category_name, category_price=category_details['price']))
+            return redirect(url_for('payment_bp.paypal_payment_user', id_course=id_course, course_name=course_name, category_name=category_name, category_price=category_details['price']))
         elif selected_payment == 'carte_bancaire':
-            return redirect(url_for('bank_card_payment', id_course=id_course, course_name=course_name, category_name=category_name, category_price=category_details['price']))
+            return redirect(url_for('payment_bp.bank_card_payment_user', id_course=id_course, course_name=course_name, category_name=category_name, category_price=category_details['price']))
+        # Si aucun paiement n'est sélectionne, envoyer un message d'erreur
         else:
             flash("Veuillez sélectionner un moyen de paiement", "error")
-            return redirect(url_for('course_bp.payment', id_course=id_course, course_name=course_name, category_name=category_name))
+            return redirect(url_for('course_bp.user_payment', id_course=id_course, course_name=course_name, category_name=category_name))
         
-    # Vous pouvez ici récupérer les informations de l'utilisateur comme le nom, le prénom, et l'année de naissance
+    # Récupérer les informations de l'utilisateur comme le nom, le prénom, et l'année de naissance
     user_id = session.get('user_id')
     user_info = get_user_info(user_id)
     user_name = user_info['name']
@@ -136,7 +141,7 @@ def payment(id_course, course_name, category_name):
     # Récupérer les détails de la course pour afficher les informations nécessaires
     course_details = get_course_details(id_course)
 
-    # Initialiser category_details avec None
+    # Rechercher les informations sur la catégorie choisie
     category_details = None
     for category in course_details['categories']:
         if category['name'] == category_name:
@@ -148,13 +153,12 @@ def payment(id_course, course_name, category_name):
         flash("Catégorie introuvable", "error")
         return redirect(url_for('course_bp.course_information_user', id_course=id_course, course_name=course_name))
 
-
-    # Puis rendre le template payment.html avec toutes les informations nécessaires
+    # Rediriger vers la page user_payment.html avec les informations nécessaires
     return render_template('course/user_payment.html', id_course=id_course, course_name=course_name, category_name=category_name,
                            user_name=user_name, user_surname=user_surname,
                            user_birth_year=user_birth_year,
-                           user_location = user_info['location'],
-                           user_origin = user_info['origin'],
+                           user_location=user_info['location'],
+                           user_origin=user_info['origin'],
                            location=course_details['location'],
                            category_start_time=category_details['start_time'],
                            category_price=category_details['price'])
@@ -187,22 +191,24 @@ def manual_registration(id_course, course_name):
             user_id = db.execute("SELECT last_insert_rowid()").fetchone()[0]
             # Stocker l'ID de l'utilisateur dans la session
             session['user_id'] = user_id
+        
+        # Afficher un message d'erreur en cas de problème
         except db.IntegrityError:
             error = "Une erreur s'est produite."
             flash(error)
             return redirect(url_for('course_bp.manual_registration', id_course=id_course, course_name=course_name))
 
-        # Rediriger vers la page manual_information.html
+        # Rediriger vers la page manual_information.html avec les informations nécessaire
         return redirect(url_for('course_bp.manual_information', id_course=id_course, course_name=course_name))
 
     else:
-        # Afficher le formulaire d'inscription
+        # En cas d'erreur, afficher le formulaire d'inscription
         return render_template('course/manual_registration.html', id_course=id_course, course_name=course_name)
 
 # Création d'un URL dynamique pour l'inscription manuelle de participants depuis la page home.html
 @course_bp.route('/inscription/information/<int:id_course>/<string:course_name>', methods=['GET'])
 def manual_information(id_course, course_name):
-        # Récupération de la fonction qui récupère toutes les informations sur les courses
+    # Récupération de la fonction qui récupère toutes les informations sur les courses
     course_details = get_course_details(id_course)
 
     # Récupération de l'année de naissance de l'utilisateur connecté
@@ -234,6 +240,7 @@ def manual_information(id_course, course_name):
             return "Aucune catégorie ne correspond à votre profil"
         else:
             # Retourner les catégories filtrées avec les autres informations de la course
+            # Rediriger vers la page manual_information.html avec les informations nécessaires
             return render_template('course/manual_information.html', id_course=id_course, course_name=course_name,
                                    club=course_details['club'],
                                    date=course_details['date'],
@@ -252,10 +259,11 @@ def manual_information(id_course, course_name):
     
 @course_bp.route('/inscription/payment/<int:id_course>/<string:course_name>/<string:category_name>', methods=['GET', 'POST'])
 def manual_payment(id_course, course_name, category_name):
+    # Récupérer le moyen de paiement sélectionné dans le formulaire
     if request.method == 'POST':
         selected_payment = request.form.get('payment')
-        category_price = request.form.get('category_price')
 
+        # Récupérer le moyen de paiement sélectionné dans le formulaire
         if selected_payment is None:
             flash("Veuillez choisir un moyen de paiement", "error")
             return redirect(url_for('course_bp.manual_payment', id_course=id_course, course_name=course_name, category_name=category_name))
@@ -263,7 +271,7 @@ def manual_payment(id_course, course_name, category_name):
         # Récupérer les détails de la course et de la catégorie en fonction de id_course et category_name
         course_details = get_course_details(id_course)
         
-        # Initialiser category_details avec None
+        # Rechercher les informations sur la catégorie choisie
         category_details = None
         for category in course_details['categories']:
             if category['name'] == category_name:
@@ -273,20 +281,22 @@ def manual_payment(id_course, course_name, category_name):
         if not category_details:
             # Gérer l'erreur si la catégorie n'est pas trouvée
             flash("Catégorie introuvable", "error")
-            return redirect(url_for('course_bp.manual_information', id_course=id_course, course_name=course_name))
+            return redirect(url_for('course_bp.manual_payment', id_course=id_course, course_name=course_name))
 
         # Rediriger en fonction du moyen de paiement sélectionné
         if selected_payment == 'twint':
             return redirect(url_for('payment_bp.twint_manual_payment', id_course=id_course, course_name=course_name, category_name=category_name, category_price=category_details['price']))
         elif selected_payment == 'paypal':
+            print(1)
             return redirect(url_for('payment_bp.paypal_manual_payment', id_course=id_course, course_name=course_name, category_name=category_name, category_price=category_details['price']))
         elif selected_payment == 'cash':
             return redirect(url_for('payment_bp.cash_manual_payment', id_course=id_course, course_name=course_name, category_name=category_name, category_price=category_details['price']))
+        # Si aucun paiement n'est sélectionne, envoyer un message d'erreur
         else:
             flash("Veuillez sélectionner un moyen de paiement", "error")
             return redirect(url_for('course_bp.manual_payment', id_course=id_course, course_name=course_name, category_name=category_name))
         
-    # Vous pouvez ici récupérer les informations de l'utilisateur comme le nom, le prénom, et l'année de naissance
+    # Récupérer les informations de l'utilisateur comme le nom, le prénom, et l'année de naissance
     user_id = session.get('user_id')
     user_info = get_user_info(user_id)
     user_name = user_info['name']
@@ -296,7 +306,7 @@ def manual_payment(id_course, course_name, category_name):
     # Récupérer les détails de la course pour afficher les informations nécessaires
     course_details = get_course_details(id_course)
 
-    # Initialiser category_details avec None
+    # Rechercher les informations sur la catégorie choisie
     category_details = None
     for category in course_details['categories']:
         if category['name'] == category_name:
@@ -306,9 +316,9 @@ def manual_payment(id_course, course_name, category_name):
     if not category_details:
         # Gérer l'erreur si la catégorie n'est pas trouvée
         flash("Catégorie introuvable", "error")
-        return redirect(url_for('course_bp.manual_information', id_course=id_course, course_name=course_name))
+        return redirect(url_for('course_bp.manual_payment', id_course=id_course, course_name=course_name, category_name=category_name))
 
-    # Puis rendre le template payment.html avec toutes les informations nécessaires
+    # Rediriger vers la page manual_payment.html avec toutes les informations nécessaires
     return render_template('course/manual_payment.html', id_course=id_course, course_name=course_name, category_name=category_name,
                            user_name=user_name, user_surname=user_surname,
                            user_birth_year=user_birth_year,
@@ -323,6 +333,8 @@ def manual_payment(id_course, course_name, category_name):
 def liste_inscription(id_course, course_name):
     db = get_db()
     cursor = db.cursor()
+
+    # Croiser les liens entre les tables "users", "course", "categorie" et "inscription" pour afficher toutes les utilisateurs inscrits dans une même course avec leurs informations personnelles et la catégorie choisie
     cursor.execute("""
                    SELECT categorie.name, users.age, users.name, users.surname, users.sexe, users.location, users.origin, users.club
                    FROM users 
@@ -331,22 +343,12 @@ def liste_inscription(id_course, course_name):
                    JOIN course ON categorie.course_id = course.id_course
                    WHERE course.id_course = ?
                    ORDER BY categorie.name, users.name, users.surname""", (id_course,))
-
+    
+    # Regroupe toutes ses informations dans une variable listes
     listes = cursor.fetchall()
     db.close()
-    
-    # Affichage des résultats
-    for resultat in listes:
-        nom_categorie = resultat[0]
-        age = resultat[1]
-        nom = resultat[2]
-        prenom = resultat[3]
-        sexe = resultat[4]
-        location = resultat[5]
-        origin = resultat[6]
-        club = resultat[7]
-        print(f"Catégorie: {nom_categorie}, Age: {age}, Nom: {nom}, Prénom: {prenom}, Sexe: {sexe}, Lieu: {location}, Origine: {origin}, Club: {club}")
 
+    # Rediriger vers la page liste_inscription.html avec les informations nécessaires
     return render_template('course/liste_inscription.html', listes=listes, id_course=id_course, course_name=course_name)
 
 @course_bp.route('/export_excel/<int:id_course>', methods=['POST'])

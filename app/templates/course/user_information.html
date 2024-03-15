@@ -43,7 +43,7 @@
                 <div class="horizontal-bar"></div>
                 <h3>Catégories</h3>
                 {% for category in categories %}
-                    <a class="link-container" href="{{ url_for('course_bp.payment', id_course=id_course, course_name=course_name,
+                    <a class="link-container" href="{{ url_for('course_bp.user_payment', id_course=id_course, course_name=course_name,
                     category_name=category['name'],
                     category_start_time=category['start_time'],
                     category_price=category['price']) }}">

@@ -5,8 +5,8 @@
     <div class="payment-section">
         <h5>Twint</h5>
         <img class="payment-image-qr-code" src="https://www.zharity.ch/s/twint_qr-code.svg" alt="code TWINT">
-        <p>QR factice. Ne pas le scaner !</p>
-        <a href="{{ url_for('payment_bp.confirmation') }}"><button class="btn">Continuer</button></a>
+        <p>QR factice. Ne pas le scanner !</p>
+        <a href="{{ url_for('payment_bp.manual_confirmation', id_course=id_course, course_name=course_name, category_name=category_name) }}"><button class="btn">Continuer</button></a>
     </div>
 </body>
 {% endblock %}
