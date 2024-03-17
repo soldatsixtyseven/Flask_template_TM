@@ -6,7 +6,6 @@ from app.utils import *
 # Chaque blueprint contient des routes pour l'application
 from app.views.home import home_bp
 from app.views.auth import auth_bp
-from app.views.user import user_bp
 from app.views.admin import admin_bp
 from app.views.course import course_bp
 from app.views.payment import payment_bp
@@ -24,7 +23,6 @@ def create_app():
     # Enregistrement des blueprints de l'application.
     app.register_blueprint(home_bp)
     app.register_blueprint(auth_bp)
-    app.register_blueprint(user_bp)
     app.register_blueprint(admin_bp)
     app.register_blueprint(course_bp)
     app.register_blueprint(payment_bp)
