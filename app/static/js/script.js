@@ -5,7 +5,14 @@ function addCategory() {
 
     // Ajoutez les champs nécessaires
     categoryEntry.innerHTML = `
-        <div class="category-entry">   
+        <div class="category-entry">
+            <div class="category-box" id="category-box-select">
+                <select name="sexe" id="sexe" required>
+                    <option value="f">Femme</option>
+                    <option value="h">Homme</option>
+                    <option value="i">Indéfini</option>     
+                </select>
+            </div>
             <div class="category-box" id="category-box-name">
                 <input type="text" name="category_name[]" required placeholder="Nom">
             </div>

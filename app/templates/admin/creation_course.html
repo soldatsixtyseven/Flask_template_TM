@@ -10,6 +10,7 @@
                 <div>
                     <h2>Créer un événement</h2>
                     <p>*Champs obligatoires.</p>
+                    <p>"-" : Données indéfinies</p>
                 </div>
                 <button type="submit" id="create-btn">Créer</button>
             </div>
@@ -28,17 +29,17 @@
                         <div class="entry-box">
                             <label for="sport">Sport* (à sélectionner)</label>
                             <div class="entry-box-select">
-                            <select name="sport" id="sport" required>
-                                <option value="course à pied">Course à pied</option>
-                                <option value="athlétisme">Athlétisme</option>
-                                <option value="marche">Marche</option>
-                                <option value="triathlon">Triathlon</option>
-                                <option value="VTT">VTT</option>
-                                <option value="ski nordique">Ski nordique</option>
-                                <option value="ski alpin">Ski alpin</option>
-                                <option value="hippisme">Hippisme</option>
-                                <option value="autres">Autres</option>
-                            </select>
+                                <select name="sport" id="sport" required>
+                                    <option value="course à pied">Course à pied</option>
+                                    <option value="athlétisme">Athlétisme</option>
+                                    <option value="marche">Marche</option>
+                                    <option value="triathlon">Triathlon</option>
+                                    <option value="VTT">VTT</option>
+                                    <option value="ski nordique">Ski nordique</option>
+                                    <option value="ski alpin">Ski alpin</option>
+                                    <option value="hippisme">Hippisme</option>
+                                    <option value="autres">Autres</option>
+                                </select>
                             </div>
                         </div>
                         <div class="entry-box">
@@ -73,6 +74,9 @@
                 <div id="categories-container">
                     <div class="category-entry">
                         <!-- Entête des colonnes -->
+                        <div class="colonne-box" id="colonne-box-sexe">
+                            <h4>Sexe*</h4>
+                        </div>
                         <div class="colonne-box" id="colonne-box-name">
                             <h4>Nom de la catégorie*</h4>
                         </div>
@@ -99,6 +103,13 @@
                         </div>
                     </div>
                     <div class="category-entry">
+                        <div class="category-box" id="category-box-select">
+                            <select name="sexe" id="sexe" required>
+                                <option value="f">Femme</option>
+                                <option value="h">Homme</option>
+                                <option value="i">Indéfini</option>
+                            </select>
+                        </div>
                         <div class="category-box" id="category-box-name">
                             <input type="text" name="category_name[]" required placeholder="Nom">
                         </div>

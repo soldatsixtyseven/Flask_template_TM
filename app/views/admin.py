@@ -94,6 +94,7 @@ def creation():
         flyers = request.files['flyers'].read()
 
         # On récupère les données de chaque catérogie
+        sexe = request.form['sexe']
         category_names = request.form.getlist('category_name[]')
         year_max = request.form.getlist('year_max[]')
         year_min = request.form.getlist('year_min[]')
@@ -126,7 +127,7 @@ def creation():
                 
                 # On essaie d'insérer chaque catégorie dans la base de donnée
                 for i in range(len(category_names)):
-                    cursor.execute("INSERT INTO categorie (course_id, name, year_max, year_min, start_time, price, distance, ascent, descent) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", (course_id, category_names[i], year_max[i], year_min[i], start_times[i], prices[i], distances[i], ascent[i], descent[i]))
+                    cursor.execute("INSERT INTO categorie (course_id, name, year_max, year_min, sexe, start_time, price, distance, ascent, descent) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", (course_id, category_names[i], year_max[i], year_min[i], sexe[i], start_times[i], prices[i], distances[i], ascent[i], descent[i]))
                     db.commit()
 
                 # Si la création de la course a fonctionné, on renvoie l'administrateur vers home.html

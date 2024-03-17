@@ -94,7 +94,7 @@ def get_course_details(id_course):
 
     # Récupération de toutes les catégories liées à la course
     cursor.execute("""
-        SELECT name, distance, start_time, price, ascent, descent, year_max, year_min
+        SELECT name, distance, start_time, price, ascent, descent, year_max, year_min, sexe
         FROM categorie
         WHERE course_id = ?
     """, (id_course,))
@@ -129,7 +129,8 @@ def get_course_details(id_course):
                 'ascent': category['ascent'],
                 'descent': category['descent'],
                 'year_max': category['year_max'],
-                'year_min': category['year_min']
+                'year_min': category['year_min'],
+                'sexe': category['sexe']
             }
             course_categories.append(category_details)
 
