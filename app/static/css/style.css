@@ -1106,6 +1106,24 @@ textarea::placeholder {
     font-weight: 500;
 }
 
+/* about.html */
+.about-section {
+    display: flex;
+    flex-direction: column;
+    height: 1500px;
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.about-section p {
+    width: 100%;
+    margin-bottom: 20px;
+    text-align: justify;
+    font-size: 20px;
+    color: black;
+
+}
+
 /* liste_inscription.html */
 table {
     border-collapse: collapse;
