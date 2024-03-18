@@ -1027,7 +1027,7 @@ input::placeholder {
 .contact-section {
     display: flex;
     flex-direction: column;
-    height: auto;
+    height: 1500px;
     width: 1000px;
     margin: 0 auto;
 }
