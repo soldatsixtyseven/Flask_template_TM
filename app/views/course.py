@@ -44,9 +44,10 @@ def course_information_user(id_course, course_name):
     # Récupération de la fonction qui récupère toutes les informations sur les courses
     course_details = get_course_details(id_course)
 
-    # Récupération de l'année de naissance de l'utilisateur connecté
+    # Récupération de l'année de naissance et du sexe de l'utilisateur connecté
     user_id = session.get('user_id')
     user_info = get_user_info(user_id)
+    user_sexe = user_info['sexe']
     user_birth_year = int(get_user_birth_year(user_info))
     
     if course_details:
@@ -56,18 +57,58 @@ def course_information_user(id_course, course_name):
         for category in categories:
             age_min = category.get('year_min')
             age_max = category.get('year_max')
+            sexe = category.get('sexe')
             
-            if age_min == "-" and age_max != "-":
-                if user_birth_year <= int(age_max):
+            if user_sexe == "3":
+                if age_min == "-" and age_max != "-":
+                    if user_birth_year <= int(age_max):
+                        filtered_categories.append(category)
+                elif age_max == "-" and age_min != "-":
+                    if user_birth_year >= int(age_min):
+                        filtered_categories.append(category)
+                elif age_min == "-" and age_max == "-":
                     filtered_categories.append(category)
-            elif age_max == "-" and age_min != "-":
-                if user_birth_year >= int(age_min):
+                else:
+                    if int(age_min) <= user_birth_year <= int(age_max):
+                        filtered_categories.append(category)
+            elif user_sexe == "i":
+                if age_min == "-" and age_max != "-":
+                    if user_birth_year <= int(age_max):
+                        filtered_categories.append(category)
+                elif age_max == "-" and age_min != "-":
+                    if user_birth_year >= int(age_min):
+                        filtered_categories.append(category)
+                elif age_min == "-" and age_max == "-":
                     filtered_categories.append(category)
-            elif age_min == "-" and age_max == "-":
-                filtered_categories.append(category)
-            else:
-                if int(age_min) <= user_birth_year <= int(age_max):
+                else:
+                    if int(age_min) <= user_birth_year <= int(age_max):
+                        filtered_categories.append(category)
+            elif user_sexe == "1" and sexe in ["f", "3"]:
+                if age_min == "-" and age_max != "-":
+                    if user_birth_year <= int(age_max):
+                        filtered_categories.append(category)
+                elif age_max == "-" and age_min != "-":
+                    if user_birth_year >= int(age_min):
+                        filtered_categories.append(category)
+                elif age_min == "-" and age_max == "-":
                     filtered_categories.append(category)
+                else:
+                    if int(age_min) <= user_birth_year <= int(age_max):
+                        filtered_categories.append(category)
+            elif user_sexe == "2" and sexe in ["h", "3"]:
+                if age_min == "-" and age_max != "-":
+                    if user_birth_year <= int(age_max):
+                        filtered_categories.append(category)
+                elif age_max == "-" and age_min != "-":
+                    if user_birth_year >= int(age_min):
+                        filtered_categories.append(category)
+                elif age_min == "-" and age_max == "-":
+                    filtered_categories.append(category)
+                else:
+                    if int(age_min) <= user_birth_year <= int(age_max):
+                        filtered_categories.append(category)
+
+
 
         if not filtered_categories:
             return "Aucune catégorie ne correspond à votre profil"
