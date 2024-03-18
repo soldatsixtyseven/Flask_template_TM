@@ -55,7 +55,7 @@ def login_admin():
     else:
         return render_template('admin/admin_login.html')
 
-# Route /auth/logout
+# Route /admin/logout
 @admin_bp.route('/logout')
 def logout_admin():
     # Se déconnecter consiste simplement à supprimer le cookie session
@@ -81,12 +81,10 @@ def load_logged_in_admin():
         # On récupère la base de données et on récupère l'administrateur correspondant à l'id stocké dans le cookie session
         db = get_db()
         g.admin = db.execute('SELECT * FROM admin WHERE id_admin = ?', (admin_id,)).fetchone()
-    
+
 # Route /admin/creation
 @admin_bp.route('/creation', methods=('GET', 'POST'))
 def creation():
-
-    # Si des données de formulaire sont envoyées vers la route /creation (ce qui est le cas lorsque le formulaire d'inscription est envoyé)
     if request.method == 'POST':
         # On récupère les données de la course
         name = request.form['name']
@@ -99,8 +97,8 @@ def creation():
         country = request.form['country']
         flyers = request.files['flyers'].read()
 
-        # On récupère les données de chaque catérogie
-        sexe = request.form['sexe']
+        # On récupère les données des catégories
+        sexe = request.form.getlist('sexe[]')
         category_names = request.form.getlist('category_name[]')
         year_max = request.form.getlist('year_max[]')
         year_min = request.form.getlist('year_min[]')
@@ -116,7 +114,6 @@ def creation():
             flash(error)
             return redirect(url_for('admin_bp.creation'))
             
-
         # On récupère la base de données
         db = get_db()
         cursor = db.cursor()
@@ -128,10 +125,10 @@ def creation():
                 cursor.execute("INSERT INTO course (name, date, sport, club, site_club, location, canton, country, flyers) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", (name, date, sport, club, site_club, location, canton, country, flyers))
                 db.commit()
 
-                # db.lastrowid permet de récupérer l'ID de la course récemment enregister pour l'attribuer aux catégories
+                # db.lastrowid permet de récupérer l'ID de la course récemment enregistrée pour l'attribuer aux catégories
                 course_id = cursor.lastrowid
                 
-                # On essaie d'insérer chaque catégorie dans la base de donnée
+                # On essaie d'insérer chaque catégorie dans la base de données
                 for i in range(len(category_names)):
                     cursor.execute("INSERT INTO categorie (course_id, name, year_max, year_min, sexe, start_time, price, distance, ascent, descent) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", (course_id, category_names[i], year_max[i], year_min[i], sexe[i], start_times[i], prices[i], distances[i], ascent[i], descent[i]))
                     db.commit()
@@ -155,3 +152,5 @@ def creation():
     else:
         # Si aucune donnée de formulaire n'est envoyée, on affiche le formulaire de création de course
         return render_template('admin/creation_course.html')
+
+
