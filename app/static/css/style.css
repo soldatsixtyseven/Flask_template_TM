@@ -1390,6 +1390,43 @@ td {
     font-size: 12px;
 }
 
+/* paypal_payment.html */
+#payment-section-bank-card {
+    position: relative;
+    box-sizing: content-box;
+    display: flex;
+    justify-content: space-between;
+    width: 1250px;
+    height: auto;
+    margin: 0 auto;
+}
+
+#payment-content-left-bank-card {
+    height: 790px;
+    width: 760px;
+    background-color: white;
+    border-radius: 20px;
+    padding: 50px 0px 0px 50px;
+}
+
+#payment-bank-card{
+    margin-top: 40px;
+    margin-left: 30px;
+    height: 420px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#payment-content-right-bank-card {
+    height: 790px;
+    width: 470px;
+    background-color: white;
+    border-radius: 20px;
+    padding: 50px;
+}
+
+
 @media (min-width : 475px) {
     h1 {
         font-size: 75px;
