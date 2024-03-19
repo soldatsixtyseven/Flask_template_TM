@@ -65,29 +65,27 @@ def course_information_user(id_course, course_name):
                     if age_min == "-" and age_max == "-":
                         filtered_categories.append(category)
                     elif age_min == "-":
-                        if int(user_birth_year) >= int(age_max):
+                        if user_birth_year >= int(age_max):
                             filtered_categories.append(category)
                     elif age_max == "-":
-                        if int(user_birth_year) <= int(age_min):
+                        if user_birth_year <= int(age_min):
                             filtered_categories.append(category)
                     else:
-                        if int(age_min) >= int(user_birth_year) >= int(age_max):
+                        if int(age_min) >= user_birth_year >= int(age_max):
                             filtered_categories.append(category)
             elif user_sexe == 2 or user_sexe == 3:
                 if sexe_categorie == "h" or sexe_categorie == "i":
                     if age_min == "-" and age_max == "-":
                         filtered_categories.append(category)
                     elif age_min == "-":
-                        if int(user_birth_year) >= int(age_max):
+                        if user_birth_year >= int(age_max):
                             filtered_categories.append(category)
                     elif age_max == "-":
-                        if int(user_birth_year) <= int(age_min):
+                        if user_birth_year <= int(age_min):
                             filtered_categories.append(category)
                     else:
-                        if int(age_min) >= int(user_birth_year) >= int(age_max):
+                        if int(age_min) >= user_birth_year >= int(age_max):
                             filtered_categories.append(category)
-
-        print("Filtered Categories:", filtered_categories)
 
         if not filtered_categories:
             return "Aucune catégorie ne correspond à votre profil"
@@ -104,8 +102,6 @@ def course_information_user(id_course, course_name):
                                    sport=course_details['sport'],
                                    categories=filtered_categories)
 
-
-        
     else:
         # Affichage d'une erreur dans le cas où les détails d'une course ne sont pas trouvés
         flash("Détails de la course non trouvés", "error")
