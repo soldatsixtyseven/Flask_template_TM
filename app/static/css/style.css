@@ -757,7 +757,7 @@ input::placeholder {
     font-family: 'Poppins', sans-serif;
 }
 
-#instruction-message {
+.instruction-message {
     font-family: 'Poppins', sans-serif;
     text-align: center;
 }
@@ -1426,6 +1426,213 @@ td {
     padding: 50px;
 }
 
+#total-content-bank-card {
+    width: 400px;
+    height: 150px;
+    background: rgb(242,242,242);
+}
+
+#total-content-bank-card p {
+    position: relative;
+    box-sizing: content-box;
+    margin: 0 auto;
+    justify-content: space-between;
+    display: inline-block;
+    text-align: justify;
+    font-size: 24px;
+    margin: 18px 32px 5px 32px;
+}
+
+#continue-btn-bank-card {
+    width: 360px;
+    height: 45px;
+    background-color: black;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1em;
+    color: white;
+    font-weight: 500;
+    margin: 10px auto 0px;
+    display: block;
+    text-transform: uppercase;   
+}
+
+/* payment.html */
+.payment-content {
+    position: relative;
+    box-sizing: content-box;
+    width: 1240px;
+    height: 775px;
+    margin: 30px auto ; 
+    justify-content: space-between;
+}
+
+.inscription-section {
+    position: relative;
+    box-sizing: content-box;
+    height: 320px;
+    background: white;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto 20px;
+}
+
+.inscription-section h3 {
+    margin-top: 60px;
+    margin-left: 60px;
+}
+
+.inscription-content {
+    display: flex;
+    flex-direction: row;
+}
+
+.inscription-information {
+    width: 620px;
+    padding-top: 10px;
+    padding-left: 80px;
+}
+
+.inscription-information p{
+    font-size: 20px;
+    font-weight: 200;
+    line-height: 30px;
+}
+
+.payment-method-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.payment-method-content {
+    width: 670px;
+    height: 440px;
+    background: white;
+    border-radius: 20px;
+}
+
+.payment-method-content h3 {
+    margin-top: 60px;
+    margin-left: 60px;
+}
+
+.payment-method {
+    display: flex;
+    flex-direction: column;
+    padding: 0px 60px 0px 60px;
+}
+
+.image-container {
+    width: 134px; 
+    height: 56px;
+    border-radius: 9px;
+    overflow: hidden;
+    float: right;
+}
+
+.payment-image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.payment-method-content span {
+    font-family: sans-serif;
+    font-size: 24px;
+    font-weight: lighter;
+    margin-top: 60px;
+    margin-left: 60px;
+}
+
+.payment-details-content {
+    width: 550px;
+    height: 440px;
+    background: white;
+    border-radius: 20px; 
+}
+
+.payment-details-content h3 {
+    margin-top: 60px;
+    margin-left: 60px;
+}
+
+.payment-details {
+    display: flex;
+    flex-direction: column;
+    height: 250px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.price {
+    font-family: sans-serif;
+    font-size: 30px;
+    font-weight: lighter;
+    margin-top: 15px;
+    margin-left: 90px;
+}
+
+.total-content {
+    width: 450px;
+    height: 150px;
+    background: rgb(242,242,242);
+}
+
+.total-content p {
+    position: relative;
+    box-sizing: content-box;
+    margin: 0 auto;
+    justify-content: space-between;
+    display: inline-block;
+    text-align: justify;
+    font-size: 24px;
+    margin: 18px 32px 5px 32px;
+}
+
+.total {
+    font-family: 'Poppins', sans-serif;
+    vertical-align: top;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.total-price {
+    vertical-align: top;
+    float: right;
+    font-weight: lighter;
+    text-transform: uppercase;
+}
+
+.choixpaiement {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: lighter;
+    text-align: center;
+    margin-top: 10px;
+    color: rgb(83, 83, 83);
+}
+
+.continue-btn {
+    width: 385px;
+    height: 45px;
+    background-color: black;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1em;
+    color: white;
+    font-weight: 500;
+    margin: 10px auto 0px;
+    display: block;
+    text-transform: uppercase;   
+}
+
 
 @media (min-width : 475px) {
     h1 {
@@ -1705,180 +1912,6 @@ td {
         border-radius: 20px;
         font-weight: 500;
         margin: 10px auto 0px;
-    }
-    
-    /* payment.html */
-    .payment-content {
-        position: relative;
-        box-sizing: content-box;
-        width: 1240px;
-        height: 775px;
-        margin: 30px auto ; 
-        justify-content: space-between;
-    }
-
-    .inscription-section {
-        position: relative;
-        box-sizing: content-box;
-        height: 320px;
-        background: white;
-        border-radius: 20px;
-        display: flex;
-        flex-direction: column;
-        margin: 0 auto 20px;
-    }
-
-    .inscription-section h3 {
-        margin-top: 60px;
-        margin-left: 60px;
-    }
-
-    .inscription-content {
-        display: flex;
-        flex-direction: row;
-    }
-
-    .inscription-information {
-        width: 620px;
-        padding-top: 10px;
-        padding-left: 80px;
-    }
-
-    .inscription-information p{
-        font-size: 20px;
-        font-weight: 200;
-        line-height: 30px;
-    }
-
-    .payment-method-section {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    }
-
-    .payment-method-content {
-        width: 670px;
-        height: 440px;
-        background: white;
-        border-radius: 20px;
-    }
-
-    .payment-method-content h3 {
-        margin-top: 60px;
-        margin-left: 60px;
-    }
-
-    .payment-method {
-        display: flex;
-        flex-direction: column;
-        padding: 0px 60px 0px 60px;
-    }
-
-    .image-container {
-        width: 134px; 
-        height: 56px;
-        border-radius: 9px;
-        overflow: hidden;
-        float: right;
-    }
-
-    .payment-image {
-        width: 100%;
-        height: auto;
-    }
-
-    .payment-method-content span {
-        font-family: sans-serif;
-        font-size: 24px;
-        font-weight: lighter;
-        margin-top: 60px;
-        margin-left: 60px;
-    }
-
-    .payment-details-content {
-        width: 550px;
-        height: 440px;
-        background: white;
-        border-radius: 20px; 
-    }
-
-    .payment-details-content h3 {
-        margin-top: 60px;
-        margin-left: 60px;
-    }
-
-    .payment-details {
-        display: flex;
-        flex-direction: column;
-        height: 250px;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-    .price {
-        font-family: sans-serif;
-        font-size: 30px;
-        font-weight: lighter;
-        margin-top: 15px;
-        margin-left: 90px;
-    }
-
-    .total-content {
-        width: 450px;
-        height: 150px;
-        background: rgb(242,242,242);
-    }
-
-    .total-content p {
-        position: relative;
-        box-sizing: content-box;
-        margin: 0 auto;
-        justify-content: space-between;
-        display: inline-block;
-        text-align: justify;
-        font-size: 24px;
-        margin: 18px 32px 5px 32px;
-    }
-
-    .total {
-        font-family: 'Poppins', sans-serif;
-        vertical-align: top;
-        font-weight: bold;
-        text-transform: uppercase;
-    }
-
-    .total-price {
-        vertical-align: top;
-        float: right;
-        font-weight: lighter;
-        text-transform: uppercase;
-    }
-
-    .choixpaiement {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Poppins', sans-serif;
-        font-size: 20px;
-        font-weight: lighter;
-        text-align: center;
-        margin-top: 10px;
-        color: rgb(83, 83, 83);
-    }
-
-    .continue-btn {
-        width: 385px;
-        height: 45px;
-        background-color: black;
-        border: none;
-        outline: none;
-        cursor: pointer;
-        font-size: 1em;
-        color: white;
-        font-weight: 500;
-        margin: 10px auto 0px;
-        display: block;
-        text-transform: uppercase;   
     }
 
     /* information.html */
@@ -2304,180 +2337,6 @@ td {
         border-radius: 20px;
         font-weight: 500;
         margin: 10px auto 0px;
-    }
-    
-    /* payment.html */
-    .payment-content {
-        position: relative;
-        box-sizing: content-box;
-        width: 1240px;
-        height: 775px;
-        margin: 30px auto ; 
-        justify-content: space-between;
-    }
-
-    .inscription-section {
-        position: relative;
-        box-sizing: content-box;
-        height: 320px;
-        background: white;
-        border-radius: 20px;
-        display: flex;
-        flex-direction: column;
-        margin: 0 auto 20px;
-    }
-
-    .inscription-section h3 {
-        margin-top: 60px;
-        margin-left: 60px;
-    }
-
-    .inscription-content {
-        display: flex;
-        flex-direction: row;
-    }
-
-    .inscription-information {
-        width: 620px;
-        padding-top: 10px;
-        padding-left: 80px;
-    }
-
-    .inscription-information p{
-        font-size: 20px;
-        font-weight: 200;
-        line-height: 30px;
-    }
-
-    .payment-method-section {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    }
-
-    .payment-method-content {
-        width: 670px;
-        height: 440px;
-        background: white;
-        border-radius: 20px;
-    }
-
-    .payment-method-content h3 {
-        margin-top: 60px;
-        margin-left: 60px;
-    }
-
-    .payment-method {
-        display: flex;
-        flex-direction: column;
-        padding: 0px 60px 0px 60px;
-    }
-
-    .image-container {
-        width: 134px; 
-        height: 56px;
-        border-radius: 9px;
-        overflow: hidden;
-        float: right;
-    }
-
-    .payment-image {
-        width: 100%;
-        height: auto;
-    }
-
-    .payment-method-content span {
-        font-family: sans-serif;
-        font-size: 24px;
-        font-weight: lighter;
-        margin-top: 60px;
-        margin-left: 60px;
-    }
-
-    .payment-details-content {
-        width: 550px;
-        height: 440px;
-        background: white;
-        border-radius: 20px; 
-    }
-
-    .payment-details-content h3 {
-        margin-top: 60px;
-        margin-left: 60px;
-    }
-
-    .payment-details {
-        display: flex;
-        flex-direction: column;
-        height: 250px;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-    .price {
-        font-family: sans-serif;
-        font-size: 30px;
-        font-weight: lighter;
-        margin-top: 15px;
-        margin-left: 90px;
-    }
-
-    .total-content {
-        width: 450px;
-        height: 150px;
-        background: rgb(242,242,242);
-    }
-
-    .total-content p {
-        position: relative;
-        box-sizing: content-box;
-        margin: 0 auto;
-        justify-content: space-between;
-        display: inline-block;
-        text-align: justify;
-        font-size: 24px;
-        margin: 18px 32px 5px 32px;
-    }
-
-    .total {
-        font-family: 'Poppins', sans-serif;
-        vertical-align: top;
-        font-weight: bold;
-        text-transform: uppercase;
-    }
-
-    .total-price {
-        vertical-align: top;
-        float: right;
-        font-weight: lighter;
-        text-transform: uppercase;
-    }
-
-    .choixpaiement {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Poppins', sans-serif;
-        font-size: 20px;
-        font-weight: lighter;
-        text-align: center;
-        margin-top: 10px;
-        color: rgb(83, 83, 83);
-    }
-
-    .continue-btn {
-        width: 385px;
-        height: 45px;
-        background-color: black;
-        border: none;
-        outline: none;
-        cursor: pointer;
-        font-size: 1em;
-        color: white;
-        font-weight: 500;
-        margin: 10px auto 0px;
-        display: block;
-        text-transform: uppercase;   
     }
 
     /* information.html */
@@ -2906,180 +2765,6 @@ td {
         font-weight: 500;
         margin: 10px auto 0px;
     }
-    
-    /* payment.html */
-    .payment-content {
-        position: relative;
-        box-sizing: content-box;
-        width: 1240px;
-        height: 775px;
-        margin: 30px auto ; 
-        justify-content: space-between;
-    }
-
-    .inscription-section {
-        position: relative;
-        box-sizing: content-box;
-        height: 320px;
-        background: white;
-        border-radius: 20px;
-        display: flex;
-        flex-direction: column;
-        margin: 0 auto 20px;
-    }
-
-    .inscription-section h3 {
-        margin-top: 60px;
-        margin-left: 60px;
-    }
-
-    .inscription-content {
-        display: flex;
-        flex-direction: row;
-    }
-
-    .inscription-information {
-        width: 620px;
-        padding-top: 10px;
-        padding-left: 80px;
-    }
-
-    .inscription-information p{
-        font-size: 20px;
-        font-weight: 200;
-        line-height: 30px;
-    }
-
-    .payment-method-section {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    }
-
-    .payment-method-content {
-        width: 670px;
-        height: 440px;
-        background: white;
-        border-radius: 20px;
-    }
-
-    .payment-method-content h3 {
-        margin-top: 60px;
-        margin-left: 60px;
-    }
-
-    .payment-method {
-        display: flex;
-        flex-direction: column;
-        padding: 0px 60px 0px 60px;
-    }
-
-    .image-container {
-        width: 134px; 
-        height: 56px;
-        border-radius: 9px;
-        overflow: hidden;
-        float: right;
-    }
-
-    .payment-image {
-        width: 100%;
-        height: auto;
-    }
-
-    .payment-method-content span {
-        font-family: sans-serif;
-        font-size: 24px;
-        font-weight: lighter;
-        margin-top: 60px;
-        margin-left: 60px;
-    }
-
-    .payment-details-content {
-        width: 550px;
-        height: 440px;
-        background: white;
-        border-radius: 20px; 
-    }
-
-    .payment-details-content h3 {
-        margin-top: 60px;
-        margin-left: 60px;
-    }
-
-    .payment-details {
-        display: flex;
-        flex-direction: column;
-        height: 250px;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-    .price {
-        font-family: sans-serif;
-        font-size: 30px;
-        font-weight: lighter;
-        margin-top: 15px;
-        margin-left: 90px;
-    }
-
-    .total-content {
-        width: 450px;
-        height: 150px;
-        background: rgb(242,242,242);
-    }
-
-    .total-content p {
-        position: relative;
-        box-sizing: content-box;
-        margin: 0 auto;
-        justify-content: space-between;
-        display: inline-block;
-        text-align: justify;
-        font-size: 24px;
-        margin: 18px 32px 5px 32px;
-    }
-
-    .total {
-        font-family: 'Poppins', sans-serif;
-        vertical-align: top;
-        font-weight: bold;
-        text-transform: uppercase;
-    }
-
-    .total-price {
-        vertical-align: top;
-        float: right;
-        font-weight: lighter;
-        text-transform: uppercase;
-    }
-
-    .choixpaiement {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Poppins', sans-serif;
-        font-size: 20px;
-        font-weight: lighter;
-        text-align: center;
-        margin-top: 10px;
-        color: rgb(83, 83, 83);
-    }
-
-    .continue-btn {
-        width: 385px;
-        height: 45px;
-        background-color: black;
-        border: none;
-        outline: none;
-        cursor: pointer;
-        font-size: 1em;
-        color: white;
-        font-weight: 500;
-        margin: 10px auto 0px;
-        display: block;
-        text-transform: uppercase;   
-    }
 
     /* information.html */
     .information-section {
@@ -3501,180 +3186,6 @@ td {
         border-radius: 20px;
         font-weight: 500;
         margin: 10px auto 0px;
-    }
-    
-    /* payment.html */
-    .payment-content {
-        position: relative;
-        box-sizing: content-box;
-        width: 1240px;
-        height: 775px;
-        margin: 30px auto ; 
-        justify-content: space-between;
-    }
-
-    .inscription-section {
-        position: relative;
-        box-sizing: content-box;
-        height: 320px;
-        background: white;
-        border-radius: 20px;
-        display: flex;
-        flex-direction: column;
-        margin: 0 auto 20px;
-    }
-
-    .inscription-section h3 {
-        margin-top: 60px;
-        margin-left: 60px;
-    }
-
-    .inscription-content {
-        display: flex;
-        flex-direction: row;
-    }
-
-    .inscription-information {
-        width: 620px;
-        padding-top: 10px;
-        padding-left: 80px;
-    }
-
-    .inscription-information p{
-        font-size: 20px;
-        font-weight: 200;
-        line-height: 30px;
-    }
-
-    .payment-method-section {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    }
-
-    .payment-method-content {
-        width: 670px;
-        height: 440px;
-        background: white;
-        border-radius: 20px;
-    }
-
-    .payment-method-content h3 {
-        margin-top: 60px;
-        margin-left: 60px;
-    }
-
-    .payment-method {
-        display: flex;
-        flex-direction: column;
-        padding: 0px 60px 0px 60px;
-    }
-
-    .image-container {
-        width: 134px; 
-        height: 56px;
-        border-radius: 9px;
-        overflow: hidden;
-        float: right;
-    }
-
-    .payment-image {
-        width: 100%;
-        height: auto;
-    }
-
-    .payment-method-content span {
-        font-family: sans-serif;
-        font-size: 24px;
-        font-weight: lighter;
-        margin-top: 60px;
-        margin-left: 60px;
-    }
-
-    .payment-details-content {
-        width: 550px;
-        height: 440px;
-        background: white;
-        border-radius: 20px; 
-    }
-
-    .payment-details-content h3 {
-        margin-top: 60px;
-        margin-left: 60px;
-    }
-
-    .payment-details {
-        display: flex;
-        flex-direction: column;
-        height: 250px;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-    .price {
-        font-family: sans-serif;
-        font-size: 30px;
-        font-weight: lighter;
-        margin-top: 15px;
-        margin-left: 90px;
-    }
-
-    .total-content {
-        width: 450px;
-        height: 150px;
-        background: rgb(242,242,242);
-    }
-
-    .total-content p {
-        position: relative;
-        box-sizing: content-box;
-        margin: 0 auto;
-        justify-content: space-between;
-        display: inline-block;
-        text-align: justify;
-        font-size: 24px;
-        margin: 18px 32px 5px 32px;
-    }
-
-    .total {
-        font-family: 'Poppins', sans-serif;
-        vertical-align: top;
-        font-weight: bold;
-        text-transform: uppercase;
-    }
-
-    .total-price {
-        vertical-align: top;
-        float: right;
-        font-weight: lighter;
-        text-transform: uppercase;
-    }
-
-    .choixpaiement {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Poppins', sans-serif;
-        font-size: 20px;
-        font-weight: lighter;
-        text-align: center;
-        margin-top: 10px;
-        color: rgb(83, 83, 83);
-    }
-
-    .continue-btn {
-        width: 385px;
-        height: 45px;
-        background-color: black;
-        border: none;
-        outline: none;
-        cursor: pointer;
-        font-size: 1em;
-        color: white;
-        font-weight: 500;
-        margin: 10px auto 0px;
-        display: block;
-        text-transform: uppercase;   
     }
 
     /* information.html */
@@ -4099,180 +3610,6 @@ td {
         font-weight: 500;
         margin: 10px auto 0px;
     }
-    
-    /* payment.html */
-    .payment-content {
-        position: relative;
-        box-sizing: content-box;
-        width: 1240px;
-        height: 775px;
-        margin: 30px auto ; 
-        justify-content: space-between;
-    }
-
-    .inscription-section {
-        position: relative;
-        box-sizing: content-box;
-        height: 320px;
-        background: white;
-        border-radius: 20px;
-        display: flex;
-        flex-direction: column;
-        margin: 0 auto 20px;
-    }
-
-    .inscription-section h3 {
-        margin-top: 60px;
-        margin-left: 60px;
-    }
-
-    .inscription-content {
-        display: flex;
-        flex-direction: row;
-    }
-
-    .inscription-information {
-        width: 620px;
-        padding-top: 10px;
-        padding-left: 80px;
-    }
-
-    .inscription-information p{
-        font-size: 20px;
-        font-weight: 200;
-        line-height: 30px;
-    }
-
-    .payment-method-section {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    }
-
-    .payment-method-content {
-        width: 670px;
-        height: 440px;
-        background: white;
-        border-radius: 20px;
-    }
-
-    .payment-method-content h3 {
-        margin-top: 60px;
-        margin-left: 60px;
-    }
-
-    .payment-method {
-        display: flex;
-        flex-direction: column;
-        padding: 0px 60px 0px 60px;
-    }
-
-    .image-container {
-        width: 134px; 
-        height: 56px;
-        border-radius: 9px;
-        overflow: hidden;
-        float: right;
-    }
-
-    .payment-image {
-        width: 100%;
-        height: auto;
-    }
-
-    .payment-method-content span {
-        font-family: sans-serif;
-        font-size: 24px;
-        font-weight: lighter;
-        margin-top: 60px;
-        margin-left: 60px;
-    }
-
-    .payment-details-content {
-        width: 550px;
-        height: 440px;
-        background: white;
-        border-radius: 20px; 
-    }
-
-    .payment-details-content h3 {
-        margin-top: 60px;
-        margin-left: 60px;
-    }
-
-    .payment-details {
-        display: flex;
-        flex-direction: column;
-        height: 250px;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-    .price {
-        font-family: sans-serif;
-        font-size: 30px;
-        font-weight: lighter;
-        margin-top: 15px;
-        margin-left: 90px;
-    }
-
-    .total-content {
-        width: 450px;
-        height: 150px;
-        background: rgb(242,242,242);
-    }
-
-    .total-content p {
-        position: relative;
-        box-sizing: content-box;
-        margin: 0 auto;
-        justify-content: space-between;
-        display: inline-block;
-        text-align: justify;
-        font-size: 24px;
-        margin: 18px 32px 5px 32px;
-    }
-
-    .total {
-        font-family: 'Poppins', sans-serif;
-        vertical-align: top;
-        font-weight: bold;
-        text-transform: uppercase;
-    }
-
-    .total-price {
-        vertical-align: top;
-        float: right;
-        font-weight: lighter;
-        text-transform: uppercase;
-    }
-
-    .choixpaiement {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Poppins', sans-serif;
-        font-size: 20px;
-        font-weight: lighter;
-        text-align: center;
-        margin-top: 10px;
-        color: rgb(83, 83, 83);
-    }
-
-    .continue-btn {
-        width: 385px;
-        height: 45px;
-        background-color: black;
-        border: none;
-        outline: none;
-        cursor: pointer;
-        font-size: 1em;
-        color: white;
-        font-weight: 500;
-        margin: 10px auto 0px;
-        display: block;
-        text-transform: uppercase;   
-    }
 
     /* information.html */
     .information-section {
@@ -4694,180 +4031,6 @@ td {
         border-radius: 20px;
         font-weight: 500;
         margin: 10px auto 0px;
-    }
-    
-    /* payment.html */
-    .payment-content {
-        position: relative;
-        box-sizing: content-box;
-        width: 1240px;
-        height: 775px;
-        margin: 30px auto ; 
-        justify-content: space-between;
-    }
-
-    .inscription-section {
-        position: relative;
-        box-sizing: content-box;
-        height: 320px;
-        background: white;
-        border-radius: 20px;
-        display: flex;
-        flex-direction: column;
-        margin: 0 auto 20px;
-    }
-
-    .inscription-section h3 {
-        margin-top: 60px;
-        margin-left: 60px;
-    }
-
-    .inscription-content {
-        display: flex;
-        flex-direction: row;
-    }
-
-    .inscription-information {
-        width: 620px;
-        padding-top: 10px;
-        padding-left: 80px;
-    }
-
-    .inscription-information p{
-        font-size: 20px;
-        font-weight: 200;
-        line-height: 30px;
-    }
-
-    .payment-method-section {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    }
-
-    .payment-method-content {
-        width: 670px;
-        height: 440px;
-        background: white;
-        border-radius: 20px;
-    }
-
-    .payment-method-content h3 {
-        margin-top: 60px;
-        margin-left: 60px;
-    }
-
-    .payment-method {
-        display: flex;
-        flex-direction: column;
-        padding: 0px 60px 0px 60px;
-    }
-
-    .image-container {
-        width: 134px; 
-        height: 56px;
-        border-radius: 9px;
-        overflow: hidden;
-        float: right;
-    }
-
-    .payment-image {
-        width: 100%;
-        height: auto;
-    }
-
-    .payment-method-content span {
-        font-family: sans-serif;
-        font-size: 24px;
-        font-weight: lighter;
-        margin-top: 60px;
-        margin-left: 60px;
-    }
-
-    .payment-details-content {
-        width: 550px;
-        height: 440px;
-        background: white;
-        border-radius: 20px; 
-    }
-
-    .payment-details-content h3 {
-        margin-top: 60px;
-        margin-left: 60px;
-    }
-
-    .payment-details {
-        display: flex;
-        flex-direction: column;
-        height: 250px;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-    .price {
-        font-family: sans-serif;
-        font-size: 30px;
-        font-weight: lighter;
-        margin-top: 15px;
-        margin-left: 90px;
-    }
-
-    .total-content {
-        width: 450px;
-        height: 150px;
-        background: rgb(242,242,242);
-    }
-
-    .total-content p {
-        position: relative;
-        box-sizing: content-box;
-        margin: 0 auto;
-        justify-content: space-between;
-        display: inline-block;
-        text-align: justify;
-        font-size: 24px;
-        margin: 18px 32px 5px 32px;
-    }
-
-    .total {
-        font-family: 'Poppins', sans-serif;
-        vertical-align: top;
-        font-weight: bold;
-        text-transform: uppercase;
-    }
-
-    .total-price {
-        vertical-align: top;
-        float: right;
-        font-weight: lighter;
-        text-transform: uppercase;
-    }
-
-    .choixpaiement {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Poppins', sans-serif;
-        font-size: 20px;
-        font-weight: lighter;
-        text-align: center;
-        margin-top: 10px;
-        color: rgb(83, 83, 83);
-    }
-
-    .continue-btn {
-        width: 385px;
-        height: 45px;
-        background-color: black;
-        border: none;
-        outline: none;
-        cursor: pointer;
-        font-size: 1em;
-        color: white;
-        font-weight: 500;
-        margin: 10px auto 0px;
-        display: block;
-        text-transform: uppercase;   
     }
 
     /* information.html */
