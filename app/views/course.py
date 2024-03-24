@@ -4,11 +4,6 @@ from ..utils import get_course_details, get_user_birth_year, get_user_info, logi
 from app.db.db import get_db, close_db
 
 
-import io
-from flask import send_file
-import xlsxwriter
-
-
 # Création d'un blueprint contenant les routes ayant le préfixe /course/...
 course_bp = Blueprint('course_bp', __name__, url_prefix='/course')
 
@@ -369,41 +364,5 @@ def liste_inscription(id_course, course_name):
     # Rediriger vers la page liste_inscription.html avec les informations nécessaires
     return render_template('course/liste_inscription.html', listes=listes, id_course=id_course, course_name=course_name)
 
-@course_bp.route('/export_excel/<int:id_course>', methods=['POST'])
-def export_excel(id_course):
-    db = get_db()
-    cursor = db.cursor()
-    cursor.execute("""
-                   SELECT categorie.name, users.age, users.name, users.surname, users.sexe, users.location, users.origin, users.club
-                   FROM users 
-                   JOIN inscription  ON users.id = inscription.users_id
-                   JOIN categorie  ON inscription.categorie_id = categorie.id_categorie
-                   JOIN course ON categorie.course_id = course.id_course
-                   WHERE course.id_course = ?
-                   ORDER BY categorie.name, users.name, users.surname""", (id_course,))
-
-    listes = cursor.fetchall()
-    db.close()
-
-    # Création du fichier Excel
-    output = io.BytesIO()
-    workbook = xlsxwriter.Workbook(output)
-    worksheet = workbook.add_worksheet()
-    
-    # Écriture des en-têtes
-    headers = ["Catégorie", "Année de naissance", "Nom", "Prénom", "Sexe", "Localité", "Origine", "Club"]
-    for col, header in enumerate(headers):
-        worksheet.write(0, col, header)
-    
-    # Écriture des données
-    for row, participant in enumerate(listes, start=1):
-        for col, value in enumerate(participant):
-            worksheet.write(row, col, value)
-    
-    workbook.close()
-    
-    # Configuration de la réponse pour le téléchargement
-    output.seek(0)
-    return send_file(output, attachment_filename="liste_participants.xlsx", as_attachment=True)
 
 

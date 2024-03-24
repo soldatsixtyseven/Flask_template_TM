@@ -2,16 +2,12 @@
 
 {% block content %}
 <body class="background-grey">
-
-    <form action="{{ url_for('course_bp.export_excel', id_course=id_course, course_name=course_name) }}" method="POST">
-
         <div class="liste-section">
             <div class="liste-titel">
                 <div>
                     <h2>Listes des participants</h2>
                     <h2>{{name}}</h2>
                 </div>
-                <button type="submit" id="liste-btn">Télécharger fichier Excel</button>
             </div>
 
             <table>
