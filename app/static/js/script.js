@@ -60,14 +60,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
     leftScrollButton.addEventListener("click", function() {
         courseSection.scrollBy({
-            left: -350, // Décalage vers la gauche
+            left: -400, // Décalage vers la gauche
             behavior: "smooth"
         });
     });
 
     rightScrollButton.addEventListener("click", function() {
         courseSection.scrollBy({
-            left: 350, // Décalage vers la droite
+            left: 400, // Décalage vers la droite
             behavior: "smooth"
         });
     });
