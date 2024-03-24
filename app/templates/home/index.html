@@ -17,11 +17,11 @@
     <div class="course-index">
         <h1>Nos prochaines courses</h1>
         <a href="{{ url_for('home.sports_page') }}"><button class="btn-more-details">En savoir plus</button></a>
-        <div class="course-navigation">
-            <button class="scroll-button left-scroll">&lt;</button>
-            <button class="scroll-button right-scroll">&gt;</button>
-        </div>
         <div class="course-section-index" >
+            <div class="course-navigation">
+                <button class="scroll-button left-scroll"></button>
+                <button class="scroll-button right-scroll"></button>
+            </div>
             <div class="course-section-inner">
                 {% for course in all_courses %}
                 <a href="{{ url_for('course_bp.course_information', id_course=course['id_course'], course_name=course['name']) }}" class="link-container">
@@ -30,7 +30,6 @@
                         <p id="course-date">{{ course.date }}</p>
                         <p>{{ course.location }}</p>
                         <p>{{ course.sport }}</p>
-                        <a href="{{ url_for('course_bp.course_information', id_course=course['id_course'], course_name=course['name']) }}">Voir plus</a>
                     </div>
                 </a>
                 {% endfor %}
@@ -44,21 +43,21 @@
         <div class="FAQ-item">
             <details>
                 <summary><h3>Quel est le délai de l'inscription ?</h3></summary>
-                <p>Il est possible de s'inscrire en ligne jusqu'à un jour avant le début de la compétition. Passé ce délai, il est possible de s'inscrire sur place auprès des organisateurs. Vous aurez la possibilité de payer par PayPal, Twint ou encore en cash.</p>
+                <p>Il est possible de s'inscrire en ligne jusqu'à un jour avant le début de la compétition. Passé ce délai, il est possible de s'inscrire sur place auprès des organisateurs. Vous aurez la possibilité de payer par PayPal, Twint ou en cash.</p>
             </details>
         </div>
         <div class="horizontal-bar"></div>
         <div class="FAQ-item">
             <details>
-                <summary><h3>Quand est-ce que mon inscription est validée ?</h3></summary>
-                <p>L'inscription est validée une fois le paiement effectué. Vous recevrez un mail de confirmation avec le détail de votre inscription. Dans le cas échéant, contactez le responsable du site grâce à l'onglet "contact".</p>
+                <summary><h3>Pourquoi il n'est pas possible de s'inscrire à la catégorie de notre choix ?</h3></summary>
+                <p>L'application récupère les données entrées lors de la création de votre compte afin de vous proposer uniquement les catégories auxquelles vous pouvez vous inscrire. </p>
             </details>
         </div>
         <div class="horizontal-bar"></div>
         <div class="FAQ-item">
             <details>
-                <summary><h3>Est-il possible d'annuler son inscription ?</h3></summary>
-                <p>Une fois le paiement effectué, aucun remboursement n'est envisageable.</p>
+                <summary><h3>... ?</h3></summary>
+                <p>Les questions seront suggérées par l'administrateur</p>
             </details>
         </div>
         <div class="horizontal-bar"></div>
