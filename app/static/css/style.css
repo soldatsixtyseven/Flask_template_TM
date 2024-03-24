@@ -9,7 +9,7 @@ body{
 * {
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
-  }
+}
 
 .horizontal-bar {
     width: 85%;
@@ -29,44 +29,6 @@ body{
     text-decoration: none;
     color: inherit;
     cursor: pointer;
-}
-
-h1 {
-    font-family: 'Istok web', sans-serif;
-    font-weight: bolder;
-}
-
-h2 {
-    color: black;
-    font-family: 'Istok web', sans-serif;
-    align-items: center;
-    text-align: center;
-}
-
-h3 {
-    font-family: sans-serif;
-    font-weight: lighter;
-}
-
-h4{
-    font-family: sans-serif;
-    font-weight: bold;
-    text-align: center;
-}
-
-h5 {
-    font-family: sans-serif;
-    font-weight: bold;
-    text-align: center;
-    font-size: 40px;
-    margin: 0;
-}
-
-.page-content {
-    position: relative;
-    box-sizing: content-box;
-    width: 100%;
-    align-items: center;
 }
 
 .wrapper {
@@ -130,6 +92,10 @@ header{
     transform-origin: 50% 50%;
     transform: translateX(-48%) scaleX(0);
     transition: transform .5s, width .5s;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    border-radius: 5px;
 }
 
 .menu-item:hover::after{
@@ -143,6 +109,8 @@ header{
     float: right;
     overflow: hidden; 
     transition: background-color 0.5s, color 0.5s;
+    border: 2px solid black;
+    padding: 10px 10px;
 }
 
 .connexion {
@@ -158,6 +126,10 @@ header{
     position: absolute;
     background: linear-gradient(to top right, black 50%, transparent 50%);
     transition: top 0.5s;
+    top: 100%;
+    left: 0;
+    width: 0;
+    height: 100%;
 }
 
 .connexion-content:hover{
@@ -322,18 +294,17 @@ input::placeholder {
 .register-content {
     position: relative;
     box-sizing: content-box;
-    height: auto;
     background: white;
     border-radius: 20px;
     margin: 0 auto;
-    justify-content: space-between;
-    align-items: center;
+    width: 1240px;
 }
 
 .register-titel {
     position: relative;
     box-sizing: content-box;
     text-align: center;
+    padding-top: 10px;
 }
 
 .register-section {
@@ -350,6 +321,8 @@ input::placeholder {
     box-sizing: content-box;
     height: auto;
     vertical-align: top;
+    width: 500px;
+    margin: 40px auto 0;
 }
 
 .right-box {
@@ -358,6 +331,8 @@ input::placeholder {
     height: auto;
     vertical-align: top;
     float: right;
+    width: 500px;
+    margin: 40px auto 0;
 }
 
 
@@ -367,6 +342,7 @@ input::placeholder {
     box-sizing: content-box;
     background-color: white;
     align-items: center;
+    margin: 90px auto 0; 
 }
 
 .home-creation {
@@ -376,6 +352,8 @@ input::placeholder {
     margin: 0 auto;
     justify-content: space-between;
     align-items: center;
+    width: 1140px;
+    height: 150px;
 }
 
 .home-NextCourse-content {
@@ -426,6 +404,15 @@ input::placeholder {
     color: white;
     display: block; 
     text-transform: uppercase;
+    width: 220px;
+    height: 40px;
+    border-radius: 20px;
+    font-weight: 500;
+    margin: 10px auto 0px;
+}
+
+.home-content h3 {
+    font-size: 30px;
 }
 
 
@@ -816,296 +803,6 @@ input::placeholder {
     text-transform: uppercase;
 }
 
-
-/* index.html */
-.information-section-index {
-    position: relative;
-    box-sizing: content-box;
-    background-color: white;
-    align-items: center;
-}
-
-.information-section-index h1 {
-    color: black;
-    height: 200px;
-}
-
-.information-section-index p{
-    font-family: sans-serif;
-    font-size: 24px;
-    font-weight: lighter;
-    text-decoration: none;
-    color: black;
-}
-
-.information-content-index {
-    position: relative;
-    width: 550px;
-    height: 500px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    margin-left: 60px;
-    margin-top: 200px;
-    margin-bottom: 120px;
-}
-
-.information-content-btn {
-    display: flex;
-}
-
-.btn-index {
-    width: 180px;
-    height: 70px;
-    background-color: black;
-    border: none;
-    outline: none;
-    border-radius: 19.5px;
-    cursor: pointer;
-    font-size: 1em;
-    color: white;
-    font-weight: bolder;
-    margin-right: 70px;
-}
-
-.btn-more-details{
-    width: 180px;
-    height: 70px;
-    background-color: white;
-    border: none;
-    outline: none;
-    border-radius: 19.5px;
-    cursor: pointer;
-    font-size: 1em;
-    color: black;
-    font-weight: 500;
-}
-
-/* ... */
-
-.course-index {
-    position: relative;
-    box-sizing: content-box;
-    background-color: black;
-    text-align: center;
-    overflow: hidden;
-    padding-bottom: 50px;
-}
-
-.course-index h1 {
-    color: white;
-    width: 640px;
-    margin: 0 auto;
-    padding: 50px 0px 60px;
-}
-
-.course-section-index {
-    display: flex;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    padding: 50px 0;
-    margin: auto;
-    overflow: hidden;
-}
-
-.course-section-inner {
-    display: flex;
-    width: fit-content;
-    gap: 10px;
-    transition: transform 0.3s ease;
-}
-
-.course-content-index {
-    flex: 0 0 auto;
-    width: 300px;
-    height: 300px;
-    border-radius: 20px;
-    background-color: white;
-    margin-right: 10px;
-}
-
-.course-title {
-    height: 50px;
-    color: black;
-    font-weight: bolder;
-    margin: 50px auto 50px;
-}
-
-.course-content-index p {
-    font-size: 18px;
-     text-transform: capitalize;
-}
-
-#course-date {
-    text-transform: lowercase;
-}
-
-/* Style pour les flèches de navigation */
-.scroll-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    z-index: 2;
-}
-
-.left-scroll {
-    left: 10px;
-}
-
-.right-scroll {
-    right: 10px;
-}
-/* ... */
-
-
-.FAQ-section{
-    position: relative;
-    box-sizing: content-box;
-    height: auto;
-    background-color: white;
-    align-items: center;
-    text-align: center;
-    padding-bottom: 50px;
-}
-
-.FAQ-section h1{
-    width: 750px;
-    margin: 0 auto;
-    padding: 50px 0px 50px;
-}
-
-.FAQ-section details{
-    width: 85%;
-    margin: 10px auto 10px;
-    text-align: left;
-    padding: 0px 10px 0px 30px;
-    cursor: pointer;
-    position: relative;
-}
-
-.FAQ-item details summary {
-    display: flex;
-    flex-direction: column-reverse;
-}
-
-.FAQ-item details p {
-    display: none;
-    text-align: justify;
-    font-size: 20px;
- }
-
-.FAQ-item details[open] p {
-    display: block;
-}
-
-.FAQ-item details[open]::before {
-    transform: rotate(-45deg);
-}
-
-.faq_trigger-icon {
-    width: 14px;
-    min-height: 14px;
-    flex: none;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    position: relative;
-}
-
-.faq_answer-container {
-    transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
-    opacity: 1;
-    transform-style: preserve-3d;
-}
-
-/* contact.html */
-.contact-section {
-    display: flex;
-    flex-direction: column;
-    height: 1500px;
-    width: 1000px;
-    margin: 0 auto;
-}
-
-.input-box-contact {
-    position: relative;
-    width: 100%;
-    height: 50px;
-    margin: 30px 0;
-}
-
-.input-box-contact input:focus~label,
-.input-box-contact input:valid~label{
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-}
-
-.input-box-contact input {
-    width: 480px;
-    height: 50px;
-    background: transparent;
-    border: 1px solid black;
-    border-radius: 8px;
-    outline: none;
-    font-size: 1em;
-    color: black;
-    font-weight: 300;
-    padding: 10px 10px 10px 20px;
-    border-radius: 9px;
-}
-
-#complaint {
-    width: 1000px;
-    min-height: 50px;
-    background: transparent;
-    border: 1px solid black;
-    outline: none;
-    font-size: 1em;
-    font-weight: 350;
-    color: black;
-    padding: 10px 10px 10px 20px;
-    border-radius: 9px;
-    margin: 20px auto 20px;
-}
-
-textarea::placeholder {
-    color: black;
-    font-weight: 300;
-}
-
-.input-box-contact input::placeholder {
-    text-align: left;
-    color: black;
-    font-size: 1em;
-    pointer-events: none;
-}
-
-.input-box-information {
-    display: flex;
-    width: 1000px;
-    justify-content: space-between;
-    margin: 20px auto 20px;
-}
-
-.btn-sent-emails{
-    box-sizing: content-box;
-    width: 120px;
-    height: 50px;
-    background-color: black;
-    border: none;
-    outline: none;
-    border-radius: 14px;
-    cursor: pointer;
-    font-size: 1em;
-    color: white;
-    font-weight: 500;
-}
-
 /* about.html */
 .about-section {
     display: flex;
@@ -1152,7 +849,6 @@ td {
     font-weight: lighter;
     text-align: left;
 }
-
 
 .liste-section {
     position: relative;
@@ -1458,199 +1154,43 @@ td {
     text-transform: uppercase;   
 }
 
-/* payment.html */
-.payment-content {
-    position: relative;
-    box-sizing: content-box;
-    width: 1240px;
-    height: 775px;
-    margin: 30px auto ; 
-    justify-content: space-between;
-}
-
-.inscription-section {
-    position: relative;
-    box-sizing: content-box;
-    height: 320px;
-    background: white;
-    border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto 20px;
-}
-
-.inscription-section h3 {
-    margin-top: 60px;
-    margin-left: 60px;
-}
-
-.inscription-content {
-    display: flex;
-    flex-direction: row;
-}
-
-.inscription-information {
-    width: 620px;
-    padding-top: 10px;
-    padding-left: 80px;
-}
-
-.inscription-information p{
-    font-size: 20px;
-    font-weight: 200;
-    line-height: 30px;
-}
-
-.payment-method-section {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.payment-method-content {
-    width: 670px;
-    height: 440px;
-    background: white;
-    border-radius: 20px;
-}
-
-.payment-method-content h3 {
-    margin-top: 60px;
-    margin-left: 60px;
-}
-
-.payment-method {
-    display: flex;
-    flex-direction: column;
-    padding: 0px 60px 0px 60px;
-}
-
-.image-container {
-    width: 134px; 
-    height: 56px;
-    border-radius: 9px;
-    overflow: hidden;
-    float: right;
-}
-
-.payment-image {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-}
-
-.payment-method-content span {
-    font-family: sans-serif;
-    font-size: 24px;
-    font-weight: lighter;
-    margin-top: 60px;
-    margin-left: 60px;
-}
-
-.payment-details-content {
-    width: 550px;
-    height: 440px;
-    background: white;
-    border-radius: 20px; 
-}
-
-.payment-details-content h3 {
-    margin-top: 60px;
-    margin-left: 60px;
-}
-
-.payment-details {
-    display: flex;
-    flex-direction: column;
-    height: 250px;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.price {
-    font-family: sans-serif;
-    font-size: 30px;
-    font-weight: lighter;
-    margin-top: 15px;
-    margin-left: 90px;
-}
-
-.total-content {
-    width: 450px;
-    height: 150px;
-    background: rgb(242,242,242);
-}
-
-.total-content p {
-    position: relative;
-    box-sizing: content-box;
-    margin: 0 auto;
-    justify-content: space-between;
-    display: inline-block;
-    text-align: justify;
-    font-size: 24px;
-    margin: 18px 32px 5px 32px;
-}
-
-.total {
-    font-family: 'Poppins', sans-serif;
-    vertical-align: top;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-.total-price {
-    vertical-align: top;
-    float: right;
-    font-weight: lighter;
-    text-transform: uppercase;
-}
-
-.choixpaiement {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-    font-size: 20px;
-    font-weight: lighter;
-    text-align: center;
-    margin-top: 10px;
-    color: rgb(83, 83, 83);
-}
-
-.continue-btn {
-    width: 385px;
-    height: 45px;
-    background-color: black;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    font-size: 1em;
-    color: white;
-    font-weight: 500;
-    margin: 10px auto 0px;
-    display: block;
-    text-transform: uppercase;   
-}
-
 
 @media (min-width : 475px) {
     h1 {
-        font-size: 75px;
+        font-family: 'Istok web', sans-serif;
+        font-weight: bolder;
+        font-size: 50px;
     }
     
     h2 {
-        font-size: 2em;
+        color: black;
+        font-family: 'Istok web', sans-serif;
+        align-items: center;
+        text-align: center;
+        font-size: 1.5em;
     }
     
     h3 {
-        font-size: 30px;
+        font-family: sans-serif;
+        font-weight: lighter;
+        font-size: 20px;
     }
     
     h4{
+        font-family: sans-serif;
+        font-weight: bold;
+        text-align: center;
         font-size: 40px;
         margin-top: 20px;
     }
+
+    h5 {
+        font-family: sans-serif;
+        font-weight: bold;
+        text-align: center;
+        font-size: 40px;
+        margin: 0;
+    }    
 
     .vertical-bar {
         height: 2px;
@@ -1668,6 +1208,10 @@ td {
     }
 
     .page-content {
+        position: relative;
+        box-sizing: content-box;
+        width: 100%;
+        align-items: center;
         margin: 100px auto 0; 
     }
 
@@ -1700,31 +1244,9 @@ td {
         margin-left: 30px;
     }
     
-    .menu-item::after {
-        bottom: -6px;
-        width: 100%;
-        height: 3px;
-        border-radius: 5px;
-        transform-origin: 50% 50%;
-        transform: translateX(-48%) scaleX(0);
-        transition: transform .5s, width .5s;
-    }
-    
-    .connexion-content {
-        border: 2px solid black;
-        padding: 10px 10px;
-    }
-    
     .connexion {
         font-size: 12px;
         font-weight: 500;
-    }
-    
-    .connexion-content::after {
-        top: 100%;
-        left: 0;
-        width: 0;
-        height: 100%;
     }
 
     /* input-box */
@@ -1793,9 +1315,9 @@ td {
 
     /* bouton */
     .btn{
-        width: 210px;
-        height: 40px;
-        font-size: 1em;
+        width: 200px;
+        height: 30px;
+        font-size: 0.8em;
         font-weight: 500;
         margin: 10px auto 0px;
     }
@@ -1815,14 +1337,14 @@ td {
     }
 
     .login-box{
-        width: 470px;
         height: 375px;
         margin: 0 auto;
-        padding: 40px
+        padding: 20px
     }
 
     .sign-in-box p{
-        margin: 10px auto 50px;
+        margin: 10px auto 30px;
+        font-size: 12px;
     }
 
     .remember-forgot {
@@ -1853,35 +1375,7 @@ td {
         margin: 25px 0 10px;
     }
 
-    /* register.html */
-    .register-content {
-        width: 1240px;
-    }
-
-    .register-titel {
-        padding-top: 10px;
-    }
-
-    .left-box {
-        width: 500px;
-        margin: 40px auto 0;
-    }
-
-    .right-box {
-        width: 500px;
-        margin: 40px auto 0;
-    }
-
     /* admin_home.html */
-    .home-content {
-        margin: 90px auto 0; 
-    }
-
-    .home-creation {
-        width: 1140px;
-        height: 150px;
-    }
-
     .home-NextCourse-content {
         width: 1240px;
     }
@@ -1902,30 +1396,244 @@ td {
         font-size: 14px;
     }
 
-    .home-content h3 {
-        font-size: 30px;
+    .creation-titel h2,p {
+        margin: 0 auto;
+        font-size: 12px;
     }
 
-    .btn-home {
-        width: 220px;
+    /* index.html */
+    .information-section-index {
+        position: relative;
+        box-sizing: content-box;
+        background-color: white;
+        align-items: center;
+    }
+
+    .information-section-index h1 {
+        color: black;
+        margin: 10px 0px;
+    }
+
+    .information-section-index p{
+        font-family: sans-serif;
+        font-size: 14px;
+        font-weight: lighter;
+        text-decoration: none;
+        color: black;
+    }
+
+    .information-content-index {
+        position: relative;
+        width: 300px;
+        height: 360px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        margin-left: 60px;
+        margin-top: 150px;
+        margin-bottom: 120px;
+    }
+
+    .information-content-btn {
+        display: flex;
+    }
+
+    .btn-index {
+        width: 120px;
         height: 40px;
-        border-radius: 20px;
+        background-color: black;
+        border: none;
+        outline: none;
+        border-radius: 12px;
+        cursor: pointer;
+        font-size: 0.7em;
+        color: white;
+        font-weight: bolder;
+        margin-right: 40px;
+    }
+
+    .btn-more-details{
+        width: 120px;
+        height: 40px;
+        background-color: white;
+        border: none;
+        outline: none;
+        border-radius: 12px;
+        cursor: pointer;
+        font-size: 0.7em;
+        color: black;
         font-weight: 500;
-        margin: 10px auto 0px;
+    }
+
+    .course-index {
+        position: relative;
+        box-sizing: content-box;
+        background-color: black;
+        text-align: center;
+        overflow: hidden;
+        padding-bottom: 50px;
+    }
+
+    .course-index h1 {
+        color: white;
+        width: 400px;
+        margin: 0 auto;
+        padding: 40px 0px 40px;
+    }
+
+    .course-section-index {
+        display: flex;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        padding: 50px 0;
+        margin-left: 60px;
+    }
+
+    .course-section-inner {
+        display: flex;
+        width: fit-content;
+        gap: 10px;
+        transition: transform 0.3s ease;
+
+    }
+
+    .course-content-index {
+        flex: 0 0 auto;
+        width: 200px;
+        height: 200px;
+        border-radius: 20px;
+        background-color: white;
+        margin-right: 10px;
+        padding: 10px; 
+    }
+
+    .course-content-index h3{
+        margin: 30px 0px;
+    }
+
+    .course-title {
+        height: 20px;
+        color: black;
+        font-weight: bolder;
+        margin: 50px auto 50px;
+    }
+
+    .course-content-index p {
+        font-size: 14px;
+        text-transform: capitalize;
+        line-height: 1.5;
+    }
+
+    #course-date {
+        text-transform: lowercase;
+    }
+
+    .scroll-button {
+        position: absolute;
+        transform: translateY(220%);
+        background: transparent;
+        color: white;
+        border: none;
+        padding: 5px;
+        cursor: pointer;
+        z-index: 2;
+    }
+
+    .left-scroll {
+        left: 20px;
+    }
+
+    .right-scroll {
+        right: 20px;
+    }
+
+    .scroll-button::before {
+        content: '';
+        display: inline-block;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 10px 15px 10px 0;
+        border-color: transparent rgba(255, 255, 255, 0.9) transparent transparent;
+        transform: translateY(-50%) translateX(-50%) rotate(0deg);
+    }
+
+    .right-scroll::before {
+        transform: translateY(-50%) translateX(-50%) rotate(180deg);
+    }
+
+    .FAQ-section{
+        position: relative;
+        box-sizing: content-box;
+        height: auto;
+        background-color: white;
+        align-items: center;
+        text-align: center;
+        padding-bottom: 50px;
+    }
+
+    .FAQ-section h1{
+        width: 500px;
+        margin: 0 auto;
+        padding: 50px 0px 50px;
+    }
+
+    .FAQ-section details{
+        width: 85%;
+        margin: 10px auto 10px;
+        text-align: left;
+        padding: 0px 10px 0px 30px;
+        cursor: pointer;
+        position: relative;
+    }
+
+    .FAQ-item details summary {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .FAQ-item details p {
+        display: none;
+        text-align: justify;
+        font-size: 14px;
+    }
+
+    .FAQ-item details[open] p {
+        display: block;
+    }
+
+    .FAQ-item details[open]::before {
+        transform: rotate(-45deg);
+    }
+
+    .faq_trigger-icon {
+        width: 14px;
+        min-height: 14px;
+        flex: none;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        position: relative;
+    }
+
+    .faq_answer-container {
+        transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+        opacity: 1;
+        transform-style: preserve-3d;
     }
 
     /* information.html */
     .information-section {
-        margin: 100px 20px 0; 
+        margin: 80px 20px 0; 
     }
 
     .information h3 {
-        margin-top: 60px;
-        margin-left: 80px;
+        margin-top: 30px;
+        margin-left: 40px;
     }
 
     .course-content {
-        height: 150px;
+        height: 80px;
         border-radius: 20px;
         margin: 0 auto 20px;
     }
@@ -1939,19 +1647,14 @@ td {
         padding-bottom: 15px;
     }
 
-    .information {
-        margin-bottom: 30px;
-    }
-
-
     .left-container-information{
-        width: 60%;
+        width: 100%;
     }
 
     .course-information p{
-        font-size: 18px;
+        font-size: 14px;
         line-height: 1.5;
-        margin: 7px auto 7px 80px;
+        margin: 7px auto 7px 50px;
     }
 
     .right-container-information{
@@ -1964,18 +1667,17 @@ td {
     }
 
     .category{
-        height: 100px;
-        margin: 10px 150px 10px;
+        height: 80px;
+        margin: 10px 40px 10px;
         border-radius: 20px;
     }
 
     .category-name{
         font-size: 24px;
-        margin-left: 65px;
+        margin-left: 40px;
     }
 
     .category-information-section{
-        margin-right: 40px;
         height: 44px;
     }
 
@@ -1985,26 +1687,27 @@ td {
     }
 
     .category-information{
-        margin: 0px 10px 0px 10px;
+        margin: 0px 5px 0px 5px;
     }
 
     #category-information-year {
-        width: 140px;
+        width: 60px;
     }
 
     .category-information-label {
-        font-size: 15px;
+        font-size: 12px;
         font-weight: 200;
     }
 
     .category-information-caracteristic {
-        font-size: 16px;
+        font-size: 11px;
     }
 
     #instruction-message {
-        width: 320px;
+        width: 200px;
         font-size: 18px;
         font-weight: 200;
+        text-align: center;
     }
 
     /* sport.html */
@@ -2049,33 +1752,315 @@ td {
     }
 
     .btn-inscription {
-        width: 220px;
-        height: 50px;
+        width: 150px;
+        height: 40px;
         border-radius: 15px;
+        font-size: 0.8em;
+        font-weight: 500;
+        margin-right: 40px;
+    }
+
+    /* payment.html */
+    .payment-content {
+        position: relative;
+        box-sizing: content-box;
+        height: 775px;
+        margin: 30px auto ; 
+        justify-content: space-between;
+    }
+
+    .inscription-section {
+        position: relative;
+        box-sizing: content-box;
+        height: 300px;
+        background: white;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto 10px;
+    }
+
+    .inscription-section h3 {
+        margin-top: 60px;
+        margin-left: 40px;
+    }
+
+    .inscription-content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .inscription-information {
+        padding-top: 5px;
+        padding-left: 60px;
+    }
+
+    .inscription-information p{
+        font-size: 14px;
+        font-weight: 200;
+        line-height: 20px;
+    }
+
+
+    .payment-method-content {
+        height: 400px;
+        background: white;
+        border-radius: 20px;
+        overflow: hidden;
+        margin-bottom: 10px;
+    }
+
+    .payment-method-content h3 {
+        margin-top: 60px;
+        margin-left: 60px;
+    }
+
+    .payment-method {
+        display: flex;
+        flex-direction: column;
+        padding: 0px 60px 0px 60px;
+    }
+
+    .image-container {
+        width: 100px; 
+        height: 40px;
+        border-radius: 9px;
+        overflow: hidden;
+        float: right;
+        text-align: center;
+    }
+
+    .payment-image {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        top: 50%;
+        left: 50%;
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    #master-card-logo {
+        width: 80%;
+    }
+
+    #postfinance-logo {
+        width: 200%;
+    }
+
+    .payment-method-content span {
+        font-family: sans-serif;
+        font-weight: lighter;
+        margin-top: 60px;
+        margin-left: 30px;
+    }
+
+    .payment-details-content {
+        width: 100%;
+        height: 440px;
+        background: white;
+        border-radius: 20px; 
+        overflow: hidden;
+    }
+
+    .payment-details-content h3 {
+        margin-top: 60px;
+        margin-left: 60px;
+    }
+
+    .payment-details {
+        display: flex;
+        flex-direction: column;
+        height: 250px;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .price {
+        font-family: sans-serif;
+        font-size: 20px;
+        font-weight: lighter;
+        margin-top: 15px;
+        margin-left: 90px;
+    }
+
+    .total-content {
+        width: 400px;
+        height: 130px;
+        background: rgb(242,242,242);
+    }
+
+    .total-content p {
+        position: relative;
+        box-sizing: content-box;
+        margin: 0 auto;
+        justify-content: space-between;
+        display: inline-block;
+        text-align: justify;
+        font-size: 16px;
+        margin: 18px 32px 5px 32px;
+    }
+
+    .total {
+        font-family: 'Poppins', sans-serif;
+        vertical-align: top;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .total-price {
+        vertical-align: top;
+        float: right;
+        font-weight: lighter;
+        text-transform: uppercase;
+    }
+
+    .choixpaiement {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+        font-size: 16px;
+        font-weight: lighter;
+        text-align: center;
+        margin-top: 10px;
+        color: rgb(83, 83, 83);
+    }
+
+    .continue-btn {
+        width: 335px;
+        height: 45px;
+        background-color: black;
+        border: none;
+        outline: none;
+        cursor: pointer;
         font-size: 1em;
+        color: white;
         font-weight: 500;
         margin: 10px auto 0px;
-        margin-right: 40px;
+        display: block;
+        text-transform: uppercase;   
+    }
+
+    /* contact.html */
+    .contact-section {
+        display: flex;
+        flex-direction: column;
+        height: 1500px;
+        margin: 0 auto;
+    }
+
+    .input-box-contact {
+        position: relative;
+        width: 100%;
+        height: 50px;
+        margin: 30px 0;
+    }
+
+    .input-box-contact input:focus~label,
+    .input-box-contact input:valid~label{
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    .input-box-contact input {
+        width: 500px;
+        height: 50px;
+        background: transparent;
+        border: 1px solid black;
+        border-radius: 8px;
+        outline: none;
+        font-size: 1em;
+        color: black;
+        font-weight: 300;
+        padding: 10px 10px 10px 20px;
+        border-radius: 9px;
+        margin-bottom: 10px;
+    }
+
+    #complaint {
+        width: 500px;
+        min-height: 50px;
+        background: transparent;
+        border: 1px solid black;
+        outline: none;
+        font-size: 1em;
+        font-weight: 350;
+        color: black;
+        padding: 10px 10px 10px 20px;
+        border-radius: 9px;
+        margin: 20px auto 20px;
+    }
+
+    textarea::placeholder {
+        color: black;
+        font-weight: 300;
+    }
+
+    .input-box-contact input::placeholder {
+        text-align: left;
+        color: black;
+        font-size: 1em;
+        pointer-events: none;
+    }
+
+    .input-box-information {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .btn-sent-emails{
+        box-sizing: content-box;
+        width: 120px;
+        height: 50px;
+        background-color: black;
+        border: none;
+        outline: none;
+        border-radius: 14px;
+        cursor: pointer;
+        font-size: 1em;
+        color: white;
+        font-weight: 500;
     }
 }
 
 @media (min-width : 640px) {
     h1 {
-        font-size: 75px;
+        font-family: 'Istok web', sans-serif;
+        font-weight: bolder;
+        font-size: 60px;
     }
     
     h2 {
+        color: black;
+        font-family: 'Istok web', sans-serif;
+        align-items: center;
+        text-align: center;
         font-size: 2em;
     }
     
     h3 {
-        font-size: 30px;
+        font-family: sans-serif;
+        font-weight: lighter;
+        font-size: 25px;
     }
     
     h4{
+        font-family: sans-serif;
+        font-weight: bold;
+        text-align: center;
         font-size: 50px;
         margin-top: 20px;
     }
+
+    h5 {
+        font-family: sans-serif;
+        font-weight: bold;
+        text-align: center;
+        font-size: 40px;
+        margin: 0;
+    }    
 
     .vertical-bar {
         height: 2px;
@@ -2093,6 +2078,10 @@ td {
     }
 
     .page-content {
+        position: relative;
+        box-sizing: content-box;
+        width: 100%;
+        align-items: center;
         margin: 100px auto 0; 
     }
 
@@ -2125,31 +2114,9 @@ td {
         margin-left: 30px;
     }
     
-    .menu-item::after {
-        bottom: -6px;
-        width: 100%;
-        height: 3px;
-        border-radius: 5px;
-        transform-origin: 50% 50%;
-        transform: translateX(-48%) scaleX(0);
-        transition: transform .5s, width .5s;
-    }
-    
-    .connexion-content {
-        border: 2px solid black;
-        padding: 10px 10px;
-    }
-    
     .connexion {
         font-size: 1em;
         font-weight: 500;
-    }
-    
-    .connexion-content::after {
-        top: 100%;
-        left: 0;
-        width: 0;
-        height: 100%;
     }
 
     /* input-box */
@@ -2278,35 +2245,7 @@ td {
         margin: 25px 0 10px;
     }
 
-    /* register.html */
-    .register-content {
-        width: 1240px;
-    }
-
-    .register-titel {
-        padding-top: 10px;
-    }
-
-    .left-box {
-        width: 500px;
-        margin: 40px auto 0;
-    }
-
-    .right-box {
-        width: 500px;
-        margin: 40px auto 0;
-    }
-
     /* admin_home.html */
-    .home-content {
-        margin: 90px auto 0; 
-    }
-
-    .home-creation {
-        width: 1140px;
-        height: 150px;
-    }
-
     .home-NextCourse-content {
         width: 1240px;
     }
@@ -2327,17 +2266,232 @@ td {
         font-size: 16px;
     }
 
-    .home-content h3 {
-        font-size: 30px;
+    .creation-titel h2,p {
+        margin: 0 auto;
+        font-size: 14px;
     }
 
-    .btn-home {
-        width: 220px;
-        height: 40px;
-        border-radius: 20px;
-        font-weight: 500;
-        margin: 10px auto 0px;
+        /* index.html */
+    .information-section-index {
+        position: relative;
+        box-sizing: content-box;
+        background-color: white;
+        align-items: center;
     }
+
+    .information-section-index h1 {
+        color: black;
+        margin: 10px 0px;
+    }
+
+    .information-section-index p{
+        font-family: sans-serif;
+        font-size: 18px;
+        font-weight: lighter;
+        text-decoration: none;
+        color: black;
+    }
+
+    .information-content-index {
+        position: relative;
+        width: 400px;
+        height: 360px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        margin-left: 60px;
+        margin-top: 150px;
+        margin-bottom: 120px;
+    }
+
+    .information-content-btn {
+        display: flex;
+    }
+
+    .btn-index {
+        width: 140px;
+        height: 50px;
+        background-color: black;
+        border: none;
+        outline: none;
+        border-radius: 12px;
+        cursor: pointer;
+        font-size: 0.9em;
+        color: white;
+        font-weight: bolder;
+        margin-right: 40px;
+    }
+
+    .btn-more-details{
+        width: 140px;
+        height: 50px;
+        background-color: white;
+        border: none;
+        outline: none;
+        border-radius: 12px;
+        cursor: pointer;
+        font-size: 0.9em;
+        color: black;
+        font-weight: 500;
+    }
+
+    .course-index {
+        position: relative;
+        box-sizing: content-box;
+        background-color: black;
+        text-align: center;
+        overflow: hidden;
+        padding-bottom: 50px;
+    }
+
+    .course-index h1 {
+        color: white;
+        width: 500px;
+        margin: 0 auto;
+        padding: 40px 0px 40px;
+    }
+
+    .course-section-index {
+        display: flex;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        padding: 50px 0;
+        margin-left: 60px;
+    }
+
+    .course-section-inner {
+        display: flex;
+        width: fit-content;
+        gap: 10px;
+        transition: transform 0.3s ease;
+
+    }
+
+    .course-content-index {
+        flex: 0 0 auto;
+        width: 250px;
+        height: 250px;
+        border-radius: 20px;
+        background-color: white;
+        margin-right: 10px;
+        padding: 10px; 
+    }
+
+    .course-content-index h3{
+        margin: 40px 0px;
+    }
+
+    .course-title {
+        height: 20px;
+        color: black;
+        font-weight: bolder;
+        margin: 50px auto 50px;
+    }
+
+    .course-content-index p {
+        font-size: 14px;
+        text-transform: capitalize;
+        line-height: 1.5;
+    }
+
+    #course-date {
+        text-transform: lowercase;
+    }
+
+    .scroll-button {
+        position: absolute;
+        transform: translateY(220%);
+        background: transparent;
+        color: white;
+        border: none;
+        padding: 5px;
+        cursor: pointer;
+        z-index: 2;
+    }
+
+    .left-scroll {
+        left: 20px;
+    }
+
+    .right-scroll {
+        right: 20px;
+    }
+
+    .scroll-button::before {
+        content: '';
+        display: inline-block;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 10px 15px 10px 0;
+        border-color: transparent rgba(255, 255, 255, 0.9) transparent transparent;
+        transform: translateY(-50%) translateX(-50%) rotate(0deg);
+    }
+
+    .right-scroll::before {
+        transform: translateY(-50%) translateX(-50%) rotate(180deg);
+    }
+
+    .FAQ-section{
+        position: relative;
+        box-sizing: content-box;
+        height: auto;
+        background-color: white;
+        align-items: center;
+        text-align: center;
+        padding-bottom: 50px;
+    }
+
+    .FAQ-section h1{
+        width: 600px;
+        margin: 0 auto;
+        padding: 50px 0px 50px;
+    }
+
+    .FAQ-section details{
+        width: 85%;
+        margin: 10px auto 10px;
+        text-align: left;
+        padding: 0px 10px 0px 30px;
+        cursor: pointer;
+        position: relative;
+    }
+
+    .FAQ-item details summary {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .FAQ-item details p {
+        display: none;
+        text-align: justify;
+        font-size: 18px;
+    }
+
+    .FAQ-item details[open] p {
+        display: block;
+    }
+
+    .FAQ-item details[open]::before {
+        transform: rotate(-45deg);
+    }
+
+    .faq_trigger-icon {
+        width: 14px;
+        min-height: 14px;
+        flex: none;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        position: relative;
+    }
+
+    .faq_answer-container {
+        transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+        opacity: 1;
+        transform-style: preserve-3d;
+    }
+
 
     /* information.html */
     .information-section {
@@ -2345,8 +2499,8 @@ td {
     }
 
     .information h3 {
-        margin-top: 60px;
-        margin-left: 80px;
+        margin-top: 50px;
+        margin-left: 40px;
     }
 
     .course-content {
@@ -2364,19 +2518,14 @@ td {
         padding-bottom: 15px;
     }
 
-    .information {
-        margin-bottom: 30px;
-    }
-
-
     .left-container-information{
-        width: 60%;
+        width: 100%;
     }
 
     .course-information p{
-        font-size: 18px;
+        font-size: 16px;
         line-height: 1.5;
-        margin: 7px auto 7px 80px;
+        margin: 7px auto 7px 60px;
     }
 
     .right-container-information{
@@ -2389,14 +2538,14 @@ td {
     }
 
     .category{
-        height: 100px;
-        margin: 10px 150px 10px;
+        height: 90px;
+        margin: 5px 60px 5px;
         border-radius: 20px;
     }
 
     .category-name{
         font-size: 24px;
-        margin-left: 65px;
+        margin-left: 25px;
     }
 
     .category-information-section{
@@ -2409,25 +2558,21 @@ td {
         font-size: 18px;
     }
 
-    .category-information{
-        margin: 0px 10px 0px 10px;
-    }
-
     #category-information-year {
-        width: 140px;
+        width: 90px;
     }
 
     .category-information-label {
-        font-size: 15px;
+        font-size: 12px;
         font-weight: 200;
     }
 
     .category-information-caracteristic {
-        font-size: 16px;
+        font-size: 12px;
     }
 
     #instruction-message {
-        width: 320px;
+        width: 250px;
         font-size: 18px;
         font-weight: 200;
     }
@@ -2482,25 +2627,307 @@ td {
         margin: 10px auto 0px;
         margin-right: 40px;
     }
+
+    /* payment.html */
+    .payment-content {
+        position: relative;
+        box-sizing: content-box;
+        height: 775px;
+        margin: 30px auto ; 
+        justify-content: space-between;
+    }
+
+    .inscription-section {
+        position: relative;
+        box-sizing: content-box;
+        height: 300px;
+        background: white;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto 10px;
+    }
+
+    .inscription-section h3 {
+        margin-top: 60px;
+        margin-left: 40px;
+    }
+
+    .inscription-content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .inscription-information {
+        padding-top: 5px;
+        padding-left: 60px;
+    }
+
+    .inscription-information p{
+        font-size: 18px;
+        font-weight: 200;
+        line-height: 25px;
+    }
+
+
+    .payment-method-content {
+        height: 400px;
+        background: white;
+        border-radius: 20px;
+        overflow: hidden;
+        margin-bottom: 10px;
+    }
+
+    .payment-method-content h3 {
+        margin-top: 60px;
+        margin-left: 60px;
+    }
+
+    .payment-method {
+        display: flex;
+        flex-direction: column;
+        padding: 0px 60px 0px 60px;
+    }
+
+    .image-container {
+        width: 100px; 
+        height: 40px;
+        border-radius: 9px;
+        overflow: hidden;
+        float: right;
+        text-align: center;
+    }
+
+    .payment-image {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        top: 50%;
+        left: 50%;
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    #master-card-logo {
+        width: 80%;
+    }
+
+    #postfinance-logo {
+        width: 200%;
+    }
+
+    .payment-method-content span {
+        font-family: sans-serif;
+        font-weight: lighter;
+        font-size: 20px;
+        margin-top: 60px;
+        margin-left: 30px;
+    }
+
+    .payment-details-content {
+        width: 100%;
+        height: 440px;
+        background: white;
+        border-radius: 20px; 
+        overflow: hidden;
+    }
+
+    .payment-details-content h3 {
+        margin-top: 60px;
+        margin-left: 60px;
+    }
+
+    .payment-details {
+        display: flex;
+        flex-direction: column;
+        height: 250px;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .price {
+        font-family: sans-serif;
+        font-size: 24px;
+        font-weight: lighter;
+        margin-top: 15px;
+        margin-left: 90px;
+    }
+
+    .total-content {
+        width: 500px;
+        height: 130px;
+        background: rgb(242,242,242);
+    }
+
+    .total-content p {
+        position: relative;
+        box-sizing: content-box;
+        margin: 0 auto;
+        justify-content: space-between;
+        display: inline-block;
+        text-align: justify;
+        font-size: 18px;
+        margin: 18px 32px 5px 32px;
+    }
+
+    .total {
+        font-family: 'Poppins', sans-serif;
+        vertical-align: top;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .total-price {
+        vertical-align: top;
+        float: right;
+        font-weight: lighter;
+        text-transform: uppercase;
+    }
+
+    .choixpaiement {
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+        font-size: 18px;
+        font-weight: lighter;
+        text-align: center;
+        margin-top: 10px;
+        color: rgb(83, 83, 83);
+    }
+
+    .continue-btn {
+        width: 435px;
+        height: 45px;
+        background-color: black;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        font-size: 1em;
+        color: white;
+        font-weight: 500;
+        margin: 10px auto 0px;
+        display: block;
+        text-transform: uppercase;   
+    }
+
+        /* contact.html */
+        .contact-section {
+            display: flex;
+            flex-direction: column;
+            height: 1500px;
+            margin: 0 auto;
+        }
+    
+        .input-box-contact {
+            position: relative;
+            width: 100%;
+            height: 50px;
+            margin: 30px 0;
+        }
+    
+        .input-box-contact input:focus~label,
+        .input-box-contact input:valid~label{
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+    
+        .input-box-contact input {
+            width: 500px;
+            height: 50px;
+            background: transparent;
+            border: 1px solid black;
+            border-radius: 8px;
+            outline: none;
+            font-size: 1em;
+            color: black;
+            font-weight: 300;
+            padding: 10px 10px 10px 20px;
+            border-radius: 9px;
+            margin-bottom: 10px;
+        }
+    
+        #complaint {
+            width: 500px;
+            min-height: 50px;
+            background: transparent;
+            border: 1px solid black;
+            outline: none;
+            font-size: 1em;
+            font-weight: 350;
+            color: black;
+            padding: 10px 10px 10px 20px;
+            border-radius: 9px;
+            margin: 20px auto 20px;
+        }
+    
+        textarea::placeholder {
+            color: black;
+            font-weight: 300;
+        }
+    
+        .input-box-contact input::placeholder {
+            text-align: left;
+            color: black;
+            font-size: 1em;
+            pointer-events: none;
+        }
+    
+        .input-box-information {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+    
+        .btn-sent-emails{
+            box-sizing: content-box;
+            width: 120px;
+            height: 50px;
+            background-color: black;
+            border: none;
+            outline: none;
+            border-radius: 14px;
+            cursor: pointer;
+            font-size: 1em;
+            color: white;
+            font-weight: 500;
+        }
 }
 
 @media (min-width : 768px) {
     h1 {
-        font-size: 75px;
+        font-family: 'Istok web', sans-serif;
+        font-weight: bolder;
+        font-size: 65px;
     }
     
     h2 {
+        color: black;
+        font-family: 'Istok web', sans-serif;
+        align-items: center;
+        text-align: center;
         font-size: 2em;
     }
     
     h3 {
+        font-family: sans-serif;
+        font-weight: lighter;
         font-size: 30px;
     }
     
     h4{
+        font-family: sans-serif;
+        font-weight: bold;
+        text-align: center;
         font-size: 60px;
         margin-top: 20px;
     }
+
+    h5 {
+        font-family: sans-serif;
+        font-weight: bold;
+        text-align: center;
+        font-size: 40px;
+        margin: 0;
+    }    
 
     .vertical-bar {
         height: 500px;
@@ -2518,6 +2945,10 @@ td {
     }
 
     .page-content {
+        position: relative;
+        box-sizing: content-box;
+        width: 100%;
+        align-items: center;
         margin: 100px auto 0; 
     }
 
@@ -2550,31 +2981,9 @@ td {
         margin-left: 15px;
     }
     
-    .menu-item::after {
-        bottom: -6px;
-        width: 100%;
-        height: 3px;
-        border-radius: 5px;
-        transform-origin: 50% 50%;
-        transform: translateX(-48%) scaleX(0);
-        transition: transform .5s, width .5s;
-    }
-    
-    .connexion-content {
-        border: 2px solid black;
-        padding: 10px 10px;
-    }
-    
     .connexion {
         font-size: 1em;
         font-weight: 500;
-    }
-    
-    .connexion-content::after {
-        top: 100%;
-        left: 0;
-        width: 0;
-        height: 100%;
     }
 
     /* input-box */
@@ -2704,35 +3113,7 @@ td {
         margin: 25px 0 10px;
     }
 
-    /* register.html */
-    .register-content {
-        width: 1240px;
-    }
-
-    .register-titel {
-        padding-top: 10px;
-    }
-
-    .left-box {
-        width: 500px;
-        margin: 40px auto 0;
-    }
-
-    .right-box {
-        width: 500px;
-        margin: 40px auto 0;
-    }
-
     /* admin_home.html */
-    .home-content {
-        margin: 90px auto 0; 
-    }
-
-    .home-creation {
-        width: 1140px;
-        height: 150px;
-    }
-
     .home-NextCourse-content {
         width: 1240px;
     }
@@ -2754,16 +3135,230 @@ td {
         font-size: 18px;
     }
 
-    .home-content h3 {
-        font-size: 30px;
+    .creation-titel h2,p {
+        margin: 0 auto;
+        font-size: 16px;
     }
 
-    .btn-home {
-        width: 220px;
-        height: 40px;
-        border-radius: 20px;
+        /* index.html */
+    .information-section-index {
+        position: relative;
+        box-sizing: content-box;
+        background-color: white;
+        align-items: center;
+    }
+
+    .information-section-index h1 {
+        color: black;
+        margin: 10px 0px;
+    }
+
+    .information-section-index p{
+        font-family: sans-serif;
+        font-size: 18px;
+        font-weight: lighter;
+        text-decoration: none;
+        color: black;
+    }
+
+    .information-content-index {
+        position: relative;
+        width: 400px;
+        height: 400px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        margin-left: 60px;
+        margin-top: 150px;
+        margin-bottom: 120px;
+    }
+
+    .information-content-btn {
+        display: flex;
+    }
+
+    .btn-index {
+        width: 140px;
+        height: 50px;
+        background-color: black;
+        border: none;
+        outline: none;
+        border-radius: 12px;
+        cursor: pointer;
+        font-size: 0.9em;
+        color: white;
+        font-weight: bolder;
+        margin-right: 40px;
+    }
+
+    .btn-more-details{
+        width: 140px;
+        height: 50px;
+        background-color: white;
+        border: none;
+        outline: none;
+        border-radius: 12px;
+        cursor: pointer;
+        font-size: 0.9em;
+        color: black;
         font-weight: 500;
-        margin: 10px auto 0px;
+    }
+
+    .course-index {
+        position: relative;
+        box-sizing: content-box;
+        background-color: black;
+        text-align: center;
+        overflow: hidden;
+        padding-bottom: 50px;
+    }
+
+    .course-index h1 {
+        color: white;
+        width: 500px;
+        margin: 0 auto;
+        padding: 40px 0px 40px;
+    }
+
+    .course-section-index {
+        display: flex;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        padding: 50px 0;
+        margin-left: 60px;
+    }
+
+    .course-section-inner {
+        display: flex;
+        width: fit-content;
+        gap: 10px;
+        transition: transform 0.3s ease;
+
+    }
+
+    .course-content-index {
+        flex: 0 0 auto;
+        width: 300px;
+        height: 300px;
+        border-radius: 20px;
+        background-color: white;
+        margin-right: 10px;
+        padding: 10px; 
+    }
+
+    .course-content-index h3{
+        margin: 60px 0px;
+    }
+
+    .course-title {
+        height: 20px;
+        color: black;
+        font-weight: bolder;
+        margin: 50px auto 50px;
+    }
+
+    .course-content-index p {
+        font-size: 14px;
+        text-transform: capitalize;
+        line-height: 1.5;
+    }
+
+    #course-date {
+        text-transform: lowercase;
+    }
+
+    .scroll-button {
+        position: absolute;
+        transform: translateY(220%);
+        background: transparent;
+        color: white;
+        border: none;
+        padding: 5px;
+        cursor: pointer;
+        z-index: 2;
+    }
+
+    .left-scroll {
+        left: 20px;
+    }
+
+    .right-scroll {
+        right: 20px;
+    }
+
+    .scroll-button::before {
+        content: '';
+        display: inline-block;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 10px 15px 10px 0;
+        border-color: transparent rgba(255, 255, 255, 0.9) transparent transparent;
+        transform: translateY(-50%) translateX(-50%) rotate(0deg);
+    }
+
+    .right-scroll::before {
+        transform: translateY(-50%) translateX(-50%) rotate(180deg);
+    }
+
+    .FAQ-section{
+        position: relative;
+        box-sizing: content-box;
+        height: auto;
+        background-color: white;
+        align-items: center;
+        text-align: center;
+        padding-bottom: 50px;
+    }
+
+    .FAQ-section h1{
+        width: 700px;
+        margin: 0 auto;
+        padding: 50px 0px 50px;
+    }
+
+    .FAQ-section details{
+        width: 85%;
+        margin: 10px auto 10px;
+        text-align: left;
+        padding: 0px 10px 0px 30px;
+        cursor: pointer;
+        position: relative;
+    }
+
+    .FAQ-item details summary {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .FAQ-item details p {
+        display: none;
+        text-align: justify;
+        font-size: 18px;
+    }
+
+    .FAQ-item details[open] p {
+        display: block;
+    }
+
+    .FAQ-item details[open]::before {
+        transform: rotate(-45deg);
+    }
+
+    .faq_trigger-icon {
+        width: 14px;
+        min-height: 14px;
+        flex: none;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        position: relative;
+    }
+
+    .faq_answer-container {
+        transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+        opacity: 1;
+        transform-style: preserve-3d;
     }
 
     /* information.html */
@@ -2816,13 +3411,13 @@ td {
 
     .category{
         height: 100px;
-        margin: 10px 150px 10px;
+        margin: 10px 80px 10px;
         border-radius: 20px;
     }
 
     .category-name{
         font-size: 24px;
-        margin-left: 65px;
+        margin-left: 45px;
     }
 
     .category-information-section{
@@ -2836,20 +3431,20 @@ td {
     }
 
     .category-information{
-        margin: 0px 10px 0px 10px;
+        margin: 0px 5px 0px 5px;
     }
 
     #category-information-year {
-        width: 140px;
+        width: 100px;
     }
 
     .category-information-label {
-        font-size: 15px;
+        font-size: 14px;
         font-weight: 200;
     }
 
     .category-information-caracteristic {
-        font-size: 16px;
+        font-size: 15px;
     }
 
     #instruction-message {
@@ -2858,75 +3453,306 @@ td {
         font-weight: 200;
     }
 
-    /* sport.html */
-    .navigation-content {
+     /* payment.html */
+     .payment-content {
         position: relative;
-        width: 82%;
-        height: auto;
+        box-sizing: content-box;
+        height: 775px;
+        margin: 30px auto ; 
+        justify-content: space-between;
+    }
+
+    .inscription-section {
+        position: relative;
+        box-sizing: content-box;
+        height: 300px;
+        background: white;
+        border-radius: 20px;
         display: flex;
-        flex-direction: row;
-        justify-content: space-evenly;
-        text-align: center;
-        align-items: center;
-        margin: 0 auto;
+        flex-direction: column;
+        margin: 0 auto 10px;
     }
 
-    .navigation-content a {
-        font-size: 12px;
+    .inscription-section h3 {
+        margin-top: 60px;
+        margin-left: 40px;
     }
 
-    .sport-section{
-        margin: auto 50px auto ;
+    .inscription-content {
+        display: flex;
+        flex-direction: column;
     }
 
-    .sport-section h3{
+    .inscription-information {
+        padding-top: 5px;
+        padding-left: 60px;
+    }
+
+    .inscription-information p{
         font-size: 18px;
-        margin-top: 40px;
-        margin-left: 10px;
+        font-weight: 200;
+        line-height: 25px;
     }
 
-    .btn-home-MoreDetails {
-        width: 120px;
-        height: 40px;
-        border-radius: 14px;
-        font-size: 14px;
-        font-weight: 500;
+
+    .payment-method-content {
+        height: 400px;
+        background: white;
+        border-radius: 20px;
+        overflow: hidden;
+        margin-bottom: 10px;
     }
 
-    .sport-course{
-        height: 70px;
-        border-radius: 18px;
-        margin: 10px 0px 10px;
+    .payment-method-content h3 {
+        margin-top: 60px;
+        margin-left: 60px;
     }
 
-    .btn-inscription {
-        width: 220px;
-        height: 50px;
-        border-radius: 15px;
+    .payment-method {
+        display: flex;
+        flex-direction: column;
+        padding: 0px 60px 0px 60px;
+    }
+
+    .image-container {
+        width: 140px; 
+        height: 45px;
+        border-radius: 9px;
+        overflow: hidden;
+        float: right;
+        text-align: center;
+    }
+
+    .payment-image {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        top: 50%;
+        left: 50%;
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    #master-card-logo {
+        width: 60%;
+    }
+
+    #postfinance-logo {
+        width: 200%;
+    }
+
+    .payment-method-content span {
+        font-family: sans-serif;
+        font-weight: lighter;
+        font-size: 20px;
+        margin-top: 60px;
+        margin-left: 30px;
+    }
+
+    .payment-details-content {
+        width: 100%;
+        height: 440px;
+        background: white;
+        border-radius: 20px; 
+        overflow: hidden;
+    }
+
+    .payment-details-content h3 {
+        margin-top: 60px;
+        margin-left: 60px;
+    }
+
+    .payment-details {
+        display: flex;
+        flex-direction: column;
+        height: 250px;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .price {
+        font-family: sans-serif;
+        font-size: 24px;
+        font-weight: lighter;
+        margin-top: 15px;
+        margin-left: 90px;
+    }
+
+    .total-content {
+        width: 500px;
+        height: 130px;
+        background: rgb(242,242,242);
+    }
+
+    .total-content p {
+        position: relative;
+        box-sizing: content-box;
+        margin: 0 auto;
+        justify-content: space-between;
+        display: inline-block;
+        text-align: justify;
+        font-size: 18px;
+        margin: 18px 32px 5px 32px;
+    }
+
+    .total {
+        font-family: 'Poppins', sans-serif;
+        vertical-align: top;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .total-price {
+        vertical-align: top;
+        float: right;
+        font-weight: lighter;
+        text-transform: uppercase;
+    }
+
+    .choixpaiement {
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+        font-size: 18px;
+        font-weight: lighter;
+        text-align: center;
+        margin-top: 10px;
+        color: rgb(83, 83, 83);
+    }
+
+    .continue-btn {
+        width: 435px;
+        height: 45px;
+        background-color: black;
+        border: none;
+        outline: none;
+        cursor: pointer;
         font-size: 1em;
+        color: white;
         font-weight: 500;
         margin: 10px auto 0px;
-        margin-right: 40px;
+        display: block;
+        text-transform: uppercase;   
     }
+
+        /* contact.html */
+        .contact-section {
+            display: flex;
+            flex-direction: column;
+            height: 1500px;
+            margin: 0 auto;
+        }
+    
+        .input-box-contact {
+            position: relative;
+            width: 100%;
+            height: 50px;
+            margin: 30px 0;
+        }
+    
+        .input-box-contact input:focus~label,
+        .input-box-contact input:valid~label{
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+    
+        .input-box-contact input {
+            width: 700px;
+            height: 50px;
+            background: transparent;
+            border: 1px solid black;
+            border-radius: 8px;
+            outline: none;
+            font-size: 1em;
+            color: black;
+            font-weight: 300;
+            padding: 10px 10px 10px 20px;
+            border-radius: 9px;
+            margin-bottom: 10px;
+        }
+    
+        #complaint {
+            width: 700px;
+            min-height: 50px;
+            background: transparent;
+            border: 1px solid black;
+            outline: none;
+            font-size: 1em;
+            font-weight: 350;
+            color: black;
+            padding: 10px 10px 10px 20px;
+            border-radius: 9px;
+            margin: 20px auto 20px;
+        }
+    
+        textarea::placeholder {
+            color: black;
+            font-weight: 300;
+        }
+    
+        .input-box-contact input::placeholder {
+            text-align: left;
+            color: black;
+            font-size: 1em;
+            pointer-events: none;
+        }
+    
+        .input-box-information {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+    
+        .btn-sent-emails{
+            box-sizing: content-box;
+            width: 120px;
+            height: 50px;
+            background-color: black;
+            border: none;
+            outline: none;
+            border-radius: 14px;
+            cursor: pointer;
+            font-size: 1em;
+            color: white;
+            font-weight: 500;
+        }
 }
 
 @media (min-width : 1040px) {
     h1 {
+        font-family: 'Istok web', sans-serif;
+        font-weight: bolder;
         font-size: 75px;
     }
     
     h2 {
+        color: black;
+        font-family: 'Istok web', sans-serif;
+        align-items: center;
+        text-align: center;
         font-size: 2em;
     }
     
     h3 {
+        font-family: sans-serif;
+        font-weight: lighter;
         font-size: 30px;
     }
     
     h4{
+        font-family: sans-serif;
+        font-weight: bold;
+        text-align: center;
         font-size: 75px;
         margin-top: 20px;
     }
+
+    h5 {
+        font-family: sans-serif;
+        font-weight: bold;
+        text-align: center;
+        font-size: 40px;
+        margin: 0;
+    }    
 
     .vertical-bar {
         height: 600px;
@@ -2944,6 +3770,10 @@ td {
     }
 
     .page-content {
+        position: relative;
+        box-sizing: content-box;
+        width: 100%;
+        align-items: center;
         margin: 100px auto 0; 
     }
 
@@ -2976,31 +3806,9 @@ td {
         margin-left: 30px;
     }
     
-    .menu-item::after {
-        bottom: -6px;
-        width: 100%;
-        height: 3px;
-        border-radius: 5px;
-        transform-origin: 50% 50%;
-        transform: translateX(-48%) scaleX(0);
-        transition: transform .5s, width .5s;
-    }
-    
-    .connexion-content {
-        border: 2px solid black;
-        padding: 10px 10px;
-    }
-    
     .connexion {
         font-size: 1em;
         font-weight: 500;
-    }
-    
-    .connexion-content::after {
-        top: 100%;
-        left: 0;
-        width: 0;
-        height: 100%;
     }
 
     /* input-box */
@@ -3129,35 +3937,7 @@ td {
         margin: 25px 0 10px;
     }
 
-    /* register.html */
-    .register-content {
-        width: 1240px;
-    }
-
-    .register-titel {
-        padding-top: 10px;
-    }
-
-    .left-box {
-        width: 500px;
-        margin: 40px auto 0;
-    }
-
-    .right-box {
-        width: 500px;
-        margin: 40px auto 0;
-    }
-
     /* admin_home.html */
-    .home-content {
-        margin: 90px auto 0; 
-    }
-
-    .home-creation {
-        width: 1140px;
-        height: 150px;
-    }
-
     .home-NextCourse-content {
         width: 1240px;
         height: 178px;
@@ -3176,17 +3956,231 @@ td {
         font-size: 24px;
     }
 
-    .home-content h3 {
-        font-size: 30px;
+    .creation-titel h2,p {
+        margin: 0 auto;
+        font-size: 17px;
     }
 
-    .btn-home {
-        width: 220px;
-        height: 40px;
-        border-radius: 20px;
-        font-weight: 500;
-        margin: 10px auto 0px;
+    .information-section-index {
+        position: relative;
+        box-sizing: content-box;
+        background-color: white;
+        align-items: center;
     }
+    
+    .information-section-index h1 {
+        color: black;
+        height: 200px;
+    }
+    
+    .information-section-index p{
+        font-family: sans-serif;
+        font-size: 24px;
+        font-weight: lighter;
+        text-decoration: none;
+        color: black;
+    }
+    
+    .information-content-index {
+        position: relative;
+        width: 550px;
+        height: 500px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        margin-left: 60px;
+        margin-top: 200px;
+        margin-bottom: 120px;
+    }
+    
+    .information-content-btn {
+        display: flex;
+    }
+    
+    .btn-index {
+        width: 180px;
+        height: 70px;
+        background-color: black;
+        border: none;
+        outline: none;
+        border-radius: 19.5px;
+        cursor: pointer;
+        font-size: 1em;
+        color: white;
+        font-weight: bolder;
+        margin-right: 70px;
+    }
+    
+    .btn-more-details{
+        width: 180px;
+        height: 70px;
+        background-color: white;
+        border: none;
+        outline: none;
+        border-radius: 19.5px;
+        cursor: pointer;
+        font-size: 1em;
+        color: black;
+        font-weight: 500;
+    }
+    
+    .course-index {
+        position: relative;
+        box-sizing: content-box;
+        background-color: black;
+        text-align: center;
+        overflow: hidden;
+        padding-bottom: 50px;
+    }
+    
+    .course-index h1 {
+        color: white;
+        width: 640px;
+        margin: 0 auto;
+        padding: 40px 0px 40px;
+    }
+    
+    .course-section-index {
+        display: flex;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        padding: 50px 0;
+        margin-left: 60px;
+    }
+    
+    .course-section-inner {
+        display: flex;
+        width: fit-content;
+        gap: 10px;
+        transition: transform 0.3s ease;
+    
+    }
+    
+    .course-content-index {
+        flex: 0 0 auto;
+        width: 350px;
+        height: 350px;
+        border-radius: 20px;
+        background-color: white;
+        margin-right: 10px;
+        padding: 10px; 
+    }
+
+    .course-content-index h3{
+        margin: 40px 0px;
+    }
+    
+    .course-title {
+        height: 50px;
+        color: black;
+        font-weight: bolder;
+        margin: 50px auto 50px;
+    }
+    
+    .course-content-index p {
+        font-size: 20px;
+        text-transform: capitalize;
+        line-height: 1.5;
+    }
+    
+    #course-date {
+        text-transform: lowercase;
+    }
+    
+    .scroll-button {
+        position: absolute;
+        transform: translateY(380%);
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        z-index: 2;
+    }
+    
+    .left-scroll {
+        left: 20px;
+    }
+    
+    .right-scroll {
+        right: 20px;
+    }
+    
+    .scroll-button::before {
+        content: '';
+        display: inline-block;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 10px 15px 10px 0;
+        border-color: transparent rgba(255, 255, 255, 0.9) transparent transparent;
+        transform: translateY(-50%) translateX(-50%) rotate(0deg);
+    }
+    
+    .right-scroll::before {
+        transform: translateY(-50%) translateX(-50%) rotate(180deg);
+    }
+    
+    .FAQ-section{
+        position: relative;
+        box-sizing: content-box;
+        height: auto;
+        background-color: white;
+        align-items: center;
+        text-align: center;
+        padding-bottom: 50px;
+    }
+    
+    .FAQ-section h1{
+        width: 750px;
+        margin: 0 auto;
+        padding: 50px 0px 50px;
+    }
+    
+    .FAQ-section details{
+        width: 85%;
+        margin: 10px auto 10px;
+        text-align: left;
+        padding: 0px 10px 0px 30px;
+        cursor: pointer;
+        position: relative;
+    }
+    
+    .FAQ-item details summary {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    
+    .FAQ-item details p {
+        display: none;
+        text-align: justify;
+        font-size: 20px;
+     }
+    
+    .FAQ-item details[open] p {
+        display: block;
+    }
+    
+    .FAQ-item details[open]::before {
+        transform: rotate(-45deg);
+    }
+    
+    .faq_trigger-icon {
+        width: 14px;
+        min-height: 14px;
+        flex: none;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        position: relative;
+    }
+    
+    .faq_answer-container {
+        transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+        opacity: 1;
+        transform-style: preserve-3d;
+    }
+    
 
     /* information.html */
     .information-section {
@@ -3259,7 +4253,7 @@ td {
     }
 
     .category-information{
-        margin: 0px 10px 0px 10px;
+        margin: 0px 5px 0px 5px;
     }
 
     #category-information-year {
@@ -3267,12 +4261,12 @@ td {
     }
 
     .category-information-label {
-        font-size: 15px;
+        font-size: 14px;
         font-weight: 200;
     }
 
     .category-information-caracteristic {
-        font-size: 16px;
+        font-size: 15px;
     }
 
     #instruction-message {
@@ -3330,26 +4324,316 @@ td {
         font-weight: 500;
         margin: 10px auto 0px;
         margin-right: 40px;
+    }
+
+    .payment-content {
+        position: relative;
+        box-sizing: content-box;
+        width: 1240px;
+        height: 775px;
+        margin: 30px auto ; 
+        justify-content: space-between;
+    }
+    
+    .inscription-section {
+        position: relative;
+        box-sizing: content-box;
+        height: 320px;
+        background: white;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto 20px;
+    }
+    
+    .inscription-section h3 {
+        margin-top: 60px;
+        margin-left: 60px;
+    }
+    
+    .inscription-content {
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .inscription-information {
+        width: 620px;
+        padding-top: 10px;
+        padding-left: 80px;
+    }
+    
+    .inscription-information p{
+        font-size: 20px;
+        font-weight: 200;
+        line-height: 30px;
+    }
+    
+    .payment-method-section {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    .payment-method-content {
+        width: 670px;
+        height: 440px;
+        background: white;
+        border-radius: 20px;
+    }
+    
+    .payment-method-content h3 {
+        margin-top: 60px;
+        margin-left: 60px;
+    }
+    
+    .payment-method {
+        display: flex;
+        flex-direction: column;
+        padding: 0px 60px 0px 60px;
+    }
+    
+    .image-container {
+        width: 134px; 
+        height: 56px;
+        border-radius: 9px;
+        overflow: hidden;
+        float: right;
+        text-align: center;
+    }
+    
+    .payment-image {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        top: 50%;
+        left: 50%;
+        max-width: 100%;
+        max-height: 100%;
+    }
+    
+    #master-card-logo {
+        width: 80%;
+    }
+    
+    #postfinance-logo {
+        width: 200%;
+    }
+    
+    .payment-method-content span {
+        font-family: sans-serif;
+        font-size: 24px;
+        font-weight: lighter;
+        margin-top: 60px;
+        margin-left: 60px;
+    }
+    
+    .payment-details-content {
+        width: 550px;
+        height: 440px;
+        background: white;
+        border-radius: 20px; 
+    }
+    
+    .payment-details-content h3 {
+        margin-top: 60px;
+        margin-left: 60px;
+    }
+    
+    .payment-details {
+        display: flex;
+        flex-direction: column;
+        height: 250px;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    .price {
+        font-family: sans-serif;
+        font-size: 30px;
+        font-weight: lighter;
+        margin-top: 15px;
+        margin-left: 90px;
+    }
+    
+    .total-content {
+        width: 450px;
+        height: 150px;
+        background: rgb(242,242,242);
+    }
+    
+    .total-content p {
+        position: relative;
+        box-sizing: content-box;
+        margin: 0 auto;
+        justify-content: space-between;
+        display: inline-block;
+        text-align: justify;
+        font-size: 24px;
+        margin: 18px 32px 5px 32px;
+    }
+    
+    .total {
+        font-family: 'Poppins', sans-serif;
+        vertical-align: top;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+    
+    .total-price {
+        vertical-align: top;
+        float: right;
+        font-weight: lighter;
+        text-transform: uppercase;
+    }
+    
+    .choixpaiement {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+        font-size: 20px;
+        font-weight: lighter;
+        text-align: center;
+        margin-top: 10px;
+        color: rgb(83, 83, 83);
+    }
+    
+    .continue-btn {
+        width: 385px;
+        height: 45px;
+        background-color: black;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        font-size: 1em;
+        color: white;
+        font-weight: 500;
+        margin: 10px auto 0px;
+        display: block;
+        text-transform: uppercase;   
+    }
+
+    /* contact.html */
+    .contact-section {
+        display: flex;
+        flex-direction: column;
+        height: 1500px;
+        width: 1000px;
+        margin: 0 auto;
+    }
+
+    .input-box-contact {
+        position: relative;
+        width: 100%;
+        height: 50px;
+        margin: 30px 0;
+    }
+
+    .input-box-contact input:focus~label,
+    .input-box-contact input:valid~label{
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    .input-box-contact input {
+        width: 480px;
+        height: 50px;
+        background: transparent;
+        border: 1px solid black;
+        border-radius: 8px;
+        outline: none;
+        font-size: 1em;
+        color: black;
+        font-weight: 300;
+        padding: 10px 10px 10px 20px;
+        border-radius: 9px;
+    }
+
+    #complaint {
+        width: 1000px;
+        min-height: 50px;
+        background: transparent;
+        border: 1px solid black;
+        outline: none;
+        font-size: 1em;
+        font-weight: 350;
+        color: black;
+        padding: 10px 10px 10px 20px;
+        border-radius: 9px;
+        margin: 20px auto 20px;
+    }
+
+    textarea::placeholder {
+        color: black;
+        font-weight: 300;
+    }
+
+    .input-box-contact input::placeholder {
+        text-align: left;
+        color: black;
+        font-size: 1em;
+        pointer-events: none;
+    }
+
+    .input-box-information {
+        display: flex;
+        flex-direction: row;
+        width: 1000px;
+        justify-content: space-between;
+        margin: 20px auto 20px;
+    }
+
+    .btn-sent-emails{
+        box-sizing: content-box;
+        width: 120px;
+        height: 50px;
+        background-color: black;
+        border: none;
+        outline: none;
+        border-radius: 14px;
+        cursor: pointer;
+        font-size: 1em;
+        color: white;
+        font-weight: 500;
     }
 }
 
 @media (min-width : 1280px) {
     h1 {
+        font-family: 'Istok web', sans-serif;
+        font-weight: bolder;
         font-size: 75px;
     }
     
     h2 {
+        color: black;
+        font-family: 'Istok web', sans-serif;
+        align-items: center;
+        text-align: center;
         font-size: 2em;
     }
     
     h3 {
+        font-family: sans-serif;
+        font-weight: lighter;
         font-size: 30px;
     }
     
     h4{
+        font-family: sans-serif;
+        font-weight: bold;
+        text-align: center;
         font-size: 75px;
         margin-top: 20px;
     }
+
+    h5 {
+        font-family: sans-serif;
+        font-weight: bold;
+        text-align: center;
+        font-size: 40px;
+        margin: 0;
+    }    
 
     .vertical-bar {
         height: 600px;
@@ -3367,6 +4651,10 @@ td {
     }
 
     .page-content {
+        position: relative;
+        box-sizing: content-box;
+        width: 100%;
+        align-items: center;
         margin: 100px auto 0; 
     }
 
@@ -3398,32 +4686,10 @@ td {
         font-weight: 500;
         margin-left: 30px;
     }
-    
-    .menu-item::after {
-        bottom: -6px;
-        width: 100%;
-        height: 3px;
-        border-radius: 5px;
-        transform-origin: 50% 50%;
-        transform: translateX(-48%) scaleX(0);
-        transition: transform .5s, width .5s;
-    }
-    
-    .connexion-content {
-        border: 2px solid black;
-        padding: 10px 10px;
-    }
-    
+
     .connexion {
         font-size: 1em;
         font-weight: 500;
-    }
-    
-    .connexion-content::after {
-        top: 100%;
-        left: 0;
-        width: 0;
-        height: 100%;
     }
 
     /* input-box */
@@ -3552,35 +4818,7 @@ td {
         margin: 25px 0 10px;
     }
 
-    /* register.html */
-    .register-content {
-        width: 1240px;
-    }
-
-    .register-titel {
-        padding-top: 10px;
-    }
-
-    .left-box {
-        width: 500px;
-        margin: 40px auto 0;
-    }
-
-    .right-box {
-        width: 500px;
-        margin: 40px auto 0;
-    }
-
     /* admin_home.html */
-    .home-content {
-        margin: 90px auto 0; 
-    }
-
-    .home-creation {
-        width: 1140px;
-        height: 150px;
-    }
-
     .home-NextCourse-content {
         width: 1240px;
         height: 178px;
@@ -3599,17 +4837,231 @@ td {
         font-size: 24px;
     }
 
-    .home-content h3 {
-        font-size: 30px;
+    .creation-titel h2,p {
+        margin: 0 auto;
+        font-size: 20px;
     }
 
-    .btn-home {
-        width: 220px;
-        height: 40px;
-        border-radius: 20px;
-        font-weight: 500;
-        margin: 10px auto 0px;
+    .information-section-index {
+        position: relative;
+        box-sizing: content-box;
+        background-color: white;
+        align-items: center;
     }
+    
+    .information-section-index h1 {
+        color: black;
+        height: 200px;
+    }
+    
+    .information-section-index p{
+        font-family: sans-serif;
+        font-size: 24px;
+        font-weight: lighter;
+        text-decoration: none;
+        color: black;
+    }
+    
+    .information-content-index {
+        position: relative;
+        width: 550px;
+        height: 500px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        margin-left: 60px;
+        margin-top: 200px;
+        margin-bottom: 120px;
+    }
+    
+    .information-content-btn {
+        display: flex;
+    }
+    
+    .btn-index {
+        width: 180px;
+        height: 70px;
+        background-color: black;
+        border: none;
+        outline: none;
+        border-radius: 19.5px;
+        cursor: pointer;
+        font-size: 1em;
+        color: white;
+        font-weight: bolder;
+        margin-right: 70px;
+    }
+    
+    .btn-more-details{
+        width: 180px;
+        height: 70px;
+        background-color: white;
+        border: none;
+        outline: none;
+        border-radius: 19.5px;
+        cursor: pointer;
+        font-size: 1em;
+        color: black;
+        font-weight: 500;
+    }
+    
+    .course-index {
+        position: relative;
+        box-sizing: content-box;
+        background-color: black;
+        text-align: center;
+        overflow: hidden;
+        padding-bottom: 50px;
+    }
+    
+    .course-index h1 {
+        color: white;
+        width: 640px;
+        margin: 0 auto;
+        padding: 40px 0px 40px;
+    }
+    
+    .course-section-index {
+        display: flex;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        padding: 50px 0;
+        margin-left: 60px;
+    }
+    
+    .course-section-inner {
+        display: flex;
+        width: fit-content;
+        gap: 10px;
+        transition: transform 0.3s ease;
+    
+    }
+    
+    .course-content-index {
+        flex: 0 0 auto;
+        width: 350px;
+        height: 350px;
+        border-radius: 20px;
+        background-color: white;
+        margin-right: 10px;
+        padding: 10px; 
+    }
+    
+    .course-title {
+        height: 50px;
+        color: black;
+        font-weight: bolder;
+        margin: 50px auto 50px;
+    }
+
+    .course-content-index h3{
+        margin: 40px 0px;
+    }
+    
+    .course-content-index p {
+        font-size: 20px;
+        text-transform: capitalize;
+        line-height: 1.5;
+    }
+    
+    #course-date {
+        text-transform: lowercase;
+    }
+    
+    .scroll-button {
+        position: absolute;
+        transform: translateY(380%);
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        z-index: 2;
+    }
+    
+    .left-scroll {
+        left: 20px;
+    }
+    
+    .right-scroll {
+        right: 20px;
+    }
+    
+    .scroll-button::before {
+        content: '';
+        display: inline-block;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 10px 15px 10px 0;
+        border-color: transparent rgba(255, 255, 255, 0.9) transparent transparent;
+        transform: translateY(-50%) translateX(-50%) rotate(0deg);
+    }
+    
+    .right-scroll::before {
+        transform: translateY(-50%) translateX(-50%) rotate(180deg);
+    }
+    
+    .FAQ-section{
+        position: relative;
+        box-sizing: content-box;
+        height: auto;
+        background-color: white;
+        align-items: center;
+        text-align: center;
+        padding-bottom: 50px;
+    }
+    
+    .FAQ-section h1{
+        width: 750px;
+        margin: 0 auto;
+        padding: 50px 0px 50px;
+    }
+    
+    .FAQ-section details{
+        width: 85%;
+        margin: 10px auto 10px;
+        text-align: left;
+        padding: 0px 10px 0px 30px;
+        cursor: pointer;
+        position: relative;
+    }
+    
+    .FAQ-item details summary {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    
+    .FAQ-item details p {
+        display: none;
+        text-align: justify;
+        font-size: 20px;
+     }
+    
+    .FAQ-item details[open] p {
+        display: block;
+    }
+    
+    .FAQ-item details[open]::before {
+        transform: rotate(-45deg);
+    }
+    
+    .faq_trigger-icon {
+        width: 14px;
+        min-height: 14px;
+        flex: none;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        position: relative;
+    }
+    
+    .faq_answer-container {
+        transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+        opacity: 1;
+        transform-style: preserve-3d;
+    }
+    
 
     /* information.html */
     .information-section {
@@ -3754,25 +5206,317 @@ td {
         margin: 10px auto 0px;
         margin-right: 40px;
     }
+
+    /* payment.html */
+    .payment-content {
+        position: relative;
+        box-sizing: content-box;
+        width: 1240px;
+        height: 775px;
+        margin: 30px auto ; 
+        justify-content: space-between;
+    }
+
+    .inscription-section {
+        position: relative;
+        box-sizing: content-box;
+        height: 320px;
+        background: white;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto 20px;
+    }
+
+    .inscription-section h3 {
+        margin-top: 60px;
+        margin-left: 60px;
+    }
+
+    .inscription-content {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .inscription-information {
+        width: 620px;
+        padding-top: 10px;
+        padding-left: 80px;
+    }
+
+    .inscription-information p{
+        font-size: 20px;
+        font-weight: 200;
+        line-height: 30px;
+    }
+
+    .payment-method-section {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .payment-method-content {
+        width: 670px;
+        height: 440px;
+        background: white;
+        border-radius: 20px;
+    }
+
+    .payment-method-content h3 {
+        margin-top: 60px;
+        margin-left: 60px;
+    }
+
+    .payment-method {
+        display: flex;
+        flex-direction: column;
+        padding: 0px 60px 0px 60px;
+    }
+
+    .image-container {
+        width: 134px; 
+        height: 56px;
+        border-radius: 9px;
+        overflow: hidden;
+        float: right;
+        text-align: center;
+    }
+
+    .payment-image {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        top: 50%;
+        left: 50%;
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    #master-card-logo {
+        width: 80%;
+    }
+
+    #postfinance-logo {
+        width: 200%;
+    }
+
+    .payment-method-content span {
+        font-family: sans-serif;
+        font-size: 24px;
+        font-weight: lighter;
+        margin-top: 60px;
+        margin-left: 60px;
+    }
+
+    .payment-details-content {
+        width: 550px;
+        height: 440px;
+        background: white;
+        border-radius: 20px; 
+    }
+
+    .payment-details-content h3 {
+        margin-top: 60px;
+        margin-left: 60px;
+    }
+
+    .payment-details {
+        display: flex;
+        flex-direction: column;
+        height: 250px;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .price {
+        font-family: sans-serif;
+        font-size: 30px;
+        font-weight: lighter;
+        margin-top: 15px;
+        margin-left: 90px;
+    }
+
+    .total-content {
+        width: 450px;
+        height: 150px;
+        background: rgb(242,242,242);
+    }
+
+    .total-content p {
+        position: relative;
+        box-sizing: content-box;
+        margin: 0 auto;
+        justify-content: space-between;
+        display: inline-block;
+        text-align: justify;
+        font-size: 24px;
+        margin: 18px 32px 5px 32px;
+    }
+
+    .total {
+        font-family: 'Poppins', sans-serif;
+        vertical-align: top;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .total-price {
+        vertical-align: top;
+        float: right;
+        font-weight: lighter;
+        text-transform: uppercase;
+    }
+
+    .choixpaiement {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+        font-size: 20px;
+        font-weight: lighter;
+        text-align: center;
+        margin-top: 10px;
+        color: rgb(83, 83, 83);
+    }
+
+    .continue-btn {
+        width: 385px;
+        height: 45px;
+        background-color: black;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        font-size: 1em;
+        color: white;
+        font-weight: 500;
+        margin: 10px auto 0px;
+        display: block;
+        text-transform: uppercase;   
+    }
+
+    /* contact.html */
+    .contact-section {
+        display: flex;
+        flex-direction: column;
+        height: 1500px;
+        width: 1000px;
+        margin: 0 auto;
+    }
+
+    .input-box-contact {
+        position: relative;
+        width: 100%;
+        height: 50px;
+        margin: 30px 0;
+    }
+
+    .input-box-contact input:focus~label,
+    .input-box-contact input:valid~label{
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    .input-box-contact input {
+        width: 480px;
+        height: 50px;
+        background: transparent;
+        border: 1px solid black;
+        border-radius: 8px;
+        outline: none;
+        font-size: 1em;
+        color: black;
+        font-weight: 300;
+        padding: 10px 10px 10px 20px;
+        border-radius: 9px;
+    }
+
+    #complaint {
+        width: 1000px;
+        min-height: 50px;
+        background: transparent;
+        border: 1px solid black;
+        outline: none;
+        font-size: 1em;
+        font-weight: 350;
+        color: black;
+        padding: 10px 10px 10px 20px;
+        border-radius: 9px;
+        margin: 20px auto 20px;
+    }
+
+    textarea::placeholder {
+        color: black;
+        font-weight: 300;
+    }
+
+    .input-box-contact input::placeholder {
+        text-align: left;
+        color: black;
+        font-size: 1em;
+        pointer-events: none;
+    }
+
+    .input-box-information {
+        display: flex;
+        flex-direction: row;
+        width: 1000px;
+        justify-content: space-between;
+        margin: 20px auto 20px;
+    }
+
+    .btn-sent-emails{
+        box-sizing: content-box;
+        width: 120px;
+        height: 50px;
+        background-color: black;
+        border: none;
+        outline: none;
+        border-radius: 14px;
+        cursor: pointer;
+        font-size: 1em;
+        color: white;
+        font-weight: 500;
+    }
+    
 }
 
 @media (min-width : 1536px) {
     h1 {
+        font-family: 'Istok web', sans-serif;
+        font-weight: bolder;
         font-size: 75px;
     }
     
     h2 {
+        color: black;
+        font-family: 'Istok web', sans-serif;
+        align-items: center;
+        text-align: center;
         font-size: 2em;
     }
     
     h3 {
+        font-family: sans-serif;
+        font-weight: lighter;
         font-size: 30px;
     }
     
     h4{
+        font-family: sans-serif;
+        font-weight: bold;
+        text-align: center;
         font-size: 75px;
         margin-top: 20px;
     }
+
+    h5 {
+        font-family: sans-serif;
+        font-weight: bold;
+        text-align: center;
+        font-size: 40px;
+        margin: 0;
+    }    
 
     .vertical-bar {
         height: 600px;
@@ -3790,6 +5534,10 @@ td {
     }
 
     .page-content {
+        position: relative;
+        box-sizing: content-box;
+        width: 100%;
+        align-items: center;
         margin: 100px auto 0; 
     }
 
@@ -3820,32 +5568,10 @@ td {
         font-weight: 500;
         margin-left: 30px;
     }
-    
-    .menu-item::after {
-        bottom: -6px;
-        width: 100%;
-        height: 3px;
-        border-radius: 5px;
-        transform-origin: 50% 50%;
-        transform: translateX(-48%) scaleX(0);
-        transition: transform .5s, width .5s;
-    }
-    
-    .connexion-content {
-        border: 2px solid black;
-        padding: 10px 10px;
-    }
-    
+
     .connexion {
         font-size: 1em;
         font-weight: 500;
-    }
-    
-    .connexion-content::after {
-        top: 100%;
-        left: 0;
-        width: 0;
-        height: 100%;
     }
 
     /* input-box */
@@ -3974,35 +5700,7 @@ td {
         margin: 25px 0 10px;
     }
 
-    /* register.html */
-    .register-content {
-        width: 1240px;
-    }
-
-    .register-titel {
-        padding-top: 10px;
-    }
-
-    .left-box {
-        width: 500px;
-        margin: 40px auto 0;
-    }
-
-    .right-box {
-        width: 500px;
-        margin: 40px auto 0;
-    }
-
     /* admin_home.html */
-    .home-content {
-        margin: 90px auto 0; 
-    }
-
-    .home-creation {
-        width: 1140px;
-        height: 150px;
-    }
-
     .home-NextCourse-content {
         width: 1240px;
         height: 178px;
@@ -4021,17 +5719,226 @@ td {
         font-size: 24px;
     }
 
-    .home-content h3 {
-        font-size: 30px;
+    .information-section-index {
+        position: relative;
+        box-sizing: content-box;
+        background-color: white;
+        align-items: center;
+    }
+    
+    .information-section-index h1 {
+        color: black;
+        height: 200px;
+    }
+    
+    .information-section-index p{
+        font-family: sans-serif;
+        font-size: 24px;
+        font-weight: lighter;
+        text-decoration: none;
+        color: black;
+    }
+    
+    .information-content-index {
+        position: relative;
+        width: 550px;
+        height: 500px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        margin-left: 60px;
+        margin-top: 200px;
+        margin-bottom: 120px;
+    }
+    
+    .information-content-btn {
+        display: flex;
+    }
+    
+    .btn-index {
+        width: 180px;
+        height: 70px;
+        background-color: black;
+        border: none;
+        outline: none;
+        border-radius: 19.5px;
+        cursor: pointer;
+        font-size: 1em;
+        color: white;
+        font-weight: bolder;
+        margin-right: 70px;
+    }
+    
+    .btn-more-details{
+        width: 180px;
+        height: 70px;
+        background-color: white;
+        border: none;
+        outline: none;
+        border-radius: 19.5px;
+        cursor: pointer;
+        font-size: 1em;
+        color: black;
+        font-weight: 500;
+    }
+    
+    .course-index {
+        position: relative;
+        box-sizing: content-box;
+        background-color: black;
+        text-align: center;
+        overflow: hidden;
+        padding-bottom: 50px;
+    }
+    
+    .course-index h1 {
+        color: white;
+        width: 640px;
+        margin: 0 auto;
+        padding: 40px 0px 40px;
+    }
+    
+    .course-section-index {
+        display: flex;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        padding: 50px 0;
+        margin-left: 60px;
+    }
+    
+    .course-section-inner {
+        display: flex;
+        width: fit-content;
+        gap: 10px;
+        transition: transform 0.3s ease;
+    
+    }
+    
+    .course-content-index {
+        flex: 0 0 auto;
+        width: 350px;
+        height: 350px;
+        border-radius: 20px;
+        background-color: white;
+        margin-right: 10px;
+        padding: 10px; 
     }
 
-    .btn-home {
-        width: 220px;
-        height: 40px;
-        border-radius: 20px;
-        font-weight: 500;
-        margin: 10px auto 0px;
+    .course-content-index h3{
+        margin: 40px 0px;
     }
+    
+    .course-title {
+        height: 50px;
+        color: black;
+        font-weight: bolder;
+        margin: 50px auto 50px;
+    }
+    
+    .course-content-index p {
+        font-size: 20px;
+        text-transform: capitalize;
+        line-height: 1.5;
+    }
+    
+    #course-date {
+        text-transform: lowercase;
+    }
+    
+    .scroll-button {
+        position: absolute;
+        transform: translateY(380%);
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        z-index: 2;
+    }
+    
+    .left-scroll {
+        left: 20px;
+    }
+    
+    .right-scroll {
+        right: 20px;
+    }
+    
+    .scroll-button::before {
+        content: '';
+        display: inline-block;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 10px 15px 10px 0;
+        border-color: transparent rgba(255, 255, 255, 0.9) transparent transparent;
+        transform: translateY(-50%) translateX(-50%) rotate(0deg);
+    }
+    
+    .right-scroll::before {
+        transform: translateY(-50%) translateX(-50%) rotate(180deg);
+    }
+    
+    .FAQ-section{
+        position: relative;
+        box-sizing: content-box;
+        height: auto;
+        background-color: white;
+        align-items: center;
+        text-align: center;
+        padding-bottom: 50px;
+    }
+    
+    .FAQ-section h1{
+        width: 750px;
+        margin: 0 auto;
+        padding: 50px 0px 50px;
+    }
+    
+    .FAQ-section details{
+        width: 85%;
+        margin: 10px auto 10px;
+        text-align: left;
+        padding: 0px 10px 0px 30px;
+        cursor: pointer;
+        position: relative;
+    }
+    
+    .FAQ-item details summary {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    
+    .FAQ-item details p {
+        display: none;
+        text-align: justify;
+        font-size: 20px;
+     }
+    
+    .FAQ-item details[open] p {
+        display: block;
+    }
+    
+    .FAQ-item details[open]::before {
+        transform: rotate(-45deg);
+    }
+    
+    .faq_trigger-icon {
+        width: 14px;
+        min-height: 14px;
+        flex: none;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        position: relative;
+    }
+    
+    .faq_answer-container {
+        transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+        opacity: 1;
+        transform-style: preserve-3d;
+    }
+    
 
     /* information.html */
     .information-section {
@@ -4176,4 +6083,277 @@ td {
         margin: 10px auto 0px;
         margin-right: 40px;
     }
+
+    /* payment.html */
+    .payment-content {
+        position: relative;
+        box-sizing: content-box;
+        width: 1240px;
+        height: 775px;
+        margin: 30px auto ; 
+        justify-content: space-between;
+    }
+
+    .inscription-section {
+        position: relative;
+        box-sizing: content-box;
+        height: 320px;
+        background: white;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto 20px;
+    }
+
+    .inscription-section h3 {
+        margin-top: 60px;
+        margin-left: 60px;
+    }
+
+    .inscription-content {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .inscription-information {
+        width: 620px;
+        padding-top: 10px;
+        padding-left: 80px;
+    }
+
+    .inscription-information p{
+        font-size: 20px;
+        font-weight: 200;
+        line-height: 30px;
+    }
+
+    .payment-method-section {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .payment-method-content {
+        width: 670px;
+        height: 440px;
+        background: white;
+        border-radius: 20px;
+    }
+
+    .payment-method-content h3 {
+        margin-top: 60px;
+        margin-left: 60px;
+    }
+
+    .payment-method {
+        display: flex;
+        flex-direction: column;
+        padding: 0px 60px 0px 60px;
+    }
+
+    .image-container {
+        width: 134px; 
+        height: 56px;
+        border-radius: 9px;
+        overflow: hidden;
+        float: right;
+        text-align: center;
+    }
+
+    .payment-image {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        top: 50%;
+        left: 50%;
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    #master-card-logo {
+        width: 80%;
+    }
+
+    #postfinance-logo {
+        width: 200%;
+    }
+
+    .payment-method-content span {
+        font-family: sans-serif;
+        font-size: 24px;
+        font-weight: lighter;
+        margin-top: 60px;
+        margin-left: 60px;
+    }
+
+    .payment-details-content {
+        width: 550px;
+        height: 440px;
+        background: white;
+        border-radius: 20px; 
+    }
+
+    .payment-details-content h3 {
+        margin-top: 60px;
+        margin-left: 60px;
+    }
+
+    .payment-details {
+        display: flex;
+        flex-direction: column;
+        height: 250px;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .price {
+        font-family: sans-serif;
+        font-size: 30px;
+        font-weight: lighter;
+        margin-top: 15px;
+        margin-left: 90px;
+    }
+
+    .total-content {
+        width: 450px;
+        height: 150px;
+        background: rgb(242,242,242);
+    }
+
+    .total-content p {
+        position: relative;
+        box-sizing: content-box;
+        margin: 0 auto;
+        justify-content: space-between;
+        display: inline-block;
+        text-align: justify;
+        font-size: 24px;
+        margin: 18px 32px 5px 32px;
+    }
+
+    .total {
+        font-family: 'Poppins', sans-serif;
+        vertical-align: top;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .total-price {
+        vertical-align: top;
+        float: right;
+        font-weight: lighter;
+        text-transform: uppercase;
+    }
+
+    .choixpaiement {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+        font-size: 20px;
+        font-weight: lighter;
+        text-align: center;
+        margin-top: 10px;
+        color: rgb(83, 83, 83);
+    }
+
+    .continue-btn {
+        width: 385px;
+        height: 45px;
+        background-color: black;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        font-size: 1em;
+        color: white;
+        font-weight: 500;
+        margin: 10px auto 0px;
+        display: block;
+        text-transform: uppercase;   
+    }
+
+    /* contact.html */
+    .contact-section {
+        display: flex;
+        flex-direction: column;
+        height: 1500px;
+        width: 1000px;
+        margin: 0 auto;
+    }
+
+    .input-box-contact {
+        position: relative;
+        width: 100%;
+        height: 50px;
+        margin: 30px 0;
+    }
+
+    .input-box-contact input:focus~label,
+    .input-box-contact input:valid~label{
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    .input-box-contact input {
+        width: 480px;
+        height: 50px;
+        background: transparent;
+        border: 1px solid black;
+        border-radius: 8px;
+        outline: none;
+        font-size: 1em;
+        color: black;
+        font-weight: 300;
+        padding: 10px 10px 10px 20px;
+        border-radius: 9px;
+    }
+
+    #complaint {
+        width: 1000px;
+        min-height: 50px;
+        background: transparent;
+        border: 1px solid black;
+        outline: none;
+        font-size: 1em;
+        font-weight: 350;
+        color: black;
+        padding: 10px 10px 10px 20px;
+        border-radius: 9px;
+        margin: 20px auto 20px;
+    }
+
+    textarea::placeholder {
+        color: black;
+        font-weight: 300;
+    }
+
+    .input-box-contact input::placeholder {
+        text-align: left;
+        color: black;
+        font-size: 1em;
+        pointer-events: none;
+    }
+
+    .input-box-information {
+        display: flex;
+        flex-direction: row;
+        width: 1000px;
+        justify-content: space-between;
+        margin: 20px auto 20px;
+    }
+
+    .btn-sent-emails{
+        box-sizing: content-box;
+        width: 120px;
+        height: 50px;
+        background-color: black;
+        border: none;
+        outline: none;
+        border-radius: 14px;
+        cursor: pointer;
+        font-size: 1em;
+        color: white;
+        font-weight: 500;
+    }
+
 }
