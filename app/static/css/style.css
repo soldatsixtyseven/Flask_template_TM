@@ -807,8 +807,7 @@ input::placeholder {
 .about-section {
     display: flex;
     flex-direction: column;
-    height: 1500px;
-    width: 1000px;
+    width: 70%;
     margin: 0 auto;
 }
 
