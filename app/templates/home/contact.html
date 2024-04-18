@@ -2,7 +2,7 @@
 
 {% block content %}
 <body>
-    <form action="https://formspree.io/f/xleqwjpg" method="POST">
+    <form action="{{ url_for('home.contact_page') }}" method="POST">
         <div class="page-content">  
             <h4>Contact</h4>
             <div class="contact-section">
@@ -15,7 +15,8 @@
                         <input type="email" name="email" id="email" placeholder="Adresse Email" required>
                         <input type="tel" name="telephone" id="telephone" placeholder="No téléphone" required>
                     </div>
-                    <textarea rows="6" name="complaint" id="complaint" placeholder="Commentaire" required></textarea>
+                    <textarea rows="6" name="complaint" id="complaint" placeholder="Votre demande ?" required></textarea>
+                    <p>Nous prendrons contact avec vous prochainement</p>
                     <div class="input-box-information">
                         <button class="btn-sent-emails" type="submit" value="File Complaint">Envoyer</button>
                     </div>

@@ -1,6 +1,8 @@
 from flask import (Blueprint, flash, g, redirect, render_template, request, session, url_for, Response, Flask)
 import sqlite3
 from ..utils import get_all_courses
+from email.message import EmailMessage
+import smtplib
 
 # Routes /...
 home_bp = Blueprint('home', __name__)
@@ -43,10 +45,66 @@ def sports_page():
                            ski_nordique=ski_nordique, triathlon=triathlon,
                            vtt=vtt, autres=autres)
 
+
+admin_email = "theo.frossard@studentfr.ch"
+
 # Route /contact
 @home_bp.route('/contact', methods=['GET', 'POST'])
 def contact_page():
+    if request.method == 'POST':
+        # Récupérer les données du formulaire
+        last_name = request.form['last_name']
+        first_name = request.form['first_name']
+        user_email = request.form['email']
+        telephone = request.form['telephone']
+        complaint = request.form['complaint']
+
+        # Création du mail le message
+        message = f"""
+        Nom: {last_name}
+        Prénom: {first_name}
+        Email: {user_email}
+        Téléphone: {telephone}
+
+        Demande:
+        {complaint}
+        """
+
+        # Créer l'objet EmailMessage
+        email_obj = EmailMessage()
+        email_obj["From"] = user_email
+        email_obj["To"] = admin_email
+        email_obj["Subject"] = "Nouvelle demande depuis le site SportLog"
+
+        # Ajouter le contenu au message
+        email_obj.set_content(message)
+
+        # Configurer le serveur SMTP
+        smtp_server = "smtp-mail.outlook.com"
+        smtp_port = 587
+
+        # Établir une connexion sécurisée avec le serveur SMTP
+        with smtplib.SMTP(smtp_server, smtp_port) as server:
+            server.starttls()
+            server.send_message(email_obj)
+
+
+        smtp = smtplib.SMTP("smtp-mail.outlook.com", port=587)
+        smtp.starttls()
+        smtp.login(user_email, "my_outlook_password_123")
+        smtp.sendmail(user_email, admin_email, email.as_string())
+        smtp.quit()
+
+        # Rediriger vers une page de confirmation
+        return redirect(url_for('confirmation_page'))
+
+    # Si la méthode est GET, afficher simplement le formulaire
     return render_template('home/contact.html')
+
+# Route pour la page de confirmation
+@home_bp.route('/confirmation')
+def confirmation_page():
+    return render_template('confirmation.html')
 
 # Route /FAQ
 @home_bp.route('/about', methods=['GET', 'POST'])
