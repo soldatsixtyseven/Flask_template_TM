@@ -12,6 +12,9 @@
                 <a class="menu-item" href="{{ url_for('home.sports_page') }}">Sports</a>
                 <a class="menu-item" href="{{ url_for('home.contact_page') }}">Contact</a>
                 <a class="menu-item" href="{{ url_for('home.about_page') }}">About</a>
+                {% if g.user  %}
+                    <a class="menu-item" href="{{ url_for('user_bp.profile_page')}}">Porfil</a>
+                {% endif %}
             </div>
         </nav>
         <div class="connexion-content">

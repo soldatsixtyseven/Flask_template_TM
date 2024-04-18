@@ -1,0 +1,23 @@
+{% extends 'base_user.html' %}
+
+{% block content %}
+<body>
+    <div class="page-content">  
+        <h4>Mon profil</h4>
+        <h3>Informations personnelles</h3>
+        <h5>Nom</h5>
+        {{ user_name }}
+        <h5>Prénom</h5>
+        {{ user_surname }}
+        <h3>Mon historique</h3>
+        <p>Afficher toutes les courses auxquelles l'utilisateur a participé avec les catégories respective et la date</p>
+        
+        <h3>Compte et confidentialité</h3>
+        <p>Supprimer votre compte</p>
+        <p>Cette action va supprimer toutes vos données et ne peut pas être annulée.</p>
+        
+        <a href="{{ url_for('user_bp.personal_information_page') }}">Mes informations personnelles</a>
+        <a href="{{ url_for('user_bp.history_page') }}">Mon historique</a>
+    </div>
+</body>
+{% endblock %}
