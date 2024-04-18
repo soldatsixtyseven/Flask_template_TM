@@ -34,12 +34,12 @@ def login_admin():
         if admin is None:
             error = 'Identifiant incorrect.'
             flash(error)
-            return redirect(url_for("admin.admin_login"))
+            return redirect(url_for("admin_bp.admin_login"))
 
         if not check_password_hash(admin['mdp'], password):
             error = 'Mot de passe incorrect.'
             flash(error)
-            return redirect(url_for("admin.admin_login"))
+            return redirect(url_for("admin_bp.admin_login"))
 
         # S'il n'y a pas d'erreur, on ajoute l'id de l'administrateur dans une variable de session
         # De cette manière, à chaque requête de l'utilisateur, on pourra récupérer l'id dans le cookie session
