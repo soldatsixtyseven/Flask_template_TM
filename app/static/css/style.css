@@ -836,17 +836,19 @@ th, td {
 th {
     background-color: #f2f2f2;
     font-family: sans-serif;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: lighter;
     text-align: center;
+    padding: 8px;
 }
 
 td {
-    background-color: #f2f2f2;
+    background-color: white;
     font-family: sans-serif;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: lighter;
-    text-align: left;
+    text-align: center;
+    padding: 8px;
 }
 
 .liste-section {
@@ -859,6 +861,10 @@ td {
     margin: 0 auto;
     padding: 20px;
     align-items: center;
+}
+
+.liste-section p {
+    text-align: center;
 }
 
 .liste-titel {
@@ -1931,7 +1937,6 @@ td {
     .contact-section {
         display: flex;
         flex-direction: column;
-        height: 1500px;
         margin: 0 auto;
     }
 
@@ -2798,7 +2803,6 @@ td {
         .contact-section {
             display: flex;
             flex-direction: column;
-            height: 1500px;
             margin: 0 auto;
         }
     
@@ -3623,7 +3627,6 @@ td {
         .contact-section {
             display: flex;
             flex-direction: column;
-            height: 1500px;
             margin: 0 auto;
         }
     
@@ -4502,7 +4505,6 @@ td {
     .contact-section {
         display: flex;
         flex-direction: column;
-        height: 1500px;
         width: 1000px;
         margin: 0 auto;
     }
@@ -5384,7 +5386,6 @@ td {
     .contact-section {
         display: flex;
         flex-direction: column;
-        height: 1500px;
         width: 1000px;
         margin: 0 auto;
     }
@@ -6261,7 +6262,6 @@ td {
     .contact-section {
         display: flex;
         flex-direction: column;
-        height: 1500px;
         width: 1000px;
         margin: 0 auto;
     }

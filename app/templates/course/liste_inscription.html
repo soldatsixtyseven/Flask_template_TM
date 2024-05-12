@@ -10,6 +10,7 @@
                 </div>
             </div>
 
+            {% if listes %}
             <table>
                 <thead>
                     <tr>
@@ -30,7 +31,15 @@
                         <td>{{ participant[1] }}</td>
                         <td>{{ participant[2] }}</td>
                         <td>{{ participant[3] }}</td>
-                        <td>{{ participant[4] }}</td>
+                        <td>
+                            {% if participant[4] == '1' %}
+                                Femme
+                            {% elif participant[4] == '2' %}
+                                Homme
+                            {% else %}
+                                Autre
+                            {% endif %}
+                        </td>
                         <td>{{ participant[5] }}</td>
                         <td>{{ participant[6] }}</td>
                         <td>{{ participant[7] }}</td>
@@ -38,6 +47,9 @@
                     {% endfor %}
                 </tbody>
             </table>
+        {% else %}
+            <p>Aucun participant n'est inscrit actuellement.</p>
+        {% endif %}
         </div>
     </form>
 </body>

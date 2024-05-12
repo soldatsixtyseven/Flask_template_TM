@@ -32,8 +32,15 @@
                         <p>Nom : {{ course_name }}</p>
                         <p>Organisateur : {{ club }}</p>
                         <p>Date : {{ date }}</p>
-                        <p>Lieu : {{ location }}, {{ canton }}, {{ country }}</p>
-                        <p>Site officiel : <a href="{{ site_club }}">{{ site_club }}</a></p>
+                        {% if canton %}
+                            <p>Lieu : {{ location }}, {{ canton }}, {{ country }}</p>
+                        {% else %}
+                            <p>Lieu : {{ location }}, {{ country }}</p>
+                        {% endif %}
+                        
+                        {% if site_club %}
+                            <p>Site officiel : <a href="{{ site_club }}">{{ site_club }}</a></p>
+                        {% endif %}
                         <p>Sport : {{ sport }}</p>
                     </div>
                 </div>

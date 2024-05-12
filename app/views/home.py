@@ -46,9 +46,6 @@ def sports_page():
                            ski_nordique=ski_nordique, triathlon=triathlon,
                            vtt=vtt, autres=autres)
 
-
-admin_email = "theo.frossard@studentfr.ch"
-
 # Route /contact
 @home_bp.route('/contact', methods=['GET', 'POST'])
 def contact_page():
@@ -68,8 +65,8 @@ def contact_page():
 
         # Créer l'objet EmailMessage
         email_obj = EmailMessage()
-        email_obj["From"] = admin_email
-        email_obj["To"] = admin_email
+        email_obj["From"] = sender
+        email_obj["To"] = recipient
         email_obj["Subject"] = "Nouvelle demande depuis le site SportLog"
         email_obj.set_content(message)
 
@@ -81,7 +78,7 @@ def contact_page():
         smtp.quit()
 
         # Rediriger vers une page de confirmation
-        return redirect(url_for('home.confirmation_page'))
+        return redirect(url_for('home_bp.confirmation_page'))
 
     # Si la méthode est GET, afficher simplement le formulaire
     return render_template('home/contact.html')
