@@ -78,7 +78,7 @@ def contact_page():
         smtp.quit()
 
         # Rediriger vers une page de confirmation
-        return redirect(url_for('home_bp.confirmation_page'))
+        return redirect(url_for('home.confirmation_page'))
 
     # Si la méthode est GET, afficher simplement le formulaire
     return render_template('home/contact.html')

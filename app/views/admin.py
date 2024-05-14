@@ -1,7 +1,7 @@
 from flask import (Blueprint, flash, g, redirect, render_template, request, session, url_for)
 from werkzeug.security import check_password_hash, generate_password_hash
 from app.db.db import get_db
-from app.utils import login_required_admin, get_all_courses
+from app.utils import login_required_admin, check_session_expiration, get_all_courses, get_all_historique_courses, get_all_users
 import os
 
 # Création d'un blueprint contenant les routes ayant le préfixe /admin/...
@@ -70,6 +70,9 @@ def logout_admin():
 def load_logged_in_admin():
     # On récupère l'id de l'administrateur stocké dans le cookie session
     admin_id = session.get('admin_id')
+
+    #On contrôle que la session n'est pas expirée
+    check_session_expiration()
 
     # Si l'id de l'administrateur dans le cookie session est nul, cela signifie que l'administrateur n'est pas connecté
     # On met donc l'attribut 'user' de l'objet 'g' à None
@@ -152,5 +155,21 @@ def creation():
     else:
         # Si aucune donnée de formulaire n'est envoyée, on affiche le formulaire de création de course
         return render_template('admin/creation_course.html')
+
+# Route /historique
+@admin_bp.route('/courses/historique', methods=['GET', 'POST'])
+def courses_historique():
+        # On importe toutes les courses passées grâce à la fonction get_all_historique_course()
+    all_historique_courses = get_all_historique_courses()
+    return render_template('admin/courses_historique.html', all_historique_courses=all_historique_courses)
+
+# Route /users
+@admin_bp.route('/users', methods=['GET', 'POST'])
+def users():
+    # On importe toutes les utilisateurs grâce à la fonction get_all_users()
+    all_users = get_all_users()
+    return render_template('admin/users.html', all_users=all_users)
+
+
 
 

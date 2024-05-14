@@ -1,7 +1,7 @@
 from flask import (Blueprint, flash, g, redirect, render_template, request, session, url_for)
 from werkzeug.security import check_password_hash, generate_password_hash
 from app.db.db import get_db
-from app.utils import login_required
+from app.utils import login_required, check_session_expiration
 import os
 
 # Création d'un blueprint contenant les routes ayant le préfixe /auth/...
@@ -127,6 +127,9 @@ def load_logged_in_user():
 
     # On récupère l'id de l'utilisateur stocké dans le cookie session
     user_id = session.get('user_id')
+
+    #On contrôle que la session n'est pas expirée
+    check_session_expiration()
     
     # Si l'id de l'utilisateur dans le cookie session est nul, cela signifie que l'utilisateur n'est pas connecté
     # On met donc l'attribut 'user' de l'objet 'g' à None
@@ -137,6 +140,11 @@ def load_logged_in_user():
          # On récupère la base de données et on récupère l'utilisateur correspondant à l'id stocké dans le cookie session
         db = get_db()
         g.user = db.execute('SELECT * FROM users WHERE id = ?', (user_id,)).fetchone()
+
+# Route pour gérer les sessions expirées
+@auth_bp.route('/session-expired')
+def session_expired():
+    return render_template('auth/session_expired.html')
 
 # Route /mdp_oublié
 @auth_bp.route('/mdp_oublié', methods=['GET', 'POST'])

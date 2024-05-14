@@ -36,8 +36,10 @@
                                 Femme
                             {% elif participant[4] == '2' %}
                                 Homme
-                            {% else %}
+                            {% elif participant[4] == '3' %}
                                 Autre
+                            {% else %}
+                                Error
                             {% endif %}
                         </td>
                         <td>{{ participant[5] }}</td>

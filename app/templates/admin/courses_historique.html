@@ -1,0 +1,34 @@
+{% extends 'base_admin.html' %}
+
+{% block content%}
+<body>
+    <div class="home-content">
+        {% if all_historique_courses %}
+            {% for course in all_historique_courses %}
+                <div class="home-NextCourse-content">
+                    <div class="home-NextCourse">
+                        <div class="titel-NextCourse">
+                            <h3>{{course.name}}</h3>
+                            <div class="vertical-bar-titel"></div>
+                            <div>
+                                <p>{{course.location}}</p>
+                                <p>{{course.date}}</p>
+                            </div>
+                        </div>
+                        <div>
+                            <a href="{{ url_for('course_bp.liste_inscription', id_course=course.id_course, course_name=course.name) }}"><button class="btn-home">Liste des participants</button></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="horizontal-bar"></div>
+            {% endfor %}
+        {% else %}
+            <p>Aucun historique pour le moment.</p>
+        {% endif %}
+
+        </div>
+        
+    </div>
+</body>
+    
+{% endblock %}

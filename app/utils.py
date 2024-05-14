@@ -3,8 +3,19 @@ import sqlite3
 import locale
 from flask import (Blueprint, flash, g, redirect, render_template, request, session, url_for)
 from app.db.db import get_db
-from datetime import datetime
+from datetime import datetime, timedelta
 from functools import wraps
+
+# Fonction pour vérifier l'expiration de session
+def check_session_expiration():
+    last_activity = session.get('last_activity')
+    if last_activity is not None:
+        last_activity = datetime.strptime(last_activity, '%Y-%m-%d %H:%M:%S.%f')
+        time_elapsed = datetime.now() - last_activity
+        if time_elapsed > timedelta(minutes=15):
+            session.clear()
+            return redirect(url_for('auth_bp.session_expired'))
+    return None
 
 # Ce décorateur est utilisé dans l'application Flask pour protéger certaines vues (routes)
 # afin de s'assurer qu'un utilisateur est connecté avant d'accéder à une route 
@@ -81,6 +92,51 @@ def get_all_courses(sport=None):
         })
 
     return all_courses if all_courses else []
+
+# Cette fonction récupère l'id, le nom, la date et le lieu de toutes les courses passées
+# Cette fonction est utilisée pour afficher toutes les courses passées
+def get_all_historique_courses(sport=None):
+    db = get_db()
+    cursor = db.cursor()
+    
+    # Requête pour récupérer les courses en fonction du sport si spécifié, sinon récupère toutes les courses
+    if sport:
+        cursor.execute("SELECT id_course, name, date, location, sport FROM course WHERE date < CURRENT_DATE AND sport = ?", (sport,))
+    else:
+        cursor.execute("SELECT id_course, name, date, location, sport FROM course WHERE date < CURRENT_DATE ORDER BY date ASC")
+    
+    courses = cursor.fetchall()
+
+    # Création d'une liste avec les informations de toutes les courses
+    all_historique_courses = []
+    for course in courses:
+        # Récupération de tous les champs de donnée
+        id_course = course['id_course']
+        name = course['name']
+        date_str = course['date']
+        location = course['location']
+        sport = course['sport']
+        
+        # Convertir la date en un objet datetime
+        date_obj = datetime.strptime(date_str, '%Y-%m-%d')
+        
+        # Transformer la date en français
+        locale.setlocale(locale.LC_TIME, 'fr_FR.UTF-8')
+        formatted_date = date_obj.strftime("%d %B %Y").capitalize()
+        
+        # Transformer le premier lettre du mois en miniscule
+        formatted_date = formatted_date[:3].lower() + formatted_date[3:]
+        
+        # Ajouter les informations de la course à la liste
+        all_historique_courses.append({
+            'id_course': id_course,
+            'name': name,
+            'date': formatted_date,
+            'location': location,
+            'sport': sport
+        })
+
+    return all_historique_courses if all_historique_courses else []
 
 
 # Cette fonction récupère toutes les données de toutes les courses
@@ -173,6 +229,45 @@ def add_user_in_categories(user_id, category_name):
     # S'il y a un problème, afficher un message d'erreur
     except Exception as e:
         print("Erreur lors de l'inscription", e)
+
+# Cette fonction récupère l'id, le nom, la date et le lieu de toutes les courses passées
+# Cette fonction est utilisée pour afficher toutes les courses passées
+def get_all_users():
+    db = get_db()
+    cursor = db.cursor()
+    
+    cursor.execute("SELECT id, name, surname, email, sexe, age, club, origin, location FROM users")
+
+    users = cursor.fetchall()
+
+    # Création d'une liste avec les informations de toutes les courses
+    all_users = []
+    for user in users:
+        # Récupération de tous les champs de donnée
+        id_user = user['id']
+        name = user['name']
+        surname = user['surname']
+        email = user['email']
+        sexe = user['sexe']
+        age = user['age']
+        club = user['club']
+        origin = user['origin']
+        location = user['location']
+        
+        # Ajouter les informations de la course à la liste
+        all_users.append({
+            'id': id_user,
+            'name': name,
+            'surname': surname,
+            'email': email,
+            'sexe': sexe,
+            'age': age,
+            'club': club,
+            'origin': origin,
+            'location': location,
+        })
+
+    return all_users
 
 # Fonction pour récupérer les informations de l'utilisateur à partir de son ID
 def get_user_info(user_id):

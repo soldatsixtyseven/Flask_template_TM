@@ -1,0 +1,67 @@
+{% extends 'base_admin.html' %}
+
+{% block content%}
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-BQr9jFkW78CK6a/hKo2gmpGnGihAZ0q2pkOin3u0cLubAdGkJe+f4IC+2Mw3xojtkTPRxZQcgRjf7k14UZo14A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="home-content">
+        {% if all_users %}
+            {% for user in all_users %}
+                <div class="home-NextCourse-content">
+                    <div class="home-NextCourse">
+                        <p>{{user.name}}</p>
+                        <p>{{user.surname}}</p>
+                        <p>{{user.email}}</p>
+                        <p>        
+                        {% if user.sexe == 1 %}
+                            Femme
+                        {% elif user.sexe == 2 %}
+                            Homme
+                        {% elif user.sexe == 3 %}
+                            Autre
+                        {% else %}
+                            Error
+                        {% endif %}</p>
+                        <p>{{user.location}}</p>
+                        <p>{{user.origin}}</p>
+                        <p>{{user.club}}</p>
+                        <div>
+                            <a>Modifier</a>
+                            <a>Historique</a>
+                            <a>Supprimer</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="horizontal-bar"></div>
+            {% endfor %}
+        {% else %}
+            <p>Aucun utilisateurs pour le moment.</p>
+        {% endif %}
+
+        </div>
+        
+    </div>
+
+    <!-- Modal pour la suppression -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteModalLabel">Confirmation de Suppression</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Voulez-vous vraiment supprimer cet utilisateur ?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                    <button type="button" id="confirmDeleteBtn" class="btn btn-danger">Oui</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+    
+{% endblock %}
