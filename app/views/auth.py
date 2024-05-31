@@ -16,15 +16,17 @@ def register():
         name = request.form['name']
         surname = request.form['surname']
         email = request.form['email']
+        telephone = request.form['telephone']
         sexe = request.form['sexe']
         age = request.form['age']
         origin = request.form['origin']
         location = request.form['location']
         club = request.form['club']
+        license = request.form['license']
         mdp = request.form['mdp']
         mdp_confirm = request.form['mdp_confirm']
 
-        if not name or not surname or not email or not sexe or not age or not origin or not location or not mdp or not mdp_confirm:
+        if not name or not surname or not email or not telephone or not sexe or not age or not origin or not location or not mdp or not mdp_confirm:
             error = 'Veuillez remplir tous les champs.'
             flash(error)
             return redirect(url_for('auth.register'))
@@ -42,7 +44,7 @@ def register():
         # on essaie d'insérer l'utilisateur dans la base de données
         if email and mdp:
             try:
-                db.execute("INSERT INTO users (name, surname, email, sexe, age, origin, location, club, mdp) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", (name, surname, email, sexe, age, origin, location, club, generate_password_hash(mdp)))
+                db.execute("INSERT INTO users (name, surname, email, telephone, sexe, age, origin, location, club, license, mdp) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", (name, surname, email, telephone, sexe, age, origin, location, club, license, generate_password_hash(mdp)))
                 # db.commit() permet de valider une modification de la base de données
                 db.commit()
             except db.IntegrityError:

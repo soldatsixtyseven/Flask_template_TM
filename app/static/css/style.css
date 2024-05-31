@@ -335,6 +335,40 @@ input::placeholder {
     margin: 40px auto 0;
 }
 
+#phone-container {
+    display: flex;
+    align-items: center;
+}
+
+#country {
+    width: 200px;
+    padding: 5px;
+    height: 48px;
+}
+
+#phone-container select {
+    width: 200px;
+    height: 53px;
+    background: transparent;
+    border: 1px solid rgb(83, 83, 83);
+    border-radius: 5px;
+    outline: none;
+    font-size: 0.8em;
+    color: black;
+    font-weight: 300;
+    padding: 0 30px 0 10px;
+    border-radius: 9px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin-right: 15px;
+}
+
+#phone-container input {
+    width: 250px;
+    padding: 5px;
+}
+
 
 /* admin_home.html */
 .home-content {

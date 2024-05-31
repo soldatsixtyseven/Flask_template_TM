@@ -31,6 +31,69 @@
                   <input type="email" name="email" id="email" required>
                   <label for="email">Adresse Email*</label>
               </div>
+
+              <div id="phone-container">
+                <div class="entry-box">
+                    <label for="telephone">Numéro de téléphone*</label>
+                    <select id="country" name="country" onchange="updatePhoneCode()">
+                        <option value="" data-code="">--Sélectionner un pays--</option>
+                        <option value="austria" data-code="+43" data-example="+43 XXX XXX XXX">Autriche (+43)</option>
+                        <option value="belgium" data-code="+32" data-example="+32 XXX XXX XXX">Belgique (+32)</option>
+                        <option value="croatia" data-code="+385" data-example="+385 XXX XXX XXX">Croatie (+385)</option>
+                        <option value="czech-republic" data-code="+420" data-example="+420 XXX XXX XXX">République tchèque (+420)</option>
+                        <option value="denmark" data-code="+45" data-example="+45 XXX XXX XXX">Danemark (+45)</option>
+                        <option value="finland" data-code="+358" data-example="+358 XXX XXX XXX">Finlande (+358)</option>
+                        <option value="france" data-code="+33" data-example="+33 XXX XXX XXX">France (+33)</option>
+                        <option value="germany" data-code="+49" data-example="+49 XXX XXX XXX">Allemagne (+49)</option>
+                        <option value="hungary" data-code="+36" data-example="+36 XXX XXX XXX">Hongrie (+36)</option>
+                        <option value="ireland" data-code="+353" data-example="+353 XXX XXX XXX">Irlande (+353)</option>
+                        <option value="italy" data-code="+39" data-example="+39 XXX XXX XXX">Italie (+39)</option>
+                        <option value="luxembourg" data-code="+352" data-example="+352 XXX XXX XXX">Luxembourg (+352)</option>
+                        <option value="netherlands" data-code="+31" data-example="+31 XXX XXX XXX">Pays-Bas (+31)</option>
+                        <option value="norway" data-code="+47" data-example="+47 XXX XXX XXX">Norvège (+47)</option>
+                        <option value="poland" data-code="+48" data-example="+48 XXX XXX XXX">Pologne (+48)</option>
+                        <option value="portugal" data-code="+351" data-example="+351 XXX XXX XXX">Portugal (+351)</option>
+                        <option value="slovakia" data-code="+421" data-example="+421 XXX XXX XXX">Slovaquie (+421)</option>
+                        <option value="slovenia" data-code="+386" data-example="+386 XXX XXX XXX">Slovénie (+386)</option>
+                        <option value="spain" data-code="+34" data-example="+34 XXX XXX XXX">Espagne (+34)</option>
+                        <option value="sweden" data-code="+46" data-example="+46 XXX XXX XXX">Suède (+46)</option>
+                        <option value="switzerland" data-code="+41" data-example="+41 XXX XXX XXX">Suisse (+41)</option>
+                        <option value="united-kingdom" data-code="+44" data-example="+44 XXX XXX XXX">Royaume-Uni (+44)</option>
+                        <option value="australia" data-code="+61" data-example="+61 XXX XXX XXX">Australie (+61)</option>
+                        <option value="canada" data-code="+1" data-example="+1 XXX XXX XXX" data-example="+1 XXX XXX XXX">Canada (+1)</option>
+                        <option value="united-states" data-code="+1" data-example="+1 XXX XXX XXX">États-Unis (+1)</option>
+                    </select>
+                    <input type="tel" id="telephone" name="telephone" required oninput="formatPhoneNumber(event)" placeholder="+41 XXX XXX XXX">
+                </div>
+                
+            </div>
+
+    
+            <script>
+                function restrictInputToDigits(event) {
+                    const input = event.target;
+                    const value = input.value.replace(/[^\d+]/g, '');
+                    input.value = value;
+                }
+        
+                function formatPhoneNumber(event) {
+                    const input = event.target;
+                    const value = input.value.replace(/[^\d ]/g, '');
+                    const trimmedValue = value.replace(/\s+/g, '');
+                    const formattedValue = trimmedValue.replace(/(\d{2})(\d{2})(\d{3})(\d{2})(\d{2})/, '+$1 $2 $3 $4 $5');
+                    input.value = formattedValue.trim();
+                }
+        
+                function updatePhoneCode() {
+                    const countrySelect = document.getElementById('country');
+                    const phoneInput = document.getElementById('telephone');
+                    const countryCode = countrySelect.options[countrySelect.selectedIndex].dataset.code;
+                    phoneInput.value = countryCode;
+                    const exampleNumber = countrySelect.options[countrySelect.selectedIndex].dataset.example;
+                    phoneInput.placeholder = exampleNumber;
+                }
+            </script>
+
               <div id="entry-box-sexe">
                   <label id="entry-box-sexe-label" for="sexe">Sexe*</label>
                   <div class="horizontal-radio">
@@ -63,6 +126,10 @@
                   <input type="text" name="club" id="club">
                   <label for="club">Club sportif / association</label>
               </div>
+              <div class="entry-box">
+                <input type="tel" pattern="[0-9]*" name="license" id="lisence" oninput="restrictInputToDigits(event)">
+                <label for="license">Numéro de license</label>
+            </div>
           </div>
           
           <div class="right-box">
