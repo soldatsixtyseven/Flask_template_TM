@@ -1,0 +1,684 @@
+/* login.html */
+.login-section {
+    display: flex;
+    position: relative;
+    box-sizing: content-box;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.sign-in-box{
+    margin: 0 auto;
+}
+
+.sign-in-box p{
+    margin: 10px auto 50px;
+}
+
+.remember-forgot {
+    color: rgb(53, 53, 53);
+    display: flex;
+    justify-content: space-between;
+}
+
+.remember-forgot label input {
+    accent-color:rgb(53, 53, 53);
+}
+
+.remember-forgot a {
+    color: rgb(53, 53, 53);
+    text-decoration: none;
+}
+
+.remember-forgot a:hover {
+    text-decoration: underline;
+}
+
+.admin-connection {
+    text-align: center;
+}
+
+.admin-connection a {
+    text-decoration: none;
+    color:rgb(53, 53, 53);
+}
+
+.login-register {
+    color: rgb(53, 53, 53);
+    text-align: center;
+}
+
+.forgot-password {
+    color: rgb(53, 53, 53);
+    text-align: center;
+}
+
+
+/* register.html */
+.register-content {
+    position: relative;
+    box-sizing: content-box;
+    background: white;
+    border-radius: 20px;
+    margin: 0 auto;
+    width: 1240px;
+}
+
+.register-titel {
+    position: relative;
+    box-sizing: content-box;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.register-section {
+    position: relative;
+    box-sizing: content-box;
+    margin: 0 auto;
+    justify-content: space-between;
+    display: flex;
+    text-align: justify;
+}
+
+.left-box {
+    position: relative;
+    box-sizing: content-box;
+    height: auto;
+    vertical-align: top;
+    width: 500px;
+    margin: 40px auto 0;
+}
+
+.right-box {
+    position: relative;
+    box-sizing: content-box;
+    height: auto;
+    vertical-align: top;
+    float: right;
+    width: 500px;
+    margin: 40px auto 0;
+}
+
+
+/* admin_home.html */
+.home-content {
+    position: relative;
+    box-sizing: content-box;
+    background-color: white;
+    align-items: center;
+    margin: 90px auto 0; 
+}
+
+.home-creation {
+    position: relative;
+    box-sizing: content-box;
+    display: flex;
+    margin: 0 auto;
+    justify-content: space-between;
+    align-items: center;
+    width: 1140px;
+    height: 150px;
+}
+
+.home-NextCourse-content {
+    position: relative;
+    box-sizing: content-box;
+    display: flex;
+    margin: 0 auto;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+
+.home-NextCourse {
+    position: relative;
+    box-sizing: content-box;
+    display: flex;
+    margin: 0 auto;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    height: 178px;
+}
+
+.titel-NextCourse {
+    width: auto;
+    display: flex;
+    align-items: center;
+}
+
+.titel-NextCourse-name {
+    font-family: sans-serif;
+    font-weight: lighter;
+    text-align: left;
+}
+
+.home-content h3 {
+    font-family: sans-serif;
+    font-weight: lighter;
+    text-align: left;
+}
+
+.btn-home {
+    background-color: black;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1em;
+    color: white;
+    display: block; 
+    text-transform: uppercase;
+    width: 220px;
+    height: 40px;
+    border-radius: 20px;
+    font-weight: 500;
+    margin: 10px auto 0px;
+}
+
+.home-content h3 {
+    font-size: 30px;
+}
+
+
+/* create_course.html */
+.creation-section {
+    position: relative;
+    box-sizing: content-box;
+    width: 1240px;
+    height: auto;
+    background: white;
+    border-radius: 20px;
+    margin: 0 auto;
+    padding: 20px;
+    align-items: center;
+}
+
+.creation-titel {
+    position: relative;
+    box-sizing: content-box;
+    width: 1240px;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.creation-titel div {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-left: 39%;
+}
+
+.creation-titel h2,p {
+    margin: 0 auto;
+}
+
+.creation-titel p {
+    margin-top: 10px;
+}
+
+#create-btn {
+    width: 210px;
+    height: 40px;
+    background-color: black;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1em;
+    color: white;
+    font-weight: 500;
+    margin-left: auto;
+    display: block; 
+    text-transform: uppercase; 
+}
+
+.creation-section {
+    width: 1280px;
+    height: auto;
+}
+
+.entry-box-select {
+    position: relative;
+    width: 470px;
+    height: 50px;
+    margin: 30px 0;
+}
+
+.entry-box-select select {
+    width: 100%;
+    height: 100%;
+    background: white;
+    border: 1px solid rgb(83, 83, 83);
+    border-radius: 5px;
+    outline: none;
+    font-size: 1em;
+    color: black;
+    font-weight: 300;
+    padding: 0 30px 0 10px;
+    border-radius: 9px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+#categories-container {
+    position: relative;
+    box-sizing: content-box;
+    width: 1240px;
+    height: auto;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.category-entry {
+    position: relative;
+    display: flex;
+    margin: 5px 0px 0px
+}
+
+.category-entry input[type="text"]:not([name="category_name[]"]) {
+    text-align: center;
+}
+
+.category-box {
+    margin-right: 10px;
+}
+
+.category-box:last-child {
+    margin-right: 62px;
+}
+
+.category-box label {
+    font-size: .1em;
+    color: rgb(83, 83, 83);
+    font-weight: 200;
+    pointer-events: none;
+    top: 50%; 
+    transform: translateY(-50%); 
+}
+
+.colonne-box {
+    width: 130px;
+    margin-right: 10px;
+}
+
+.colonne-box:last-child {
+    margin-right: 62px;
+}
+
+#colonne-box-name {
+    width: 180px;
+}
+
+#colonne-box-sexe {
+    width: 100px;
+}
+
+.colonne-box-year {
+    width: 100px;
+    margin-right: 10px;
+}
+
+.colonne-box-year h4{
+    font-size: 1em;
+    color: rgb(83, 83, 83);
+    font-weight: 500;
+    pointer-events: none;
+    top: 50%; 
+    transform: translateY(-50%); 
+}
+
+.colonne-box h4 {
+    font-size: 1em;
+    color: rgb(83, 83, 83);
+    font-weight: 500;
+    pointer-events: none;
+    top: 50%; 
+    transform: translateY(-50%); 
+}
+
+.category-box input {
+    width: 130px;
+    height: 53px;
+    background: transparent;
+    border: 1px solid rgb(83, 83, 83);
+    border-radius: 5px;
+    outline: none;
+    font-size: 1em;
+    color: black;
+    font-weight: 200;
+    padding: 0 10px 0 10px;
+    flex-shrink: 0; 
+}
+
+#category-box-name input{
+    width: 180px;
+}
+
+.category-box-year input {
+    width: 100px;
+    height: 53px;
+    background: transparent;
+    border: 1px solid rgb(83, 83, 83);
+    border-radius: 5px;
+    outline: none;
+    font-size: 1em;
+    color: black;
+    font-weight: 200;
+    padding: 0 10px 0 10px;
+    flex-shrink: 0; 
+    margin-right: 10px;
+}
+
+#category-box-select select {
+    width: 100px;
+    height: 53px;
+    background: transparent;
+    border: 1px solid rgb(83, 83, 83);
+    border-radius: 5px;
+    outline: none;
+    font-size: 1em;
+    color: black;
+    font-weight: 300;
+    padding: 0 30px 0 10px;
+    border-radius: 9px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.delete {
+    width: 53px;
+    height: 53px;
+    background-color: black;
+    opacity: 0.95;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    color: white;
+    font-weight: 1000;
+    display: block; 
+    text-transform: uppercase; 
+}
+
+#add {
+    width: 80px;
+    height: 40px;
+    background-color: black;
+    opacity: 0.95;
+    border: none;
+    outline: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 1em;
+    color: white;
+    font-weight: 1000;
+    display: block; 
+    text-transform: uppercase;
+    margin-left: 47%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* moyen de payment */
+.payment-section {
+    display: flex;
+    flex-direction: column;
+    height: 630px;
+    width: 570px;
+    background-color: white;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 0 auto;
+}
+
+.payment-image-qr-code {
+    height: 318px;
+    width: 318px;
+}
+
+.payment-content-cash {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 240px;
+    width: 480px;
+}
+
+.payment-cash {
+    display: flex;
+    flex-direction: column;
+    height: 250px;
+    align-items: left;
+    justify-content: space-between;
+}
+
+.total-content-cash {
+    width: 450px;
+    height: 75px;
+    background: rgb(242,242,242);
+    margin: 0 auto;
+}
+
+.total-content-cash p {
+    position: relative;
+    box-sizing: content-box;
+    margin: 0 auto;
+    justify-content: space-between;
+    display: inline-block;
+    text-align: justify;
+    font-size: 24px;
+    margin: 18px 32px 5px 32px;
+}
+
+.price {
+    font-family: sans-serif;
+    font-size: 30px;
+    font-weight: lighter;
+    margin-top: 15px;
+    margin-left: 90px;
+}
+
+.total-content {
+    width: 450px;
+    height: 150px;
+    background: rgb(242,242,242);
+}
+
+/* paypal_payment.html */
+.payment-section-paypal {
+    display: flex;
+    flex-direction: column;
+    height: 670px;
+    width: 520px;
+    background-color: white;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 0 auto;
+    padding: 50px 0px 50px 0px;
+}
+
+.paypal-image {
+    width: 39px;
+    height: 34px;
+}
+
+.payment-section h5{
+    width: 520px;
+    line-height: 1.5em;
+}
+
+.payment-section-paypal h5 {
+    font-size: 25px;
+    font-weight: 400;
+}
+
+.paypal-image {
+    width: 39px;
+    height: 34px;
+}
+
+.payment-section-paypal a{
+    color: rgb(31, 121, 230);
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+#forgot-email {
+    padding: 15px;
+}
+
+#input-box-paypal {
+    position: relative;
+    width: 470px;
+    height: 69px;
+}
+
+#input-box-paypal label {
+    position: absolute;
+    transform: translateY(-50%);
+    color: rgb(83, 83, 83);
+    pointer-events: none;
+    font-size: 20px;
+}
+
+.input-box-paypal input {
+    width: 100%;
+    height: 100%;
+    background: rgb(251, 251, 251);
+    border: 3px solid rgb(83, 83, 83);
+    outline: none;
+    color: black;
+}
+
+#input-box-paypal input::placeholder {
+    color: rgb(83, 83, 83);
+    pointer-events: none;
+    text-align: center;
+}
+
+.horizontal-bar-ou-content {
+    color: rgb(83, 83, 83);
+    display: flex;
+    width: 460px;
+    align-items: center;
+}
+
+.horizontal-bar-ou-content p {
+    font-size: 12px;
+    margin: 0px 10px 0px 10px;
+}
+
+.horizontal-bar-ou {
+    background-color: rgb(83, 83, 83);
+    width: 85%;
+    height: 1px;
+    margin: 10px auto 10px;
+}
+
+.btn-paypal {
+    width: 365px;
+    height: 55px;
+    border: none;
+    outline: none;
+    border-radius: 27px;
+    cursor: pointer;
+    font-size: 18px;
+    color: white;
+    font-weight: 500;
+    margin: 0 auto;
+    display: block; 
+}
+
+#btn-paypal-1 {
+    background-color: rgb(0, 56, 180);
+}
+
+#btn-paypal-2 {
+    background-color: transparent;
+    border: 1px solid rgb(0, 56, 180);
+    color: rgb(0, 56, 180);
+}
+
+#btn-confirmation {
+    font-size: 12px;
+}
+
+/* paypal_payment.html */
+#payment-section-bank-card {
+    position: relative;
+    box-sizing: content-box;
+    display: flex;
+    justify-content: space-between;
+    width: 1250px;
+    height: auto;
+    margin: 0 auto;
+}
+
+#payment-content-left-bank-card {
+    height: 790px;
+    width: 760px;
+    background-color: white;
+    border-radius: 20px;
+    padding: 50px 0px 0px 50px;
+}
+
+#payment-bank-card{
+    margin-top: 40px;
+    margin-left: 30px;
+    height: 420px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#payment-content-right-bank-card {
+    height: 790px;
+    width: 470px;
+    background-color: white;
+    border-radius: 20px;
+    padding: 50px;
+}
+
+#total-content-bank-card {
+    width: 400px;
+    height: 150px;
+    background: rgb(242,242,242);
+}
+
+#total-content-bank-card p {
+    position: relative;
+    box-sizing: content-box;
+    margin: 0 auto;
+    justify-content: space-between;
+    display: inline-block;
+    text-align: justify;
+    font-size: 24px;
+    margin: 18px 32px 5px 32px;
+}
+
+#continue-btn-bank-card {
+    width: 360px;
+    height: 45px;
+    background-color: black;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1em;
+    color: white;
+    font-weight: 500;
+    margin: 10px auto 0px;
+    display: block;
+    text-transform: uppercase;   
+}

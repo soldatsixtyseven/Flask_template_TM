@@ -1,0 +1,144 @@
+body{
+    background-color:  white;
+}
+
+.background-grey{
+    background-color: rgb(232, 236, 240);
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.horizontal-bar {
+    width: 85%;
+    height: 1px;
+    background-color: black; 
+    margin: 10px auto 10px;
+}
+
+.vertical-bar-titel {
+    height: 100%;
+    width: 2px;
+    background-color: black;
+    margin: 0px 15px;
+}
+
+.link-container {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+.wrapper {
+    position: relative;
+    box-sizing: content-box;
+    background: white;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.wrapper .form-box {
+    width: 100%;
+}
+/* barre de navigation */
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+}
+
+.logo{
+    color: black;
+    user-select: none;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.menu-item-content {
+    position: relative;
+    box-sizing: content-box;
+}
+
+.menu-item {
+    position: relative;
+    text-transform: uppercase;
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.menu-item:first-child {
+    margin-left: 0; 
+}
+
+.menu-item::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    background: black;
+    transform-origin: right;
+    transform-origin: 50% 50%;
+    transform: translateX(-48%) scaleX(0);
+    transition: transform .5s, width .5s;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    border-radius: 5px;
+}
+
+.menu-item:hover::after{
+    transform: scaleX(1);
+}
+
+.connexion-content {
+    position: relative;
+    box-sizing: content-box;
+    text-align: center;
+    float: right;
+    overflow: hidden; 
+    transition: background-color 0.5s, color 0.5s;
+    border: 2px solid black;
+    padding: 10px 10px;
+}
+
+.connexion {
+    position: relative;
+    text-transform: uppercase;
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.connexion-content::after {
+    content: '';
+    position: absolute;
+    background: linear-gradient(to top right, black 50%, transparent 50%);
+    transition: top 0.5s;
+    top: 100%;
+    left: 0;
+    width: 0;
+    height: 100%;
+}
+
+.connexion-content:hover{
+    background-color: black;
+}
+
+.connexion-content:hover::before {
+    top: 0; 
+}
+
+.connexion-content:hover * {
+    color: white;
+}
