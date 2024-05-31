@@ -1,0 +1,71 @@
+{% extends 'base_user.html' %}
+
+{% block content %}
+<body class="background-grey">
+    <div class="information-section">
+        <div class="course-content">  
+            <div class="home-NextCourse">
+                <div class="titel-NextCourse">
+                    <p class="titel-NextCourse-name">{{ course_name }}</p>
+                    <div class="vertical-bar-titel"></div>
+                    <div>
+                        <p>{{ location }}</p>
+                        <p>{{ date }}</p>
+                    </div>
+                </div>
+                <div>
+                    {% if g.user %}
+                        <a href="{{ url_for('course_bp.course_information_user', id_course=id_course, course_name=course_name) }}"><button class="btn-inscription">S'inscrire</button></a>
+                    {% else %}
+                        <a href="{{ url_for('auth.login') }}"><button class="btn-inscription">S'inscrire</button></a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <div class="information-content">
+            <div class="information">
+                <div class="left-container-information">
+                    <h3>Liste des inscrits</h3>
+                    {% if liste_competitor %}
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nom</th>
+                                <th>Prénom</th>
+                                <th>Sexe</th>
+                                <th>Club</th>
+                                <th>Catégorie</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for participant in liste_competitor %}
+                            <tr>
+                                <td>{{ participant[1] }}</td>
+                                <td>{{ participant[2] }}</td>
+                                <td>
+                                    {% if participant[3] == '1' %}
+                                        Femme
+                                    {% elif participant[3] == '2' %}
+                                        Homme
+                                    {% elif participant[3] == '3' %}
+                                        Autre
+                                    {% else %}
+                                        Error
+                                    {% endif %}
+                                </td>
+                                <td>{{ participant[4] }}</td>
+                                <td>{{ participant[0] }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    {% else %}
+                        <p>Aucun participant n'est inscrit actuellement.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock %}

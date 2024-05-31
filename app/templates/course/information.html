@@ -48,6 +48,7 @@
                     {% if flyers %}
                         <p>{{ flyers }}</p>
                     {% endif %}
+                    <a href="{{ url_for('course_bp.course_competitor', id_course=id_course, course_name=course_name, liste_competitor=liste_competitor) }}"><button class="btn-inscription">Liste des inscrits</button></a>
                 </div>
             </div>
             <div class="category-content">

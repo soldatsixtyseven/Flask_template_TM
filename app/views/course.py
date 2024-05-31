@@ -101,6 +101,39 @@ def course_information_user(id_course, course_name):
         # Affichage d'une erreur dans le cas où les détails d'une course ne sont pas trouvés
         flash("Détails de la course non trouvés", "error")
         return redirect(url_for('course_bp.course_information'))
+    
+# Création d'un URL dynamique pour une page affichant toutes les personnes inscrites dans une course
+@course_bp.route('/information/participant/<int:id_course>/<string:course_name>')
+def course_competitor(id_course, course_name):
+    # Récupération de la fonction qui récupère toutes les informations sur les courses
+    course_details = get_course_details(id_course)
+
+    db = get_db()
+    cursor = db.cursor()
+
+    # Croiser les liens entre les tables "users", "course", "categorie" et "inscription"
+    cursor.execute("""
+                   SELECT categorie.name, users.name, users.surname, users.sexe, users.club
+                   FROM users 
+                   JOIN inscription ON users.id = inscription.users_id
+                   JOIN categorie ON inscription.categorie_id = categorie.id_categorie
+                   JOIN course ON categorie.course_id = course.id_course
+                   WHERE course.id_course = ?
+                   ORDER BY categorie.name, users.name, users.surname""", (id_course,))
+    
+    # Regroupe toutes ses informations dans une variable listes
+    liste_competitor = cursor.fetchall()
+    db.close()
+    
+    # Envoyer toutes les informations sur une course au template information.html
+    if liste_competitor:
+        return render_template('course/liste_competitor.html', id_course=id_course, course_name=course_name, liste_competitor=liste_competitor,
+                               date=course_details['date'],
+                               location=course_details['location'])
+    else:
+        # Affichage d'une erreur dans le cas où les détails d'une course ne sont pas trouvés
+        flash("Détails de la course non trouvés", "error")
+        return redirect(url_for('course_bp.course_information'))
 
 # Création d'un URL dynamique pour une page de paiement en ligne pour les utilisateurs
 @course_bp.route('/payment/<int:id_course>/<string:course_name>/<string:category_name>', methods=['GET', 'POST'])
