@@ -74,7 +74,7 @@
                 <table>
                     <tr>
                         <th style="font-weight: bold; text-align: left;">Nombre de participants inscrits :</th>
-                        <td>{{ total_participants }}</td>
+                        <td style="font-weight: bold;">{{ total_participants }}</td>
                     </tr>
                     <tr>
                         <th style="text-align: left;">Nombre d'inscriptions en ligne :</th>
@@ -95,6 +95,11 @@
 
             <div class="information-participation-table">
                 <table>
+                    <tr>
+                        <th style="text-align: left; font-weight: bold;">Montant total des inscriptions :</th>
+                        <td>-</td>
+                        <td style="font-weight: bold;">{{ "%.2f" | format(total_amount) }} CHF</td>
+                    </tr>
                     <tr>
                         <th style="text-align: left;">Nombre de paiements par carte bancaire :</th>
                         <td>{{ count_carte_bancaire }}</td>
