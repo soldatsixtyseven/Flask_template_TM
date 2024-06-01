@@ -1,58 +1,200 @@
-{% extends 'base.html' %}
+{% extends 'base_admin.html' %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/liste_inscription.css') }}">
+{% endblock %}
 
 {% block content %}
-<body class="background-grey">
-        <div class="liste-section">
-            <div class="liste-titel">
-                <div>
-                    <h2>Listes des participants</h2>
-                    <h2>{{name}}</h2>
-                </div>
+<body>
+    <div class="page-content"> 
+        <div class="participation-header">
+            <h4>Participation</h4>
+            <div class="horizontal-bar"></div>
+            <nav class="navigation-content-participation">
+                <a href="#liste_competitor">Liste des participants</a>
+                <div class="black-point"></div>
+                <a href="#total">Décompte total</a>
+                <div class="black-point"></div>
+                <a href="#category">Décompte par catégorie</a>
+            </nav>
+            <div class="horizontal-bar"></div>
+        </div>
+
+        <div id="liste_section">
+                <h3>Listes des participants</h3>
+                {% if listes %}
+                    <div class="information-participation-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Catégorie</th>
+                                    <th>Année de naissance</th>
+                                    <th>Nom</th>
+                                    <th>Prénom</th>
+                                    <th>Sexe</th>
+                                    <th>Localité</th>
+                                    <th>Origine</th>
+                                    <th>Club</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for participant in listes %}
+                                <tr>
+                                    <td>{{ participant[7] }}</td>
+                                    <td>{{ participant[2] }}</td>
+                                    <td>{{ participant[0] }}</td>
+                                    <td>{{ participant[1] }}</td>
+                                    <td>
+                                        {% if participant[3] == 1 %}
+                                            Femme
+                                        {% elif participant[3] == 2 %}
+                                            Homme
+                                        {% elif participant[3] == 3 %}
+                                            Autre
+                                        {% else %}
+                                            Error
+                                        {% endif %}
+                                    </td>
+                                    <td>{{ participant[5] }}</td>
+                                    <td>{{ participant[4] }}</td>
+                                    <td>{{ participant[6] }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                {% else %}
+                    <p>Aucun participant n'est inscrit actuellement.</p>
+                {% endif %}
+        </div>
+
+        <div id="total">
+            <h3>Décompte total</h3>
+            <div class="information-participation-table">
+                <table>
+                    <tr>
+                        <th style="font-weight: bold; text-align: left;">Nombre de participants inscrits :</th>
+                        <td>{{ total_participants }}</td>
+                    </tr>
+                    <tr>
+                        <th style="text-align: left;">Nombre d'inscriptions en ligne :</th>
+                        <td>{{ count_on_site }}</td>
+                    </tr>
+                    <tr>
+                        <th style="text-align: left;">Nombre d'inscriptions sur place :</th>
+                        <td>{{ count_online }}</td>
+                    </tr>
+                    {% if count_guests > 0 %}
+                        <tr>
+                            <th style="text-align: left;">Nombre d'invités :</th>
+                            <td>{{ count_guests }}</td>
+                        </tr>
+                    {% endif %}
+                </table>
             </div>
 
-            {% if listes %}
-            <table>
-                <thead>
+            <div class="information-participation-table">
+                <table>
                     <tr>
-                        <th>Catégorie</th>
-                        <th>Année de naissance</th>
-                        <th>Nom</th>
-                        <th>Prénom</th>
-                        <th>Sexe</th>
-                        <th>Localité</th>
-                        <th>Origine</th>
-                        <th>Club</th>
+                        <th style="text-align: left;">Nombre de paiements par carte bancaire :</th>
+                        <td>{{ count_carte_bancaire }}</td>
+                        <td>{{ "%.2f" | format(payment_counts['total_carte_bancaire']) }} CHF</td>
                     </tr>
-                </thead>
-                <tbody>
-                    {% for participant in listes %}
                     <tr>
-                        <td>{{ participant[0] }}</td>
-                        <td>{{ participant[1] }}</td>
-                        <td>{{ participant[2] }}</td>
-                        <td>{{ participant[3] }}</td>
-                        <td>
-                            {% if participant[4] == '1' %}
-                                Femme
-                            {% elif participant[4] == '2' %}
-                                Homme
-                            {% elif participant[4] == '3' %}
-                                Autre
-                            {% else %}
-                                Error
-                            {% endif %}
-                        </td>
-                        <td>{{ participant[5] }}</td>
-                        <td>{{ participant[6] }}</td>
-                        <td>{{ participant[7] }}</td>
+                        <th style="text-align: left;">Nombre de paiements PostFinance :</th>
+                        <td>{{ count_post_finance }}</td>
+                        <td>{{ "%.2f" | format(payment_counts['total_post_finance']) }} CHF</td>
                     </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        {% else %}
-            <p>Aucun participant n'est inscrit actuellement.</p>
-        {% endif %}
+                    <tr>
+                        <th style="text-align: left;">Nombre de paiements Twint :</th>
+                        <td>{{ count_twint }}</td>
+                        <td>{{ "%.2f" | format(payment_counts['total_twint']) }} CHF</td>
+                    </tr>
+                    <tr>
+                        <th style="text-align: left;">Nombre de paiements PayPal :</th>
+                        <td>{{ count_paypal }}</td>
+                        <td>{{ "%.2f" | format(payment_counts['total_paypal']) }} CHF</td>
+                    </tr>
+                    <tr>
+                        <th style="text-align: left;">Nombre de paiements par cash :</th>
+                        <td>{{ count_cash }}</td>
+                        <td>{{ "%.2f" | format(payment_counts['total_cash']) }} CHF</td>
+                    </tr>
+                </table>
+            </div>
         </div>
+
+        <div id="category">
+            <h3>Décompte par catégorie</h3>
+            {% for category_name, details in category_counts.items() %}
+            <div class="information-participation">
+                <div class="category-titel">
+                    <div>
+                        <p class="category_name">{{ category_name }}</p>
+                    </div>
+                    <div>
+                        <p class="category_price">{{ details['price'] }}</p>
+                        <p class="category_price">{{ "%.2f" | format(details['amount']) }} CHF</p>
+                    </div>
+                </div>
+
+                <ul class="category_payment_place">
+                    <li style="font-weight: bold;">Total des participants : {{ details['total'] }}</li>
+                    {% if details['invited'] > 0 %}
+                        <li>Nombre d'invités : {{ details['invited'] }}</li>
+                    {% endif %}
+                    <li>Inscrits en ligne : {{ details['online'] }}</li>
+                        <div class="category-payment-method-table">
+                            <table>
+                                <tr>
+                                    <th style="text-align: left; font-size: clamp(0.4rem, 2vw, 0.8rem);">Carte bancaire :</th>
+                                    <td style="font-size: clamp(0.4rem, 2vw, 0.8rem);">{{ details['carte_bancaire'] }}</td>
+                                    <td style="font-size: clamp(0.4rem, 2vw, 0.8rem);">{{ "%.2f" | format(details['amount_carte_bancaire']) }} CHF</td>
+                                </tr>
+                                <tr>
+                                    <th style="text-align: left; font-size: clamp(0.4rem, 2vw, 0.8rem);">PostFinance :</th>
+                                    <td style="font-size: clamp(0.4rem, 2vw, 0.8rem);">{{ details['post_finance'] }}</td>
+                                    <td style="font-size: clamp(0.4rem, 2vw, 0.8rem);">{{ "%.2f" | format(details['amount_post_finance']) }} CHF</td>
+                                </tr>
+                                <tr>
+                                    <th style="text-align: left; font-size: clamp(0.4rem, 2vw, 0.8rem);">Twint :</th>
+                                    <td style="font-size: clamp(0.4rem, 2vw, 0.8rem);">{{ details['twint']['online'] }}</td>
+                                    <td style="font-size: clamp(0.4rem, 2vw, 0.8rem);">{{ "%.2f" | format(details['amount_twint']['online']) }} CHF</td>
+                                </tr>
+                                <tr>
+                                    <th style="text-align: left; font-size: clamp(0.4rem, 2vw, 0.8rem);">PayPal :</th>
+                                    <td style="font-size: clamp(0.4rem, 2vw, 0.8rem);">{{ details['paypal']['online'] }}</td>
+                                    <td style="font-size: clamp(0.4rem, 2vw, 0.8rem);">{{ "%.2f" | format(details['amount_paypal']['online']) }} CHF</td>
+                                </tr>
+                            </table>
+                        </div>
+                    <li>Inscrits sur place : {{ details['on_site'] }}</li>
+                        <div class="category-payment-method-table">
+                            <table>
+                                <tr>
+                                    <th style="text-align: left; font-size: clamp(0.4rem, 2vw, 0.8rem);">Twint :</th>
+                                    <td style="font-size: clamp(0.4rem, 2vw, 0.8rem);">{{ details['twint']['on_site'] }}</td>
+                                    <td style="font-size: clamp(0.4rem, 2vw, 0.8rem);">{{ "%.2f" | format(details['amount_twint']['on_site']) }} CHF</td>
+                                </tr>
+                                <tr>
+                                    <th style="text-align: left; font-size: clamp(0.4rem, 2vw, 0.8rem);">PayPal :</th>
+                                    <td style="font-size: clamp(0.4rem, 2vw, 0.8rem);">{{ details['paypal']['on_site'] }}</td>
+                                    <td style="font-size: clamp(0.4rem, 2vw, 0.8rem);">{{ "%.2f" | format(details['amount_paypal']['on_site']) }} CHF</td>
+                                </tr>
+                                <tr>
+                                    <th style="text-align: left; font-size: clamp(0.4rem, 2vw, 0.8rem);">Cash :</th>
+                                    <td style="font-size: clamp(0.4rem, 2vw, 0.8rem);">{{ details['cash'] }}</td>
+                                    <td style="font-size: clamp(0.4rem, 2vw, 0.8rem);">{{ "%.2f" | format(details['amount_cash']) }} CHF</td>
+                                </tr>
+                            </table>
+                        </div>
+                </ul>
+            </div>
+        </div>
+        {% endfor %}
+        </div>
+
+        
     </form>
 </body>
 {% endblock %}

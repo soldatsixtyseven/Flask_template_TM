@@ -203,23 +203,6 @@ input::placeholder {
     flex-shrink: 0; 
 }
 
-#entry-box-sexe {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-#entry-box-sexe-label{
-    position: absolute;
-    color: rgb(83, 83, 83);
-    pointer-events: none;
-}
-
-#entry-box-sexe label{
-    color: rgb(83, 83, 83);
-    pointer-events: none;
-}
-
 
 /* bouton */
 .btn{
@@ -287,86 +270,6 @@ input::placeholder {
 .forgot-password {
     color: rgb(53, 53, 53);
     text-align: center;
-}
-
-
-/* register.html */
-.register-content {
-    position: relative;
-    box-sizing: content-box;
-    background: white;
-    border-radius: 20px;
-    margin: 0 auto;
-    width: 1240px;
-}
-
-.register-titel {
-    position: relative;
-    box-sizing: content-box;
-    text-align: center;
-    padding-top: 10px;
-}
-
-.register-section {
-    position: relative;
-    box-sizing: content-box;
-    margin: 0 auto;
-    justify-content: space-between;
-    display: flex;
-    text-align: justify;
-}
-
-.left-box {
-    position: relative;
-    box-sizing: content-box;
-    height: auto;
-    vertical-align: top;
-    width: 500px;
-    margin: 40px auto 0;
-}
-
-.right-box {
-    position: relative;
-    box-sizing: content-box;
-    height: auto;
-    vertical-align: top;
-    float: right;
-    width: 500px;
-    margin: 40px auto 0;
-}
-
-#phone-container {
-    display: flex;
-    align-items: center;
-}
-
-#country {
-    width: 200px;
-    padding: 5px;
-    height: 48px;
-}
-
-#phone-container select {
-    width: 200px;
-    height: 53px;
-    background: transparent;
-    border: 1px solid rgb(83, 83, 83);
-    border-radius: 5px;
-    outline: none;
-    font-size: 0.8em;
-    color: black;
-    font-weight: 300;
-    padding: 0 30px 0 10px;
-    border-radius: 9px;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    margin-right: 15px;
-}
-
-#phone-container input {
-    width: 250px;
-    padding: 5px;
 }
 
 

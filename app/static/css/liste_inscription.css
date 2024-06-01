@@ -1,0 +1,160 @@
+/* sport.html */
+.participation-header {
+    position: relative;
+    width: 80%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.navigation-content-participation {
+    position: relative;
+    width: 82%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    text-align: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.navigation-content-participation a {
+    position: relative;
+    width: 82%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    text-align: center;
+    align-items: center;
+    margin: 0 auto;
+    font-family: sans-serif;
+    font-weight: lighter;
+    text-decoration: none;
+    color: black;
+}
+
+.navigation-content-participation a {
+    font-size: clamp(0.1rem, 1.5vw, 1rem);
+}
+
+#liste_section{
+    margin: auto 50px auto ;
+}
+
+#liste_section h3{
+    font-size: clamp(0.2rem, 3vw, 1.8rem);
+    margin-top: 40px;
+    margin-left: 10px;
+}
+
+#liste_section p {
+    font-size: clamp(0.2rem, 3vw, 1.8rem);
+    text-align: center;
+}
+
+#total {
+    margin: auto 50px auto ;
+}
+
+#total h3{
+    font-size: clamp(0.2rem, 3vw, 1.8rem);
+    margin-top: 40px;
+    margin-left: 10px;
+}
+
+#category {
+    margin: auto 50px auto ;
+}
+
+#category h3{
+    font-size: clamp(0.2rem, 3vw, 1.8rem);
+    margin-top: 40px;
+    margin-left: 10px;
+}
+
+.information-participation-table{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 18px;
+    margin: 10px 0px 10px;
+}
+
+.information-participation-table table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+.information-participation-table table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+#liste-section th {
+    text-align: center;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #ddd;
+}
+
+.category-titel {
+    display: flex;
+    justify-content: space-between;
+}
+
+.category_name {
+    font-size: clamp(0.5rem, 3vw, 1.7rem);
+    font-family: sans-serif;
+    font-weight: lighter;
+    text-align: left;
+}
+
+.category_price {
+    font-size: clamp(0.5rem, 3vw, 1.6rem);
+    font-family: sans-serif;
+    font-weight: lighter;
+    font-weight: bold;
+    text-align: right;
+}
+
+.information-participation{
+    position: relative;
+    border: 1px solid black;
+    border-radius: 18px;
+    margin: 10px 0px 10px;
+    padding: 20px 40px;
+}
+
+.category_payment_place {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.category_payment_place li {
+    font-size: clamp(0.4rem, 2vw, 1rem);
+    position: relative;
+    padding-left: 20px;
+    margin: 15px 0px;
+}
+

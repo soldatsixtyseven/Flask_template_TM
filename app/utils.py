@@ -1,6 +1,7 @@
 import functools
 import sqlite3
 import locale
+import datetime
 from flask import (Blueprint, flash, g, redirect, render_template, request, session, url_for)
 from app.db.db import get_db
 from datetime import datetime, timedelta
@@ -207,8 +208,7 @@ def get_course_details(id_course):
         return None
 
 # Cette fonction permet d'inscrire un utilisateur dans une catégorie
-def add_user_in_categories(user_id, category_name):
-
+def add_user_in_categories(user_id, category_name, payment_method):
     # On essaye d'attribué la clé étrangère de l'utilisateur à celle de la catégorie dans laquelle il veut s'inscire
     try:
         db = get_db()
@@ -217,16 +217,44 @@ def add_user_in_categories(user_id, category_name):
         # Récupérer l'id de la catégorie en fonction de son nom
         cursor.execute("SELECT id_categorie FROM categorie WHERE name = ?", (category_name,))
         categorie_id = cursor.fetchone()
+        payment_place = 1
 
         if not categorie_id:
             raise ValueError("Catégorie introuvable")
 
-        # Insérer l'utilisateur et la catégorie dans la table "inscription" avec les clés étrangères
-        cursor.execute("INSERT INTO inscription (users_id, categorie_id) VALUES (?, ?)", (user_id, categorie_id[0]))
+        # Insérer l'utilisateur, la catégorie, le moyen de paiement et la date d'inscription
+        # dans la table "inscription" avec les clés étrangères
+        current_date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        cursor.execute("INSERT INTO inscription (user_id, categorie_id, payment_method, date_inscription, payment_place) VALUES (?, ?, ?, ?, ?)",
+                       (user_id, categorie_id[0], payment_method, current_date, payment_place))
         db.commit()
         db.close()
 
-    # S'il y a un problème, afficher un message d'erreur
+    except Exception as e:
+        print("Erreur lors de l'inscription", e)
+
+# Cette fonction permet d'inscrire un participant dans une catégorie
+def add_participant_in_categories(participant_id, category_name, payment_method):
+    try:
+        db = get_db()
+        cursor = db.cursor()
+
+        # Récupérer l'id de la catégorie en fonction de son nom
+        cursor.execute("SELECT id_categorie FROM categorie WHERE name = ?", (category_name,))
+        categorie_id = cursor.fetchone()
+        payment_place = 2
+
+        if not categorie_id:
+            raise ValueError("Catégorie introuvable")
+
+        # Insérer l'utilisateur, la catégorie, le moyen de paiement et la date d'inscription
+        # dans la table "inscription" avec les clés étrangères
+        current_date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        cursor.execute("INSERT INTO inscription (participant_id, categorie_id, payment_method, date_inscription, payment_place) VALUES (?, ?, ?, ?, ?)",
+                       (participant_id, categorie_id[0], payment_method, current_date, payment_place))
+        db.commit()
+        db.close()
+
     except Exception as e:
         print("Erreur lors de l'inscription", e)
 
@@ -289,3 +317,23 @@ def get_user_birth_year(user_info):
     # Récupération de l'année de naissance
     user_birth_year = date_of_birth.year
     return user_birth_year
+
+# Fonction pour récupérer les informations de l'utilisateur à partir de son ID
+def get_participant_info(participant_id):
+    db = get_db()
+    cursor = db.cursor()
+    cursor.execute("SELECT * FROM participant WHERE id_participant = ?", (participant_id,))
+    participant_info = cursor.fetchone()
+    return participant_info
+
+# Fonction pour récupérer l'année de naissance de l'utilisateur à partir de ses informations
+def get_participant_birth_year(participant_info):
+    # Récupération de la date de naissance de l'utilisateur depuis ses informations
+    date_of_birth_str = participant_info['age']
+    
+    # Convertir la date de naissance en un objet datetime
+    date_of_birth = datetime.strptime(date_of_birth_str, '%Y-%m-%d')
+
+    # Récupération de l'année de naissance
+    participant_birth_year = date_of_birth.year
+    return participant_birth_year
