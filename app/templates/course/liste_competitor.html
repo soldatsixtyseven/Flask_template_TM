@@ -44,11 +44,11 @@
                                 <td>{{ participant[1] }}</td>
                                 <td>{{ participant[2] }}</td>
                                 <td>
-                                    {% if participant[3] == '1' %}
+                                    {% if participant[3] == 1 %}
                                         Femme
-                                    {% elif participant[3] == '2' %}
+                                    {% elif participant[3] == 2 %}
                                         Homme
-                                    {% elif participant[3] == '3' %}
+                                    {% elif participant[3] == 3 %}
                                         Autre
                                     {% else %}
                                         Error
@@ -63,6 +63,7 @@
                     {% else %}
                         <p>Aucun participant n'est inscrit actuellement.</p>
                     {% endif %}
+                    <p>Nombre de participants inscrits : {{ total_participants }}</p>
                 </div>
             </div>
         </div>
