@@ -1,5 +1,11 @@
 {% extends 'base.html' %}
 
+{% block title %}Page d'inscription d'un concurrent{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/register.css') }}">
+{% endblock %}
+
 {% block content %}
 <body class="background-grey">
   <form action="{{ url_for('course_bp.manual_registration', id_course=id_course, course_name=course_name) }}" method="POST">
@@ -42,16 +48,20 @@
       
         <div class="right-box">
               <div class="entry-box">
-                  <input type="text" name="location" id="location" required>
-                  <label for="location">Localité*</label>
+                <input type="text" name="location" id="location" required>
+                <label for="location">Localité*</label>
               </div> 
               <div class="entry-box">
-                  <input type="text" name="origin" id="origin" required>
-                  <label for="origin">Origine*</label>
+                <input type="text" name="origin" id="origin" required>
+                <label for="origin">Origine*</label>
               </div>
               <div class="entry-box">
-                  <input type="text" name="club" id="club">
-                  <label for="club">Club sportif / association</label>
+                <input type="text" name="club" id="club">
+                <label for="club">Club sportif / association</label>
+              </div>
+              <div class="entry-box">
+                <input type="tel" pattern="[0-9]*" name="license" id="lisence" oninput="restrictInputToDigits(event)">
+                <label for="license">Numéro de license</label>
               </div>
               <button type="submit" class="btn">Inscrire</button>
         </div>   
@@ -62,5 +72,6 @@
 
 {% endblock %}
 
-<!-- faire un lien avec la course concerné -->
-<!-- écrire le lien avec la base de donnée dans le fichier python -->
+{% block extra_js %}
+<script type="text/javascript" src="{{ url_for('static', filename='js/register.js') }}"></script>
+{% endblock %}
